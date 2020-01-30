@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+
+	<link rel="stylesheet" type="text/css" href="coffee.css">
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+	<div class="chart">
+		
+	</div>
+
+	<script src="https://d3js.org/d3.v5.min.js" type="text/javascript">
+
+		let dataset = {1, 2, 3, 4, 5}
+		
+		d3.select(".chart")
+  .selectAll("div")
+    .data(dataset)
+  .enter().append("div")
+    .style("width", function(d) { return d * 10 + "px"; })
+    .text(function(d) { return d; });
+
+
+
+	</script>
+
+</body>
+</html>
