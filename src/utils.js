@@ -18,7 +18,13 @@ export const arraysMatch = function (arr1, arr2) {
 
 };
 
-export const addPath = function(n) {
-	console.log(n)
-	return n
+export const levelUp = function() {
+	return 1;
 }
+
+export const episodeUp = function() {
+	return { };
+}
+
+
+

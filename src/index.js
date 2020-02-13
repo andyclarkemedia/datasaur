@@ -16,8 +16,12 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.currentPath,
-      component: components(this.currentPath)
+      level: this.level,
+      episode: this.episode,
+      trees: this.trees,
+      component: components(this, this.level, this.episode, this.trees),
+      sePoints: this.sePoints,
+      money: this.money
     };
 
     // This binding is necessary to make `this` work in the callback
@@ -26,41 +30,61 @@ class Game extends React.Component {
   }
 
 
+  // Update Game State
+  update = (level, episode, tree) => {
 
-  update = (cP) => {
-    console.log(this.state.data)
-
-    this.setState({ data: cP})
-    this.setState({ component: components(this.currentPath) })
-
-    console.log(this.state.component)
+    this.setState({ level: level })
+    this.setState({ episode: episode })
+    this.setState({ trees: tree})
+    this.setState({ component: components(this, this.level, this.episode, this.trees) })
     
   }
 
-  // Temporary Function to Add One to current Path
-  addOne = () => {
-    this.currentPath.push(1);
+  // Move to next Level
+  updateLevel = (n) => {
+    this.level = n;
     this.update(this.currentPath);
   }
 
-  // Temporary Function to Add Zero to current Path
-  addZero = () => {
-    this.currentPath.push(0);
-    this.update(this.currentPath);
+  // Move to next episode
+  updateEpisode = (n) => {
+    this.episode = n;
+    this.update(this.level, this.episode, this.trees);
   }
 
-  currentPath = [0, 1];
+  // Update tree Branch 
+  updateTreeBranch = (n) => {
+    this.trees = n;
+    this.update(this.level, this.episode, this.trees);
+  }
+
+  moneyUp = (n) => {
+    console.log(n);
+    this.money += n;
+  }
+
+  sePointsUp = (n) => {
+    console.log(n)
+    this.sePoints += n;
+  }
+
+  level = 0;
+  episode = 0;
+  trees = 0;
+  money = 0;
+  sePoints = 0;
+
 
   
 
   render() {
     
-
+    console.log(this.state.component)
+  
     let result = (
       <div>
-        {this.state.component}
-        <button onClick={ this.addOne }>Click Me!</button>
-        <button onClick={ this.addZero }>Click Me!</button>
+        {this.state.component.main}
+        {this.state.component.gamePlay}
       </div>
     );
     
