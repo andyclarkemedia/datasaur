@@ -1,0 +1,163 @@
+/*
+
+CSS STYLING FOR ARTICLE PAGE 
+
+ */
+
+
+/*============
+
+GENERAL  
+
+ =============*/
+
+body, * {
+	margin: 0;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1em;
+}
+
+
+/*============
+
+ TEXT STYLES 
+
+ =============*/
+
+ .thin {
+ 	font-weight: 100;
+ }
+
+ .text {
+ 	opacity: 0.3;
+ }
+
+ .highlight-green {
+ 	background-color: #65CCB8;
+ 	color: #f2f2f2;
+ }
+
+ .white {
+ 	color: #f2f2f2
+ }
+
+ .big-text {
+ 	font-size: 20em;
+ 	font-weight: 700;
+ }
+
+
+/*============
+
+  CONTAINERS & POSITIONING
+
+ =============*/
+
+.flex-container-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.text-centralise {
+	margin: 0 20vw;
+}
+
+.paragraph-margin {
+	margin: 3vh 10vw;
+
+}
+
+/*============
+
+ TOP OF THE PAGE 
+
+ =============*/
+
+h1 {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+.gap {
+	height: 100vh;
+}
+
+ .top {
+ 	height: 100vh;
+ 	color: #f2f2f2;
+ }
+
+ #header-image {
+ 	width: 100vw;
+ 	height: 100vh;
+ }
+
+ .headline {
+ 	margin: 5vh 20vw;
+ 	text-align: center;
+ }
+
+ .byline {
+ 	text-align: center;
+ }
+
+.opening-paragraph {
+	margin: 10vh 20vw;
+}
+
+
+/*============
+
+ STATS BAR // HORIZONTAL SCROLL
+
+ =============*/
+
+
+.horizontal-scroll {
+	height: 100vh;
+	justify-content: center;
+}
+
+.stats-box {
+	margin: 20vh 20vw;
+	background-color: #57BA98;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+/*============================================================
+============================================================
+
+ SCROLLING STUFF
+
+============================================================
+============================================================*/
+
+
+
+.scroller {
+	height: 20vh;
+}
+
+.graph-scroll-active {
+	opacity: 1;
+}
+
+
+
+/*============
+
+IMAGES 
+
+ =============*/
+
+
+

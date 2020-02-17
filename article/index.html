@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Cost of Sustainability for Small Business in the UK</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400,700&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<!--========= 
+	LINK TO D3
+	=============-->
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+	<!--========= 
+	ACTUAL HTML
+	=============-->
+
+	<header class="top">
+		<img id="header-image" src="Article-header.png"/>
+	</header>
+
+
+	<!--========= 
+	<section class="scroll-container">
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+		<div class="scroller"></div>
+	</section>
+	=============-->
+	
+
+
+	
+	<main>
+
+		<section>
+			<div class="flex-container headline ">
+				<h1><span class="highlight-green">The Cost of Sustainability for Small Business in the UK</span></h1>
+			</div>
+
+		</section>
+
+		<section class="byline thin flex-container-column text-centralise">
+
+			<p>
+				By Rahel Golub, Poojil Tiwari, Andy Clarke & Thi Hao Linh Vuong
+			</p>
+			
+
+		</section>
+		
+		<section class="opening-paragraph flex-container-column text-centralise">
+
+			<p class="text paragraph-margin">
+				
+				Lorem ipsum dolor sit amet, virtute concludaturque nec ad. In melius graecis eam, eos an alii iriure voluptua, no convenire intellegam mea. Eu ferri petentium ius. Usu virtute mediocritatem ne.
+
+			</p>
+			
+		</section>
+
+		<section class="thin flex-container-column text-centralise">
+
+			<p class="text paragraph-margin">
+				
+				Cu eos prima elitr regione. Has nullam oblique at, audire vidisse pro in. At eos choro torquatos, te scaevola inimicus ius, ad commune scaevola definitiones vix. Vim te magna velit sapientem, facer putant cu cum, timeam necessitatibus et eum. Phaedrum iudicabit ut vel. Verear recusabo lobortis mea ad, pertinax periculis posidonium ne per.
+				
+			</p>
+
+			<p class="text paragraph-margin flex-container-column">
+				
+				Agam laudem definiebas his ne, vis no inani tacimates. Diceret delicatissimi id eam, cibo prompta noluisse vim cu. Ex vim menandri indoctum tincidunt, duo ludus latine id. Qui labore oporteat an, alienum necessitatibus has an. Has id scaevola complectitur, et vix inani impedit, cum ea possim habemus repudiandae.
+				
+			</p>
+
+			<p class="text paragraph-margin flex-container-column">
+				
+				Mea te postea nostro tibique, mea in ubique noster atomorum. Ei nonumy scribentur mea, tota delenit his no. Elitr scaevola interpretaris ut est, sed te graeci scriptorem. Duo ex possit facete vituperata, ad velit altera sadipscing sea. Vidit decore offendit no nec, ea appareat percipitur complectitur sed. Eos tibique definitionem eu.
+				
+			</p>
+			
+		</section>
+
+		<section class="horizontal-scroll flex-container-column">
+			
+			<div class="stats-box text-centralise">
+				<p>
+					<span class="big-text white">70%</span>
+				</p>
+			</div>
+
+		</section>
+
+		<section class="thin flex-container-column text-centralise">
+
+			<p class="text paragraph-margin">
+				
+				Lorem ipsum dolor sit amet, virtute concludaturque nec ad. In melius graecis eam, eos an alii iriure voluptua, no convenire intellegam mea. Eu ferri petentium ius. Usu virtute mediocritatem ne.
+
+			</p>
+
+
+			<p class="text paragraph-margin">
+				
+				Cu eos prima elitr regione. Has nullam oblique at, audire vidisse pro in. At eos choro torquatos, te scaevola inimicus ius, ad commune scaevola definitiones vix. Vim te magna velit sapientem, facer putant cu cum, timeam necessitatibus et eum. Phaedrum iudicabit ut vel. Verear recusabo lobortis mea ad, pertinax periculis posidonium ne per.
+				
+			</p>
+
+			<p class="text paragraph-margin flex-container-column">
+				
+				Agam laudem definiebas his ne, vis no inani tacimates. Diceret delicatissimi id eam, cibo prompta noluisse vim cu. Ex vim menandri indoctum tincidunt, duo ludus latine id. Qui labore oporteat an, alienum necessitatibus has an. Has id scaevola complectitur, et vix inani impedit, cum ea possim habemus repudiandae.
+				
+			</p>
+
+			<p class="text paragraph-margin flex-container-column">
+				
+				Mea te postea nostro tibique, mea in ubique noster atomorum. Ei nonumy scribentur mea, tota delenit his no. Elitr scaevola interpretaris ut est, sed te graeci scriptorem. Duo ex possit facete vituperata, ad velit altera sadipscing sea. Vidit decore offendit no nec, ea appareat percipitur complectitur sed. Eos tibique definitionem eu.
+				
+			</p>
+			
+
+		</section>
+
+	</main>
+
+
+
+
+	<!--========= 
+	LINK TO LOCAL SCRIPT
+	=============-->
+	<script type="text/javascript" src="script.js"></script>
+	<!--========= 
+	LINK TO JET PACK
+	=============-->
+	<script src="d3v4+jetpack.js"></script>
+	<!--========= 
+	LINK TO GRAPH SCROLL
+	=============-->
+	<script src="graph-scroll.js"></script>
+
+	<!--========= 
+	GRAPH SCROLL STUFF CONTAINED IN HTML PAGE
+	=============-->
+	<script type="text/javascript">
+
+	// d3.graphScroll()
+	// 	.container(d3.select(".scroll-container"))
+	// 	.sections(d3.selectAll('.scroller'))
+	// 	.on('active', function(i) {
+
+	// 		console.log
+		  	
+	// 	  	const image = document.querySelector("#header-image")
+
+	// 	  	if(i === 3) {
+	// 	  		image.src = "Article-header-two.png"
+	// 	  	}
+
+	// 	  	if(i === 4) {
+	// 	  		image.src = "Article-header-three.png"
+	// 	  	}
+
+	// 	  	if(i === 5) {
+	// 	  		image.src = "Article-header-four.png"
+	// 	  	}
+
+	// 	  	if(i === 6) {
+	// 	  		image.src = "Article-header-five.png"
+	// 	  	}
+
+	// 	  	if(i === 7) {
+	// 	  		image.src = "Article-header-six.png"
+	// 	  	}
+
+	// 	  	if (i === 9) {
+	// 	  		image.style.position = "relative";
+	// 	  	}
+
+	// 	});
+
+
+	d3.graphScroll()
+		.container(d3.select("main"))
+		.sections(d3.selectAll('.text'))
+		.on('active', function(i) {
+		  	
+		  	console.log(i)
+
+		});
+
+
+
+
+
+
+
+
+		
+		
+
+	</script>
+
+</body>
+</html>
