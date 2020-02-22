@@ -1,5 +1,837 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+/* 
+====================================
+
+CSS STYLES FOR REACT GAME APP
+
+====================================
+ */
+
+
+
+/* 
+==================
+GENERAL
+==================
+ */
+
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
+
+body, * {
+  font-family: 'Inconsolata', monospace;
+  margin: 0;
+  font-size: 1em;
 }
 
+
+
+
+
+/* 
+==================
+BACKGROUND
+==================
+ */
+
+ .plain-background {
+ 	background-color: #65CCB8;
+ }
+
+
+
+/* 
+==================
+HEIGHTS & WIDTHS
+==================
+ */
+
+ .title-screen {
+	height: 70vh;
+ }
+
+
+.bottom-button {
+ 	height: 30vh;
+ }
+
+.bottom {
+	bottom: 0;
+}
+
+
+
+
+ /* 
+==================
+TEXT
+==================
+ */
+
+ .align-center {
+	text-align: center;
+ }
+
+
+.title {
+	color: #f2f2f2;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.black-title {
+	color: #182628;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.plain-text {
+	color: #f2f2f2;
+	font-size: 1.5em;
+}
+
+.button-text {
+	font-size: 2em;
+}
+
+.highlight {
+	background-color: #3B945E;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.icon-text {
+	font-size: 3.5em;
+	color: #182628;
+	margin-left: .5em;
+}
+
+.black-text {
+	font-size: 2em;
+	color: #182628;
+}
+
+
+/* 
+==================
+FLEX 
+==================
+ */
+
+ .flex-container {
+ 	display: flex;
+ 	justify-content: center;
+ }
+
+ .flex-columns-space-between {
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: space-between;
+ }
+
+/* 
+==================
+GRID 
+==================
+ */
+
+
+ .grid-container-4x6 {
+ 	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+ }
+
+
+
+
+/* 
+==================
+BUTTON  
+==================
+ */
+
+ .update-tree-button {
+ 	background-color: #65CCB8;
+ 	height: 10vh;
+ 	width: 10vw;
+ 	border: .1em solid #182628;
+ 	cursor: pointer;
+ }
+
+button:focus, input:focus {
+	outline:0;
+}
+
+
+
+
+/* 
+==================
+GAMEPLAY 
+==================
+ */
+
+
+.gameplay-text {
+	grid-column: 2/6;
+ 	grid-row: 3;
+ 	margin: 1em 1em;
+ 	z-index: 500;
+ 	font-size: 1.5em;
+	color: #182628;
+}
+
+
+.gameplay-button-container {
+ 	position: relative;
+ 	z-index: 500;
+ 	grid-column: 2/6;
+ 	grid-row: 4;
+}
+
+.gameplay-button-container-flex {
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.icon-container {
+	margin: 2em 2em;
+	z-index: 500;
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: .1em solid #182628;
+	border-radius: 2em;
+	padding: .5em 1em;
+	background-color: #f2f2f2;
+	opacity: .95;
+}
+
+.leaf-icon-container {
+	grid-column: 5;
+ 	grid-row: 1;
+}
+
+.pound-coin-icon-container {
+	grid-column: 2;
+ 	grid-row: 1;
+}
+
+.leaf-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+.pound-coin-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+/* 
+==================
+GAME LANDING PAGE  
+==================
+ */
+
+ #landing-title {
+ 	padding-top: 1em;
+ 	grid-column: 2/6;
+ 	grid-row: 1/3;
+ }
+
+ #can-you-make-it {
+ 	grid-column: 2/6;
+ 	grid-row: 4;
+ }
+
+
+ #tree-side {
+ 	position: fixed;
+ 	width: 30vw;
+ 	grid-column: 0;
+ 	grid-row: 0;
+ }
+
+ #tree-side-inverse {
+ 	position: fixed;
+ 	width: 30vw;
+ 	right: 0;
+ }
+
+
+#town-houses {
+	width: 20vw;
+	height: 17vh;
+	grid-row: 4;
+	grid-column: 3/5;
+}
+
+
+
+
+/* 
+==================
+INSTRUCTIONS PAGES  
+==================
+*/
+
+#instructions-title {
+	font-size: 6em;
+	padding-top: 1em;
+ 	grid-column: 2/6;
+ 	grid-row: 1/3;
+}
+
+
+#pick-a-biz-desc {
+	grid-column: 2/6;
+ 	grid-row: 3;
+ 	line-height: 1.6em;
+}
+
+#to-win-desc {
+	grid-column: 3/5;
+ 	grid-row: 3;
+}
+
+#money-icon-text {
+	grid-column: 3;
+ 	grid-row: 3;
+ 	font-size: 2em;
+}
+
+#se-icon-text {
+	grid-column: 3;
+ 	grid-row: 4;
+ 	font-size: 2em;
+}
+
+#pound-coin-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 3;
+ 	width: 5vw;
+ 	margin-left: 3.5em;
+}
+
+#leaf-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 4;
+ 	width: 4vw;
+ 	margin-left: 4em;
+}
+
+
+/* 
+==================
+CHOOSE A CHARACTER PAGE  
+==================
+*/
+
+.character-container {
+	grid-column: 2/6;
+ 	grid-row: 2/6;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ 	flex-direction: column;
+
+}
+
+.character-one-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+	align-items: center;
+	padding: 2em 2em;
+	margin-bottom: 1em;
+}
+
+#choose-a-character-title {
+	margin-top: 1.2em;
+	font-size: 3em;
+	grid-column: 2/6;
+ 	grid-row: 1;
+}
+
+.character-name {
+	font-size: 2em;
+}
+
+.character-description-container {
+	width: 30vw;
+	height: 20vh;
+	grid-column: 3;
+ 	grid-row: 4;
+	text-align: left;
+}
+
+
+#joe-head {
+	width: 8vw;
+	margin-top: 2em;
+	cursor: pointer;
+
+}
+
+#joe-description {
+	display: none;
+}
+
+
+
+/* 
+==================
+REMEMBER PAGE  
+==================
+*/
+
+
+#remember-title {
+	margin-top: 1em;
+	grid-column: 2/6;
+ 	grid-row: 1;
+}
+
+#remember-description-one {
+	grid-column: 3/5;
+ 	grid-row: 3;
+}
+
+
+/* 
+==========================================================================
+==========================================================================
+
+LEVEL ONE  
+
+==========================================================================
+==========================================================================
+*/
+
+
+.level-one-background {
+	width: 100vw;
+	height: 100vh;
+	background-color: #65CCB8;
+}
+
+
+#level-one-title {
+	grid-column: 2/6;
+ 	grid-row: 2;
+}
+
+#laptop-image {
+	justify-self: center;
+	grid-column: 3/5;
+ 	grid-row: 2;
+ 	width: 20vw;
+}
+
+#l0E0T4-descriptionOne {
+	grid-column: 2/4;
+ 	grid-row: 2;
+}
+
+#l0E0T4-descriptionTwo {
+	grid-column: 2/4;
+ 	grid-row: 3;
+}
+
+#l0E0T4-descriptionThree {
+	grid-column: 1/7;
+ 	grid-row: 4;
+}
+
+#bunting {
+	grid-column: 2/6;
+ 	grid-row: 1;
+ 	width: 80vw;
+}
+
+#cheese-order-image,  #tomato-order-image {
+	width: 5vw;
+}
+#basil-order-image {
+	margin-left: 1em;
+	width: 7vw;
+}
+
+#cheese-order-image {
+	grid-column: 1;
+ 	grid-row: 1;
+ 	justify-self: center;
+}
+
+#tomato-order-image {
+	grid-column: 1;
+ 	grid-row: 2;
+ 	justify-self: center;
+}
+
+#basil-order-image {
+	grid-column: 1;
+ 	grid-row: 3;
+ 	justify-self: center;
+}
+
+
+.place-order-container {
+	opacity: 0.9;
+	align-items: center;
+	background-color: #f2f2f2;
+	border-radius: 2em;
+	grid-column: 4/6;
+ 	grid-row: 2/4;
+ 	border: .1em solid #182628;
+ 	margin-bottom: 1.5em;
+}
+
+
+#cheese-order-input {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+
+#tomato-order-input {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#basil-order-input {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+
+#cheese-order-input, #tomato-order-input, #basil-order-input {
+ 	width: 5vw;
+ 	height: 5vh;
+ 	border-radius: .5em;
+ 	font-size: 2em;
+ 	border: .1em solid #182628;
+ 	text-align: center;
+}
+
+
+#cheese-kg {
+	grid-column: 4;
+ 	grid-row: 1;
+}
+
+#tomato-kg {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#basil-kg {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#cheese-kg, #tomato-kg, #basil-kg {
+	font-size: 2em;
+	margin-left: 1em;
+}
+
+.price-list {
+	grid-column: 2/4;
+ 	grid-row: 2/3;
+ 	align-items: center;
+ 	justify-self: centre;
+ 	
+}
+
+#price-list-title {
+	grid-column: 1/6;
+ 	grid-row: 1;
+ 	text-align: center;
+ 	text-decoration: underline;
+ 	font-size: 1.5em;
+}
+
+#cheese-price-list {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-price-list {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-price-list {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-cost {
+	grid-column: 4/6;
+ 	grid-row: 2;
+}
+
+#tomato-cost {
+	grid-column: 4/6;
+ 	grid-row: 3;
+}
+
+#basil-cost {
+	grid-column: 4/6;
+ 	grid-row: 4;
+}
+
+#order-review-text {
+	grid-column: 2/4;
+ 	grid-row: 3/4;
+ 	margin-right: 2em;
+ 	align-self: center;
+
+}
+
+
+
+/* 
+============
+REVIEW ORDER
+============
+*/
+
+.review-order-container {
+	display: grid;
+  	grid-template-columns: repeat(5, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+	justify-self: center;
+	grid-column: 1/7;
+ 	grid-row: 2/4;
+ 	align-items: center;
+ 	text-align: center;
+ 	margin-bottom: 3em;
+ 	font-size: 1.5em;
+}
+
+#cheese-review-image, #tomato-review-image {
+	width: 4vw;
+	margin-left: 2em;
+}
+
+#item-title, #quantity-title, #cost-title {
+	text-decoration: underline;
+	font-size: 1.5em;
+}
+
+#item-title {
+	grid-column: 1;
+ 	grid-row: 1;
+}
+
+#quantity-title {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+#cost-title {
+	grid-column: 5;
+ 	grid-row: 1;
+}
+
+#cheese-review-image {
+	grid-column: 1;
+ 	grid-row: 2;
+}
+
+#tomato-review-image {
+	grid-column: 1;
+ 	grid-row: 3;
+}
+
+#basil-review-image {
+	grid-column: 1;
+ 	grid-row: 4;
+ 	width: 5vw;
+ 	margin-top: 1em;
+ 	margin-left: 2em;
+}
+
+#cheese-x {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-x {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-x {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-quantity {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#tomato-quantity {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+#basil-quantity {
+	grid-column: 3;
+ 	grid-row: 4;
+}
+
+#cheese-equal {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#tomato-equal {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#basil-equal {
+	grid-column: 4;
+ 	grid-row: 4;
+}
+
+#cheese-price {
+	grid-column: 5;
+ 	grid-row: 2;
+}
+
+#tomato-price {
+	grid-column: 5;
+ 	grid-row: 3;
+}
+
+#basil-price {
+	grid-column: 5;
+ 	grid-row: 4;
+}
+
+
+#do-you-want-to-review-order {
+	grid-column: 2/6;
+	grid-row: 1;
+	text-align: center;
+	font-size: 2em;
+}
+
+
+
+#total-price {
+	margin-top: 1em;
+	grid-column: 5/6;
+	grid-row: 5;
+	font-weight: 700;
+}
+
+
+/* =============
+RESULTS
+================*/
+
+
+#check-out-stats {
+	grid-column: 2/6;
+	grid-row: 3;
+}
+
+#surplus-one, #home-early-one, #perfect-one {
+	grid-column: 3/5;
+	grid-row: 2;
+}
+
+#surplus-waste, #home-early-two, #perfect-two {
+	margin-top: 5em;
+	grid-column: 3/5;
+	grid-row: 2;
+}
+
+
+/* =============
+FESTIVAL REPORT 
+================*/
+
+.festival-report-container {
+	grid-column: 2/6;
+	grid-row: 2/3;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(5, 1fr);
+	
+	
+}
+
+#festival-report-title {
+	grid-column: 2/6;
+	text-align: center;
+	grid-row: 1;
+	font-size: 3em;
+}
+
+#festival-report-time {
+	grid-column: 2/4;
+	grid-row: 2;
+}
+
+#festival-report-pizzas {
+	grid-column: 2/4;
+	grid-row: 3;
+}
+
+#festival-report-waste {
+	grid-column: 2/4;
+	grid-row: 4;
+}
+
+#festival-report-profit {
+	grid-column: 2/4;
+	grid-row: 5;
+}
+
+#festival-report-time-number {
+	grid-column: 4/7;
+	grid-row: 2;
+}
+
+#festival-report-pizzas-number {
+	grid-column: 4/7;
+	grid-row: 3;
+}
+
+#festival-report-waste-number {
+	grid-column: 4/7;
+	grid-row: 4;
+}
+
+#festival-report-profit-number {
+	grid-column: 4/7;
+	grid-row: 5;
+}
+
+#get-rid-of-waste {
+	grid-column: 2/6;
+	grid-row: 3;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+/* 
+==========================================================================
+==========================================================================
+
+MAZE CSS
+
+==========================================================================
+==========================================================================
+*/
