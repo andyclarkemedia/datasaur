@@ -1,5 +1,2365 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+/* 
+====================================
+
+CSS STYLES FOR REACT GAME APP
+
+====================================
+ */
+
+
+
+/* 
+==================
+GENERAL
+==================
+ */
+
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
+
+body, * {
+  font-family: 'Inconsolata', monospace;
+  margin: 0;
+  font-size: 1em;
 }
+
+
+
+
+
+/* 
+==================
+BACKGROUND
+==================
+ */
+
+ .plain-background {
+ 	background-color: #65CCB8;
+ }
+
+
+
+/* 
+==================
+HEIGHTS & WIDTHS
+==================
+ */
+
+ .title-screen {
+	height: 70vh;
+ }
+
+
+.bottom-button {
+ 	height: 30vh;
+ }
+
+.bottom {
+	bottom: 0;
+}
+
+
+
+
+ /* 
+==================
+TEXT
+==================
+ */
+
+ .align-center {
+	text-align: center;
+ }
+
+
+.title {
+	color: #f2f2f2;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.black-title {
+	color: #182628;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.plain-text {
+	color: #f2f2f2;
+	font-size: 1.5em;
+}
+
+.button-text {
+	font-size: 2em;
+}
+
+.highlight {
+	background-color: #3B945E;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.icon-text {
+	font-size: 3.5em;
+	color: #182628;
+	margin-left: .5em;
+}
+
+.black-text {
+	font-size: 2em;
+	color: #182628;
+}
+
+
+/* 
+==================
+FLEX 
+==================
+ */
+
+ .flex-container {
+ 	display: flex;
+ 	justify-content: space-around;
+ }
+
+ .flex-columns-space-between {
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: space-between;
+ }
+
+/* 
+==================
+GRID 
+==================
+ */
+
+
+ .grid-container-4x6 {
+ 	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+ }
+
+
+
+
+/* 
+==================
+BUTTON  
+==================
+ */
+
+ .update-tree-button {
+ 	background-color: #65CCB8;
+ 	height: 10vh;
+ 	width: auto;
+ 	min-width: 10vw;
+ 	border: .1em solid #182628;
+ 	cursor: pointer;
+ }
+
+button:focus, input:focus {
+	outline:0;
+}
+
+
+
+
+/* 
+==================
+GAMEPLAY 
+==================
+ */
+
+
+.gameplay-text {
+	grid-column: 2/6;
+ 	grid-row: 3;
+ 	margin: 1em 1em;
+ 	z-index: 500;
+ 	font-size: 1.5em;
+	color: #182628;
+}
+
+
+.gameplay-button-container {
+ 	position: relative;
+ 	z-index: 500;
+ 	grid-column: 2/6;
+ 	grid-row: 4;
+}
+
+.gameplay-button-container-flex {
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.icon-container {
+	margin: 2em 2em;
+	z-index: 500;
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: .1em solid #182628;
+	border-radius: 2em;
+	padding: .5em 1em;
+	background-color: #f2f2f2;
+	opacity: .95;
+}
+
+.leaf-icon-container {
+	grid-column: 5;
+ 	grid-row: 1;
+}
+
+.maze-leaf-icon-container {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+.pound-coin-icon-container {
+	grid-column: 2/4;
+	max-width: fit-content;
+ 	grid-row: 1;
+}
+
+.maze-pound-coin-icon-container {
+	grid-column: 1/3;
+	max-width: fit-content;
+ 	grid-row: 1;
+}
+
+.leaf-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+.pound-coin-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+/* 
+==================
+GAME LANDING PAGE  
+==================
+ */
+
+ #landing-title {
+ 	padding-top: 1em;
+ 	grid-column: 2/6;
+ 	grid-row: 1/3;
+ }
+
+ #can-you-make-it {
+ 	grid-column: 2/6;
+ 	grid-row: 4;
+ }
+
+
+ #tree-side {
+ 	position: fixed;
+ 	width: 30vw;
+ 	grid-column: 0;
+ 	grid-row: 0;
+ }
+
+ #tree-side-inverse {
+ 	position: fixed;
+ 	width: 30vw;
+ 	right: 0;
+ }
+
+
+#town-houses {
+	width: 20vw;
+	height: auto;
+	grid-row: 4;
+	grid-column: 3/5;
+}
+
+
+
+
+/* 
+==================
+INSTRUCTIONS PAGES  
+==================
+*/
+
+#instructions-title {
+	font-size: 6em;
+	padding-top: 1em;
+ 	grid-column: 2/6;
+ 	grid-row: 1/3;
+}
+
+
+#pick-a-biz-desc {
+	grid-column: 2/6;
+ 	grid-row: 3;
+ 	line-height: 1.6em;
+}
+
+#to-win-desc {
+	grid-column: 3/5;
+ 	grid-row: 3;
+}
+
+#money-icon-text {
+	grid-column: 3;
+ 	grid-row: 3;
+ 	font-size: 2em;
+}
+
+#se-icon-text {
+	grid-column: 3;
+ 	grid-row: 4;
+ 	font-size: 2em;
+}
+
+#pound-coin-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 3;
+ 	width: 5vw;
+ 	margin-left: 3.5em;
+}
+
+#leaf-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 4;
+ 	width: 4vw;
+ 	margin-left: 4em;
+}
+
+
+/* 
+==================
+CHOOSE A CHARACTER PAGE  
+==================
+*/
+
+.character-container {
+	grid-column: 2/6;
+ 	grid-row: 2/6;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: space-between;
+ 	flex-direction: column;
+
+}
+
+.character-one-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	text-align: center;
+	align-items: center;
+	padding: 2em 2em;
+	margin-bottom: 1em;
+	border: .2em dotted #282828;
+}
+
+#choose-a-character-title {
+	margin-top: 1.2em;
+	font-size: 3em;
+	grid-column: 2/6;
+ 	grid-row: 1;
+}
+
+.character-name {
+	font-size: 2em;
+}
+
+.character-description-container {
+	width: 30vw;
+	height: 20vh;
+	grid-column: 3;
+ 	grid-row: 4;
+	text-align: left;
+}
+
+
+#joe-head {
+	width: 8vw;
+	margin-top: 2em;
+	cursor: pointer;
+
+}
+
+#joe-description {
+	display: none;
+}
+
+#hover-instruction {
+	grid-column: 2/6;
+ 	grid-row: 6;
+ 	margin-bottom: 2em;
+ 	font-size: 1.3em;
+ 	text-align: center;
+}
+
+/* 
+==================
+REMEMBER PAGE  
+==================
+*/
+
+
+#remember-title {
+	margin-top: 1em;
+	grid-column: 2/6;
+ 	grid-row: 1;
+}
+
+#remember-description-one {
+	grid-column: 3/5;
+ 	grid-row: 3;
+}
+
+
+/* 
+==========================================================================
+==========================================================================
+
+LEVEL ONE  
+
+==========================================================================
+==========================================================================
+*/
+
+/* 
+==================
+EPISODE ONE
+==================
+*/
+
+
+
+.level-one-background {
+	width: 100vw;
+	height: 100vh;
+	background-color: #65CCB8;
+}
+
+
+#level-one-title {
+	grid-column: 2/6;
+ 	grid-row: 2;
+}
+
+#laptop-image {
+	justify-self: center;
+	grid-column: 3/5;
+ 	grid-row: 2;
+ 	width: 20vw;
+}
+
+#l0E0T4-descriptionOne {
+	grid-column: 2/4;
+ 	grid-row: 2;
+}
+
+#l0E0T4-descriptionTwo {
+	grid-column: 2/4;
+ 	grid-row: 3;
+}
+
+#l0E0T4-descriptionThree {
+	grid-column: 1/7;
+ 	grid-row: 4;
+}
+
+#bunting {
+	grid-column: 2/6;
+ 	grid-row: 1;
+ 	width: 80vw;
+}
+
+#cheese-order-image,  #tomato-order-image {
+	width: 5vw;
+}
+#basil-order-image {
+	margin-left: 1em;
+	width: 7vw;
+}
+
+#cheese-order-image {
+	grid-column: 1;
+ 	grid-row: 1;
+ 	justify-self: center;
+}
+
+#tomato-order-image {
+	grid-column: 1;
+ 	grid-row: 2;
+ 	justify-self: center;
+}
+
+#basil-order-image {
+	grid-column: 1;
+ 	grid-row: 3;
+ 	justify-self: center;
+}
+
+
+.place-order-container {
+	opacity: 0.9;
+	align-items: center;
+	background-color: #f2f2f2;
+	border-radius: 2em;
+	grid-column: 4/6;
+ 	grid-row: 2/4;
+ 	border: .1em solid #182628;
+ 	margin-bottom: 1.5em;
+}
+
+
+#cheese-order-input {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+
+#tomato-order-input {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#basil-order-input {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+
+#cheese-order-input, #tomato-order-input, #basil-order-input {
+ 	width: 5vw;
+ 	height: 5vh;
+ 	border-radius: .5em;
+ 	font-size: 2em;
+ 	border: .1em solid #182628;
+ 	text-align: center;
+}
+
+
+#cheese-kg {
+	grid-column: 4;
+ 	grid-row: 1;
+}
+
+#tomato-kg {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#basil-kg {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#cheese-kg, #tomato-kg, #basil-kg {
+	font-size: 2em;
+	margin-left: 1em;
+}
+
+.price-list {
+	grid-column: 2/4;
+ 	grid-row: 2/3;
+ 	align-items: center;
+ 	justify-self: centre;
+ 	
+}
+
+#price-list-title {
+	grid-column: 1/6;
+ 	grid-row: 1;
+ 	text-align: center;
+ 	text-decoration: underline;
+ 	font-size: 1.5em;
+}
+
+#cheese-price-list {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-price-list {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-price-list {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-cost {
+	grid-column: 4/6;
+ 	grid-row: 2;
+}
+
+#tomato-cost {
+	grid-column: 4/6;
+ 	grid-row: 3;
+}
+
+#basil-cost {
+	grid-column: 4/6;
+ 	grid-row: 4;
+}
+
+#order-review-text {
+	grid-column: 2/4;
+ 	grid-row: 3/4;
+ 	margin-right: 2em;
+ 	align-self: center;
+ 	font-size: 1.2em;
+
+}
+
+
+
+/* 
+============
+REVIEW ORDER
+============
+*/
+
+.review-order-container {
+	display: grid;
+  	grid-template-columns: repeat(5, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+	justify-self: center;
+	grid-column: 1/7;
+ 	grid-row: 2/4;
+ 	align-items: center;
+ 	text-align: center;
+ 	margin-bottom: 3em;
+ 	font-size: 1.5em;
+ 	align-self: center;
+}
+
+#cheese-review-image, #tomato-review-image {
+	width: 4vw;
+	margin-left: 2em;
+}
+
+#item-title, #quantity-title, #cost-title {
+	text-decoration: underline;
+	font-size: 1.5em;
+}
+
+#item-title {
+	grid-column: 1;
+ 	grid-row: 1;
+}
+
+#quantity-title {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+#cost-title {
+	grid-column: 5;
+ 	grid-row: 1;
+}
+
+#cheese-review-image {
+	grid-column: 1;
+ 	grid-row: 2;
+}
+
+#tomato-review-image {
+	grid-column: 1;
+ 	grid-row: 3;
+}
+
+#basil-review-image {
+	grid-column: 1;
+ 	grid-row: 4;
+ 	width: 5vw;
+ 	margin-top: 1em;
+ 	margin-left: 2em;
+}
+
+#cheese-x {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-x {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-x {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-quantity {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#tomato-quantity {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+#basil-quantity {
+	grid-column: 3;
+ 	grid-row: 4;
+}
+
+#cheese-equal {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#tomato-equal {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#basil-equal {
+	grid-column: 4;
+ 	grid-row: 4;
+}
+
+#cheese-price {
+	grid-column: 5;
+ 	grid-row: 2;
+}
+
+#tomato-price {
+	grid-column: 5;
+ 	grid-row: 3;
+}
+
+#basil-price {
+	grid-column: 5;
+ 	grid-row: 4;
+}
+
+
+#do-you-want-to-review-order {
+	grid-column: 2/6;
+	grid-row: 1;
+	text-align: center;
+	font-size: 2em;
+}
+
+
+
+#total-price {
+	margin-top: 1em;
+	grid-column: 5/6;
+	grid-row: 5;
+	font-weight: 700;
+}
+
+
+/* =============
+RESULTS
+================*/
+
+
+#check-out-stats {
+	grid-column: 2/6;
+	grid-row: 3/5;
+	text-align: center;
+}
+
+#surplus-one, #home-early-one, #perfect-one {
+	grid-column: 3/5;
+	grid-row: 2;
+}
+
+
+
+/* =============
+FESTIVAL REPORT 
+================*/
+
+.festival-report-container {
+	grid-column: 2/6;
+	grid-row: 1/5;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(6, 1fr);
+  	align-self: center;
+	
+	
+}
+
+#festival-report-title {
+	grid-column: 2/6;
+	text-align: center;
+	grid-row: 1;
+	font-size: 3em;
+
+}
+
+#festival-report-title-span {
+	background-color: #f2f2f2;
+	border: .05em solid #182628;
+	border-radius: .5em;
+	padding: .3em;
+	opacity: 0.9;
+
+}
+
+#festival-report-time {
+	grid-column: 2/4;
+	grid-row: 2;
+}
+
+#festival-report-pizzas {
+	grid-column: 2/4;
+	grid-row: 3;
+}
+
+#festival-report-waste {
+	grid-column: 2/4;
+	grid-row: 4;
+}
+
+#festival-report-profit {
+	grid-column: 2/4;
+	grid-row: 5;
+}
+
+#festival-report-time-number {
+	grid-column: 4/7;
+	grid-row: 2;
+}
+
+#festival-report-pizzas-number {
+	grid-column: 4/7;
+	grid-row: 3;
+}
+
+#festival-report-waste-number {
+	grid-column: 4/7;
+	grid-row: 4;
+}
+
+#festival-report-profit-number {
+	grid-column: 4/7;
+	grid-row: 5;
+}
+
+#get-rid-of-waste {
+	grid-column: 2/6;
+	grid-row: 6;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+
+/* 
+==================
+EPISODE TWO 
+==================
+*/
+
+#signpost-trash {
+	margin-left: 2em;
+	grid-column: 1;
+	position: absolute;
+	grid-row: 1;
+	height: 100vh;
+}
+
+
+#drag-and-drop-instructions {
+	grid-column: 3/5;
+	grid-row: 2;
+}
+
+#drag-and-drop-instructions-two {
+	grid-column: 3/5;
+	grid-row: 3;
+
+}
+
+.trash-image-container {
+	grid-column: 3;
+	grid-row: 1;
+	align-self: center;
+	justify-self: center;
+
+}
+
+.trash-container {
+	display: flex;
+	grid-column: 2/6;
+	width: 60vw;
+	grid-row: 3;
+	justify-content: space-around;
+	align-self: center;
+	justify-self: center;
+}
+
+
+.trash-item-image {
+	width: 7vw;
+	align-self: center;
+	justify-self: center;
+	position: absolute;
+	background-color: #65CCB8;
+	cursor: grab;
+	transition: visibility 0s, opacity 2s linear;
+
+}
+
+
+.trash-container img {
+	width: 7vw;
+	align-self: center;
+	justify-self: center;
+}
+
+.hide-drag-image {
+	visibility: hidden;
+}
+
+#drag-drop-timer {
+	margin:0;
+	font-size: 3em;
+}
+
+.timer-container {
+	justify-self: center;
+	width: 10vw;
+	grid-column: 3/5;
+	grid-row: 1;
+	margin: .5em 2em;
+	z-index: 500;
+	height: 6vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: .1em solid #182628;
+	border-radius: 1em;
+	padding: .5em 1em;
+	background-color: #f2f2f2;
+	opacity: .85;
+}
+
+
+#cross-image, #tick-image {
+	grid-row: 2/3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 3/5;
+	width: 8vw;
+	margin-top: 2em;
+	margin-right: 4em;
+	display: none;
+
+}
+
+
+#drag-and-drop-result-main {
+	grid-row: 2;
+	grid-column: 2/6;
+}
+
+.drag-and-drop-result-container {
+	grid-row: 2/4;
+	grid-column: 3/5;
+	align-self: center;
+	display: grid;
+  	grid-template-columns: repeat(4, 1fr);
+  	grid-template-rows: repeat(2, 1fr);
+  	background-color: #f2f2f2;
+  	border-radius: 2em;
+  	border: .1em solid #282828;
+}
+
+#correct-waste-text {
+	grid-row: 1;
+	grid-column: 1/5;
+}
+
+#incorrect-waste-text {
+	grid-row: 2;
+	grid-column: 1/5;
+}
+
+#correct-waste-number {
+	grid-row: 1;
+	grid-column: 5;
+}
+
+
+#incorrect-waste-number {
+	grid-row: 2;
+	grid-column: 5;
+}
+
+
+/* 
+==========================================================================
+==========================================================================
+
+WEEKLY TIMER
+
+==========================================================================
+==========================================================================
+*/
+
+#weekly-earnings {
+	grid-row: 1/3;
+	grid-column: 2/4;
+	align-self: center;
+	font-size: 3em;
+	color: #f2f2f2;
+}
+
+
+.week-number-container {
+	grid-row: 1/3;
+	grid-column: 2/6;
+	text-align: center;
+	
+  	border-radius: .5em;
+  	align-self: center;
+  	justify-self: center;
+  	padding: 0 2em;
+  	opacity: .95;
+}
+
+#weekly-timer {
+	font-size: 5em;
+}
+
+
+#planet-pizza {
+	width: 30vw;
+	grid-row: 1/6;
+	align-self: center;
+	grid-column: 5/7;
+}
+
+
+#person-one {
+	width: 2vw;
+	margin-top: 6em;
+	grid-row: 3;
+	grid-column: 3/6;
+}
+
+#person-two {
+	margin-top: 6em;
+	grid-row: 3;
+	width: 2.5vw;
+	grid-column: 2/6;
+}
+
+#person-three {
+	margin-top: 6em;
+	margin-left: 5em;
+	grid-row: 3;
+	width: 2vw;
+	grid-column: 2/6;
+}
+
+#person-four {
+	margin-top: 6em;
+	margin-left: 9em;
+	grid-row: 3;
+	width: 2.5vw;
+	grid-column: 2/6;
+}
+
+#person-five {
+	margin-top: 6em;
+	grid-row: 3;
+	
+	width: 2vw;
+	grid-column: 3/6;
+}
+
+#person-six {
+	margin-top: 6em;
+	grid-row: 3;
+	margin-left: 4em;
+	width: 2.5vw;
+	grid-column: 3/6;
+}
+
+#person-seven {
+	margin-top: 6em;
+	grid-row: 3;
+	margin-left: 8em;
+	width: 2vw;
+	grid-column: 3/6;
+}
+
+#person-eight {
+	margin-top: 6em;
+	grid-row: 3;
+	
+	width: 2.5vw;
+	grid-column: 4/6;
+}
+
+#person-nine {
+	margin-top: 6em;
+	grid-row: 3;
+	margin-left: 4em;
+	width: 2vw;
+	grid-column: 4/6;
+}
+
+#person-ten {
+	margin-top: 6em;
+	grid-row: 3;
+	margin-left: 8em;
+	width: 2.5vw;
+	grid-column: 4/6;
+
+}
+
+#person-eleven {
+	margin-top: 6em;
+	grid-row: 3;
+	width: 2vw;
+	grid-column: 5/6;
+}
+
+#person-twelve {
+	margin-top: 6em;
+	grid-row: 3;
+	margin-left: 4em;
+	width: 2.5vw;
+	grid-column: 5/6;
+}
+
+#position-identifier {
+	grid-row: 3;
+	grid-column: 5;
+
+}
+
+
+
+/* 
+==========================================================================
+==========================================================================
+
+BUSINESS LICENSE 
+
+==========================================================================
+==========================================================================
+*/
+
+
+#certified-title {
+	grid-row: 2;
+	grid-column: 2/4;
+	font-size: 3em;
+	font-weight: 700;
+	color: #f2f2f2;
+	align-self: center;
+}
+
+#business-license-container {
+	align-self: center;
+	grid-row: 2/4;
+	grid-column: 4/7;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+  	border: .1em solid #182628;
+  	background-color: #f2f2f2;
+  	opacity: .85;
+  	padding: 2em 0;
+  	margin-bottom: 3em;
+  	margin-right: 4em;
+  	max-height: 40vh;
+
+}
+
+
+#check-it-out {
+	grid-row: 3;
+	
+	grid-column: 2/4;
+	font-size: 1.2em;
+	margin-right: 2em;
+}
+
+#biz-license-title {
+	grid-row: 1;
+	grid-column: 2/6;
+	font-size: 1.5em;
+}
+
+#biz-license-company-number {
+	margin-top: 2em;
+	font-size: 1.2em;
+	grid-row: 2;
+	grid-column: 2/6;
+}
+
+
+#biz-license-registrar {
+	grid-row: 3;
+	grid-column: 2/6;
+	margin-top: 1.3em;
+}
+
+
+#biz-license-company-name {
+	grid-row: 4;
+	grid-column: 2/6;
+	align-self: center;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#biz-license-is-this-day {
+	
+	grid-row: 5;
+	grid-column: 2/6;
+}
+
+
+#biz-license-given-at {
+	margin-top: 1em;
+	grid-row: 6;
+	grid-column: 2/6;
+}
+
+
+
+
+/* 
+==========================================================================
+==========================================================================
+
+SUPPLIER CHOICES
+
+==========================================================================
+==========================================================================
+*/
+
+#suppliers-choice-description-one {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#suppliers-choice-description-two {
+	grid-row: 3;
+	grid-column: 2/6;
+	align-self: center;
+	text-align: center;
+
+	font-size: 1.3em;
+
+}
+
+
+.supplier-choice-container {
+	align-self: center;
+	
+	grid-row: 2;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(7, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+	
+}
+
+.supplier-choice-title-main {
+	grid-row: 1;
+	grid-column: 2/7;
+	text-align: center;
+	font-size: 1.8em;
+	margin-bottom: 1em;
+}
+
+.supplier-choice-title-one {
+	grid-row: 2;
+	grid-column: 2;
+	text-align: center;
+}
+
+
+.supplier-choice-title-two {
+	grid-row: 2;
+	grid-column: 4;
+	text-align: center;
+}
+
+.supplier-choice-title-three {
+	grid-row: 2;
+	grid-column: 6;
+	text-align: center;
+}
+
+
+#solar-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 1/4;
+	align-self: center;
+	justify-self: center;
+	width: 10vw;
+	cursor: pointer;
+}
+
+#pylon-image {
+	justify-self: center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 4/5;
+	width: 6vw;
+	cursor: pointer;
+}
+
+#ethical-energy-supplier-image {
+	justify-self: center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 6/7;
+	width: 10vw;
+	cursor: pointer;
+}
+
+
+#upcycle-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 1/4;
+	align-self: center;
+	justify-self: center;
+	width: 3vw;
+	cursor: pointer;
+}
+
+#budget-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 4/5;
+	align-self: center;
+	justify-self: center;
+	width: 3vw;
+	cursor: pointer;
+}
+
+#luxury-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 6/7;
+	align-self: center;
+	justify-self: center;
+	width: 3vw;
+	cursor: pointer;
+}
+
+
+/* 
+==================
+FOOD CHOICES
+==================
+*/
+
+.supplier-choice-container-food {
+	align-self: center;
+	align-items: center;
+	grid-row: 2;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(7, 1fr);
+  	grid-template-rows: repeat(6, 1fr);
+  	z-index: 1000;
+}
+
+
+#food-one-title, #food-two-title, #food-three-title, #food-four-title, #food-five-title, #food-origin-one, #food-origin-two, #food-origin-three {
+	font-size: 1.3em ;
+	justify-self: center;
+}
+
+#food-one-title {
+	grid-row: 3;
+	grid-column: 1;
+}
+
+#food-two-title {
+	grid-row: 4;
+	grid-column: 1;
+}
+
+#food-three-title {
+	grid-row: 5;
+	grid-column: 1;
+}
+
+#food-four-title {
+	grid-row: 6;
+	grid-column: 1;
+}
+
+#food-five-title {
+	grid-row: 7;
+	grid-column: 1;
+}
+
+
+#food-origin-one {
+	grid-row: 2;
+	grid-column: 3;
+	font-weight: 700;
+}
+
+
+#food-origin-two {
+	grid-row: 2;
+	grid-column: 5;
+	font-weight: 700;
+}
+
+
+#food-origin-three {
+	grid-row: 2;
+	grid-column: 7;
+	font-weight: 700;
+}
+
+
+
+.wholesale, .tractor, .spade {
+	padding: .5em;
+	width: 1.5vw;
+	justify-self: center;
+	cursor: pointer;
+}
+
+
+
+
+#tomato-wholesale {
+	grid-row: 3;
+	grid-column: 7;
+}
+
+#tomato-spade {
+	grid-row: 3;
+	grid-column: 3;
+}
+
+#tomato-tractor {
+	grid-row: 3;
+	grid-column: 5;
+}
+
+#cheese-wholesale {
+	grid-row: 4;
+	grid-column: 7;
+}
+
+#cheese-spade {
+	grid-row: 4;
+	grid-column: 3;
+}
+
+#cheese-tractor {
+	grid-row: 4;
+	grid-column: 5;
+}
+
+
+#pork-wholesale {
+	grid-row: 5;
+	grid-column: 7;
+}
+
+#pork-spade {
+	grid-row: 5;
+	grid-column: 3;
+}
+
+#pork-tractor {
+	grid-row: 5;
+	grid-column: 5;
+}
+
+
+#chicken-wholesale {
+	grid-row: 6;
+	grid-column: 7;
+}
+
+#chicken-spade {
+	grid-row: 6;
+	grid-column: 3;
+}
+
+#chicken-tractor {
+	grid-row: 6;
+	grid-column: 5;
+}
+
+
+#potato-wholesale {
+	grid-row: 7;
+	grid-column: 7;
+}
+
+#potato-spade {
+	grid-row: 7;
+	grid-column: 3;
+}
+
+#potato-tractor {
+	grid-row: 7;
+	grid-column: 5;
+}
+
+
+/* 
+==================
+GOOD LUCK MESSAGE
+==================
+*/
+
+#good-luck-message {
+	grid-row: 3;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+/* 
+==================
+GOOD LUCK MESSAGE
+==================
+*/
+
+.further-description-container {
+	align-self: center;
+	grid-row: 2/4;
+	grid-column: 1/2;
+	justify-self:center;
+	font-size: 1.5em;
+	display: none;
+}
+
+
+/* 
+==========================================================================
+==========================================================================
+
+SUPPLIER RUNS OUT OF STOCK ...
+
+==========================================================================
+==========================================================================
+*/
+
+
+
+#supplier-no-stock-title {
+	grid-row: 1/2;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 5em;
+	color: #f2f2f2;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+#potato-flood {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	text-align: center;
+}
+
+
+#potato-important {
+	grid-row: 1/3;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-weight: 700;
+	font-size: 2em;
+}
+
+#potato-what-do-you-want {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+}
+
+#potato-choice-container {
+	grid-row: 2/4;
+	align-self: center;
+	justify-self: center;
+	grid-column: 1/7;
+	text-align: center;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(3, 1fr);
+  	background-color: #f2f2f2;
+  	border: #282828 solid .1em;
+  	border-radius: .5em;
+  	padding: 1em;
+  	opacity: .85;
+  	font-size: 1em;
+  	font-weight: 700;
+  	margin-top: 8em;
+  	grid-gap: 2em;
+}
+
+
+#potato-choice-organic {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 1/3;
+	text-align: center;
+}
+
+#potato-choice-menu {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 3/5;
+	text-align: center;
+} 
+
+#potato-choice-wholesaler {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 5/7;
+	text-align: center;
+}
+
+
+
+#organic-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 3vw;
+}
+
+#menu-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 3vw;
+}
+
+#wholesale-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 3vw;
+}
+
+#button-organic {
+	grid-row: 3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 1/3;
+	width: 2vw;
+	cursor: pointer;
+}
+
+#button-menu {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 2vw;
+	cursor: pointer;
+}
+
+#button-wholesale {
+	grid-row: 3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 5/7;
+	width: 2vw;
+	cursor: pointer;
+}
+
+
+
+
+
+
+/* 
+==========================================================================
+==========================================================================
+
+TAKEOUT BRANCH
+
+==========================================================================
+==========================================================================
+*/
+
+
+
+#takeout-intro-requests {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 2/4;
+
+}
+
+#takeout-intro-offer {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+
+}
+
+#takeout-intro-success {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 2/4;
+}
+
+
+
+#packaging-pros-cons {
+	grid-row: 1/3;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 1.8em;
+}
+
+#packaging-question {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-weight: 700;
+}
+
+#packaging-hover {
+	grid-row: 5;
+	align-self: center;
+	grid-column: 1/7;
+	text-align: center;
+}
+
+#packaging-choice-container {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(5, 1fr);
+  	z-index: 1000;
+}
+
+#packaging-plastic-choice {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 1/3;
+}
+
+#packaging-bio-choice {
+	grid-row: 2;
+	align-self: center;
+	text-align: center;
+	justify-self: center;
+	grid-column: 3/5;
+}
+
+#packaging-compostable-choice {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 5/7;
+}
+
+
+#packaging-plastic-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+#packaging-bio-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+#packaging-compostable-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+
+
+#compostable-expensive {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#compostable-expensive-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-size: 1.3em;
+}
+
+
+#positive-packaging-feedback-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#positive-packaging-feedback-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+
+#plastic-packaging-feedback-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#plastic-packaging-feedback-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+
+/* 
+==================
+DISCOUNT SCHEME
+==================
+*/
+
+
+
+#discount-scheme-decision-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-decision-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-decision-three {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-yes, #discount-scheme-no {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+#discount-scheme-last {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+
+
+
+/* 
+==================
+CUTLERY 
+==================
+*/
+
+#cutlery-intro-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+	
+}
+
+#cutlery-intro-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+
+}
+
+
+#cutlery-intro-three {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+
+}
+
+
+
+#cutlery-choice-title {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 1.8em;
+	text-align: center;
+	font-weight: 700;
+
+}
+
+
+#cutlery-choice-container {
+	grid-row: 1/4;
+	align-self: center;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(5, 1fr);
+  	z-index: 1000;
+  	
+}
+
+#cutlery-choice-one {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 1/3;
+}
+
+
+#cutlery-choice-two {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 3/5;
+
+}
+
+#cutlery-choice-three {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 5/7;
+
+}
+
+
+#cutlery-plastic-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+#cutlery-wooden-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+#cutlery-none-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 4vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+#cutlery-last {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+
+
+/* 
+==========================================================================
+==========================================================================
+
+MAZE CSS
+
+==========================================================================
+==========================================================================
+*/
+
+
+
+#maze_container {
+  position: absolute;
+  display: inline-block;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+  right: 5vw;
+  top: 5vh;
+  font-size: 1.3em;
+
+  
+}
+
+
+#instructions-panel {
+	width: 100%;
+	position: absolute;
+	height: 100%;
+  	background-color: #282828;
+  	opacity: 0.8;
+  	z-index: 500000000;
+  	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(5, 1fr);
+  	color: #f2f2f2;
+  	font-weight: 700;
+  	font-size: 1.5em;
+
+}
+
+
+#maze-instructions-title {
+	grid-row: 2/3;
+	grid-column: 2/6;
+	align-self: center;
+
+}
+
+#maze-instructions-move {
+	grid-row: 3/4;
+	grid-column: 2/6;
+	align-self: center;
+}
+
+#maze {
+  background-color: #3B945E;
+
+  background-size: cover;
+}
+
+
+
+#maze div {
+  display: flex;
+}
+#maze div div {
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+#maze div div::after {
+  position: absolute;
+  left: -3px;
+  top: -4px;
+  text-align: center;
+  text-shadow: 0 0 1px black;
+  font-size: 1.2em;
+  z-index: 10;
+}
+#maze div div.door.exit::after {
+  content: "\1F6AA";
+  font-size: 2em;
+}
+#maze div div.nubbin::after {
+  content: "\1F33C";
+  font-size: 1.3em;
+}
+#maze div.nubbin:nth-of-type(3n)::after {
+  content: "\1F344";
+  font-size: 1.3em;
+}
+#maze div.nubbin:nth-of-type(5n)::after {
+  content: "\1F33B";
+}
+#maze div.nubbin:nth-of-type(7n)::after {
+  content: "\1F48E";
+}
+#maze div.nubbin:nth-of-type(13n)::after {
+  x-content: "\1F332";
+  content: "\1F381";
+}
+#maze div.hero::after {
+  content: "\1F469\200D\1F373" !important;
+  
+
+}
+#maze.face-right div.hero::after {
+  transform: scale(-1, 1);
+}
+#maze div div.wall, #maze div div.nubbin.wall, #maze div div.door.exit {
+  background-color: #454545;
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.2) 45%, transparent 55%), linear-gradient(to bottom, rgba(0,0,0,0.2) 45%, transparent 55%);
+  background-size: 0.1em 0.1em;
+}
+#maze div div.nubbin.wall::after {
+  content: "";
+}
+#maze div div.sentinel.wall {
+  background: transparent;
+}
+#maze div div.sentinel.wall::after {
+  content: "\1F40A";
+}
+#maze div.sentinel.wall:nth-of-type(3n)::after {
+  content: "\1F40D";
+
+}
+#maze div div.key::after {
+  content: "\1F511";
+}
+
+#maze div div:nth-child(odd) {
+  width: 1em;
+}
+#maze div:nth-child(odd) div {
+  height: 1em;
+}
+
+#maze_output {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  margin: 0 auto;
+  grid-row: 2/3;
+  grid-column: 1/4;
+  background-color: #f2f2f2;
+  z-index: 1000;
+  border: .1em solid #182628;
+  border-radius: .5em;
+  padding: 1em;
+  opacity: .9;
+  width: 25vw;
+  max-width: 25vw;
+  
+}
+#maze_score, #maze_message {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+#maze_score {
+  grid-row: 1/3;
+  grid-column: 1/6;
+  align-self: center;
+}
+#maze_score::before {
+  content: "Score: ";
+}
+#maze_score.has-key::after {
+  content: "\00a0\1F511";
+}
+#maze_message {
+  flex: 3;
+
+  grid-row: 3/6;
+  align-self:  center;
+  grid-column: 1/6;
+}
+
+#maze.finished::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  content: "Game Over";
+  line-height: 480px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 5em;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  color: #fff;
+  z-index: 10;
+}
+
+
+#trigger-maze-button {
+	grid-row: 5;
+	grid-column: 2/6;
+	z-index: 1000;
+	padding: .5em;
+	font-size: 1em;
+	width: 15vw;
+	height: 10vh;
+	justify-self: center;
+	background-color: #282828;
+	color: #f2f2f2;
+	font-weight: 700;
+	border: .1em solid #f2f2f2;
+}
+
+
+#continue-from-maze-button {
+	opacity: 0;
+	grid-row: 4;
+	grid-column: 2;
+
+}
+
+
+/* 
+==========================================================================
+==========================================================================
+
+END OF MAZE CSS
+
+==========================================================================
+==========================================================================
+*/
+
+
+/* 
+==========================================================================
+==========================================================================
+==========================================================================
+==========================================================================
+
+
+MEDIA QUERIES
+
+
+==========================================================================
+==========================================================================
+==========================================================================
+==========================================================================
+*/
+
+
+
+
+
+
+
+
+
+/* 
+==================
+ 1250 px
+==================
+*/
+
+
+
+@media (max-width: 1250px) {
+
+	body {
+		font-size: .95em;
+	}
+   	
+   	.title {
+   		font-size: 5em;
+   	}
+
+
+}
+
+
+
+/* 
+==================
+ 1000 px
+==================
+*/
+
+
+
+@media (max-width: 1000px) {
+
+	body {
+		font-size: .85em;
+	}
+   	
+
+   	.title {
+   		font-size: 5em;
+   	}
+
+
+   	#town-houses {
+   		height: auto;
+   	}
+
+}
+
 
