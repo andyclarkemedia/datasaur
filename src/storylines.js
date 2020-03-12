@@ -9,7 +9,8 @@
 
 export const gameTitle = {
 					title: "The Sustainable Biz Game",
-					text: "Have you got what it takes to build a sustainable business?"
+					text: "Have you got what it takes to build an environmentally sustainable business?",
+					disclaimer: "(5 - 10 mins)"
 				};
 
 
@@ -21,7 +22,7 @@ export const howToPlay = {
 		title: "How to Play",
 		instructionsOne: "Pick a business owner and build their business. You have one year to manage it!",
 		instructionsTwo: ["Money: ", "Sustainability Points (SP): "],
-		instructionsThree: " To win ... You need to make a fair profit at the same time as making the choices you feel to be most sustainable"
+		instructionsThree: " To win ... You need to earn money at the same time as making the choices you feel to be most sustainable"
 
 }
 
@@ -44,7 +45,9 @@ export const characters = [{
 export const remember = {
 		title: "Remember ...",
 		descriptionOne: "Sustainability is not just a business practice for your enterprise, but an integral part of your brand value!",
-		descriptionTwo: "Are you ready to play The Sustainable Biz Game?"
+		descriptionTwo: "Are you ready to play The Sustainable Biz Game?",
+		uplandsQuote: "“Running a business that doesn’t cause harm to myself or others or any form of the environment”",
+		uplandsSpan: "- Owner of Uplands Roast, Edinburgh"
 }
 
 

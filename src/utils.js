@@ -68,11 +68,14 @@ export const timePassing = (game, weekBegin, weekEnd) => {
 	// Set border on container
 	weekTextContainer.style.border = ".1em solid #282828;"
 
-	// Set starting week variable
-	let weekNumber = game.weekNumber;
+	
 
 	// Set Timer 
 	var weeklyTimer = setInterval(function(){
+
+
+	// Set starting week variable
+	let weekNumber = game.weekNumber;
 
   	if(weekNumber < weekEnd){
   		weekText.innerHTML = "Week " + weekNumber;
@@ -104,7 +107,7 @@ export const timePassing = (game, weekBegin, weekEnd) => {
 
 
   	}
-  	weekNumber += 1;
+  	game.weekNumber += 1;
 
 
 	}, 4000);
@@ -129,7 +132,8 @@ export const animatePeople = function() {
 	const personEleven = document.querySelector('#person-eleven')
 	const personTwelve = document.querySelector('#person-twelve')
 
-	const peopleArray = [personOne, personTwo, personThree, personFour, personFive, personSix, personSeven, personEight, personNine, personTen, personEleven, personTwelve]
+	const peopleArray = [personOne, personTwo, personThree, personFour, personFive, personSix, personSeven, personEight, personNine, personTen, personEleven]
+	//, personTwelve]
 
 
 	let positionIdentifier = document.querySelector('#position-identifier')
@@ -139,7 +143,7 @@ export const animatePeople = function() {
 			anime({
 	  targets: item,
 	  // Properties 
-	  translateX: 1000,
+	  translateX: 500,
 	  
 	  // Property Parameters
 	  duration: 30000,
@@ -166,6 +170,7 @@ export const animatePeople = function() {
 	  	if (right > actualPosition) {
 	  		console.log("Arrived")
 	  		item.style.opacity = 0
+	  		item.style.display = "none"
 	  	} else if (right < 1050) {
 	  		console.log(right)
 	  	}
@@ -366,21 +371,11 @@ export const selectSupplier = function(elementSelect, elementTwo, elementThree, 
 	selection.style.border = "2px solid black";
 	selection.style.backgroundColor = "#57BA98";
 
-	if (type !== "potato-choice") {
-		otherChoiceOne.style.border = "none";
-		otherChoiceOne.style.backgroundColor = "#65CCB8";
+	otherChoiceOne.style.border = "none";
+	otherChoiceOne.style.backgroundColor = "#65CCB8";
 
-		otherChoiceTwo.style.border = "none";
-		otherChoiceTwo.style.backgroundColor = "#65CCB8";
-	} else {
-
-		otherChoiceOne.style.border = "none";
-		otherChoiceOne.style.backgroundColor = "#f2f2f2";
-
-		otherChoiceTwo.style.border = "none";
-		otherChoiceTwo.style.backgroundColor = "#f2f2f2";
-
-	}
+	otherChoiceTwo.style.border = "none";
+	otherChoiceTwo.style.backgroundColor = "#65CCB8";
 	
 
 	// UPDATE GAME WITH ENERGY CHOICE
@@ -564,6 +559,8 @@ export const updatePotatoDecision = function(elementSelect, game) {
 }
 
 
+// Need to change the return options and add changes to weekly earnings
+
 export const assessPotatoDecision = function(game) {
 
 	if(game.potatoInitialDecision === "wholesale") {
@@ -572,11 +569,11 @@ export const assessPotatoDecision = function(game) {
 
 	} else if (game.potatoInitialDecision === "organic") {
 
-		return 3;
+		return 2;
 
 	} else if (game.potatoInitialDecision === "menu") {
 
-		return 4;
+		return 2;
 	}
 }
 
@@ -776,3 +773,12 @@ export const hideInstructionsPanel = function() {
 }
 
 
+
+//==================
+// DISABLE TIME PASSING BUTTON 
+//==================
+
+
+export const disableTimePassingButton = function(game) {
+	game.timePassingButtonDisabled = true;
+}

@@ -46,7 +46,7 @@ HEIGHTS & WIDTHS
  */
 
  .title-screen {
-	height: 70vh;
+	height: 100vh;
  }
 
 
@@ -55,7 +55,9 @@ HEIGHTS & WIDTHS
  }
 
 .bottom {
+	position: absolute;
 	bottom: 0;
+	right: 40vw;
 }
 
 
@@ -213,8 +215,11 @@ GAMEPLAY
 }
 
 .leaf-icon-container {
-	grid-column: 5;
+	grid-column: 5/7;
  	grid-row: 1;
+ 	min-width: 10vw;
+ 	max-width: fit-content;
+
 }
 
 .maze-leaf-icon-container {
@@ -223,7 +228,8 @@ GAMEPLAY
 }
 
 .pound-coin-icon-container {
-	grid-column: 2/4;
+	grid-column: 1/4;
+	justify-self: center;
 	max-width: fit-content;
  	grid-row: 1;
 }
@@ -251,16 +257,25 @@ GAME LANDING PAGE
  */
 
  #landing-title {
- 	padding-top: 1em;
+ 	z-index: 1000;
  	grid-column: 2/6;
  	grid-row: 1/3;
+ 	font-size: 6em;
+ 	align-self: center;
  }
 
  #can-you-make-it {
  	grid-column: 2/6;
- 	grid-row: 4;
+ 	grid-row: 3;
  }
 
+
+#disclaimer {
+	grid-column: 2/6;
+ 	grid-row: 3/4;
+ 	align-self: center;
+ 	font-weight: 700;
+}
 
  #tree-side {
  	position: fixed;
@@ -293,22 +308,31 @@ INSTRUCTIONS PAGES
 */
 
 #instructions-title {
-	font-size: 6em;
-	padding-top: 1em;
- 	grid-column: 2/6;
- 	grid-row: 1/3;
+	font-size: 5em;
+ 	grid-column: 3/5;
+ 	justify-self: center;
+ 	grid-row: 1/2;
+ 	align-self: center;
 }
 
 
 #pick-a-biz-desc {
-	grid-column: 2/6;
- 	grid-row: 3;
+	grid-column: 3/5;
+ 	grid-row: 2/3;
+ 	align-self: center;
  	line-height: 1.6em;
 }
 
 #to-win-desc {
 	grid-column: 3/5;
  	grid-row: 3;
+}
+
+.icon-explainer-text {
+	font-weight: 700;
+	margin-left: 1em;
+	font-size: 2em;
+
 }
 
 #money-icon-text {
@@ -346,11 +370,13 @@ CHOOSE A CHARACTER PAGE
 
 .character-container {
 	grid-column: 2/6;
- 	grid-row: 2/6;
- 	display: flex;
- 	align-items: center;
- 	justify-content: space-between;
- 	flex-direction: column;
+    grid-row: 2/4;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    height: auto;
 
 }
 
@@ -360,7 +386,7 @@ CHOOSE A CHARACTER PAGE
 	justify-content: space-around;
 	text-align: center;
 	align-items: center;
-	padding: 2em 2em;
+	padding: 1em 1em;
 	margin-bottom: 1em;
 	border: .2em dotted #282828;
 }
@@ -374,19 +400,18 @@ CHOOSE A CHARACTER PAGE
 
 .character-name {
 	font-size: 2em;
+	color: #282828;
 }
 
 .character-description-container {
-	width: 30vw;
-	height: 20vh;
-	grid-column: 3;
- 	grid-row: 4;
+	width: 40vw;
+	height: 10vh;
 	text-align: left;
 }
 
 
 #joe-head {
-	width: 8vw;
+	width: 7vw;
 	margin-top: 2em;
 	cursor: pointer;
 
@@ -397,11 +422,13 @@ CHOOSE A CHARACTER PAGE
 }
 
 #hover-instruction {
-	grid-column: 2/6;
- 	grid-row: 6;
- 	margin-bottom: 2em;
  	font-size: 1.3em;
  	text-align: center;
+ 	font-weight: 700;
+ 	grid-row: 1/3;
+ 	align-self: center;
+ 	grid-column: 2/6;
+ 	color: #f2f2f2;
 }
 
 /* 
@@ -412,14 +439,27 @@ REMEMBER PAGE
 
 
 #remember-title {
-	margin-top: 1em;
 	grid-column: 2/6;
- 	grid-row: 1;
+ 	grid-row: 1/2;
+ 	align-self: center;
 }
 
 #remember-description-one {
 	grid-column: 3/5;
+ 	grid-row: 2/3;
+ 	align-self: center;
+}
+
+#uplands-quote {
+	grid-column: 3/5;
  	grid-row: 3;
+ 	font-weight: 700;
+ 	font-size: 1.5em;
+}
+
+#uplands-span {
+	font-size: .8em;
+	font-weight: 400;
 }
 
 
@@ -1017,7 +1057,8 @@ WEEKLY TIMER
 */
 
 #weekly-earnings {
-	grid-row: 1/3;
+	grid-row: 1/2;
+	margin-top: 3em;
 	grid-column: 2/4;
 	align-self: center;
 	font-size: 3em;
@@ -1028,13 +1069,10 @@ WEEKLY TIMER
 .week-number-container {
 	grid-row: 1/3;
 	grid-column: 2/6;
-	text-align: center;
-	
+	text-align: center;	
   	border-radius: .5em;
   	align-self: center;
   	justify-self: center;
-  	padding: 0 2em;
-  	opacity: .95;
 }
 
 #weekly-timer {
@@ -1042,11 +1080,16 @@ WEEKLY TIMER
 }
 
 
-#planet-pizza {
+.planet-pizza {
 	width: 30vw;
 	grid-row: 1/6;
 	align-self: center;
 	grid-column: 5/7;
+}
+
+
+#planet-pizza-animation {
+	margin-bottom: 4em;
 }
 
 
@@ -1164,38 +1207,34 @@ BUSINESS LICENSE
 
 
 #certified-title {
-	grid-row: 2;
-	grid-column: 2/4;
-	font-size: 3em;
+	grid-row: 1/2;
+	grid-column: 2/6;
+	font-size: 4em;
 	font-weight: 700;
 	color: #f2f2f2;
 	align-self: center;
+	text-align: center;
 }
 
 #business-license-container {
 	align-self: center;
 	grid-row: 2/4;
-	grid-column: 4/7;
+	grid-column: 3/5;
 	display: grid;
   	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(4, 1fr);
   	border: .1em solid #182628;
+  	border-radius: .3em;
   	background-color: #f2f2f2;
   	opacity: .85;
   	padding: 2em 0;
-  	margin-bottom: 3em;
-  	margin-right: 4em;
   	max-height: 40vh;
 
 }
 
 
 #check-it-out {
-	grid-row: 3;
-	
-	grid-column: 2/4;
-	font-size: 1.2em;
-	margin-right: 2em;
+	display: none;
 }
 
 #biz-license-title {
@@ -1273,12 +1312,13 @@ SUPPLIER CHOICES
 
 .supplier-choice-container {
 	align-self: center;
-	
+	font-size: 1.2em;
 	grid-row: 2;
 	grid-column: 2/6;
 	display: grid;
   	grid-template-columns: repeat(7, 1fr);
-  	grid-template-rows: repeat(4, 1fr);
+  	grid-template-rows: repeat(3);
+  	grid-gap: 1em;
 	
 }
 
@@ -1313,7 +1353,7 @@ SUPPLIER CHOICES
 #solar-image {
 	align-self:center;
 	padding: 1em;
-	grid-row: 3/5;
+	grid-row: 3/4;
 	grid-column: 1/4;
 	align-self: center;
 	justify-self: center;
@@ -1334,7 +1374,7 @@ SUPPLIER CHOICES
 	justify-self: center;
 	padding: 1em;
 	grid-row: 3/5;
-	grid-column: 6/7;
+	grid-column: 5/8;
 	width: 10vw;
 	cursor: pointer;
 }
@@ -1382,6 +1422,7 @@ FOOD CHOICES
 
 .supplier-choice-container-food {
 	align-self: center;
+	text-align: center;
 	align-items: center;
 	grid-row: 2;
 	grid-column: 2/6;
@@ -1603,8 +1644,9 @@ SUPPLIER RUNS OUT OF STOCK ...
 }
 
 #potato-what-do-you-want {
-	grid-row: 2/3;
-	align-self: center;
+	align-self: flex-start;
+    margin: 2em 0;
+    grid-row: 2;
 	grid-column: 2/6;
 	text-align: center;
 }
@@ -1618,14 +1660,10 @@ SUPPLIER RUNS OUT OF STOCK ...
 	display: grid;
   	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(3, 1fr);
-  	background-color: #f2f2f2;
-  	border: #282828 solid .1em;
-  	border-radius: .5em;
   	padding: 1em;
   	opacity: .85;
   	font-size: 1em;
   	font-weight: 700;
-  	margin-top: 8em;
   	grid-gap: 2em;
 }
 
@@ -1650,7 +1688,6 @@ SUPPLIER RUNS OUT OF STOCK ...
 	grid-column: 5/7;
 	text-align: center;
 }
-
 
 
 #organic-choice {
@@ -1725,6 +1762,7 @@ TAKEOUT BRANCH
 	grid-row: 2;
 	align-self: center;
 	grid-column: 2/4;
+	font-size: 1.3em;
 
 }
 
@@ -1732,6 +1770,7 @@ TAKEOUT BRANCH
 	grid-row: 2/4;
 	align-self: center;
 	grid-column: 2/4;
+	font-size: 1.3em;
 
 }
 
@@ -1739,6 +1778,7 @@ TAKEOUT BRANCH
 	grid-row: 3;
 	align-self: center;
 	grid-column: 2/4;
+	font-size: 1.3em;
 }
 
 
@@ -1747,7 +1787,7 @@ TAKEOUT BRANCH
 	grid-row: 1/3;
 	align-self: center;
 	grid-column: 2/6;
-	font-size: 1.8em;
+	font-size: 1.3em;
 }
 
 #packaging-question {
@@ -1768,10 +1808,11 @@ TAKEOUT BRANCH
 #packaging-choice-container {
 	grid-row: 2/4;
 	align-self: center;
-	grid-column: 2/6;
+	grid-column: 1/7;
 	display: grid;
   	grid-template-columns: repeat(6, 1fr);
-  	grid-template-rows: repeat(5, 1fr);
+  	grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1em;
   	z-index: 1000;
 }
 
@@ -1980,8 +2021,9 @@ CUTLERY
 	grid-column: 2/6;
 	display: grid;
   	grid-template-columns: repeat(6, 1fr);
-  	grid-template-rows: repeat(5, 1fr);
-  	z-index: 1000;
+ 	grid-template-rows: repeat(3, 1fr);
+    z-index: 1000;
+    grid-gap: 3em
   	
 }
 
@@ -2271,7 +2313,7 @@ MAZE CSS
 
 
 #continue-from-maze-button {
-	opacity: 0;
+	opacity: 1;
 	grid-row: 4;
 	grid-column: 2;
 
@@ -2307,9 +2349,57 @@ MEDIA QUERIES
 
 
 
+/* 
+==================
+ 1500 px
+==================
+*/
+
+@media (max-width: 1500px) {
+
+
+	#business-license-container {
+		margin: 0;
+		font-size: .8em;
+	}
+
+	#certified-title {
+		align-self: flex-end;
+		text-align: center;
+		font-size: 3em;
+	}
+
+	.person {
+		margin-bottom: 3em;
+	}
+
+	#planet-pizza-animation {
+		margin-bottom: 0;
+	}
+
+	#takeout-intro-requests, #positive-packaging-feedback-one {
+		align-self: flex-start;
+	}
+
+
+	#takeout-intro-success {
+		align-self: flex-end;
+	}
+
+	#discount-scheme-decision-one {
+		align-self: flex-start;
+	}
+
+
+	#cutlery-intro-one, #cutlery-intro-two, #cutlery-intro-three {
+		font-size: 1.4em;
+	}
 
 
 
+
+
+}
 
 
 
@@ -2331,6 +2421,56 @@ MEDIA QUERIES
    		font-size: 5em;
    	}
 
+	.icon-explainer-text {
+		font-size: 1.3em;
+	}
+
+	.supplier-choice-container-food img {
+   	 	width: 3vw;
+   	 }
+
+
+   	 .person {
+		margin-bottom: 5em;
+	}
+
+	#planet-pizza-animation {
+		margin-bottom: 0;
+	}
+
+
+	#button-organic, #button-menu, #button-wholesale {
+		width: 5vw;
+	}
+
+	#organic-choice, #menu-choice, #wholesale-choice {
+		width: 7vw;
+	}
+
+	#compostable-expensive {
+		grid-column: 2/6;
+	}
+
+	#discount-scheme-decision-one, #discount-scheme-decision-two, #discount-scheme-decision-three, #discount-scheme-yes, #discount-scheme-last {
+		font-size: 1.3em;
+	}
+
+	#cutlery-intro-one, #cutlery-intro-two, #cutlery-intro-three {
+		grid-column: 2/6;
+	}
+
+
+	#cutlery-choice-container {
+		grid-gap: 3em;
+		grid-row: 2/4;
+		grid-column: 1/7;
+	}
+
+	#weekly-earnings {
+		grid-column: 1/4;
+   	 	justify-self: center;
+	}
+
 
 }
 
@@ -2350,16 +2490,273 @@ MEDIA QUERIES
 		font-size: .85em;
 	}
    	
-
    	.title {
    		font-size: 5em;
    	}
 
 
-   	#town-houses {
-   		height: auto;
-   	}
+	.icon-text {
+		font-size: 3em;
+	}
+
+	#instructions-title {
+		font-size: 4em;
+	}
+
+	#business-license-container {
+		grid-column: 2/6;
+	}
+	
+	.person {
+		margin-bottom: 7em;
+	}
+
+	#button-organic, #button-menu, #button-wholesale {
+		width: 6vw;
+	}
+
+	#organic-choice, #menu-choice, #wholesale-choice {
+		width: 8vw;
+	}
 
 }
 
 
+
+
+
+/* 
+==================
+ 800 px
+==================
+*/
+
+
+
+
+@media (max-width: 800px) {
+
+	body {
+		font-size: .8em;
+	}
+   
+   .icon-text {
+		font-size: 2em;
+	}
+
+	.icon-container {
+		height: 6vh;
+	}
+
+	.leaf-icon-image, .pound-coin-icon-image {
+		height: 6vw;
+	}
+
+
+	#town-houses {
+   		width: 35vw;
+   	}
+
+   	.bottom {
+   		right: 33vw;
+   	}
+
+
+   	#instructions-title, #supplier-no-stock-title {
+		font-size: 4em;
+		grid-column: 2/6;
+		align-self: flex-end;
+	}
+
+	#pick-a-biz-desc, #to-win-desc {
+		grid-column: 2/6;
+	}
+
+
+	.character-description-container {
+   		width: 70vw;
+   	}
+
+   	#remember-description-one, #uplands-quote, #potato-flood {
+   		grid-column: 2/6;
+   	}
+
+   	.supplier-choice-container {
+   		grid-column: 1/7;
+   	}
+
+
+   	#ethical-energy-supplier-image, #solar-image {
+   		width: 15vw;
+   		padding: .5em;
+   	}
+
+   	#pylon-image {
+   		width: 10vw;
+   		padding: .5em;
+   	}
+
+   	#budget-image, #luxury-image, #upcycle-image {
+		width: 6vw;
+   	 }
+	
+	#weekly-earnings {
+		font-size: 1.8em;
+   	 	justify-self: center;
+	}
+
+
+	.person {
+		margin-bottom: 8em;
+	}
+
+	#takeout-intro-requests, #takeout-intro-offer, #takeout-intro-success, {
+		font-size: 1em;
+	}
+
+
+	#positive-packaging-feedback-one, #positive-packaging-feedback-two {
+
+		font-size: 1.3em;
+	}
+
+
+	#discount-scheme-decision-one, #discount-scheme-decision-two, #discount-scheme-decision-three, #discount-scheme-yes, #discount-scheme-last {
+		grid-column: 2/6;
+	}
+
+	#cutlery-last {
+		grid-column: 2/6;
+	}
+
+
+
+
+}
+
+
+
+
+
+/* 
+==================
+ 650 px
+==================
+*/
+
+
+
+@media (max-width: 650px) {
+
+	body {
+		font-size: .8em;
+		
+	}
+	
+
+   	#town-houses {
+   		width: 45vw;
+   	}
+
+   	.bottom {
+   		right: 28vw;
+   	}
+
+   	#tree-side, #tree-side-inverse {
+   		width: 40vw;
+		
+   	}
+
+   	.leaf-icon-container {
+		grid-column: 4/7;
+	}
+
+	#landing-title {
+		font-size: 4em;
+	}
+
+
+	#joe-head {
+		width: 15vw;
+	}
+
+
+	#suppliers-choice-description-one, #good-luck-message {
+		grid-row: 1/3;
+	    grid-column: 2/6;
+	    font-size: 1.3em;
+	    align-self: center;
+	}
+
+	#planet-pizza-decor {
+		grid-column: 2/6;
+		justify-self: center;
+		width: 40vw;
+	}
+
+
+	#weekly-timer {
+		font-size: 3em;
+	}
+
+
+	.person {
+			margin-bottom: 10em;
+	}
+
+	#packaging-pros-cons {
+		grid-row: 1/2;
+		align-self: flex-end;
+    	grid-column: 1/7;
+	}
+
+	#cutlery-choice-container {
+		grid-gap: 2em;
+		grid-row: 2/4;
+		grid-column: 1/7;
+	}
+
+
+
+   
+
+}
+
+
+/* 
+==================
+400 px
+==================
+*/
+
+
+
+@media (max-width: 400px) {
+
+	body {
+		font-size: .6em;
+	}
+
+
+	#town-houses {
+   		width: 55vw;
+   	}
+
+   	.bottom {
+   		right: 25vw;
+   	}
+
+   	#ethical-energy-supplier-image, #solar-image {
+   		width: 20vw;
+   	}
+
+   	#pylon-image {
+   		width: 13vw;
+   	}
+
+
+   .person {
+			margin-bottom: 13em;
+		}
+
+}

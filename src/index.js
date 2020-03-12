@@ -440,7 +440,7 @@ returnTreeFromTrashResult = () => {
 
 
         {this.state.component.main}
-        {this.state.component.gamePlay}
+        
       </div>
     );
     

@@ -6,7 +6,7 @@ import React from 'react';
 import './index.css';
 import { triggerMaze } from './mazing.js';
 import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery } from './storylines.js';
-import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, playAudio, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel } from './utils.js';
+import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, playAudio, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton } from './utils.js';
 
 
 export const components = (game, level, episode, tree) => {
@@ -24,20 +24,22 @@ export const components = (game, level, episode, tree) => {
 						<div class="plain-background title-screen grid-container-4x6">
 							<h1 id="landing-title" class="title align-center"> {gameTitle.title}</h1>
 							<p id="can-you-make-it" class="plain-text align-center"> {gameTitle.text} </p>
+							<p id="disclaimer" class="plain-text align-center"> {gameTitle.disclaimer} </p>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+
+							<div class="flex-container gameplay-button-container">
+								<button id="opening-play-button" class="update-tree-button button-text" onClick={() => { game.updateTreeBranch(1)} }> Play!</button>
+							</div>
+							<div class="flex-container bottom">
+								<img id="town-houses" src={require('./images/town-houses.png')} />
+							</div>
+							
+
 						</div>
 						),
-					gamePlay: (
-							<div class="plain-background bottom-button flex-columns-space-between">
-								<div class="flex-container">
-									<button id="opening-play-button" class="update-tree-button button-text" onClick={() => { game.updateTreeBranch(1)} }> Play!</button>
-								</div>
-								<div class="flex-container bottom">
-									<img id="town-houses" src={require('./images/town-houses.png')} />
-								</div>
-							</div>
-						)
+
 				},
 				1: {
 					id: "L0E0T1",
@@ -45,76 +47,42 @@ export const components = (game, level, episode, tree) => {
 						<div class="plain-background title-screen grid-container-4x6">
 							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
 							<p id="pick-a-biz-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsOne} </span> </p>
+							<p id="to-win-desc" class="plain-text align-center"> {howToPlay.instructionsThree} </p>
+
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-explainer-text"> Money </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="icon-explainer-text"> Sustainability Points  </p>
+							</div>
 							
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
-						</div>
-					),
-					gamePlay: (
-						<div class="plain-background bottom-button flex-columns-space-between">
-							<div class="flex-container">
+
+						
+							<div class="flex-container gameplay-button-container">
 								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Okay</button>
 							</div>
 							<div class="flex-container bottom">
 								<img id="town-houses" src={require('./images/town-houses.png')} />
 							</div>
+							
+
 						</div>
-					)
-				},
-				2: {
-					id: "L0E0T2",
-					main: (
-						<div class="plain-background title-screen grid-container-4x6">
-							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
-							<p id="to-win-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsThree} </span> </p>
-							<img id="tree-side" src={require('./images/just-tree-side.png')} />
-							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
-						</div>
-						),
-					gamePlay: (
-						<div class="plain-background bottom-button flex-columns-space-between">
-							<div class="flex-container">
-								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(3) }>Okay</button>
-							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
-							</div>
-						</div>
-						)
-				},
-				3: {
-					id: "L0E0T3",
-					main: (
-						<div class="plain-background title-screen grid-container-4x6">
-							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
-							<p id="money-icon-text" class="plain-text"> {howToPlay.instructionsTwo[0]} </p>
-							<p id="se-icon-text" class="plain-text"> {howToPlay.instructionsTwo[1]} </p>
-							<img id="pound-coin-instructions-icon" src={require('./images/pound-coin.png')} />
-							<img id="leaf-instructions-icon" src={require('./images/leaf.png')} />
-							<img id="tree-side" src={require('./images/just-tree-side.png')} />
-							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
-						</div>
-						),
-					gamePlay: (
-						<div class="plain-background bottom-button flex-columns-space-between">
-							<div class="flex-container">
-								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(4) }>Ready</button>
-							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
-							</div>
-						</div>
-						)
+					),
+
 				},
 
-				4: {
+				2: {
 					id: "L0E0T4",
 					main: (
 						<div class="plain-background title-screen grid-container-4x6">
 							<h1 id="choose-a-character-title" class="title align-center"> Choose a Business Owner </h1>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
-							<p id="hover-instruction"> {suppliersChoice.descriptionTwo} </p>
+							
 							<div class="character-container">
 								<div onClick={() => { addBorderOnClick(".character-one-container") ; game.enableButton("#set-character-button")}} class="character-one-container">
 									<p class="character-name plain-text bold"> {characters[0].name} </p>
@@ -123,43 +91,48 @@ export const components = (game, level, episode, tree) => {
 								<div class="character-description-container">
 										<p id="joe-description" class="character-description"> {characters[0].description} </p>
 								</div>
+								
 							</div>
-						</div>
-					),
-					// Need to disable this button
-					gamePlay: (
-						<div class="plain-background bottom-button flex-columns-space-between">
-							<div class="flex-container">
 
-								<button id="set-character-button" class="update-tree-button button-text" disabled={ game.buttonDisabled } onClick={() => { game.updateTreeBranch(5) }  }> Set </button>
+							<p id="hover-instruction"> {suppliersChoice.descriptionTwo} </p>
+					
+							<div class="flex-container gameplay-button-container">
+
+								<button id="set-character-button" class="update-tree-button button-text" disabled={ game.buttonDisabled } onClick={() => { game.updateTreeBranch(3) }  }> Set </button>
 							</div>
 							<div class="flex-container bottom">
 								<img id="town-houses" src={require('./images/town-houses.png')} />
 							</div>
+							
+
+
+
 						</div>
-					)
+
+					),
 
 				},
-				5: {
+				3: {
 					id: "L0E0T5",
 					main: (
 						<div class="plain-background title-screen grid-container-4x6">
 							<h1 id="remember-title" class="title align-center"> {remember.title} </h1>
 							<p id="remember-description-one" class="plain-text"> {remember.descriptionOne}</p>
+							<p id="uplands-quote"> {remember.uplandsQuote} <span id="uplands-span"> <br/> {remember.uplandsSpan} </span> </p>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+
+								<div class="flex-container gameplay-button-container">
+									<button class="update-tree-button button-text" onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  }  }> Go! </button>
+								</div>
+								<div class="flex-container bottom">
+									<img id="town-houses" src={require('./images/town-houses.png')} />
+								</div>
 						</div>
+
+
 						),
-					gamePlay: (
-						<div class="plain-background bottom-button flex-columns-space-between">
-							<div class="flex-container">
-								<button class="update-tree-button button-text" onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  }  }> Go! </button>
-							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
-							</div>
-						</div>
-						)
 				}
 			},
 		},
@@ -240,7 +213,7 @@ export const components = (game, level, episode, tree) => {
 
 
 							<p id="suppliers-choice-description-one">{suppliersChoice.descriptionOne}</p>
-							<img id="planet-pizza" src={require('./images/restaurant.png')} />
+							<img id="planet-pizza-decor" class="planet-pizza" src={require('./images/restaurant.png')} />
 
 							
 								
@@ -549,7 +522,7 @@ export const components = (game, level, episode, tree) => {
 
 
 							<p id="good-luck-message">{goodLuck.main}</p>
-							<img id="planet-pizza" src={require('./images/restaurant.png')} />
+							<img id="planet-pizza-decor" class="planet-pizza" src={require('./images/restaurant.png')} />
 
 							
 								
@@ -567,7 +540,7 @@ export const components = (game, level, episode, tree) => {
 
 				},
 				// TIME PASSING SCREEN
-				6:{
+				7:{
 					id: "L1E0T0",
 					main: (
 						<div class="level-one-background grid-container-4x6" >
@@ -593,19 +566,19 @@ export const components = (game, level, episode, tree) => {
 								<p id="weekly-timer" class="gameplay-text"> Week 0 </p>
 							</div>
 							
-							<img id="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 6) ; animatePeople()} }/>
-							<img id="person-one" src={require('./images/person-one.png')} />
-							<img id="person-two" src={require('./images/person-two.png')} />
-							<img id="person-three" src={require('./images/person-one.png')} />
-							<img id="person-four" src={require('./images/person-two.png')} />
-							<img id="person-five" src={require('./images/person-one.png')} />
-							<img id="person-six" src={require('./images/person-two.png')} />
-							<img id="person-seven" src={require('./images/person-one.png')} />
-							<img id="person-eight" src={require('./images/person-two.png')} />
-							<img id="person-nine" src={require('./images/person-one.png')} />
-							<img id="person-ten" src={require('./images/person-two.png')} />
-							<img id="person-eleven" src={require('./images/person-one.png')} />
-							<img id="person-twelve" src={require('./images/person-two.png')} />
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 6) ; animatePeople()} }/>
+							<img id="person-one" class="person" src={require('./images/person-one.png')} />
+							<img id="person-two" class="person" src={require('./images/person-two.png')} />
+							<img id="person-three" class="person" src={require('./images/person-one.png')} />
+							<img id="person-four" class="person" src={require('./images/person-two.png')} />
+							<img id="person-five" class="person" src={require('./images/person-one.png')} />
+							<img id="person-six"  class="person"src={require('./images/person-two.png')} />
+							<img id="person-seven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-eight" class="person" src={require('./images/person-two.png')} />
+							<img id="person-nine" class="person" src={require('./images/person-one.png')} />
+							<img id="person-ten" class="person" src={require('./images/person-two.png')} />
+							<img id="person-eleven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-twelve" class="person" src={require('./images/person-two.png')} />
 								
 							<div class="flex-container gameplay-button-container">
 								<button class="update-tree-button button-text" disabled={ game.timePassingButtonDisabled } onClick={ () => { game.updateLevel(2) ;  game.updateEpisode(0) ;  game.updateTreeBranch(0)  }}> Continue </button>
@@ -658,7 +631,7 @@ export const components = (game, level, episode, tree) => {
 							
 								
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text"  onClick={ () => game.updateTreeBranch(1) }> Continue </button>
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(1) ; disableTimePassingButton(game) } }> Continue </button>
 							</div>
 							
 						</div>
@@ -671,9 +644,11 @@ export const components = (game, level, episode, tree) => {
 
 				},
 
+				// THIS SCREEN WILL GO TO ANIMATION SCREEN BUT SHOULD CONTINUE TREE
+
 				1: {
 
-					id: "L1E0T0",
+					
 					main: (
 						<div class="level-one-background grid-container-4x6" >
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
@@ -711,13 +686,62 @@ export const components = (game, level, episode, tree) => {
 
 
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" disabled={ game.potatoButtonDisabled } onClick={ () => {game.updateTreeBranch(assessPotatoDecision(game)) } }> Run With It </button>
+								<button class="update-tree-button button-text" disabled={ game.potatoButtonDisabled } onClick={ () => { game.updateTreeBranch(assessPotatoDecision(game)) } }> Run With It </button>
 							</div>
 							
 						</div>
-					),
-					gamePlay: (
-						<div>
+					)
+					
+
+
+				},
+
+
+				// ANIMATION SCREEN (SHOULD COME AT THE END OF THE LEVEL)
+
+				2: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="weekly-earnings" class="gameplay-text"> </p>
+
+
+							<div id="position-identifier"></div>
+
+							<div class="week-number-container">
+								<p id="weekly-timer" class="gameplay-text"> </p>
+							</div>
+							
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 12) ; animatePeople()} }/>
+							<img id="person-one" class="person" src={require('./images/person-one.png')} />
+							<img id="person-two" class="person" src={require('./images/person-two.png')} />
+							<img id="person-three" class="person" src={require('./images/person-one.png')} />
+							<img id="person-four" class="person" src={require('./images/person-two.png')} />
+							<img id="person-five" class="person" src={require('./images/person-one.png')} />
+							<img id="person-six"  class="person"src={require('./images/person-two.png')} />
+							<img id="person-seven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-eight" class="person" src={require('./images/person-two.png')} />
+							<img id="person-nine" class="person" src={require('./images/person-one.png')} />
+							<img id="person-ten" class="person" src={require('./images/person-two.png')} />
+							<img id="person-eleven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-twelve" class="person" src={require('./images/person-two.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" disabled={ game.timePassingButtonDisabled } onClick={ () => { game.updateLevel(3) ;  game.updateEpisode(0) ;  game.updateTreeBranch(0)  }}> Continue </button>
+							</div>
 							
 						</div>
 					)
@@ -740,7 +764,6 @@ export const components = (game, level, episode, tree) => {
 
 				0: {
 
-					id: "L1E0T0",
 					main: (
 						<div class="level-one-background grid-container-4x6" >
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
@@ -764,13 +787,8 @@ export const components = (game, level, episode, tree) => {
 							
 								
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text"  onClick={ () => game.updateTreeBranch(1) }> Work It Out </button>
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(1) ; disableTimePassingButton(game) } }> Work It Out </button>
 							</div>
-							
-						</div>
-					),
-					gamePlay: (
-						<div>
 							
 						</div>
 					)
@@ -1245,7 +1263,7 @@ export const components = (game, level, episode, tree) => {
 								<p id="weekly-timer" class="gameplay-text"> Week 0 </p>
 							</div>
 							
-							<img id="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 6) ; animatePeople()} }/>
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 18) ; animatePeople()} }/>
 							<img id="person-one" src={require('./images/person-one.png')} />
 							<img id="person-two" src={require('./images/person-two.png')} />
 							<img id="person-three" src={require('./images/person-one.png')} />
@@ -1260,7 +1278,7 @@ export const components = (game, level, episode, tree) => {
 							<img id="person-twelve" src={require('./images/person-two.png')} />
 								
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" disabled={ game.timePassingButtonDisabled } onClick={ () => { game.updateLevel(2) ;  game.updateEpisode(0) ;  game.updateTreeBranch(0)  }}> Continue </button>
+								<button class="update-tree-button button-text" disabled={ game.timePassingButtonDisabled } onClick={ () => { game.updateLevel(4) ;  game.updateEpisode(0) ;  game.updateTreeBranch(0)  }}> Continue </button>
 							</div>
 							
 						</div>
@@ -2186,6 +2204,28 @@ export const components = (game, level, episode, tree) => {
 		})
 
 	} else if (level === 2 ) {
+
+		Object.keys(componentsObjects[level]).forEach(function(key){
+
+			if (episode.toString() === key.toString()) {
+
+				result = componentsObjects[level][key][tree]
+				
+			}
+		})
+
+	} else if (level === 3 ) {
+
+		Object.keys(componentsObjects[level]).forEach(function(key){
+
+			if (episode.toString() === key.toString()) {
+
+				result = componentsObjects[level][key][tree]
+				
+			}
+		})
+
+	} else if (level === 4 ) {
 
 		Object.keys(componentsObjects[level]).forEach(function(key){
 
