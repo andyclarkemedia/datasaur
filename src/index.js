@@ -120,6 +120,10 @@ class Game extends React.Component {
   }
 
 
+  audioMuted = false;
+  audioIconSource = "https://img.icons8.com/plasticine/2x/mute.png"
+
+
   // ========================
   // WEEKLY EARNINGS 
   // ========================
@@ -394,7 +398,7 @@ returnTreeFromTrashResult = () => {
 
 
 
-// LEVEL 2 FUNCTIONS & DATA
+// RENDER 
   
 
   render() {
@@ -418,25 +422,6 @@ returnTreeFromTrashResult = () => {
         <audio id="sepoints-down-noise" preload='auto'>
             <source src={require('./audio/sepointsdown.mp3')} type="audio/mp3"/>
         </audio>
-
-
-        <audio id="elements-basic" preload='auto' loop='true'>
-            <source src={require('./audio/elements-basic.wav')} type="audio/wav"/>
-        </audio>
-
-        <audio id="elements-kicker" preload='auto' loop='true'>
-            <source src={require('./audio/elements-kicker.wav')} type="audio/wav"/>
-        </audio>
-
-
-
-
-
-
-
-
-
-
 
 
         {this.state.component.main}

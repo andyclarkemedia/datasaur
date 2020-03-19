@@ -21,22 +21,53 @@ export const arraysMatch = function (arr1, arr2) {
 
 
 // =============
-// Play Audio
+// Mute Audio
 // =============
 
 
-export const playAudio = (item) => {
-    const basic = document.querySelector("#elements-basic");
-    const kicker = document.querySelector("#elements-kicker");
-    if (item === "one") {
-      basic.play();
-      kicker.play();
-      kicker.muted = true;
-    } else if (item === "two") {
-      basic.muted = true;
-      kicker.muted = false;
-    }
+  export const muteAudio = (game) => {
+  	// SELECT AUDIO CLIPS 
+
+  	const cashUp = document.querySelector('#cash-up-noise');
+  	const cashDown = document.querySelector('#cash-down-noise');
+  	const seNoiseUp = document.querySelector('#sepoints-up-noise');
+  	const seNoiseDown = document.querySelector('#sepoints-down-noise');
+
+  	const playAudioIcon = document.querySelector('#play-audio-icon');
+  	const muteAudioIcon = document.querySelector('#mute-audio-icon');
+
+
+  	if (game.audioMuted === true) {
+
+	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown];
+
+		noiseArray.forEach(function(item) {
+			item.muted = false;
+		})
+
+		game.audioMuted = false;
+		game.audioIconSource = "https://img.icons8.com/plasticine/2x/mute.png";
+
+  	} else {
+
+	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown];
+
+		noiseArray.forEach(function(item) {
+			item.muted = true;
+		})
+
+		game.audioMuted = true;
+		game.audioIconSource = "https://icons-for-free.com/iconfiles/png/512/circle+music+sound+speaker+volume+icon-1320196704838854001.png";
+  	}
+
+  	console.log(game.audioMuted)
+
+  	game.update(game, game.level, game.episode, game.trees)
+
   }
+
+
+
 
 
 // =============
@@ -132,14 +163,19 @@ export const animatePeople = function() {
 	const personEleven = document.querySelector('#person-eleven')
 	const personTwelve = document.querySelector('#person-twelve')
 
-	const peopleArray = [personOne, personTwo, personThree, personFour, personFive, personSix, personSeven, personEight, personNine, personTen, personEleven]
-	//, personTwelve]
+	const peopleArray = [personOne, personTwo, personThree, personFour, personFive, personSix, personSeven, personEight, personNine, personTen, personEleven, personTwelve]
 
 
-	let positionIdentifier = document.querySelector('#position-identifier')
+	let positionIdentifier = document.querySelector('#position-identifier');
+	let positionIdentifierTop = document.querySelector('#position-identifier-top');
+	let pizzaImage = document.querySelector('#planet-pizza-animation');
+
+	
 
 
 	peopleArray.forEach(function(item) {
+
+
 			anime({
 	  targets: item,
 	  // Properties 
@@ -155,24 +191,29 @@ export const animatePeople = function() {
 		var rect = item.getBoundingClientRect();
 
 		let positionMarker = positionIdentifier.getBoundingClientRect();
+		let pizzaCoordinates = pizzaImage.getBoundingClientRect();
+
 
 		let actualPosition = (positionMarker.right + positionMarker.left) / 2;
 
-		console.log(actualPosition)
 
 		let left   = rect.left   + window.scrollX;
 		let top    = rect.top    + window.scrollY;
 		let right  = rect.right  + window.scrollX;
 		let bottom = rect.bottom + window.scrollY;
 
+
+		// EUREKA
+
+
+		item.style.top = (pizzaCoordinates.top + ((pizzaCoordinates.height * 7) / 10))  + "px";
+
 	
 
 	  	if (right > actualPosition) {
-	  		console.log("Arrived")
 	  		item.style.opacity = 0
 	  		item.style.display = "none"
 	  	} else if (right < 1050) {
-	  		console.log(right)
 	  	}
 	  }
 	})
@@ -422,7 +463,7 @@ export const assessEnergySupplier = function(game) {
 	if (game.energySupplier === "solar") {
 
 		// Take away cost of solar panels from money 
-		game.moneyUp((game.money - 18000), "down")
+		game.moneyUp((game.money - 30000), "down")
 
 		game.sePointsUp( game.sePoints + 10, "up")
 
@@ -782,3 +823,75 @@ export const hideInstructionsPanel = function() {
 export const disableTimePassingButton = function(game) {
 	game.timePassingButtonDisabled = true;
 }
+
+
+
+
+
+//==================
+// MORE INFO BUTTON 
+//==================
+
+
+export const displayMoreInfo = function(title, subtitle, description) {
+
+	const infoTitle = document.querySelector('#more-info-title');
+	const infoSubtitle = document.querySelector('#more-info-subtitle');
+	const infoDescription = document.querySelector('#more-info-description');
+
+	infoTitle.innerHTML = title;
+	infoSubtitle.innerHTML = subtitle;
+	infoDescription.innerHTML = description;
+
+
+
+	// Select container 
+	const container = document.querySelector('.more-info-container');
+
+	var timeline = anime.timeline({autoplay: true});
+
+	timeline
+		.add({
+			targets: container,
+			duration: 100,
+			zIndex: 1500,
+		})
+		.add({
+			targets: container,
+			duration: 1000,
+			height: "40vh",
+			opacity: "0.9",
+		})
+
+
+}
+
+
+
+export const hideMoreInfo = function() {
+
+	// Select container 
+	const container = document.querySelector('.more-info-container');
+
+	var timeline = anime.timeline({autoplay: true});
+
+	timeline
+		.add({
+			targets: container,
+			duration: 100,
+			zIndex: 0
+		})
+		.add({
+			targets: container,
+			duration: 1000,
+			height: "0vh",
+			opacity: "0",
+		})
+}
+
+
+
+
+
+
+

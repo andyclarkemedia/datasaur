@@ -32,9 +32,9 @@ export const howToPlay = {
 // ==========================
 
 export const characters = [{
-		name: "Joe",
+		name: "Lisa",
 		business: "One Planet Pizza",
-		description: "Joe Jones is the owner of Planet Pizza. Nestled away in a cozy Cardiff Arcade, his joint is popular with the University Students who make up its major consumer base. They flock to Joe’s for two things––his delicious Tomato and Cheese Pizza, and his climate-friendly business practices!"
+		description: "Lisa is the owner of Planet Pizza. Nestled away in a cozy Cardiff Arcade, his joint is popular with the University Students who make up its major consumer base. They flock to Lisa’s for two things––his delicious Tomato and Cheese Pizza, and his climate-friendly business practices!"
 	}
 ];
 
@@ -84,8 +84,8 @@ export const businessLicense = {
 
 export const suppliersChoice = {
 	descriptionOne: "Time to choose how you want to run your business. Think carefully ... these decisions will affect the long-term success of your business!",
-	descriptionTwo: "Hover over the picture to find out more information. Click to select it!",
-	descriptionThree: "Hover over the button to find out more information. Click to select it!",
+	descriptionTwo: "Click the picture to select it. Use the '?' to get more info!",
+	descriptionThree: "Click the button to select it. Use the '?' to get more info!",
 	energyTitle: "ENERGY",
 	energyOne: "Solar Power",
 	energyTwo: "Grid",
@@ -288,3 +288,89 @@ export const cutlery = {
 
 
 
+
+
+// =================
+// MORE INFO STUFF 
+// =================
+
+
+export const moreInfo = {
+
+		energy: {
+			solarPower: {
+				title: "Solar Power",
+				subtitle: "Cost: £30000",
+				description: "This cost is for your installation ... afterwards you don’t have to care about your electricity bill anymore!"
+			},
+			grid: {
+				title: "Grid",
+				subtitle: "Cost: £3000 p/year",
+				description: "Sourcing your energy through the National Grid means that most of your energy will come from fossil fuels"
+			},
+			ethical: {
+				title: "Ethical Energy Supplier",
+				subtitle: "Cost: £5000 p/year",
+				description: "Your energy source will be greener with its origins being a mixture of hydro, solar and wind power."
+			}
+
+		},
+		furniture: {
+			upcycle: {
+				title: "Upcycle",
+				subtitle: "Cost: £4000",
+				description: "Upcycling will give a unique touch to your restaurant but it will take time to find an carpenter who is able to implement your creative and innovative ideas."
+			},
+			budget: {
+				title: "Budget Furniture",
+				subtitle: "Cost: £10000",
+				description: "Cheap … but do you think metal seats and resin table tops are suitable for your restaurant’s cozy, tranquil atmosphere?"
+			},
+			luxury: {
+				title: "Luxury Furniture",
+				subtitle: "Cost: £25000",
+				description: "Expensive, but you can get tables and chairs made from long-lasting, traceable, ethical - certified woods!"
+			}
+		
+
+		},
+		packaging: {
+			plastic: {
+				title: "Plastic",
+				subtitle: "Cost: £0.13 p/unit",
+				description: "Choosing plastic containers will help you keep your costs down but they result in a lot of waste. These can’t be recycled and your customers might start feeling guilty about ordering repeatedly from you."
+			},
+			recycling: {
+				title: "Recyclable",
+				subtitle: "Cost: £0.25 p/unit",
+				description: "Still made from plastic but these containers can be recycled and don’t cost too much. There will still be quite a lot of waste but as long as you are diligent with your waste management, you won’t be sending any packaging to landfill."
+			},
+			compostable: {
+				title: "Compostable",
+				subtitle: "Cost: £0.40 p/unit",
+				description: "Nearly double the price of other options for this sustainably sourced paper material takeout packaging. This choice results in your business sending much less to landfill as these containers will end up helping to grow plants."
+			}
+		
+
+		},
+		cutlery: {
+			plastic: {
+				title: "Plastic",
+				subtitle: "Cost: £5.20 p/100 full sets",
+				description: "Just £5.20 will get you 100 knives, forks and spoons. Plastic might not be great for the environment but this is a really cheap purchase!"
+			},
+			wooden: {
+				title: "Wooden",
+				subtitle: "Cost: £12.40 p/100 full sets",
+				description: "This cutlery is designed to biodegrade quickly. Though expensive, these knives, forks and spoons have been made from betula wood, approved by the forestry commision. Besides, wooden cutlery just looks that extra bit classy!"
+			},
+			none: {
+				title: "No Cutlery",
+				subtitle: "Cost: £0.00 ",
+				description: "This obviously won’t cost you anything but could be a risky decision as some of your takeout customers will be wanting to eat around town. They wouldn’t have anything to eat with!"
+			}
+		
+
+		},
+
+}
