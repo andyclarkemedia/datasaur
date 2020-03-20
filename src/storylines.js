@@ -374,3 +374,16 @@ export const moreInfo = {
 		},
 
 }
+
+
+
+// =================
+// MAZE  
+// =================
+
+export const maze = {
+	instructionsOne: "You are well on the way to achieving your goal - making affordable environmentally sustainable meals for as many people as possible! You have found a cozy place with a view of the Taft River and now you need more money to work on your renovation of the place and to hire more staff. Besides, you also need to build a strong community of people who will endorse your goals and be your loyal customers.",
+	instructionsTwo: "Play the maze to find investors, look for government funding and even create a crowdfunding campaign. It’s not an easy journey...  ",
+	instructionsThree: ""
+}
+

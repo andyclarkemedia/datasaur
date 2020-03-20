@@ -104,6 +104,11 @@ export const timePassing = (game, weekBegin, weekEnd) => {
 	// Set Timer 
 	var weeklyTimer = setInterval(function(){
 
+	// Display Speech Bubble
+
+	displaySpeechBubble();
+
+
 
 	// Set starting week variable
 	let weekNumber = game.weekNumber;
@@ -135,6 +140,8 @@ export const timePassing = (game, weekBegin, weekEnd) => {
     	game.enableTimePassingButton(); 
 
    	 	clearInterval(weeklyTimer);
+
+   	 	hideSpeechBubble();
 
 
   	}
@@ -890,6 +897,29 @@ export const hideMoreInfo = function() {
 }
 
 
+//==================
+// SPEECH BUBBLES
+//==================
+
+
+const speechSourceArray = ["https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972080/pexels-photo-3972080.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972083/pexels-photo-3972083.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972085/pexels-photo-3972085.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500"];
+let speechCounter = 0;
+
+const displaySpeechBubble = function() {
+
+	// Select image container 
+	const image = document.querySelector('.speech-bubble');
+	image.src = speechSourceArray[speechCounter];
+	image.style.display = 'block';
+
+	speechCounter += 1;
+}
+
+const hideSpeechBubble = function() {
+	const image = document.querySelector('.speech-bubble');
+
+	image.style.display = "none";
+}
 
 
 
