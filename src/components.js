@@ -5,8 +5,8 @@
 import React from 'react';
 import './index.css';
 import { triggerMaze } from './mazing.js';
-import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze } from './storylines.js';
-import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo } from './utils.js';
+import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final } from './storylines.js';
+import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin } from './utils.js';
 
 
 export const components = (game, level, episode, tree) => {
@@ -563,7 +563,7 @@ export const components = (game, level, episode, tree) => {
 								<p id="weekly-timer" class="gameplay-text"> Week 0 </p>
 							</div>
 							
-							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 6) ; animatePeople()} }/>
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, game.weekNumber, 6) ; animatePeople()} }/>
 							<img id="person-one" class="person" src={require('./images/person-one.png')} />
 							<img id="person-two" class="person" src={require('./images/person-two.png')} />
 							<img id="person-three" class="person" src={require('./images/person-three.png')} />
@@ -628,6 +628,7 @@ export const components = (game, level, episode, tree) => {
 							<p id="potato-flood" class="gameplay-text"> { ohNoSupplierOutOfStock.descriptionOne } </p>
 							
 							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
 								
 							<div class="flex-container gameplay-button-container">
 								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(1) ; disableTimePassingButton(game) } }> Continue </button>
@@ -642,8 +643,6 @@ export const components = (game, level, episode, tree) => {
 					)
 
 				},
-
-				// THIS SCREEN WILL GO TO ANIMATION SCREEN BUT SHOULD CONTINUE TREE
 
 				1: {
 
@@ -669,6 +668,7 @@ export const components = (game, level, episode, tree) => {
 							
 							
 							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
 
 							<div id="potato-choice-container">
 
@@ -700,9 +700,619 @@ export const components = (game, level, episode, tree) => {
 				},
 
 
-				// ANIMATION SCREEN (SHOULD COME AT THE END OF THE LEVEL)
+				// WHOLESALER 2 - 5
+
 
 				2: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="first-wholesale-potato"> {potatoWholesalePath.first} </p> 
+
+							<img id="wholesale-potato-image" src={require('./images/wholesale.png')} />
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(3) }}> Continue </button>
+							</div>
+							
+						</div>
+					)
+
+
+
+
+				},
+
+				3: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="second-wholesale-potato"> {potatoWholesalePath.second} </p> 
+							<p id="third-wholesale-potato"> {potatoWholesalePath.third} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(4) ;  decreaseMealPrice(game) }}> Absolutely </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(5) ; updatePopularity(game, (game.popularityFactor - 0.1))}}> Not Happening </button>
+							</div>
+							
+						</div>
+					)
+
+
+				},
+
+				4: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="cheaper-yes-wholesale-potato"> {potatoWholesalePath.cheaperYes} </p> 
+							<p id="final-service-wholesale-potato"> {potatoWholesalePath.finalService} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(17) ; adjustSupplierCostOnPotatoDecision(game) }}> Phew ...  </button>
+							</div>
+							
+						</div>
+					)
+
+
+				},
+
+				5: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="cheaper-no-wholesale-potato"> {potatoWholesalePath.cheaperNo} </p> 
+							<p id="final-service-wholesale-potato"> {potatoWholesalePath.finalService} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(17) ; adjustSupplierCostOnPotatoDecision(game) }}> Let's see ...  </button>
+							</div>
+							
+						</div>
+					)
+
+
+				},
+
+
+				6: {
+
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="first-rethink-potato"> {potatoRethinkPath.first} </p> 
+							<p id="second-rethink-potato"> {potatoRethinkPath.second} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) }}> Let's see ...  </button>
+							</div>
+							
+						</div>
+					)
+
+
+
+				},
+
+
+				7: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="chaos-rethink-potato"> {potatoRethinkPath.third} </p> 
+							<p id="discount-choice-rethink-potato"> {potatoRethinkPath.discountChoice} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(8) ; game.moneyUp((game.money - 200), "down")}}> Absolutely  </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(9) ; updatePopularity(game, (game.popularityFactor - 0.15)) }}> No Way  </button>
+							</div>
+							
+						</div>
+					)
+
+				},
+
+				// NEED TO INPUT CHOICES HERE 
+
+				8: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="discount-yes-rethink-potato"> {potatoRethinkPath.discountYes} </p> 
+
+							<div class="potato-rethink-choice-container">
+
+								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice")}} />
+								<p id="potato-rethink-choice-organic-text"> {potatoRethinkPath.organicFarmChoice} </p>
+
+								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice")}} />
+								<p id="potato-rethink-choice-wholesale-text"> {potatoRethinkPath.wholesaleChoice} </p>
+
+								<p id="click-select-rethink-potato"> {potatoRethinkPath.clickInstructions} </p>
+
+							</div>
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" disabled={game.potatoChaosButtonDisabled} onClick={ () => { game.updateTreeBranch(assessTreeFromRethinkPotatoSupplier(game)) }}> Go With It  </button>
+							</div>
+							
+						</div>
+					)
+
+				},
+
+				// NEED TO INPUT CHOICES HERE 
+
+				9: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+							<div class="potato-rethink-choice-container">
+
+								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-no-rethink-potato", game, "potato-rethink-choice")}} />
+								<p id="potato-rethink-choice-organic-text"> {potatoRethinkPath.organicFarmChoice} </p>
+
+								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-no-rethink-potato", game, "potato-rethink-choice")}} />
+								<p id="potato-rethink-choice-wholesale-text"> {potatoRethinkPath.wholesaleChoice} </p>
+
+								<p id="click-select-rethink-potato"> {potatoRethinkPath.clickInstructions} </p>
+
+							</div>
+
+							<p id="discount-no-rethink-potato"> {potatoRethinkPath.discountNo} </p> 
+							
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(assessTreeFromRethinkPotatoSupplier(game)) }}> Go With It  </button>
+							</div>
+							
+						</div>
+					)
+
+				},
+
+
+				// Organic Choice 
+				10: {
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="first-organic-potato"> {potatoOrganicPath.first} </p> 
+							<p id="second-organic-potato"> {potatoOrganicPath.second} </p> 
+							
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(11) ; game.moneyUp((game.money - 200), "down")}}> Sure  </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(12) }}> No Way  </button>
+							</div>
+							
+						</div>
+
+						)
+				},
+
+
+				11: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="express-yes-organic-potato"> {potatoOrganicPath.expressYes} </p> 
+
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(17) ; adjustSupplierCostOnPotatoDecision(game) }}> Continue </button>
+							</div>
+							
+						</div>
+
+						)
+
+
+
+				},
+
+
+				// EXPRESS NO 
+
+
+				12: {
+
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="express-no-organic-potato"> {potatoOrganicPath.expressNo} </p> 
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(13) }}> Continue </button>
+							</div>
+							
+						</div>
+
+						)
+
+
+				},
+
+				13: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="confusion-organic-potato"> {potatoOrganicPath.confusion} </p> 
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(14) ; game.moneyUp((game.money - 200), "down")}}> Definately </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(15) ; updatePopularity(game, (game.popularityFactor - 0.1)) }}> Not This Time </button>
+							</div>
+							
+						</div>
+
+						)
+
+				},
+
+
+				14: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+							<div class="organic-choice-container">
+
+								<p id="express-delivery-choice" > {potatoOrganicPath.optionOne} </p>
+								<p id="staff-training-choice" > {potatoOrganicPath.optionTwo} </p>
+								<p id="potato-wholesale-choice" > {potatoOrganicPath.optionThree} </p>
+
+								<img id="potato-organic-express-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-express-image", "#potato-organic-staff-image", "#potato-organic-wholesale-image", game, "potato-organic-choice")}} />
+								<img id="potato-organic-staff-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-staff-image", "#potato-organic-express-image", "#potato-organic-wholesale-image", game, "potato-organic-choice")}} />
+								<img id="potato-organic-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-wholesale-image", "#potato-organic-staff-image", "#potato-organic-express-image", game, "potato-organic-choice")}} />
+
+								<p id="click-select-organic-potato" > {potatoRethinkPath.clickInstructions} </p>
+
+							</div>
+
+
+							<p id="discount-yes-organic-potato"> {potatoOrganicPath.discountYes} </p> 
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" disabled={game.potatoDeadlineButtonDisabled} onClick={ () => { game.updateTreeBranch(assessDeadlinePotatoDecision(game)) }}> Go With It </button>
+							</div>
+							
+						</div>
+
+						)
+
+
+				},
+
+				15: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+							<div class="organic-choice-container">
+
+								<p id="express-delivery-choice" > {potatoOrganicPath.optionOne} </p>
+								<p id="staff-training-choice" > {potatoOrganicPath.optionTwo} </p>
+								<p id="potato-wholesale-choice" > {potatoOrganicPath.optionThree} </p>
+
+								<img id="potato-organic-express-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-express-image", "#potato-organic-staff-image", "#potato-organic-wholesale-image", game, "potato-organic-choice")}} />
+								<img id="potato-organic-staff-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-staff-image", "#potato-organic-express-image", "#potato-organic-wholesale-image", game, "potato-organic-choice")}} />
+								<img id="potato-organic-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-organic-wholesale-image", "#potato-organic-staff-image", "#potato-organic-express-image", game, "potato-organic-choice")}} />
+
+								<p id="click-select-organic-potato" > {potatoRethinkPath.clickInstructions} </p>
+
+							</div>
+
+
+							<p id="discount-no-organic-potato"> {potatoOrganicPath.discountNo} </p> 
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" disabled={game.potatoDeadlineButtonDisabled} onClick={ () => { game.updateTreeBranch(assessDeadlinePotatoDecision(game)) }}> Go With It </button>
+							</div>
+							
+						</div>
+
+						)
+				},
+
+				// Staff Training
+				16: {
+
+					main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="staff-training-organic-potato"> {potatoOrganicPath.staffTraining} </p> 
+
+							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
+							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(17) ; adjustSupplierCostOnPotatoDecision(game) }}> Sorted </button>
+							</div>
+							
+						</div>
+
+						)
+
+				},
+
+
+				// ANIMATION SCREEN (SHOULD COME AT THE END OF THE LEVEL)
+
+				17: {
 
 					main: (
 						<div class="level-one-background grid-container-4x6" >
@@ -728,10 +1338,10 @@ export const components = (game, level, episode, tree) => {
 							<div id="position-identifier"></div>
 
 							<div class="week-number-container">
-								<p id="weekly-timer" class="gameplay-text"> </p>
+								<p id="weekly-timer" class="gameplay-text"> {"Week " + game.weekNumber} </p>
 							</div>
 							
-							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 12) ; animatePeople()} }/>
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, game.weekNumber, 12) ; animatePeople()} }/>
 							<img id="person-one" class="person" src={require('./images/person-one.png')} />
 							<img id="person-two" class="person" src={require('./images/person-two.png')} />
 							<img id="person-three" class="person" src={require('./images/person-three.png')} />
@@ -1325,10 +1935,10 @@ export const components = (game, level, episode, tree) => {
 							<div id="position-identifier"></div>
 
 							<div class="week-number-container">
-								<p id="weekly-timer" class="gameplay-text"> Week 0 </p>
+								<p id="weekly-timer" class="gameplay-text"> {"Week " + game.weekNumber} </p>
 							</div>
 							
-							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, 1, 18) ; animatePeople()} }/>
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, game.weekNumber, 18) ; animatePeople()} }/>
 							<img id="person-one" src={require('./images/person-one.png')} />
 							<img id="person-two" src={require('./images/person-two.png')} />
 							<img id="person-three" src={require('./images/person-three.png')} />
@@ -2126,7 +2736,7 @@ export const components = (game, level, episode, tree) => {
 							
 
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(0) ;  game.updateEpisode(2)} }> Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) } }> Continue </button>
 							</div>
 						
 						</div>
@@ -2168,7 +2778,7 @@ export const components = (game, level, episode, tree) => {
 							
 
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(0) ;  game.updateEpisode(2)}  }> Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) }  }> Continue </button>
 							</div>
 						
 						</div>
@@ -2212,7 +2822,7 @@ export const components = (game, level, episode, tree) => {
 							</div>
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
 								<button class="update-tree-button button-text" onClick={ () => game.updateTreeBranch(6) }> Bargain </button>
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(0) ;  game.updateEpisode(2) ; game.moneyUp((game.money - 250), "down")}  }> Pay & Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ; game.moneyUp((game.money - 250), "down")}  }> Pay & Continue </button>
 							</div>
 						
 						</div>
@@ -2257,7 +2867,7 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
 								<button class="update-tree-button button-text" onClick={ () => game.updateTreeBranch(6) }> Bargain </button>
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(0) ;  game.updateEpisode(2) ; game.moneyUp((game.money - 500), "down")} }> Pay & Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ;  game.moneyUp((game.money - 500), "down")} }> Pay & Continue </button>
 							</div>
 						
 						</div>
@@ -2292,7 +2902,7 @@ export const components = (game, level, episode, tree) => {
 							
 
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(0) ;  game.updateEpisode(2) ; game.moneyUp((game.money - 1000), "down")} }> Pay & Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ; game.moneyUp((game.money - 1000), "down")} }> Pay & Continue </button>
 							</div>
 						
 						</div>
@@ -2302,12 +2912,278 @@ export const components = (game, level, episode, tree) => {
 							
 						</div>
 					)
+				},
+
+			7: {
+
+
+				main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+
+							<p id="drag-and-drop-final-text">{dragAndDropResults.finalText}</p>
+							<img id="planet-pizza-decor" class="planet-pizza" src={require('./images/restaurant.png')} />
+
+							
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => game.updateTreeBranch(8) }> Continue </button>
+							</div>
+							
+						</div>
+					),
+				},
+
+			8: {
+
+				main: (
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<div class="icon-container pound-coin-icon-container">
+								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="icon-text"> {game.money} </p>
+							</div>
+							<div class="icon-container leaf-icon-container">
+								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
+								<p class="plain-text icon-text"> {game.sePoints} </p>
+							</div>
+
+							<img class="speech-bubble" src="" />
+
+							<p id="weekly-earnings" class="gameplay-text"> </p>
+
+
+							<div id="position-identifier"></div>
+							<div id="position-identifier-top"></div>
+
+							<div class="week-number-container">
+								<p id="weekly-timer" class="gameplay-text"> { "Week " + game.weekNumber } </p>
+							</div>
+							
+							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, game.weekNumber, 24) ; animatePeople()} }/>
+							<img id="person-one" class="person" src={require('./images/person-one.png')} />
+							<img id="person-two" class="person" src={require('./images/person-two.png')} />
+							<img id="person-three" class="person" src={require('./images/person-three.png')} />
+							<img id="person-four" class="person" src={require('./images/person-four.png')} />
+							<img id="person-five" class="person" src={require('./images/person-five.png')} />
+							<img id="person-six"  class="person"src={require('./images/person-two.png')} />
+							<img id="person-seven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-eight" class="person" src={require('./images/person-two.png')} />
+							<img id="person-nine" class="person" src={require('./images/person-one.png')} />
+							<img id="person-ten" class="person" src={require('./images/person-two.png')} />
+							<img id="person-eleven" class="person" src={require('./images/person-one.png')} />
+							<img id="person-twelve" class="person" src={require('./images/person-two.png')} />
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" disabled={ game.timePassingButtonDisabled } onClick={ () => { game.updateLevel(5) ;  game.updateEpisode(0) ;  game.updateTreeBranch(calculateWin(game))  }}> Your Score </button>
+							</div>
+							
+						</div>
+					),
+
 				}
 			}
 			
+		},
+
+		// ================
+		// CALCULATE WINNER
+		// ================
+
+		5: {
+
+			0: {
+
+				0: {
+
+					main: (
+
+
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+
+							<p class="win-lose-title"> { final.winTitle } </p>
+
+							<p id="win-lose-text" class="gameplay-text"> { final.winText } </p>
+
+
+							
+							<div class="final-result-container">
+								<p class="score-text-title"> {final.scoreTitle} </p>
+								<img class="win-lose-leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="score-text-points"> {game.sePoints} </p>
+								<img class="win-lose-pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="score-text-money"> {game.money} </p>
+							</div>
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(1) } }> Read The Article </button>
+							</div>
+							
+						</div>
+
+
+
+
+						)
+
+				},
+
+				// LOSE SE POINTS
+
+				1: {
+
+
+					main: (
+
+
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+
+							<p class="win-lose-title"> { final.loseTitle } </p>
+
+							<p id="win-lose-text" class="gameplay-text"> { final.loseSEtext } </p>
+
+
+							
+							<div class="final-result-container">
+								<p class="score-text-title"> {final.scoreTitle} </p>
+								<img class="win-lose-leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="score-text-points"> {game.sePoints} </p>
+								<img class="win-lose-pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="score-text-money"> {game.money} </p>
+							</div>
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(2) } }> Read The Article </button>
+							</div>
+							
+						</div>
+
+
+
+
+						)
+
+
+				},
+
+				// LOSE MONEY
+
+				2: {
+
+
+
+					main: (
+
+
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+
+							<p class="win-lose-title"> { final.loseTitle } </p>
+
+							<p id="win-lose-text" class="gameplay-text"> { final.loseMoneyText } </p>
+
+
+							
+							<div class="final-result-container">
+								<p class="score-text-title"> {final.scoreTitle} </p>
+								<img class="win-lose-leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="score-text-points"> {game.sePoints} </p>
+								<img class="win-lose-pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="score-text-money"> {game.money} </p>
+							</div>
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(3) } }> Read The Article </button>
+							</div>
+							
+						</div>
+
+
+
+
+						)
+
+
+				},
+
+				// LOSE BOTH
+
+				3: {
+
+					main: (
+
+
+						<div class="level-one-background grid-container-4x6" >
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+
+							<p class="win-lose-title"> { final.loseTitle } </p>
+
+							<p id="win-lose-text" class="gameplay-text"> { final.loseBothText } </p>
+
+
+							
+							<div class="final-result-container">
+								<p class="score-text-title"> {final.scoreTitle} </p>
+								<img class="win-lose-leaf-icon-image" src={require('./images/leaf.png')}/>
+								<p class="score-text-points"> {game.sePoints} </p>
+								<img class="win-lose-pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+								<p class="score-text-money"> {game.money} </p>
+							</div>
+								
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.updateTreeBranch(1) } }> Read The Article </button>
+							</div>
+							
+						</div>
+
+
+
+
+						)
+
+
+				}
+
+			}
+
 		}
 
-		// LEVEL 2
+	
 	}
 
 
@@ -2363,6 +3239,17 @@ export const components = (game, level, episode, tree) => {
 		})
 
 	} else if (level === 4 ) {
+
+		Object.keys(componentsObjects[level]).forEach(function(key){
+
+			if (episode.toString() === key.toString()) {
+
+				result = componentsObjects[level][key][tree]
+				
+			}
+		})
+
+	} else if (level === 5 ) {
 
 		Object.keys(componentsObjects[level]).forEach(function(key){
 

@@ -121,7 +121,7 @@ class Game extends React.Component {
 
 
   audioMuted = false;
-  audioIconSource = "https://img.icons8.com/plasticine/2x/mute.png"
+  audioIconSource = "https://i.imgur.com/tvEes8a.png"
 
 
   // ========================
@@ -249,6 +249,22 @@ class Game extends React.Component {
 
   potatoInitialDecision = "";
 
+  potatoDeadlineButtonDisabled = true;
+
+  enablePotatoDeadlineButton = () => {
+    this.potatoDeadlineButtonDisabled = false;
+    this.update(this.level, this.episode, this.trees);
+  }
+
+  potatoDeadlineDecision = "";
+
+
+  potatoChaosButtonDisabled = true;
+
+  enablePotatoChaosButton = () => {
+    this.potatoChaosButtonDisabled = false;
+    this.update(this.level, this.episode, this.trees);
+  }
 
   // ========================
   // PACKAGING 

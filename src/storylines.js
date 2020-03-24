@@ -86,20 +86,20 @@ export const suppliersChoice = {
 	descriptionOne: "Time to choose how you want to run your business. Think carefully ... these decisions will affect the long-term success of your business!",
 	descriptionTwo: "Click the picture to select it. Use the '?' to get more info!",
 	descriptionThree: "Click the button to select it. Use the '?' to get more info!",
-	energyTitle: "ENERGY",
+	energyTitle: "Choose an energy supply",
 	energyOne: "Solar Power",
 	energyTwo: "Grid",
-	energyThree: "Ethical Energy Supplier",
-	furnitureTitle: "FURNISHINGS",
+	energyThree: "Ethical Energy",
+	furnitureTitle: "Select your furtniture",
 	furnitureOne: "Upcycle",
 	furnitureTwo: "Budget Purchase",
 	furnitureThree: "Luxury Purchase",
-	foodTitle: "INGREDIENTS",
+	foodTitle: "Pick your ingredient suppliers",
 	foodOne: "Tomatoes",
 	foodTwo: "Cheese",
 	foodThree: "Pork",
 	foodFour: "Chicken",
-	foodFive: "Potatoes",
+	foodFive: "Carrots",
 	foodOriginOne: "Local Farm",
 	foodOriginTwo: "Organic Farm",
 	foodOriginThree: "Wholesaler"
@@ -194,7 +194,8 @@ export const dragAndDropResults = {
 		over3Quarters: "Not Bad … You got rid of most of your waste correctly and made it home in time to cook  up a storm for your family",
 		under3Quarters: "Not a great performance. Loads of your waste went in the wrong bin. An environmental warden spots you and gives you a £250 penalty notice. Bargain with him?",
 		underHalf: "Oh no … An environmental warden comes around as your putting trash into the wrong bin. That’s a penalty notice of £500. Bargain with him?",
-		bargain: "He's not having any of it ... Never a good idea to bargain with an environmental warden. He ups your fine to £1000. No messing!"
+		bargain: "He's not having any of it ... Never a good idea to bargain with an environmental warden. He ups your fine to £1000. No messing!",
+		finalText: "Okay back to normal business. You've got one last week of earnings before we calculate how you've done. Good Luck"
 }
 
 
@@ -386,4 +387,73 @@ export const maze = {
 	instructionsTwo: "Play the maze to find investors, look for government funding and even create a crowdfunding campaign. It’s not an easy journey...  ",
 	instructionsThree: ""
 }
+
+
+
+
+// =================
+// Potato Tree 
+// =================
+
+
+
+export const potatoWholesalePath = {
+
+	first: "Okay not the end of the world … you nip down to the wholesalers and pick up some potatoes. It takes ages to get them from another farm. Let’s just hope your customer’s still enjoy their meals!",
+	second: "Halfway through dinner service a regular customer sends word back to the kitchen that they didn’t enjoy the potatoes as much as usual. Your waitress explained the situation and the customer was fine.",
+	third: "Nonetheless, since your ingredients are cheaper - you're wondering if you should make your meals £1 less expensive. What do you think?",
+	cheaperYes: "Phew your customer was really grateful and hopes that the farm recovers soon!",
+	cheaperNo: "Fair decision. Let’s hope that the popularity of your restaurant doesn’t suffer as a result!",
+	finalService: "The rest of your service goes well. Looks like that problem has been solved for now!"
+}
+
+
+export const potatoRethinkPath = {
+	first: "Okay so you ask your staff to come in an hour early. You need to club together to re-write, re-print and re-learn the menus. It takes a bit of time and is quite rushed but you get there just in time for your first customers.",
+	second: "Hopefully your waiting staff were paying attention and all goes well with tonight’s service …",
+	third: "Uh-Oh it’s chaos out there in your restaurant tonight. You’ve got loads of disappointed customers wondering why there are no potatoes.",
+	discountChoice: "Do you want to offer a general discount to everyone?",
+	discountYes: "Good choice. It looks like your customers are more understanding now but you can’t have this happening again. What do you want to do?",
+	discountNo: "Oh well. Looks like you’ve got a lot of unhappy people leaving your restaurant tonight! You can’t have this happening again. What do you want to do?",
+	organicFarmChoice: "Source from another organic farm",
+	wholesaleChoice: "Get them from the wholesalers",
+	clickInstructions: "Click on the picture to select it!"
+
+}
+
+export const potatoOrganicPath = {
+	first: "Choosing to source from another organic supplier is a good option but it looks like standard delivery is going to take quite a while. You don’t want to be without potatoes this week.",
+	second: "Pay £200 for express delivery?",
+	expressYes: "Phew. Your delivery arrives right on time for dinner service! Dinner service goes really well … Looks like that problem has been solved for now!",
+	expressNo: "Okay so you are going to have to completely re-design your menu until these potatoes arrive. You call your front of house and kitchen team in for a meeting and run through your ideas. Let’s hope that everyone was onboard and doesn’t get confused later ...",
+	confusion: "Oh dear … what with all of the sudden menu changes there has been huge confusion between the kitchen and the waiting teams. Tensions are high amongst your staff and some of your customers have got the wrong meals! You apologise to your team but do you want to offer discounts to the disappointed customers in house!",
+	discountYes: "Good choice. But you’ve got 3 more days until your potatoes come. What do you want to do?",
+	discountNo: "Fair enough. Let’s hope your restaurant ratings don’t suffer as a result … But you’ve still got 3 more days until your potatoes come. What do you want to do?",
+	staffTraining: "Nice one. You call all of your staff in early to learn the new menu. It costs you £250 in wages but it’s well worth it when tonight’s service goes much more smoothly. Looks like that problem has been solved for now! ",
+	optionOne: "Express Delivery",
+	optionTwo: "Staff Training",
+	optionThree: "Wholesaler"
+
+}
+
+
+
+
+
+// =================
+// Winner / Loser 
+// =================
+
+
+export const final = {
+	winTitle: "You Win!",
+	loseTitle: "You Lose!",
+	winText: "It’s extremely tough to balance sustainable practise with profit making but you did it! Congratulations! Maybe it's time you started a business of your own ...",
+	loseSEtext: "Well …  you grew your business pretty well and made lots of profit. However not enough of your decisions were environmentally sustainable.",
+	loseMoneyText: "Well …  you made loads of really environmentally sustainable choices but not enough profit. You need to be able to survive in a seriously competitive market if you want to grow a sustainable business.",
+	loseBothText: "Oh dear … looks like you didn’t make enough money or enough environmentally sustainable choices to win this time. It’s a difficult balance and there aren’t many businesses that can get it right!",
+	scoreTitle: "Your Score"
+}
+
+
 

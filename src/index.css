@@ -1145,6 +1145,13 @@ EPISODE TWO
 	grid-column: 5;
 }
 
+#drag-and-drop-final-text {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
 
 /* 
 ==========================================================================
@@ -1796,6 +1803,14 @@ SUPPLIER RUNS OUT OF STOCK ...
 }
 
 
+.potato-fork-image {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 25vw;
+}
+
+
 #potato-important {
 	grid-row: 1/3;
 	align-self: center;
@@ -1906,6 +1921,147 @@ SUPPLIER RUNS OUT OF STOCK ...
 	padding: .2em;
 }
 
+/* 
+==================
+POTATO WHOLESALE 
+==================
+*/
+
+#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato   {
+	grid-row: 2/3;
+	grid-column: 3/5;
+	align-self: center;
+	font-size: 1.5em;
+}
+
+
+#wholesale-potato-image {
+	grid-row: 3;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 10vw;
+}
+
+
+#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+	grid-row: 3/4;
+	grid-column: 3/5;
+	align-self: flex-start;
+	font-size: 1.5em;
+}
+
+
+.potato-rethink-choice-container, .organic-choice-container {
+	grid-row: 3;
+	align-self: flex-start;
+	justify-self: center;
+	grid-column: 2/6;
+	display: grid;
+	grid-gap: 2em;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(3);
+  	text-align: center;
+}
+
+#potato-rethink-choice-organic-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 1/3;	
+	align-self: center;
+	justify-self: center;
+	cursor: pointer;
+	padding: .5em;
+
+
+}
+
+#potato-rethink-choice-wholesale-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 5/8;
+	align-self: center;
+	justify-self: center;
+	cursor: pointer;
+	padding: .5em;
+}
+
+#potato-rethink-choice-organic-text {
+	grid-row: 1;
+	grid-column: 1/3;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+#potato-rethink-choice-wholesale-text {
+	grid-row: 1;
+	grid-column: 5/8;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+#click-select-rethink-potato, #click-select-organic-potato  {
+	grid-row: 3;
+	grid-column: 1/7;
+	align-self: flex-start;
+	padding: 1vw;
+	justify-self: center;
+	font-size: 1.1em;
+
+}
+
+
+#express-delivery-choice {
+	grid-row: 1;
+	grid-column: 1/3;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#staff-training-choice {
+	grid-row: 1;
+	grid-column: 3/5;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#potato-wholesale-choice {
+	grid-row: 1;
+	grid-column: 5/7;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+
+
+#potato-organic-express-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 1/3;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
+
+#potato-organic-staff-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 3/5;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
+
+#potato-organic-wholesale-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 5/7;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
 
 
 
@@ -2605,6 +2761,92 @@ END OF MAZE CSS
 /* 
 ==========================================================================
 ==========================================================================
+
+WIN LOSE
+
+==========================================================================
+==========================================================================
+*/
+
+.win-lose-title {
+	grid-row: 1/2;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 5em;
+	color: #f2f2f2;
+	font-weight: 700;
+	text-align: center;
+}
+
+#win-lose-text {
+	grid-column: 2/6;
+	grid-row: 2;
+	text-align: center;
+}
+
+
+.win-lose-pound-coin-icon-image, .win-lose-leaf-icon-image {
+	width: 5vw;
+}
+
+.final-result-container {
+	grid-row: 3;
+	grid-column: 3/5;
+	align-self: center;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4);
+    grid-gap: 1em;
+    background-color: #f2f2f2;
+    border: .1em solid #282828;
+    padding: 1em;
+    opacity: .9;
+    margin-bottom: 5em;
+    border-radius: .3em;
+	
+}
+
+.win-lose-pound-coin-icon-image {
+	grid-row: 2;
+	grid-column: 2/3;
+	justify-self: center;
+}
+
+.win-lose-leaf-icon-image {
+	grid-row: 2;
+	grid-column: 5;
+	justify-self: center;
+
+}
+
+.score-text-points {
+	grid-row: 3;
+	grid-column: 5/6;
+	font-size: 3em;
+	align-self: center;
+	justify-self: center;
+}
+
+.score-text-money {
+	grid-row: 3;
+	grid-column: 2/3;
+	font-size: 3em;
+	align-self: center;
+	justify-self: center;
+}
+
+.score-text-title {
+	grid-row: 1;
+	grid-column: 2/6;
+	justify-self: center;
+	font-weight: 700;
+	font-size: 3em;
+}
+
+
+/* 
+==========================================================================
+==========================================================================
 ==========================================================================
 ==========================================================================
 
@@ -2617,6 +2859,10 @@ MEDIA QUERIES
 ==========================================================================
 ==========================================================================
 */
+
+
+
+
 
 
 
@@ -2775,6 +3021,7 @@ MEDIA QUERIES
 
 
 }
+
 
 
 

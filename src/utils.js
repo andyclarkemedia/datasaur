@@ -46,7 +46,7 @@ export const arraysMatch = function (arr1, arr2) {
 		})
 
 		game.audioMuted = false;
-		game.audioIconSource = "https://img.icons8.com/plasticine/2x/mute.png";
+		game.audioIconSource = "https://i.imgur.com/tvEes8a.png";
 
   	} else {
 
@@ -57,7 +57,7 @@ export const arraysMatch = function (arr1, arr2) {
 		})
 
 		game.audioMuted = true;
-		game.audioIconSource = "https://icons-for-free.com/iconfiles/png/512/circle+music+sound+speaker+volume+icon-1320196704838854001.png";
+		game.audioIconSource = "https://i.imgur.com/gRxYrXW.png";
   	}
 
   	console.log(game.audioMuted)
@@ -448,6 +448,10 @@ export const selectSupplier = function(elementSelect, elementTwo, elementThree, 
 		updatePackagingDecision(elementSelect, game)
 	} else if (type === "cutlery") {
 		updateCutleryDecision(elementSelect, game)
+	} else if (type === "potato-rethink-choice") {
+		updatePotatoSupplier(elementSelect, game);
+	} else if (type === "potato-organic-choice") {
+		updateDeadlinePotatoDecision(elementSelect, game)
 	}
 
 };
@@ -509,16 +513,16 @@ const updateFurnitureSelection = function(elementSelect, game) {
 export const assessFurnitureSelection = function(game) {
 	if (game.furnitureSelection === "upcycle") {
 		game.sePointsUp( game.sePoints + 8, "up")
-		game.moneyUp((game.money - 5000), "down")
+		game.moneyUp((game.money - 4000), "down")
 
 		// Change week of game 
 		game.weekNumber = 4;
 	} else if (game.furnitureSelection === "budget") {
-		game.moneyUp((game.money - 20000), "down")
+		game.moneyUp((game.money - 10000), "down")
 
 
 	} else if (game.furnitureSelection === "luxury") {
-		game.moneyUp((game.money - 40000), "down")
+		game.moneyUp((game.money - 25000), "down")
 	}
 }
 
@@ -548,9 +552,56 @@ export const assessFoodSupplierSelection = function(game, foodType) {
 
 	game.weeklyEarnings.costs.supplier.supplierCost += parseInt(game.suppliers.costs[foodType][game.suppliers[foodType]]);
 
-	console.log( game.suppliers.costs[foodType][game.suppliers[foodType]])
+	console.log(parseInt(game.suppliers.costs[foodType][game.suppliers[foodType]]))
+
+	
 }
 
+
+// NEED TO FIX CALCULATIONS ON POTATO SUPPLIER DECSISONS 
+
+export const updatePotatoSupplier = function(elementSelect, game) {
+
+	console.log(game.potatoInitialDecision)
+
+	if (elementSelect.includes("organic")) {
+		game.potatoInitialDecision = "organic";
+	} else if (elementSelect.includes("wholesale")) {
+		game.potatoInitialDecision = "wholesale";
+
+
+	}
+
+	game.enablePotatoChaosButton();
+
+}
+
+
+export const assessTreeFromRethinkPotatoSupplier = function(game) {
+	if (game.potatoInitialDecision === "organic") {
+		return 10;
+	} else if (game.potatoInitialDecision === "wholesale") {
+		return 2;
+	}
+
+}
+
+
+export const adjustSupplierCostOnPotatoDecision = function(game) {
+
+	// Update supplier cost depending on potato choice
+
+	if (game.potatoInitialDecision === "wholesale") {
+		game.weeklyEarnings.costs.supplier.supplierCost -= 100;
+ 	} else if (game.potatoInitialDecision === "organic") {
+	game.weeklyEarnings.costs.supplier.supplierCost += 150;
+ 	} else {
+ 		console.log("didn't work")
+ 	}
+
+
+	console.log(game.potatoInitialDecision);
+}
 
 
 
@@ -617,14 +668,62 @@ export const assessPotatoDecision = function(game) {
 
 	} else if (game.potatoInitialDecision === "organic") {
 
-		return 2;
+		return 10;
 
 	} else if (game.potatoInitialDecision === "menu") {
 
-		return 2;
+		return 6;
 	}
 }
 
+
+
+export const updateDeadlinePotatoDecision = function(elementSelect, game) {
+
+	if (elementSelect.includes("express")) {
+
+		game.potatoDeadlineDecision = "express";
+		
+	} else if (elementSelect.includes("staff")) {
+
+		game.potatoDeadlineDecision = "staff";
+
+	} else if (elementSelect.includes("wholesale")) {
+
+		game.potatoDeadlineDecision = "wholesale";
+
+	};
+
+	game.enablePotatoDeadlineButton();
+
+	console.log(game.potatoDeadlineDecision)
+
+}
+
+
+export const assessDeadlinePotatoDecision = function(game) {
+
+	let tree;
+
+	if (game.potatoDeadlineDecision === "express") {
+		game.moneyUp((game.money - 200) , "down")
+
+		tree = 11;
+		return tree;
+	} else if (game.potatoDeadlineDecision === "staff") {
+
+		game.moneyUp((game.money - 250) , "down")
+
+		tree = 16;
+		return tree;
+	} else if (game.potatoDeadlineDecision === "wholesale") {
+
+		tree = 2;
+		return tree;
+	};
+
+	console.log(tree)
+}
 
 //==================
 // PACKAGING DECISION
@@ -697,14 +796,12 @@ export const assessPackagingDecision = function (game) {
 
 export const updatePopularity = function(game, n) {
 	game.popularityFactor = n;
-
-	console.log(game.popularityFactor)
 }
 
 
 
 //==================
-// INCREASE MEAL PRICE 
+// INCREASE / DECREASE MEAL PRICE 
 //==================
 
 export const increaseMealPrice = function(game) {
@@ -715,6 +812,12 @@ export const increaseMealPrice = function(game) {
 
 	// Decrease Popularity 
 	updatePopularity(game, (game.popularityFactor - 0.1))
+
+}
+
+export const decreaseMealPrice = function(game) {
+
+	game.weeklyEarnings.turnover.averageMealPrice -= 1;
 
 }
 
@@ -902,7 +1005,7 @@ export const hideMoreInfo = function() {
 //==================
 
 
-const speechSourceArray = ["https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972080/pexels-photo-3972080.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972083/pexels-photo-3972083.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972085/pexels-photo-3972085.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500"];
+const speechSourceArray = ["https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972080/pexels-photo-3972080.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972080/pexels-photo-3972080.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972083/pexels-photo-3972083.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972083/pexels-photo-3972083.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972085/pexels-photo-3972085.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3972085/pexels-photo-3972085.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/3966342/pexels-photo-3966342.png?auto=compress&cs=tinysrgb&dpr=1&w=500"];
 let speechCounter = 0;
 
 const displaySpeechBubble = function() {
@@ -924,4 +1027,40 @@ const hideSpeechBubble = function() {
 
 
 
+//==================
+// CALCULATE WINNER 
+//==================
 
+
+export const calculateWin = function(game) {
+
+	// Possibly add Sound Effects 
+
+	console.log(game.money)
+	console.log(game.sePoints)
+
+	let moneyThreshold = 70000;
+	let sePointsThreshold = 30;
+
+
+	// WINNER 
+
+	if ((game.money >= moneyThreshold) && (game.sePoints >= sePointsThreshold)) {
+		return 0;
+	} 
+	// LOSE SE POINTS
+	else if ((game.money >= moneyThreshold) && (game.sePoints < sePointsThreshold)) {
+		return 1;
+	}	
+	// LOSE MONEY
+	else if ((game.money < moneyThreshold) && (game.sePoints >= sePointsThreshold)) {
+		return 2;
+	}
+	// LOSE BOTH
+	else if ((game.money < moneyThreshold) && (game.sePoints < sePointsThreshold)) {
+		return 3;
+	} else {
+		console.log("broken")
+	}
+
+}
