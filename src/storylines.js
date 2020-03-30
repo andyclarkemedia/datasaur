@@ -90,7 +90,7 @@ export const suppliersChoice = {
 	energyOne: "Solar Power",
 	energyTwo: "Grid",
 	energyThree: "Ethical Energy",
-	furnitureTitle: "Select your furtniture",
+	furnitureTitle: "Select your furniture",
 	furnitureOne: "Upcycle",
 	furnitureTwo: "Budget Purchase",
 	furnitureThree: "Luxury Purchase",
@@ -143,7 +143,7 @@ export const l0E0T4 = {
 		descriptionTwo: "You will have 10 percent off for each 200 pounds of each ingredient, you got 5% off for each 500 pounds each, you got 10% off.",
 		descriptionThree: "Be careful, don’t over-buy stock.",
 		orderReview: "After reviewing your numbers you decide you need around 48kg of Cheese, 10kg of Basil and 50-53kg of Tomatoes.",
-		hint: "(Hint: To make 100 pizzas you need #kg of Cheese, #kg of Basil and #kg of Tomatoes. You might make between #### and #### of pizzas this weekend.)"
+		hint: "(Hint: To make 100 pizzas you need 5.5kg of Cheese, 0.8kg of Basil and 6kg of Tomatoes. You might make between 800 and 1200 of pizzas this weekend.)"
 }
 
 export const reviewOrder = {
@@ -254,7 +254,7 @@ export const packaging = {
 		packagingQuestion: "What takeout packaging do you want to buy?",
 		packagingHover: "Hover over the image for more information. Click to select it!",
 		packagingChoiceOne: "Plastic",
-		packagingChoiceTwo: "Bio-degradable",
+		packagingChoiceTwo: "Recyclable",
 		packagingChoiceThree: "Compostable",
 		compostableExpensive: "This kind of packaging is turning out to be really expensive! You might have to adjust your takeout prices to compensate for this.",
 		compostableExpensiveTwo: "Do you want to add an extra £1.50 to each dish to cover the cost?",
@@ -298,11 +298,20 @@ export const cutlery = {
 
 export const moreInfo = {
 
+
+		characters: {
+			lisa: {
+				title: "Lisa",
+				subtitle: "Owner, The Restaurant",
+				description: "Lisa is the owner of Planet Pizza. Nestled away in a cozy Cardiff Arcade, his joint is popular with the University Students who make up its major consumer base. They flock to Lisa’s for two things–– her delicious Tomato and Cheese Pizza, and her climate-friendly business practices!"
+			}
+		},
+
 		energy: {
 			solarPower: {
 				title: "Solar Power",
 				subtitle: "Cost: £30000",
-				description: "This cost is for your installation ... afterwards you don’t have to care about your electricity bill anymore!"
+				description: "You didn't get any sponsorship for solar panels so this is seriously expensive. This cost is for your installation ... afterwards you don’t have to care about your electricity bill anymore!"
 			},
 			grid: {
 				title: "Grid",
@@ -310,7 +319,7 @@ export const moreInfo = {
 				description: "Sourcing your energy through the National Grid means that most of your energy will come from fossil fuels"
 			},
 			ethical: {
-				title: "Ethical Energy Supplier",
+				title: "Ethical Energy",
 				subtitle: "Cost: £5000 p/year",
 				description: "Your energy source will be greener with its origins being a mixture of hydro, solar and wind power."
 			}
@@ -373,6 +382,43 @@ export const moreInfo = {
 		
 
 		},
+		ingredients: {
+			tomato: {
+				title: "Tomato Costs",
+				costOne: "Wholesale Supplier Cost: £40",
+				costTwo: "Organic Supplier Cost: £70",
+				costThree: "Local Supplier Cost: £90",
+				description: "Buying from a local supplier is expensive but your supporting you're community. Organic farms are more likely to * uphold environmental standards *. Wholesalers are convenient, cheap and reliable! It's your choice ..."
+			},
+			cheese: {
+				title: "Cheese Costs",
+				costOne: "Wholesale Supplier Cost: £70",
+				costTwo: "Organic Supplier Cost: £120",
+				costThree: "Local Supplier Cost: £160",
+				description: "Buying from a local supplier is expensive but your supporting you're community. Organic farms are more likely to * uphold environmental standards *. Wholesalers are convenient, cheap and reliable! It's your choice ..."
+			},
+			pork: {
+				title: "Pork Costs",
+				costOne: "Wholesale Supplier Cost: £100",
+				costTwo: "Organic Supplier Cost: £200",
+				costThree: "Local Supplier Cost: £250",
+				description: "Buying from a local supplier is expensive but your supporting you're community. Organic farms are more likely to * uphold environmental standards *. Wholesalers are convenient, cheap and reliable! It's your choice ..."
+			},
+			chicken: {
+				title: "Chicken Costs",
+				costOne: "Wholesale Supplier Cost: £80",
+				costTwo: "Organic Supplier Cost: £120",
+				costThree: "Local Supplier Cost: £160",
+				description: "Buying from a local supplier is expensive but your supporting you're community. Organic farms are more likely to * uphold environmental standards *. Wholesalers are convenient, cheap and reliable! It's your choice ..."
+			},
+			carrot: {
+				title: "Carrot Costs",
+				costOne: "Wholesale Supplier Cost: £80",
+				costTwo: "Organic Supplier Cost: £150",
+				costThree: "Local Supplier Cost: £170",
+				description: "Buying from a local supplier is expensive but your supporting you're community. Organic farms are more likely to * uphold environmental standards *. Wholesalers are convenient, cheap and reliable! It's your choice ..."
+			},
+		}
 
 }
 

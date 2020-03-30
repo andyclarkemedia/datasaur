@@ -7,8 +7,12 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import anime from 'animejs/lib/anime.es.js';
 import './index.css';
 import { components } from './components.js';
+import { moreInfo } from './storylines.js';
+
+
 
 
 
@@ -78,6 +82,60 @@ class Game extends React.Component {
     } else if (direction === "down") {
       cashDown.play();
     }
+
+
+    // ANIMATE MONEY 
+
+    const poundCoinContainer = document.querySelector('.pound-coin-icon-container');
+    const iconText = document.querySelector('.pound-coin-icon-container p');
+
+    // CONTAINER ANIMATION
+
+    var timeline = anime.timeline({autoplay: true});
+
+  timeline
+    .add({
+      targets: poundCoinContainer,
+      duration: 100,
+      translateX: "50",
+      easing: 'linear'
+    })
+    .add({
+      targets: poundCoinContainer,
+      duration: 100,
+      translateX: "-50",
+      easing: 'linear'
+    })
+    .add({
+      targets: poundCoinContainer,
+      duration: 100,
+      translateX: "0",
+      easing: 'linear'
+    })
+
+
+     // TEXT ANIMATION
+
+    var timelineText = anime.timeline({autoplay: true});
+
+    timelineText
+    .add({
+      targets: iconText,
+      duration: 1,
+      translateY: "-600",
+      opacity: 0
+    })
+    .add({
+      targets: iconText,
+      duration: 1,
+      opacity: 1
+    })
+    .add({
+      targets: iconText,
+      duration: 1000,
+      translateY: "0",
+    })
+
     
 
     console.log(n);
@@ -96,6 +154,59 @@ class Game extends React.Component {
     } else if (direction === "down") {
       downNoise.play();
     }
+
+
+     // ANIMATE SEPOINTS
+
+    const leafContainer = document.querySelector('.leaf-icon-container');
+    const iconText = document.querySelector('.leaf-icon-container p');
+
+    // CONTAINER ANIMATION
+
+    var timeline = anime.timeline({autoplay: true});
+
+  timeline
+    .add({
+      targets: leafContainer,
+      duration: 100,
+      translateX: "50",
+      easing: 'linear'
+    })
+    .add({
+      targets: leafContainer,
+      duration: 100,
+      translateX: "-50",
+      easing: 'linear'
+    })
+    .add({
+      targets: leafContainer,
+      duration: 100,
+      translateX: "0",
+      easing: 'linear'
+    })
+
+
+     // TEXT ANIMATION
+
+    var timelineText = anime.timeline({autoplay: true});
+
+    timelineText
+    .add({
+      targets: iconText,
+      duration: 1,
+      translateY: "-600",
+      opacity: 0
+    })
+    .add({
+      targets: iconText,
+      duration: 1,
+      opacity: 1
+    })
+    .add({
+      targets: iconText,
+      duration: 1000,
+      translateY: "0",
+    })
 
 
     console.log(n);
@@ -166,6 +277,28 @@ class Game extends React.Component {
   }
 
 
+  //=========================
+  // HERO HAS SOLAR - MAZE GAME
+  // ========================
+
+  solarCost = 30000;
+
+  heroHasSolar = false;
+
+  heroCollectedSolar = () => {
+
+    console.log("I exist")
+
+    this.solarCost = 5000;
+
+    this.heroHasSolar = true;
+    moreInfo.energy.solarPower.subtitle = "Cost: £5000";
+    moreInfo.energy.solarPower.description = "You got government sponsorship for solar panels. This cost is for your installation ... afterwards you don’t have to care about your electricity bill anymore!";
+  }
+
+
+
+
 
   // ========================
   // ENERGY SUPPLIER 
@@ -199,6 +332,13 @@ class Game extends React.Component {
   // ========================
   // FOOD SUPPLIERS
   // ========================
+
+  setSuppliersButtonDisabled = true;
+
+  enableSetSuppliersButton = () => {
+    this.setSuppliersButtonDisabled = false;
+    this.update(this.level, this.episode, this.trees);
+  }
 
   suppliers = {
     tomato: "",

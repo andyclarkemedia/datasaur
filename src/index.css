@@ -181,6 +181,12 @@ GAMEPLAY
  */
 
 
+.button-fix {
+	justify-self: center;
+	grid-column: 3/5;
+	grid-row: 4;
+}
+
 .gameplay-text {
 	grid-column: 2/6;
  	grid-row: 2;
@@ -196,11 +202,13 @@ GAMEPLAY
  	z-index: 500;
  	grid-column: 2/6;
  	grid-row: 4;
+ 	
 }
 
 .gameplay-button-container-flex {
 	display: flex;
 	justify-content: space-around;
+
 }
 
 
@@ -526,6 +534,7 @@ MORE INFO
 	grid-column: 6;
 	grid-row: 1;
 	cursor: pointer;
+	z-index: 1000;
 }
 
 
@@ -552,6 +561,38 @@ MORE INFO
 	grid-column: 2/6;
 	grid-row: 4/7;
 	font-size: 1.3em;
+}
+
+#more-info-cost-one {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 2;
+	font-size: 1.5em;
+}
+
+#more-info-cost-two {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 3;
+	font-size: 1.5em;
+}
+
+#more-info-cost-three {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 4;
+	font-size: 1.5em;
+}
+
+#more-info-description-ingredients {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 5/7;
+	font-size: 1.5em;
 }
 
 
@@ -1174,11 +1215,10 @@ WEEKLY TIMER
 
 
 .speech-bubble {
-	width: 20vw;
-	grid-column: 3/5;
-	grid-row: 2/4;
-	align-self: center;
-	justify-self: center;
+	width: 30vw;
+	position: absolute;
+	left: 3vw;
+	top: 25vh;
 	display: none;
 }
 
@@ -1200,12 +1240,13 @@ WEEKLY TIMER
 	width: 30vw;
 	grid-row: 1/6;
 	align-self: center;
-	grid-column: 5/7;
+	grid-column: 5/7 !important;
 }
 
 
 #planet-pizza-animation {
 	margin-bottom: 4em;
+	justify-self: center;
 }
 
 .person {
@@ -1288,6 +1329,54 @@ WEEKLY TIMER
 	height: 3vh;
 	align-self: flex-end;
 }
+
+
+.feedback-icon {
+	position: absolute;
+	width: 3vw;
+	opacity: 0;
+}
+
+#feedback-icon-one {
+	left: 30vw;
+}
+
+#feedback-icon-two {
+	left: 34vw;
+}
+
+#feedback-icon-three {
+	left: 40vw;
+}
+
+#feedback-icon-four {
+	left: 42vw;
+}
+
+#feedback-icon-five {
+	left: 48vw;
+}
+
+#feedback-icon-six {
+	left: 51vw;
+}
+
+#feedback-icon-seven {
+	left: 56vw;
+}
+
+#feedback-icon-eight {
+	left: 60vw;
+}
+
+#feedback-icon-nine {
+	left: 62vw;
+}
+
+#feedback-icon-ten {
+	left: 65vw;
+}
+
 
 
 
@@ -1420,7 +1509,7 @@ SUPPLIER CHOICES
 
 .supplier-choice-title-main {
 	grid-row: 1;
-	grid-column: 2/8;
+	grid-column: 1/9;
 	text-align: center;
 	font-size: 1.8em;
 	margin-bottom: 1em;
@@ -1449,19 +1538,18 @@ SUPPLIER CHOICES
 
 
 #solar-image {
-	align-self:center;
-	padding: 1em;
+	padding: .5em;
 	grid-row: 3/4;
 	grid-column: 1/4;
 	align-self: center;
 	justify-self: center;
-	width: 10vw;
+	width: 8vw;
 	cursor: pointer;
 }
 
 #pylon-image {
 	justify-self: center;
-	padding: 1em;
+	padding: .5em;
 	grid-row: 3/5;
 	grid-column: 4/5;
 	width: 6vw;
@@ -1470,7 +1558,7 @@ SUPPLIER CHOICES
 
 #ethical-energy-supplier-image {
 	justify-self: center;
-	padding: 1em;
+	padding: .5em;
 	grid-row: 3/5;
 	grid-column: 5/8;
 	width: 5vw;
@@ -1546,7 +1634,10 @@ FOOD CHOICES
 	display: grid;
   	grid-template-columns: repeat(8, 1fr);
   	grid-template-rows: repeat(6, 1fr);
-  	z-index: 1000;
+  	z-index: 1000 !important;
+  	width: fit-content !important;
+  	height: auto !important;
+  	opacity: 1 !important;
 }
 
 
@@ -1719,6 +1810,14 @@ FOOD CHOICES
 	justify-self: center;
 }
 
+#pork-choice-image {
+	width: 2vw;
+	grid-row: 5;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
 #pork-choice-help-icon {
 	grid-row: 5;
 	grid-column: 2;
@@ -1731,10 +1830,26 @@ FOOD CHOICES
 	justify-self: center;
 }
 
+#chicken-choice-image {
+	width: 2vw;
+	grid-row: 6;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
 #potatoes-choice-help-icon {
 	grid-row: 7;
 	grid-column: 2;
 	justify-self: center;
+}
+
+#carrot-choice-image {
+	width: 2vw;
+	grid-row: 7;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
 }
 
 /* 
@@ -1872,7 +1987,7 @@ SUPPLIER RUNS OUT OF STOCK ...
 	align-self: center;
 	grid-column: 1/3;
 	justify-self: center;
-	width: 3vw;
+	width: 5vw;
 }
 
 #menu-choice {
@@ -1880,7 +1995,7 @@ SUPPLIER RUNS OUT OF STOCK ...
 	align-self: center;
 	grid-column: 3/5;
 	justify-self: center;
-	width: 3vw;
+	width: 5vw;
 }
 
 #wholesale-choice {
@@ -1888,7 +2003,7 @@ SUPPLIER RUNS OUT OF STOCK ...
 	align-self: center;
 	grid-column: 5/7;
 	justify-self: center;
-	width: 3vw;
+	width: 5vw;
 }
 
 #button-organic {
@@ -1961,6 +2076,7 @@ POTATO WHOLESALE
   	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(3);
   	text-align: center;
+  	z-index: 600;
 }
 
 #potato-rethink-choice-organic-image {
@@ -1971,6 +2087,7 @@ POTATO WHOLESALE
 	justify-self: center;
 	cursor: pointer;
 	padding: .5em;
+	z-index: 500;
 
 
 }
@@ -1983,6 +2100,7 @@ POTATO WHOLESALE
 	justify-self: center;
 	cursor: pointer;
 	padding: .5em;
+	z-index: 500;
 }
 
 #potato-rethink-choice-organic-text {
@@ -2092,29 +2210,37 @@ TAKEOUT BRANCH
 	width: 25vw;
 }
 
+.pizzabox-takeout-image {
+	width: 20vw;
+	grid-column: 4/6;
+	grid-row: 2/4;
+	align-self: center;
+	justify-self:center;
+}
+
 
 
 #takeout-intro-requests {
-	grid-row: 2;
-	align-self: center;
-	grid-column: 2/4;
-	font-size: 1.3em;
+	grid-row: 1;
+	align-self: flex-end;
+	grid-column: 2/7;
+	font-size: 1.8em;
 
 }
 
 #takeout-intro-offer {
-	grid-row: 2/4;
-	align-self: center;
+	grid-row: 2;
+	align-self: flex-end;
 	grid-column: 2/4;
-	font-size: 1.3em;
+	font-size: 1.5em;
 
 }
 
 #takeout-intro-success {
 	grid-row: 3;
-	align-self: center;
+	align-self: flex-start;
 	grid-column: 2/4;
-	font-size: 1.3em;
+	font-size: 1.5em;
 }
 
 
@@ -2182,7 +2308,7 @@ TAKEOUT BRANCH
 	align-self: center;
 	grid-column: 1/3;
 	justify-self: center;
-	width: 4vh;
+	width: 10vh;
 	padding: .5em;
 	cursor: pointer;
 }
@@ -2192,7 +2318,7 @@ TAKEOUT BRANCH
 	align-self: center;
 	grid-column: 3/5;
 	justify-self: center;
-	width: 4vh;
+	width: 10vh;
 	padding: .5em;
 	cursor: pointer;
 }
@@ -2202,7 +2328,7 @@ TAKEOUT BRANCH
 	align-self: center;
 	grid-column: 5/7;
 	justify-self: center;
-	width: 4vh;
+	width: 10vh;
 	padding: .5em;
 	cursor: pointer;
 }
@@ -2491,7 +2617,7 @@ MAZE CSS
 }
 
 
-#instructions-panel {
+#instructions-panel, #finished-panel {
 	width: 100%;
 	position: absolute;
 	height: 100%;
@@ -2507,12 +2633,21 @@ MAZE CSS
 
 }
 
+#finished-panel {
+	display: none;
+}
 
-#maze-instructions-title {
+
+#maze-instructions-title, #maze-instructions-finished-title {
 	grid-row: 2/3;
 	grid-column: 2/6;
 	align-self: center;
+	justify-self:center;
+}
 
+#maze-instructions-finished-title {
+	font-size: 2.5em;
+	text-align: center;
 }
 
 #maze-instructions-move {
@@ -2705,14 +2840,14 @@ MAZE CSS
   z-index: 10;
 }
 
-#trigger-maze-button {
+#trigger-maze-button, #continue-from-maze-button {
 	grid-row: 5;
 	grid-column: 2/6;
 	z-index: 1000;
 	padding: .5em;
 	font-size: 1em;
-	width: 15vw;
-	height: 10vh;
+	
+	max-height: 8vh;
 	justify-self: center;
 	background-color: #282828;
 	color: #f2f2f2;
@@ -2721,20 +2856,12 @@ MAZE CSS
 }
 
 
-#continue-from-maze-button {
-	opacity: 1;
-	grid-row: 4;
-	grid-column: 2;
-
-}
-
-
 #maze-instructions-one {
 	margin-left: 10vw;
 	grid-column: 1/4;
 	grid-row: 2;
 	font-size: 1.5em;
-	align-self: center;
+	align-self: flex-end;
 	
 
 }
@@ -2745,6 +2872,7 @@ MAZE CSS
 	grid-column: 1/4;
 	grid-row: 3;
 	font-size: 1.5em;
+	align-self: center;
 }
 
 /* 
