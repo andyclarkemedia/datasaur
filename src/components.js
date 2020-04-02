@@ -35,9 +35,9 @@ export const components = (game, level, episode, tree) => {
 							<div class="flex-container gameplay-button-container">
 								<button id="opening-play-button" class="update-tree-button button-text" onClick={() => { game.updateTreeBranch(1)} }> Play!</button>
 							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
-							</div>
+							
+							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
+							
 							
 
 						</div>
@@ -50,17 +50,25 @@ export const components = (game, level, episode, tree) => {
 						<div class="plain-background title-screen grid-container-4x6">
 							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
 							<p id="pick-a-biz-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsOne} </span> </p>
-							<p id="to-win-desc" class="plain-text align-center"> {howToPlay.instructionsThree} </p>
+							<p id="to-win-desc"> {howToPlay.instructionsThree} </p>
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
 
-							<div class="icon-container pound-coin-icon-container">
-								<img class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
+							<div class="opening-pound-coin-icon-container">
+								<img id="opening-pound-coin" class="pound-coin-icon-image" src={require('./images/pound-coin.png')} />
 								<p class="icon-explainer-text"> Money </p>
+								<p class="sound-fx-instruction"> {howToPlay.instructionsSFX} </p>
+								<p class="specific-points-instruction"> {howToPlay.instructionsMoney} </p>
+								<img id="" class="opening-plus" src={require('./images/plus.png')} onClick={ () => { game.moneyUp((game.money + 0), "up")}} />
+								<img id="" class="opening-minus" src={require('./images/minus.png')} onClick={ () => { game.moneyUp((game.money + 0), "down")}} />
 							</div>
-							<div class="icon-container opening-leaf-icon-container">
-								<img class="leaf-icon-image" src={require('./images/leaf.png')}/>
+							<div class="opening-leaf-icon-container">
+								<img id="opening-leaf" class="leaf-icon-image" src={require('./images/leaf.png')}/>
 								<p class="icon-explainer-text"> Sustainability Points  </p>
+								<p class="sound-fx-instruction"> {howToPlay.instructionsSFX} </p>
+								<p class="specific-points-instruction"> {howToPlay.instructionsSE} </p>
+								<img id="" class="opening-plus" src={require('./images/plus.png')} onClick={ () => { game.sePointsUp((game.sePoints + 0), "up")}} />
+								<img id="" class="opening-minus" src={require('./images/minus.png')} onClick={ () => { game.sePointsUp((game.sePoints + 0), "down")}} />
 							</div>
 							
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
@@ -70,9 +78,8 @@ export const components = (game, level, episode, tree) => {
 							<div class="flex-container gameplay-button-container">
 								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Okay</button>
 							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
-							</div>
+			
+							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
 							
 
 						</div>
@@ -84,38 +91,28 @@ export const components = (game, level, episode, tree) => {
 					id: "L0E0T4",
 					main: (
 						<div class="plain-background title-screen grid-container-4x6">
-							<h1 id="choose-a-character-title" class="title align-center"> Choose a Business Owner </h1>
+							<h1 id="choose-a-character-title" class="title align-center"> Your Business Owner </h1>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
 
-							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />	
 							
-							<div class="character-container">
-								<div onClick={() => { addBorderOnClick(".character-one-container") ; game.enableButton("#set-character-button")}} class="character-one-container">
-									<p class="character-name plain-text bold"> {characters[0].name} </p>
-									<img id="joe-head" class="character-head" src={require('./images/chef-head.png')}/>
-								</div>
-								<img id="help-solar-icon" class="help-icon" src={require('./images/help.png')} onClick={ () => displayMoreInfo(moreInfo.characters.lisa.title, moreInfo.characters.lisa.subtitle, moreInfo.characters.lisa.description)}/>			
-							</div>
-
-							<p id="hover-instruction"> {suppliersChoice.descriptionTwo} </p>
 					
 							<div class="flex-container gameplay-button-container">
 
-								<button id="set-character-button" class="update-tree-button button-text" disabled={ game.buttonDisabled }  onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  }  }> Set </button>
-							</div>
-							<div class="flex-container bottom">
-								<img id="town-houses" src={require('./images/town-houses.png')} />
+								<button id="set-character-button" class="update-tree-button button-text"  onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  }  }> Continue </button>
 							</div>
 							
+							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
+							
+							
 
-							<div class="more-info-container">
+							<div class="more-info-characters-container">
 
-								<img id="close-window-image" src={require('./images/close-window.png')} onClick={() => { hideMoreInfo() } } />
-
-								<p id="more-info-title"> TITLE </p>
-								<p id="more-info-subtitle"> SUBTITLE: subtitle</p>
-								<p id="more-info-description"> description description description description description description description description description description description description  </p>
+								<img id="lisa-head" src={require('./images/chef-head.png')}/>
+								<p id="more-info-title"> { moreInfo.characters.lisa.title } </p>
+								<p id="more-info-subtitle">  { moreInfo.characters.lisa.subtitle }</p>
+								<p id="more-info-description"> { moreInfo.characters.lisa.description } </p>
 
 							</div>
 
@@ -166,7 +163,7 @@ export const components = (game, level, episode, tree) => {
 
 									<p id="maze-instructions-title"> Try to get some funding and find investors. Exit the maze before your steps run out for a financial bonus! </p>
 
-									<p id="maze-instructions-move"> Use the arrow keys to move </p>
+									<p id="maze-instructions-move"> Use the arrows on your keyboard or on the screen to move </p>
 
 									 <button id="trigger-maze-button" class="button-text" onClick={ () => { hideInstructionsPanel() ; triggerMaze(game)} } > Play Maze </button>
 
@@ -233,7 +230,12 @@ export const components = (game, level, episode, tree) => {
   						    <img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
 
 
-							
+							<div id="joypad-container">
+								<img class= "joy-icon" id="up-joy" src={require('./images/up-joy.png')} />
+								<img class= "joy-icon" id="right-joy" src={require('./images/right-joy.png')} />
+								<img class= "joy-icon" id="left-joy" src={require('./images/left-joy.png')} />
+								<img class= "joy-icon" id="down-joy" src={require('./images/down-joy.png')} />
+							</div>
 
 
 						</div>
@@ -554,7 +556,7 @@ export const components = (game, level, episode, tree) => {
 							<div id="position-identifier-top"></div>
 
 							<div class="week-number-container">
-								<p id="weekly-timer" class="gameplay-text"> Week 0 </p>
+								<p id="weekly-timer" class="gameplay-text"> {"Week " + game.weekNumber }</p>
 							</div>
 							
 							<img id="planet-pizza-animation" class="planet-pizza" src={require('./images/restaurant.png')} onLoad={ () => {timePassing(game, game.weekNumber, 6) ; animatePeople() ; animateFeedback(game) }}/>

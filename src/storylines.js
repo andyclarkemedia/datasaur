@@ -20,23 +20,15 @@ export const gameTitle = {
 
 export const howToPlay = {
 		title: "How to Play",
-		instructionsOne: "Pick a business owner and build their business. You have one year to manage it!",
+		instructionsOne: "Build an environmentally sustainable business from scratch. You have 24 weeks to manage it!",
 		instructionsTwo: ["Money: ", "Sustainability Points (SP): "],
-		instructionsThree: " To win ... You need to earn money at the same time as making the choices you feel to be most sustainable"
+		instructionsThree: " To win ... You need to have sustainable practises in place and your business must be profitable!",
+		instructionsSFX: "Click '+' & '-' for sound effects",
+		instructionsMoney: "Your weekly earnings will be calculated according to the decisions you've made and how popular your business is ... ",
+		instructionsSE: "Sustainability Points are awarded for decisions that are environmentally friendly."
 
 }
 
-
-// ==========================
-// Characters 
-// ==========================
-
-export const characters = [{
-		name: "Lisa",
-		business: "One Planet Pizza",
-		description: "Lisa is the owner of Planet Pizza. Nestled away in a cozy Cardiff Arcade, his joint is popular with the University Students who make up its major consumer base. They flock to Lisa’s for two things––his delicious Tomato and Cheese Pizza, and his climate-friendly business practices!"
-	}
-];
 
 // ==========================
 // Remember
@@ -303,7 +295,7 @@ export const moreInfo = {
 			lisa: {
 				title: "Lisa",
 				subtitle: "Owner, The Restaurant",
-				description: "Lisa is the owner of Planet Pizza. Nestled away in a cozy Cardiff Arcade, his joint is popular with the University Students who make up its major consumer base. They flock to Lisa’s for two things–– her delicious Tomato and Cheese Pizza, and her climate-friendly business practices!"
+				description: "Lisa is a budding chef ready to start her own traditional Welsh restaurant in her home town, Cardiff. She's passionate about good food but even more so about the environment."
 			}
 		},
 

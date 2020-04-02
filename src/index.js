@@ -25,12 +25,7 @@ class Game extends React.Component {
       trees: this.trees,
       component: components(this, this.level, this.episode, this.trees),
       sePoints: this.sePoints,
-      money: this.money,
-      // Disable Set Character Button
-      buttonDisabled: this.buttonDisabled,
-      timePassing: {
-        button: this.timePassingButtonDisabled
-      }
+      money: this.money
       
     };
 
@@ -222,24 +217,15 @@ class Game extends React.Component {
 
   popularityFactor = 0.5;
 
-  buttonDisabled = true;
-
-
-  enableButton = () => {
-    this.buttonDisabled = false;
-    this.update(this.level, this.episode, this.trees);
-  }
-
-
   audioMuted = false;
-  audioIconSource = "https://i.imgur.com/tvEes8a.png"
+  audioIconSource = "https://i.imgur.com/gRxYrXW.png"
 
 
   // ========================
   // WEEKLY EARNINGS 
   // ========================
 
-  weekNumber = 0;
+  weekNumber = 1;
 
   // Need to add in packaging and take into account extra number of customers 
 

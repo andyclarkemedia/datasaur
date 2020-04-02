@@ -49,6 +49,11 @@ function Position(x, y) {
       // activate control keys
       this.keyPressHandler = this.mazeKeyPressHandler.bind(this);
       document.addEventListener("keydown", this.keyPressHandler, false);
+
+      // activate click control
+      this.clickHandler = this.mazeClickHandler.bind(this);
+      document.addEventListener("click", this.clickHandler);
+
     }
 
     Mazing.prototype.setMessage = function() {
@@ -93,6 +98,9 @@ function Position(x, y) {
     Mazing.prototype.gameOver = function() {
       // de-activate control keys
       document.removeEventListener("keydown", this.keyPressHandler, false);
+
+      // de-activate click
+      document.removeEventListener("click", this.clickHandler, false);
       //this.setMessage(text);
       showFinishedPanel();
       // this.mazeContainer.classList.add("finished");
@@ -101,6 +109,9 @@ function Position(x, y) {
     Mazing.prototype.wins = function() {
       // de-activate control keys
       document.removeEventListener("keydown", this.keyPressHandler, false);
+
+      // de-activate click
+      document.removeEventListener("click", this.clickHandler, false);
       //this.setMessage(text);
       showFinishedPanel();
       //this.mazeContainer.classList.add("won");
@@ -193,6 +204,37 @@ function Position(x, y) {
         }
       }
     };
+
+    // 
+
+    Mazing.prototype.mazeClickHandler = function(e) {
+      var tryPos = new Position(this.heroPos.x, this.heroPos.y);
+
+      if (e.target.id.includes("up")) {
+        tryPos.x--;
+        this.tryMoveHero(tryPos);
+        e.preventDefault();
+      } else if (e.target.id.includes("left")) {
+        this.mazeContainer.classList.remove("face-right");
+        tryPos.y--;
+        this.tryMoveHero(tryPos);
+        e.preventDefault();
+      } else if (e.target.id.includes("right")) {
+        this.mazeContainer.classList.add("face-right");
+        tryPos.y++;
+        this.tryMoveHero(tryPos);
+        e.preventDefault();
+      } else if (e.target.id.includes("down"))
+        tryPos.x++;
+        this.tryMoveHero(tryPos);
+        e.preventDefault();
+    }
+
+      
+
+    
+
+
 
     Mazing.prototype.mazeKeyPressHandler = function(e) {
       var tryPos = new Position(this.heroPos.x, this.heroPos.y);

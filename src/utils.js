@@ -46,7 +46,7 @@ export const arraysMatch = function (arr1, arr2) {
 		})
 
 		game.audioMuted = false;
-		game.audioIconSource = "https://i.imgur.com/tvEes8a.png";
+		game.audioIconSource = "https://i.imgur.com/gRxYrXW.png";
 
   	} else {
 
@@ -57,7 +57,7 @@ export const arraysMatch = function (arr1, arr2) {
 		})
 
 		game.audioMuted = true;
-		game.audioIconSource = "https://i.imgur.com/gRxYrXW.png";
+		game.audioIconSource = "https://i.imgur.com/tvEes8a.png";
   	}
 
   	console.log(game.audioMuted)
@@ -120,7 +120,7 @@ export const timePassing = (game, weekBegin, weekEnd) => {
     	
     	let weeklyEarnings = calculateWeeklyEarnings(game) + Math.floor(Math.random() * (100 - (-100))) + (-100);
 
-    	plusEarningsText.innerHTML = "+ " + weeklyEarnings
+    	plusEarningsText.innerHTML = "+ " + parseInt(weeklyEarnings)
 
     	
 
@@ -133,7 +133,7 @@ export const timePassing = (game, weekBegin, weekEnd) => {
    	 	weekText.innerHTML = "Week " + weekNumber;
    	 	let weeklyEarnings = calculateWeeklyEarnings(game) + Math.floor(Math.random() * (500 - (-500))) + (-500);
 
-    	plusEarningsText.innerHTML = "+ " + weeklyEarnings
+    	plusEarningsText.innerHTML = "+ " + parseInt(weeklyEarnings)
 
     	game.moneyUp(parseInt(game.money + weeklyEarnings), "up")
 
