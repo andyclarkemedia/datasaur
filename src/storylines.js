@@ -115,14 +115,14 @@ export const goodLuck = {
 export const levelOneIntro = {
 		title: "Level One",
 		descriptionOne: "Congratulations! Cardiff is hosting the International Food and Drink Festival for three days and last year, this event attracted more than 10,000 people.",
-		descriptionTwo: "You’ll be selling loads of your signature Margherita Pizzas there so you better place a big order from your suppliers!"
+		descriptionTwo: "You decide to focus on selling only Margherita pizzas for the festival ... This should be quick and easy to sell in large quantities. You better place a big order of tomato, cheese and basil from your suppliers!"
 		
 
 }
 
 
 export const l0E0T1 = {
-		descriptionOne: "It's Friday, the busiest day of the week, but it’s one day before the festival. Are you going to close the shop for the afternoon to review what are you going to buy with your staff?",	
+		descriptionOne: "It's Friday, the busiest day of the week, but it’s one day before the festival. Are you going to close the shop for the afternoon to review what are you going to buy?",	
 }
 
 export const l0E0T3 = {
@@ -167,7 +167,7 @@ export const festivalReport = {
 		time: "Hours Worked: ",
 		pizzas: "Pizzas Sold: ",
 		waste: "Waste: ",
-		profit: "Profit: "
+		profit: "Total Profit After Costs: "
 }
 
 
@@ -176,15 +176,15 @@ export const festivalReport = {
 // =================
 
 export const dragAndDrop = {
-		instructions: "Drag and Drop the trash items into the correct bins before the time runs out! It’s been a long weekend and you want to be home in time to #cook dinner#",
-		instructionsTwo: "Click Ready to start the timer!"
+		instructions: "Drag and Drop the trash items into the correct bins before the timer runs out! It’s been a long weekend and you want to be home in time to cook dinner!",
+		instructionsTwo: "You'll lose sustainability points if you miss items or if you dispose of them incorrectly."
 
 }
 
 export const dragAndDropResults = {
 		allCorrect: "Phew … Well Done! You got rid of all of your waste correctly and made it home in time to cook up a storm for your family",
 		over3Quarters: "Not Bad … You got rid of most of your waste correctly and made it home in time to cook  up a storm for your family",
-		under3Quarters: "Not a great performance. Loads of your waste went in the wrong bin. An environmental warden spots you and gives you a £250 penalty notice. Bargain with him?",
+		under3Quarters: "Oh no … An environmental warden comes around as your putting trash into the wrong bin. That’s a penalty notice of £250. Bargain with him?",
 		underHalf: "Oh no … An environmental warden comes around as your putting trash into the wrong bin. That’s a penalty notice of £500. Bargain with him?",
 		bargain: "He's not having any of it ... Never a good idea to bargain with an environmental warden. He ups your fine to £1000. No messing!",
 		finalText: "Okay back to normal business. You've got one last week of earnings before we calculate how you've done. Good Luck"

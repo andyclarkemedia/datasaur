@@ -6,7 +6,23 @@ import React from 'react';
 import './index.css';
 import { triggerMaze } from './mazing.js';
 import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final } from './storylines.js';
-import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback } from './utils.js';
+import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback, mobileDrag, mobileDrop } from './utils.js';
+
+
+
+
+
+// IMPORT IMAGES 
+var townHouses = require('./images/town-houses.png');
+var arrow = require('./images/arrow.png');
+var treeInverse = require('./images/just-tree-inverse-side.png');
+
+
+
+
+
+
+
 
 
 export const components = (game, level, episode, tree) => {
@@ -26,17 +42,17 @@ export const components = (game, level, episode, tree) => {
 							<p id="can-you-make-it" class="plain-text align-center"> {gameTitle.text} </p>
 							<p id="disclaimer" class="plain-text align-center"> {gameTitle.disclaimer} </p>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
-							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+							<img id="tree-side-inverse" src={ treeInverse } />
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
 							
-							<img id="arrow-image" src={require('./images/arrow.png')} />
+							<img id="arrow-image" src={arrow} />
 
 							<div class="flex-container gameplay-button-container">
 								<button id="opening-play-button" class="update-tree-button button-text" onClick={() => { game.updateTreeBranch(1)} }> Play!</button>
 							</div>
 							
-							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
+							<img id="town-houses-opening" src={ townHouses } />
 							
 							
 
@@ -51,6 +67,32 @@ export const components = (game, level, episode, tree) => {
 							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
 							<p id="pick-a-biz-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsOne} </span> </p>
 							<p id="to-win-desc"> {howToPlay.instructionsThree} </p>
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+						
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Okay</button>
+							</div>
+			
+							<img id="town-houses-opening" src={ townHouses } />
+							
+
+						</div>
+					),
+
+				},
+
+				2: {
+
+					id: "L0E0T1",
+					main: (
+						<div class="plain-background title-screen grid-container-4x6">
+							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
+							
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
 
@@ -76,18 +118,19 @@ export const components = (game, level, episode, tree) => {
 
 						
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Okay</button>
+								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(3) }>Got It</button>
 							</div>
 			
-							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
+							<img id="town-houses-opening" src={ townHouses } />
 							
 
 						</div>
 					),
 
+
 				},
 
-				2: {
+				3: {
 					id: "L0E0T4",
 					main: (
 						<div class="plain-background title-screen grid-container-4x6">
@@ -1999,7 +2042,7 @@ export const components = (game, level, episode, tree) => {
 
 
 		//====================
-		// LEVEL -- WASTE
+		// LEVEL -- FESTIVAL
 		//====================	
 
 		4: {
@@ -2024,7 +2067,19 @@ export const components = (game, level, episode, tree) => {
 							</div>
 							<p class="gameplay-text"> {levelOneIntro.descriptionOne} </p>
 							
-								
+							<img id="person-one-festival" class="person-festival" src={require('./images/person-one.png')} />
+							<img id="person-two-festival" class="person-festival" src={require('./images/person-two.png')} />
+							<img id="person-three-festival" class="person-festival" src={require('./images/person-three.png')} />
+							<img id="person-four-festival" class="person-festival" src={require('./images/person-four.png')} />
+							<img id="person-five-festival" class="person-festival" src={require('./images/person-five.png')} />
+							<img id="person-six-festival"  class="person-festival"src={require('./images/person-six.png')} />
+							<img id="person-seven-festival" class="person-festival" src={require('./images/person-seven.png')} />
+							<img id="person-eight-festival" class="person-festival" src={require('./images/person-eight.png')} />
+							<img id="person-nine-festival" class="person-festival" src={require('./images/person-one.png')} />
+							<img id="person-ten-festival" class="person-festival" src={require('./images/person-two.png')} />
+							<img id="person-eleven-festival" class="person-festival" src={require('./images/person-one.png')} />
+							<img id="person-twelve-festival" class="person-festival" src={require('./images/person-two.png')} />
+
 							<div class="flex-container gameplay-button-container">
 								<button class="update-tree-button button-text" onClick={ () => game.updateTreeBranch(1) }> Great! </button>
 							</div>
@@ -2047,6 +2102,8 @@ export const components = (game, level, episode, tree) => {
 							<img id="bunting" src={require('./images/bunting.png')} />
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+
+							<img preload='auto' src="https://i.ibb.co/Xz70Tsx/pizza-crust.png"  id="pizza-festival" />
 
 
 							<div class="icon-container pound-coin-icon-container">
@@ -2092,6 +2149,7 @@ export const components = (game, level, episode, tree) => {
 								<p class="plain-text icon-text"> {game.sePoints} </p>
 							</div>
 							
+							<img id="planet-pizza-festival"  src={require('./images/restaurant.png')}/>
 							
 							<p class="gameplay-text"> {l0E0T1.descriptionOne} </p>
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
@@ -2194,11 +2252,6 @@ export const components = (game, level, episode, tree) => {
 								<p id="l0E0T4-descriptionThree" class="align-center"> {l0E0T4.descriptionThree} </p>
 							</div>
 						
-						</div>
-					),
-					gamePlay: (
-						<div>
-							
 						</div>
 					)
 				},
@@ -2472,6 +2525,8 @@ export const components = (game, level, episode, tree) => {
 								<img class="leaf-icon-image" src={require('./images/leaf.png')} />
 								<p class="plain-text icon-text"> {game.sePoints} </p>
 							</div>
+
+							<img id="laptop-image" src={require('./images/laptop.png')} />
 							
 							<p class="gameplay-text align-center"> {l0E0T3.descriptionTwo} </p>
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
@@ -2668,49 +2723,38 @@ export const components = (game, level, episode, tree) => {
 							<img id="signpost-trash" src="https://i.ibb.co/HgcpCzP/signpost.png" />
 
 							<div class="trash-image-container">
-								<img src="https://i.ibb.co/ZGZkS2h/pizzabox.png" id="drag-one-recycling" class="trash-item-image first-drag" draggable='true' onDragStart={(event) => { onDragStart(event); countdown(game) }}/>
-								<img src="https://i.ibb.co/Xz70Tsx/pizza-crust.png"  id="drag-two-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/KX9RZCF/can.png" id="drag-three-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/Xxx0DmG/rocket.png" id="drag-four-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/r5h4WGd/water-bottle.png" id="drag-five-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/258WBWz/tomato.png" id="drag-six-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/rvq7x0V/tomato-tin.png"  id="drag-seven-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/Xz70Tsx/pizza-crust.png" id="drag-eight-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/HgvKmJp/basil.png" id="drag-nine-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/ZGZkS2h/pizzabox.png"  id="drag-ten-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/KX9RZCF/can.png" id="drag-eleven-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/Xz70Tsx/pizza-crust.png"  id="drag-twelve-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/Xxx0DmG/rocket.png" id="drag-thirteen-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/258WBWz/cheese.png" id="drag-fourteen-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/rvq7x0V/tomato-tin.png"  id="drag-fifteen-recycling" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
-								<img src="https://i.ibb.co/258WBWz/tomato.png" id="drag-sixteen-food" class="trash-item-image hide-drag-image" draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/ZGZkS2h/pizzabox.png" id="drag-one-recycling" class="trash-item-image first-drag pizzabox-drag" onTouchStart={ ()=> { countdown(game) }} onTouchEnd={ (event)=> {mobileDrop(event, "#drag-one-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-one-recycling") }} draggable='true' onDragStart={(event) => { onDragStart(event); countdown(game) }}/>
+								<img preload='auto' src="https://i.ibb.co/Xz70Tsx/pizza-crust.png"  id="drag-two-food" class="trash-item-image hide-drag-image crust-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-two-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-two-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/KX9RZCF/can.png" id="drag-three-recycling" class="trash-item-image hide-drag-image can-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-three-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-three-recycling")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/Xxx0DmG/rocket.png" id="drag-four-food" class="trash-item-image hide-drag-image rocket-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-four-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-four-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/r5h4WGd/water-bottle.png" id="drag-five-general" class="trash-item-image hide-drag-image water-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-five-general", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-five-general")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/258WBWz/tomato.png" id="drag-six-food" class="trash-item-image hide-drag-image tomato-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-six-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-six-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/rvq7x0V/tomato-tin.png"  id="drag-seven-recycling" class="trash-item-image hide-drag-image tin-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-seven-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-seven-recycling")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.imgur.com/HZMJP39.png" id="drag-eight-general" class="trash-item-image hide-drag-image tupperware-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-eight-general", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-eight-general")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/HgvKmJp/basil.png" id="drag-nine-food" class="trash-item-image hide-drag-image basil-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-nine-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-nine-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/ZGZkS2h/pizzabox.png"  id="drag-ten-recycling" class="trash-item-image hide-drag-image pizzabox-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-ten-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-ten-recycling")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.imgur.com/T3gRLF1.png" id="drag-eleven-general" class="trash-item-image hide-drag-image cutlery-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-eleven-general", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-eleven-general")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.imgur.com/morv5kV.png"  id="drag-twelve-food" class="trash-item-image hide-drag-image compost-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-twelve-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-twelve-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/Xxx0DmG/rocket.png" id="drag-thirteen-food" class="trash-item-image hide-drag-image rocket-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-thirteen-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-thirteen-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/258WBWz/cheese.png" id="drag-fourteen-food" class="trash-item-image hide-drag-image tomato-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-fourteen-food", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-fourteen-food")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.ibb.co/rvq7x0V/tomato-tin.png"  id="drag-fifteen-recycling" class="trash-item-image hide-drag-image tin-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-fifteen-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-fifteen-recycling")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
+								<img preload='auto' src="https://i.imgur.com/qMznLCg.png" id="drag-sixteen-recycling" class="trash-item-image hide-drag-image cutlery-drag" onTouchEnd={ (event)=> {mobileDrop(event, "#drag-sixteen-recycling", game)}} onTouchMove={ (event) => {mobileDrag(event, "#drag-sixteen-recycling")}} draggable='true' onDragStart={(event) => onDragStart(event)}/>
 								
 							</div>
 
 							<img id="cross-image" src={require('./images/cross.png')} />
 							<img id="tick-image" src={require('./images/tick.png')} />
 
-							<audio id="trash-noise" preload='auto'>
-								 <source src={require('./audio/trash.wav')} type="audio/wav"/>
-							</audio>
-
-							<audio id="trash-noise" preload='auto'>
-								 <source src={require('./audio/trash.wav')} type="audio/wav"/>
-							</audio>
-
-							<audio id="battle-boss" preload='auto'>
-								 <source src={require('./audio/battle-boss.mp3')} type="audio/mp3"/>
-							</audio>
 
 							<div class="timer-container flex-container">
-								<p id="drag-drop-timer" class="gameplay-text"> :20 </p> 
+								<p id="drag-drop-timer" class="gameplay-text"> :25 </p> 
 							</div>
 
 							<div class="trash-container">
 								
 								 <img src="https://i.ibb.co/MC0Nn5J/recycling-bin.png" id="drop-bin-one" onDragOver={(event) => onDragOver(event)} onDrop={(event) => { onDrop(event, game) ; displayNextImage()}}/>
 							
-								<img src="https://i.ibb.co/c179QjN/plastic-bin.png" id="drop-bin-two" onDragOver={(event) => onDragOver(event)} onDrop={(event) => { onDrop(event, game) ; displayNextImage()}}/>
+								<img src="https://i.imgur.com/zefwiCS.png" id="drop-bin-two" onDragOver={(event) => onDragOver(event)} onDrop={(event) => { onDrop(event, game) ; displayNextImage()}}/>
 							
 								<img src="https://i.ibb.co/dMs2Fyb/food-bin.png" id="drop-bin-three"  onDragOver={(event) => onDragOver(event)} onDrop={(event) => { onDrop(event, game) ; displayNextImage()}}/>
 								
@@ -2754,7 +2798,7 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="drag-and-drop-result-container">
 								<p id="correct-waste-text" class="gameplay-text">Correctly Disposed Waste: </p>
-								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed Waste: </p>
+								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed / Missed Waste: </p>
 								<p id="correct-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.correct} </p>
 								<p id="incorrect-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.incorrect} </p>
 							</div>
@@ -2796,7 +2840,7 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="drag-and-drop-result-container">
 								<p id="correct-waste-text" class="gameplay-text">Correctly Disposed Waste: </p>
-								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed Waste: </p>
+								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed / Missed Waste: </p>
 								<p id="correct-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.correct} </p>
 								<p id="incorrect-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.incorrect} </p>
 							</div>
@@ -2838,7 +2882,7 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="drag-and-drop-result-container">
 								<p id="correct-waste-text" class="gameplay-text">Correctly Disposed Waste: </p>
-								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed Waste: </p>
+								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed / Missed Waste: </p>
 								<p id="correct-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.correct} </p>
 								<p id="incorrect-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.incorrect} </p>
 							</div>
@@ -2846,8 +2890,8 @@ export const components = (game, level, episode, tree) => {
 							<div>
 							</div>
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
-								<button class="update-tree-button button-text" onClick={ () => game.updateTreeBranch(6) }> Bargain </button>
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ; game.moneyUp((game.money - 250), "down")}  }> Pay & Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => {game.updateTreeBranch(6) } }> Bargain </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ; game.moneyUp((game.money - 250), "down")  }  }> Pay & Continue </button>
 							</div>
 						
 						</div>
@@ -2884,15 +2928,15 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="drag-and-drop-result-container">
 								<p id="correct-waste-text" class="gameplay-text">Correctly Disposed Waste: </p>
-								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed Waste: </p>
+								<p id="incorrect-waste-text" class="gameplay-text">Incorrectly Disposed / Missed Waste: </p>
 								<p id="correct-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.correct} </p>
 								<p id="incorrect-waste-number" class="gameplay-text"> {game.dragAndDropTrash.result.incorrect} </p>
 							</div>
 							
 
 							<div class="flex-container gameplay-button-container gameplay-button-container-flex">
-								<button class="update-tree-button button-text" onClick={ () => game.updateTreeBranch(6) }> Bargain </button>
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ;  game.moneyUp((game.money - 500), "down")} }> Pay & Continue </button>
+								<button class="update-tree-button button-text" onClick={ () => {game.updateTreeBranch(6) } }> Bargain </button>
+								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(7) ;  game.moneyUp((game.money - 500), "down")  } }> Pay & Continue </button>
 							</div>
 						
 						</div>

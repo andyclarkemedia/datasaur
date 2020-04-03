@@ -457,27 +457,25 @@ returnTreeFromFoodOrder = () => {
   console.log(this.festivalFoodOrder.tomato);
   console.log(this.festivalFoodOrder.basil);
 
-  if ((this.festivalFoodOrder.cheese > 50)  || (this.festivalFoodOrder.tomato > 50) || (this.festivalFoodOrder.basil > 10)) {
+  if ((this.festivalFoodOrder.cheese > 54)  || (this.festivalFoodOrder.tomato > 56) || (this.festivalFoodOrder.basil > 12)) {
     // Set Report Figures
     this.festivalFoodOrder.report.time = 21;
     this.festivalFoodOrder.report.pizzas = 1000;
     this.festivalFoodOrder.report.waste = 15;
-    this.festivalFoodOrder.report.profit = 1500;
+    this.festivalFoodOrder.report.profit = 1200;
 
-
+    this.sePointsUp((this.sePoints - 2), "down");
 
     this.update(this.level, this.episode, this.trees);
     // Return Tree
     return 7;
 
-  } else if ((this.festivalFoodOrder.cheese < 50)  || (this.festivalFoodOrder.tomato < 50) || (this.festivalFoodOrder.basil < 10)) {
+  } else if ((this.festivalFoodOrder.cheese < 48)  || (this.festivalFoodOrder.tomato < 48) || (this.festivalFoodOrder.basil < 8)) {
     // Set Report Figures
     this.festivalFoodOrder.report.time = 15;
     this.festivalFoodOrder.report.pizzas = 700;
     this.festivalFoodOrder.report.waste = 3;
-    this.festivalFoodOrder.report.profit = 800;
-
-    this.sePointsUp(2, "up");
+    this.festivalFoodOrder.report.profit = -300;
 
     this.update(this.level, this.episode, this.trees);
     // Return Tree
@@ -488,9 +486,9 @@ returnTreeFromFoodOrder = () => {
     this.festivalFoodOrder.report.time = 21;
     this.festivalFoodOrder.report.pizzas = 1000;
     this.festivalFoodOrder.report.waste = 5;
-    this.festivalFoodOrder.report.profit = 2100;
+    this.festivalFoodOrder.report.profit = 3000;
 
-    this.sePointsUp(2, "up");
+    this.sePointsUp(3, "up");
 
     this.update(this.level, this.episode, this.trees);
     // Return Tree
@@ -504,26 +502,26 @@ returnTreeFromFoodOrder = () => {
 dragAndDropTrash = {
   result: {
     correct: 0,
-    incorrect: 0
+    incorrect: 16
   }
 }
 
 returnTreeFromTrashResult = () => {
 
   // ALL CORRECT
-  if (this.dragAndDropTrash.result.correct > 15) {
+  if (this.dragAndDropTrash.result.correct > 14) {
     this.sePointsUp((this.sePoints + 4), "up");
     this.update(this.level, this.episode, this.trees);
     return 2;
   }
-  // OVER 3/4 CORRECT
-  else if ((this.dragAndDropTrash.result.correct < 15) && (this.dragAndDropTrash.result.correct >= 10)) {
+  // OVER 2/3 CORRECT
+  else if ((this.dragAndDropTrash.result.correct < 15) && (this.dragAndDropTrash.result.correct >= 9)) {
     this.sePointsUp((this.sePoints + 2), "up");
     this.update(this.level, this.episode, this.trees);
     return 3;
   }
-  // UNDER 3/4 CORRECT 
-  else if ((this.dragAndDropTrash.result.correct < 10) && (this.dragAndDropTrash.result.correct > 5)) {
+  // UNDER 2/3 CORRECT 
+  else if ((this.dragAndDropTrash.result.correct < 9) && (this.dragAndDropTrash.result.correct > 5)) {
     this.sePointsUp((this.sePoints - 2), "down");
     this.update(this.level, this.episode, this.trees);
     return 4;
@@ -535,6 +533,8 @@ returnTreeFromTrashResult = () => {
     return 5;
   }
 }
+
+
 
 
 
@@ -564,6 +564,16 @@ returnTreeFromTrashResult = () => {
         <audio id="sepoints-down-noise" preload='auto'>
             <source src={require('./audio/sepointsdown.mp3')} type="audio/mp3"/>
         </audio>
+
+
+        <audio id="trash-noise" preload='auto'>
+           <source src={require('./audio/trash.wav')} type="audio/wav"/>
+        </audio>
+
+        <audio id="trash-noise" preload='auto'>
+           <source src={require('./audio/trash.wav')} type="audio/wav"/>
+        </audio>
+
 
 
         {this.state.component.main}

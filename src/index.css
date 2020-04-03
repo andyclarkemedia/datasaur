@@ -270,12 +270,12 @@ GAMEPLAY
 
 
 #mute-audio-icon, #play-audio-icon {
-	width: 4vw;
+	width: 4vw !important;
 	position: absolute;
 	bottom: 5vh;
 	right: 5vw;
 	cursor: pointer;
-	z-index: 5000;
+	z-index: 1000;
 }
 
 #play-audio-icon {
@@ -437,8 +437,6 @@ INSTRUCTIONS PAGES
 }
 
 .opening-pound-coin-icon-container, .opening-leaf-icon-container {
-	position: absolute;
-	top: 15vh;
 	display: grid;
 	grid-gap: 2em;
 	grid-template-columns: repeat(6, 1fr);
@@ -458,15 +456,17 @@ INSTRUCTIONS PAGES
 }
 
 .opening-pound-coin-icon-container {
-	grid-column: 1/2;
- 	grid-row: 2/3;
- 	left: 3vw;
+	grid-column: 2/4;
+ 	grid-row: 2/4;
+ 	align-self: center;
+ 	
 }
 
 .opening-leaf-icon-container {
-	grid-column: 5/6;
- 	grid-row: 2/3;
- 	right: 3vw;
+	grid-column: 4/6;
+ 	grid-row: 2/4;
+ 	align-self: center;
+ 	
 }
 
 .opening-plus {
@@ -586,6 +586,7 @@ MORE INFO
 	width: fit-content;
 	padding: 2em;
 	font-size: .8em;
+	opacity: .9;
 }
 
 #close-window-image {
@@ -806,6 +807,8 @@ EPISODE ONE
  	grid-row: 2/3;
  	align-items: center;
  	justify-self: centre;
+ 	font-size: 1.5em;
+ 	grid-gap: 1em;
  	
 }
 
@@ -852,7 +855,7 @@ EPISODE ONE
  	grid-row: 3/4;
  	margin-right: 2em;
  	align-self: center;
- 	font-size: 1.2em;
+ 	font-size: 1.5em;
 
 }
 
@@ -1092,6 +1095,85 @@ FESTIVAL REPORT
 }
 
 
+.person-festival {
+	position: absolute;
+	display: block !important;
+	bottom: 30vh;
+	width: 4vw;
+}
+
+#person-one-festival {
+	left: 75vw;
+}
+
+#person-two-festival {
+	left: 15vw;
+}
+
+#person-two-festival {
+	left: 20vw;
+}
+
+#person-three-festival {
+	left: 25vw;
+}
+
+#person-four-festival {
+	left: 30vw;
+}
+
+#person-five-festival {
+	left: 35vw;
+}
+
+#person-six-festival {
+	left: 40vw;
+}
+
+#person-seven-festival {
+	left: 45vw;
+}
+
+#person-eight-festival {
+	left: 50vw;
+}
+
+#person-nine-festival {
+	left: 55vw;
+}
+
+#person-ten-festival {
+	left: 60vw;
+}
+
+#person-eleven-festival {
+	left: 65vw;
+}
+
+#person-twelve-festival {
+	left: 70vw;
+}
+
+
+#pizza-festival {
+	grid-column: 3/5;
+	align-self: flex-end;
+	justify-self: center;
+	grid-row: 2/4;
+	width: 15vw;
+	padding: 2em;
+}
+
+#planet-pizza-festival {
+	grid-column: 3/5;
+	align-self: flex-end;
+	justify-self: center;
+	grid-row: 2/4;
+	width: 15vw;
+	padding: 2em;
+}
+
+
 /* 
 ==================
 EPISODE TWO 
@@ -1138,7 +1220,6 @@ EPISODE TWO
 
 
 .trash-item-image {
-	width: 7vw;
 	align-self: center;
 	justify-self: center;
 	position: absolute;
@@ -1146,6 +1227,54 @@ EPISODE TWO
 	cursor: grab;
 	transition: visibility 0s, opacity 2s linear;
 
+}
+
+.tomato-drag {
+	width: 3vw;
+}
+
+.tin-drag {
+	width: 6vw;
+}
+
+.water-drag {
+	width: 5vw;
+}
+
+.tomato-drag {
+	width: 7vw;
+}
+
+.crust-drag {
+	width: 9vw;
+}
+
+.basil-drag {
+	width: 8vw;
+}
+
+.can-drag {
+	width: 5vw;
+}
+
+.pizzabox-drag {
+	width: 7vw;
+}
+
+.rocket-drag {
+	width: 8vw;
+}
+
+.tupperware-drag {
+	width: 8vw;
+}
+
+.compost-drag {
+	width: 8vw;
+}
+
+.cutlery-drag {
+	width: 3vw;
 }
 
 
@@ -1313,6 +1442,8 @@ WEEKLY TIMER
 	position: absolute;
 	margin: 0;
 }
+
+
 
 
 #person-one {
@@ -3378,10 +3509,7 @@ MEDIA QUERIES
 		height: 6vw;
 	}
 
-	.opening-leaf-icon-container {
-	grid-row: 1;
-	grid-column: 4/7;
-}
+	
 
 
 	#town-houses {

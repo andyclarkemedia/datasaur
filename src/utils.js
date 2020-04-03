@@ -32,6 +32,7 @@ export const arraysMatch = function (arr1, arr2) {
   	const cashDown = document.querySelector('#cash-down-noise');
   	const seNoiseUp = document.querySelector('#sepoints-up-noise');
   	const seNoiseDown = document.querySelector('#sepoints-down-noise');
+  	const trashNoise = document.querySelector('#trash-noise');
 
   	const playAudioIcon = document.querySelector('#play-audio-icon');
   	const muteAudioIcon = document.querySelector('#mute-audio-icon');
@@ -39,7 +40,7 @@ export const arraysMatch = function (arr1, arr2) {
 
   	if (game.audioMuted === true) {
 
-	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown];
+	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown, trashNoise];
 
 		noiseArray.forEach(function(item) {
 			item.muted = false;
@@ -50,7 +51,7 @@ export const arraysMatch = function (arr1, arr2) {
 
   	} else {
 
-	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown];
+	  	const noiseArray = [cashUp, cashDown, seNoiseUp, seNoiseDown, trashNoise];
 
 		noiseArray.forEach(function(item) {
 			item.muted = true;
@@ -183,7 +184,7 @@ export const animateFeedback = function(game) {
 		if (counter < 1) {
 			// Adjust SRC depending on popularity factor 
 			if (counter < popularity) {
-				if (counter > 0.6) {
+				if (counter > 0.4) {
 					element.src = sourceObject.love;
 				} else {
 					element.src = sourceObject.thumbsUp;
@@ -229,10 +230,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[3],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[2],
@@ -242,10 +243,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[2],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[9],
@@ -255,10 +256,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[9],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[0],
@@ -268,10 +269,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[0],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[7],
@@ -281,10 +282,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[7],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[1],
@@ -294,10 +295,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[1],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[4],
@@ -307,10 +308,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[4],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 		.add({
 			targets: feedbackIcons[5],
@@ -320,10 +321,10 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[5],
-			duration: 2000,
+			duration: 2500,
 			translateY: 0,
 			opacity: 0,
-			delay: 1000,
+			delay: 500,
 		})
 
 }
@@ -434,11 +435,20 @@ export const addBorderOnClick = function(elementId) {
 export const checkOrderInput = function(game, n) {
 	const inputOne = document.querySelector('#cheese-order-input');
 	const inputTwo = document.querySelector('#tomato-order-input');
-	const inputThree = document.querySelector('#cheese-order-input');
+	const inputThree = document.querySelector('#basil-order-input');
 
 	if (inputOne.value && inputTwo.value && inputThree.value) {
-		game.updateTreeBranch(n);
-		game.confirmOrder();
+
+		if ((inputTwo.value < 65) && (inputOne.value < 65) && (inputThree.value < 18)) {
+			game.updateTreeBranch(n);
+			game.confirmOrder();
+		} else {
+			alert("Hold up! Your suppliers don't have that much stock. You'll need to order less ...")
+			console.log(inputTwo.value);
+			console.log(inputThree.value);
+			console.log(inputOne.value);
+		}
+		
 	} else {
 		alert("Please enter your order!")
 	}
@@ -448,6 +458,112 @@ export const checkOrderInput = function(game, n) {
 //==================
 // DRAG AND DROP 
 //==================
+
+
+
+// MOBILE DRAG AND DROP 
+
+export const mobileDrag = function(event, id) {
+
+	// SELECT AND HIDE TICK AND CROSS
+	const cross = document.querySelector('#cross-image');
+	const tick = document.querySelector('#tick-image');
+
+	tick.style.display = "none";
+	cross.style.display = "none";
+	
+	// Select Element 
+	const elementToDrag = document.querySelector(id);
+
+
+	// Reference this code
+	var touchLocation = event.targetTouches[0];
+
+
+	elementToDrag.style.left = touchLocation.pageX + 'px';
+    elementToDrag.style.top = touchLocation.pageY + 'px';
+}
+
+
+export const mobileDrop = function(event, id, game) {
+
+	// SELECT TICK AND CROSS
+	const cross = document.querySelector('#cross-image');
+	const tick = document.querySelector('#tick-image');
+
+	// Select Element 
+	const elementToDrag = document.querySelector(id);
+
+	var x = parseInt(elementToDrag.style.left);
+    var y = parseInt(elementToDrag.style.top);
+
+    // Get Audio and play 
+	const trashNoise = document.querySelector("#trash-noise");
+
+
+    // Select Bins 
+    const recyclingBinPosition = document.querySelector('#drop-bin-one').getBoundingClientRect();
+    const generalBinPosition = document.querySelector('#drop-bin-two').getBoundingClientRect();
+    const foodBinPosition = document.querySelector('#drop-bin-three').getBoundingClientRect();
+
+
+    if ((x > recyclingBinPosition.left) && (x < recyclingBinPosition.right) && (y > recyclingBinPosition.top) && (y < recyclingBinPosition.bottom)) {
+    	if (id.includes("recycling")) {
+    		elementToDrag.style.display = "none";
+    		game.dragAndDropTrash.result.correct += 1;
+    		game.dragAndDropTrash.result.incorrect -= 1;
+			tick.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+
+		} else {
+			elementToDrag.style.display = "none";
+			cross.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+    	}
+    } else if ((x > generalBinPosition.left) && (x < generalBinPosition.right) && (y > generalBinPosition.top) && (y < generalBinPosition.bottom)) {
+    	if (id.includes("general")) {
+    		elementToDrag.style.display = "none";
+    		game.dragAndDropTrash.result.correct += 1;
+    		game.dragAndDropTrash.result.incorrect -= 1;
+			tick.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+
+		} else {
+			elementToDrag.style.display = "none";
+			cross.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+    	}
+    } else if ((x > foodBinPosition.left) && (x < foodBinPosition.right) && (y > foodBinPosition.top) && (y < foodBinPosition.bottom)) {
+    	if (id.includes("food")) {
+    		elementToDrag.style.display = "none";
+    		game.dragAndDropTrash.result.correct += 1;
+    		game.dragAndDropTrash.result.incorrect -= 1;
+			tick.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+
+		} else {
+			elementToDrag.style.display = "none";
+			cross.style.display = "block";
+			displayNextImage();
+			trashNoise.play();
+    	}
+    } else {
+    	elementToDrag.style.top = "5vh";
+    	elementToDrag.style.right = "45vw";
+    	elementToDrag.style.left = "55vw";
+    }
+
+    console.log(game.dragAndDropTrash.result.correct)
+	console.log(game.dragAndDropTrash.result.incorrect)
+}
+
+
+
 
 let counter = 0;
 
@@ -491,9 +607,9 @@ const origin = document.querySelector('.trash-image-container');
 
 dropzone.appendChild(draggableElement);
 
-event
-	.dataTransfer
-	.clearData();
+// event
+// 	.dataTransfer
+// 	.clearData();
 
 
 
@@ -515,21 +631,23 @@ trashNoise.play();
 if ((id.includes("food")) && (dropzone.id === "drop-bin-three")) {
 	console.log("Correct");
 	game.dragAndDropTrash.result.correct += 1;
+	game.dragAndDropTrash.result.incorrect -= 1;
 	tick.style.display = "block";
 } else if ((id.includes("general")) && (dropzone.id === "drop-bin-two")) {
 	console.log("Correct");
 	game.dragAndDropTrash.result.correct += 1;
+	game.dragAndDropTrash.result.incorrect -= 1;
 	tick.style.display = "block";
 
 } else if((id.includes("recycling")) && (dropzone.id === "drop-bin-one")) {
 	console.log("Correct");
 	game.dragAndDropTrash.result.correct += 1;
+	game.dragAndDropTrash.result.incorrect -= 1;
 	tick.style.display = "block";
 }
 
 else {
 	console.log("Incorrect");
-	game.dragAndDropTrash.result.incorrect += 1;
 	cross.style.display = "block";
 
 }
@@ -545,7 +663,7 @@ else {
 export const displayNextImage = function() {
 
 
-	const imageArray = ["#drag-two-food", "#drag-three-recycling", "#drag-four-food", "#drag-five-recycling", "#drag-six-food", "#drag-seven-recycling", "#drag-eight-food", "#drag-nine-food", "#drag-ten-recycling", "#drag-eleven-recycling", "#drag-twelve-food", "#drag-thirteen-food", "#drag-fourteen-food", "#drag-fifteen-recycling", "#drag-sixteen-food"]
+	const imageArray = ["#drag-two-food", "#drag-three-recycling", "#drag-four-food", "#drag-five-general", "#drag-six-food", "#drag-seven-recycling", "#drag-eight-general", "#drag-nine-food", "#drag-ten-recycling", "#drag-eleven-general", "#drag-twelve-food", "#drag-thirteen-food", "#drag-fourteen-food", "#drag-fifteen-recycling", "#drag-sixteen-recycling"]
 
 	if (counter <= imageArray.length -1) {
 		const nextImage = document.querySelector(imageArray[counter]);
@@ -564,7 +682,7 @@ export const countdown = function(game) {
 	const countdownElement = document.getElementById("drag-drop-timer");
 
 	// Set Time
-	var timeleft = 19;
+	var timeleft = 24;
 	var downloadTimer = setInterval(function(){
   	if(timeleft <= 0){
   		countdownElement.innerHTML = ":0";
