@@ -2892,8 +2892,6 @@ MAZE CSS
   background-size: cover;
 }
 
-
-
 #maze div {
   display: flex;
 }
@@ -2912,37 +2910,89 @@ MAZE CSS
   z-index: 10;
 }
 #maze div div.door.exit::after {
-  content: "\1F6AA";
-  font-size: 2em;
+  /* content: "\1F6AA";
+  font-size: 2em; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F6AA.svg") no-repeat;
 }
 #maze div div.female_contribute::after, #maze div div.female_contribute1::after,  #maze div div.female_contribute2::after,  #maze div div.female_contribute3::after, #maze div div.female_contribute4::after  {
-  content: "\1F64B\200D\2640\FE0F";
+  /* content: "\1F64B\200D\2640\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F64B-1F3FD.svg") no-repeat;
 }
 
 #maze div div.nubbin_male::after, #maze div div.male_contribute1::after, #maze div div.male_contribute2::after, #maze div div.male_contribute3::after, #maze div div.male_contribute::after {
-  content: "\1F481\200D\2642\FE0F	";
+  /* content: "\1F481\200D\2642\FE0F	"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F481-200D-2642-FE0F.svg") no-repeat;
 }
 
-#maze div #female_contribute, #maze div #female_contribute1, #maze div #female_contribute2, #maze div #female_contribute3, #maze div #female_contribute4, #maze div #female_contribute4, #maze div #male_contribute1, #maze div #male_contribute2, #maze div #male_contribute3, #maze div #male_contribute, #maze div #nubbin_male_generous1, #maze div #nubbin_male_generous, #maze div #nubbin_female_generous1, #nubbin_female_generous, #maze div #solar, #maze div #investor_profit_sustainability, #maze div #investor_meet_later, #maze div #investor_donnot_understand, #maze div #sentinel, #maze div #bank  {
+#maze div #female_contribute1, #maze div #female_contribute2, #maze div #female_contribute3, #maze div #female_contribute4, #maze div #female_contribute4, #maze div #male_contribute1, #maze div #male_contribute2, #maze div #male_contribute3, #maze div #nubbin_male_generous1, #maze div #nubbin_female_generous1, #nubbin_female_generous, #maze div #solar, #maze div #investor_profit_sustainability, #maze div #investor_meet_later,  #maze div #sentinel, #maze div #bank  {
   margin-top:1.5em;
   padding-top: 0.5em;
   z-index: 900;
   border-radius: 10px;
   display: none;
 }
+
+#maze div #male_contribute, #maze div #investor_donnot_understand,#maze div #female_contribute, #maze div #nubbin_male_generous{
+  margin-top:-5em;
+  padding-top: 0.5em;
+  z-index: 900;
+  border-radius: 10px;
+  display: none;
+}
+
 #maze div #solar{
   margin-right: 1.5em;
   margin-left: -2em;
 }
 #maze div div.nubbin_male_generous::after, #maze div div.nubbin_male_generous1::after {
-  content: "\1F64B\200D\2642\FE0F";
+  /* content: "\1F64B\200D\2642\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F64B-1F3FB-200D-2642-FE0F.svg") no-repeat;
 }
 #maze div div.nubbin_female_generous::after, #maze div div.nubbin_female_generous1::after {
-  content: "\1F646\200D\2640\FE0F";
+  /* content: "\1F646\200D\2640\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F646-1F3FB-200D-2640-FE0F.svg") no-repeat;
+
 }
 
 #maze div.hero::after {
-  content: "\1F469\200D\1F373" !important;
+  /* content: "\1F469\200D\1F373" !important; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F469-1F3FC-200D-1F373.svg") no-repeat;
 
 }
 #maze.face-right div.hero::after {
@@ -2961,24 +3011,66 @@ MAZE CSS
 }
 
 #maze div div.sentinel.wall::after {
-  content: "\1F469\200D\1F4BC	";
+  /* content: "\1F469\200D\1F4BC	"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F469-1F3FC-200D-1F4BC.svg") no-repeat;
 }
 #maze div div.investor_meet_later::after {
-  content: "\1F468\200D\1F4BC";
+  /* content: "\1F468\200D\1F4BC"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F468-200D-1F4BC.svg") no-repeat;
 }
 #maze div div.investor_donnot_understand::after {
-  content: "\1F935";
+  /* content: "\1F935"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F935.svg") no-repeat;
 }
 
 #maze div div.investor_profit_sustainability::after {
-  content: "\1F935";
+  /* content: "\1F935"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F935-1F3FC.svg") no-repeat;
 }
 #maze div div.bank::after {
-  content: "\1F3E6";
+  /* content: "\1F3E6"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F3E6.svg") no-repeat;
 }
 
 #maze div div.solar::after {
-  content: "\1F3E2";
+  /* content: "\1F3E2"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F3EC.svg") no-repeat;
 }
 /* #maze div.sentinel.wall:nth-of-type(3n)::after {
   content: "\1F40D";
