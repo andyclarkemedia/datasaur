@@ -65,6 +65,7 @@ HEIGHTS & WIDTHS
 	width: 2vw;
 	cursor: pointer;
 	z-index: 500;
+	margin: 1em;
 }
 
  /* 
@@ -241,7 +242,7 @@ GAMEPLAY
 }
 
 .maze-leaf-icon-container {
-	grid-column: 3;
+	grid-column: 5/7;
  	grid-row: 1;
 }
 
@@ -275,7 +276,7 @@ GAMEPLAY
 	bottom: 5vh;
 	right: 5vw;
 	cursor: pointer;
-	z-index: 1000;
+	z-index: 6000;
 }
 
 #play-audio-icon {
@@ -357,7 +358,7 @@ INSTRUCTIONS PAGES
 
 #instructions-title {
 	font-size: 5em;
- 	grid-column: 3/5;
+ 	grid-column: 2/6;
  	justify-self: center;
  	grid-row: 1/2;
  	align-self: center;
@@ -397,11 +398,13 @@ INSTRUCTIONS PAGES
 #opening-pound-coin {
 	grid-column: 1/3;	
 	grid-row: 3/5;
+	align-self: center;
 }
 
 #opening-leaf {
 	grid-row: 3/5;
 	grid-column: 1/3;
+	align-self: center;
 }
 
 #money-icon-text {
@@ -470,7 +473,7 @@ INSTRUCTIONS PAGES
 }
 
 .opening-plus {
-	grid-row: 3/4;
+	grid-row: 3/5;
 	grid-column: 3;
 	width: 3vw;
 	cursor: pointer;
@@ -479,7 +482,7 @@ INSTRUCTIONS PAGES
 }
 
 .opening-minus {
-	grid-row: 3/4;
+	grid-row: 3/5;
 	grid-column: 5;
 	width: 3vw;
 	cursor: pointer;
@@ -499,6 +502,7 @@ CHOOSE A CHARACTER PAGE
 	grid-column: 2/6;
  	grid-row: 1;
  	align-self: center;
+ 	z-index: 1000;
 }
 
 
@@ -575,7 +579,7 @@ MORE INFO
 	grid-column: 3/5;
  	grid-row: 2/5;
 	display: grid;
-	grid-gap: 2em;
+	grid-gap: 1.5em;
 	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(6);
   	background-color: #f2f2f2;
@@ -583,14 +587,14 @@ MORE INFO
 	align-self: flex-start;
 	justify-self: center;
 	height: fit-content;
-	width: fit-content;
-	padding: 2em;
+	width: auto;
+	padding: 1.5em;
 	font-size: .8em;
 	opacity: .9;
 }
 
 #close-window-image {
-	width: 2vw;
+	width: 3vw;
 	padding: .5em;
 	grid-column: 6;
 	grid-row: 1;
@@ -1034,8 +1038,11 @@ FESTIVAL REPORT
   	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(6, 1fr);
   	align-self: center;
-	
-	
+}
+
+.festival-report-container p {
+	margin: 0.15em;
+	align-self: center;
 }
 
 #festival-report-title {
@@ -1098,8 +1105,10 @@ FESTIVAL REPORT
 .person-festival {
 	position: absolute;
 	display: block !important;
-	bottom: 30vh;
+	top: 50vh !important;
 	width: 4vw;
+	opacity: 1 !important;
+	transform: translateX(0) !important;
 }
 
 #person-one-festival {
@@ -1425,7 +1434,7 @@ WEEKLY TIMER
 }
 
 
-.planet-pizza {
+.planet-pizza, #planet-pizza-decor {
 	width: 30vw;
 	grid-row: 1/6;
 	align-self: center;
@@ -2342,6 +2351,13 @@ POTATO WHOLESALE
 	font-weight: 700;
 }
 
+#express-image {
+	width: 10vw;
+	grid-column: 3/5;
+	grid-row: 3;
+	justify-self: center;
+	align-self: center;
+}
 
 
 #potato-organic-express-image {
@@ -2398,14 +2414,16 @@ TAKEOUT BRANCH
 
 .houses-takeout {
 	position: absolute;
-	bottom: 0;
-	right: 2vw;
+	bottom: 0 !important;
+	right: 2vw !important;
 	width: 25vw;
+	transform: translateX(0) !important;
+
 }
 
 .pizzabox-takeout-image {
 	width: 20vw;
-	grid-column: 4/6;
+	grid-column: 5/6;
 	grid-row: 2/4;
 	align-self: center;
 	justify-self:center;
@@ -2454,10 +2472,11 @@ TAKEOUT BRANCH
 }
 
 #packaging-hover {
-	grid-row: 5;
+	grid-row: 4;
 	align-self: center;
 	grid-column: 1/7;
 	text-align: center;
+	font-size: 1.2em;
 }
 
 #packaging-choice-container {
@@ -2552,6 +2571,7 @@ TAKEOUT BRANCH
 	align-self: center;
 	grid-column: 3/5;
 	font-size: 1.5em;
+	text-align: center;
 }
 
 
@@ -2583,14 +2603,23 @@ TAKEOUT BRANCH
 	grid-row: 2;
 	align-self: center;
 	grid-column: 2/4;
-	font-size: 1.5em;
+	font-size: 1.3em;
 }
 
 #plastic-packaging-feedback-two {
 	grid-row: 2/4;
 	align-self: center;
 	grid-column: 2/4;
-	font-size: 1.5em;
+	font-size: 1.3em;
+}
+
+.social-media-image {
+	width: 18vw;
+	grid-row: 2/4;
+	grid-column: 4/6;
+	justify-self: center;
+	align-self: flex-start;
+
 }
 
 
@@ -2689,12 +2718,12 @@ CUTLERY
 
 
 #cutlery-choice-container {
-	grid-row: 1/4;
+	grid-row: 2/4;
 	align-self: center;
 	grid-column: 2/6;
 	display: grid;
   	grid-template-columns: repeat(6, 1fr);
- 	grid-template-rows: repeat(3, 1fr);
+ 	grid-template-rows: repeat(3, .21fr);
     z-index: 1000;
     grid-gap: 3em
   	
@@ -2734,7 +2763,7 @@ CUTLERY
 	grid-column: 1/3;
 	justify-self: center;
 	width: 4vh;
-	padding: .5em;
+	padding: 1em;
 	cursor: pointer;
 }
 
@@ -2745,7 +2774,7 @@ CUTLERY
 	grid-column: 3/5;
 	justify-self: center;
 	width: 4vh;
-	padding: .5em;
+	padding: 1em;
 	cursor: pointer;
 }
 
@@ -2755,7 +2784,7 @@ CUTLERY
 	align-self: center;
 	grid-column: 5/7;
 	justify-self: center;
-	width: 4vh;
+	width: 7vh;
 	padding: .5em;
 	cursor: pointer;
 }
@@ -2801,12 +2830,15 @@ MAZE CSS
 
 
 #joypad-container {
-	grid-column: 2;
+	grid-column: 2/4;
 	grid-row: 4/5;
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
   	grid-template-rows: repeat(2, 1fr);
   	padding: 2em;
+  	z-index: 100000;
+  	align-self: center;
+  	justify-self: flex-end;
   	
 }
 
@@ -2842,8 +2874,8 @@ MAZE CSS
   position: absolute;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
   right: 5vw;
-  top: 15vh;
-  font-size: 1.3em;
+  top: 18vh;
+  font-size: 1.25em;
 }
 
 
@@ -2853,7 +2885,7 @@ MAZE CSS
 	height: 100%;
   	background-color: #282828;
   	opacity: 0.8;
-  	z-index: 500000000;
+  	z-index: 5000;
   	display: grid;
   	grid-template-columns: repeat(6, 1fr);
   	grid-template-rows: repeat(5, 1fr);
@@ -3088,10 +3120,8 @@ MAZE CSS
 }
 
 #maze_output {
- grid-row: 1;
- grid-column: 3/7;
-  margin-top: 5vh;
-  right: 5vw;
+ grid-row: 4/5;
+ grid-column: 1/3;
   background-color: #f2f2f2;
   z-index: 1000;
   border: .1em solid #182628;
@@ -3099,7 +3129,7 @@ MAZE CSS
   padding: 1em;
   opacity: .9;
   max-width: 20vw;
-  max-height: 5vh;
+  max-height: 8vh;
   justify-self: center;
 
 }
@@ -3179,22 +3209,25 @@ MAZE CSS
 
 
 #maze-instructions-one {
-	margin-left: 10vw;
+	margin-left: 5vw;
 	grid-column: 1/4;
 	grid-row: 2;
 	font-size: 1.5em;
 	align-self: flex-end;
+	justify-self: center;
+	z-index: 3000;
 	
 
 }
 
 
 #maze-instructions-two {
-	margin-left: 10vw;
+	margin-left: 5vw;
 	grid-column: 1/4;
 	grid-row: 3;
 	font-size: 1.5em;
 	align-self: center;
+	justify-self: center;
 }
 
 /* 
@@ -3324,6 +3357,13 @@ MEDIA QUERIES
 
 @media (max-width: 1500px) {
 
+	#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato  {
+		font-size: 1.3em;
+	}
+
+	#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+		font-size: 1.3em;
+	}
 
 	#business-license-container {
 		margin: 0;
@@ -3340,13 +3380,20 @@ MEDIA QUERIES
 		margin-bottom: 0;
 	}
 
+
 	#takeout-intro-requests, #positive-packaging-feedback-one {
-		align-self: flex-start;
+		grid-column: 2/6;
+		align-self: flex-end;
+		font-size: 1.5em;
+		margin: 0;
 	}
 
+	#takeout-intro-offer, #takeout-intro-success {
+		font-size: 1.3em;
+	}
 
 	#takeout-intro-success {
-		align-self: flex-end;
+		align-self: flex-start;
 	}
 
 	#discount-scheme-decision-one {
@@ -3360,12 +3407,12 @@ MEDIA QUERIES
 
 
 	#maze_container {
-		font-size: 1.1em; 
+		font-size: 1em; 
 	}
 
 	#maze-instructions-one, #maze-instructions-two {
 		margin-left: 3vw;
-		font-size: 1.2em;
+		font-size: 1em;
 		margin-right: 5vw;
 	}
 
@@ -3373,6 +3420,57 @@ MEDIA QUERIES
 		width: 15vw;
 	}
 
+
+	.more-info-container {
+		width: 50vw !important;
+		left: 25vw;
+		padding: 1em;
+	}
+
+	#more-info-description {
+		font-size: 1.2em;
+	}
+
+
+	#tomato-choice-image, #cheese-choice-image, #pork-choice-image, #chicken-choice-image, #carrot-choice-image {
+		width: 3vw
+	}
+
+	.speech-bubble {
+		top: 30vh;
+		width: 30vw;
+	}
+
+	#potato-important {
+		font-size: 1.5em;
+		grid-row: 1;
+		align-self: flex-end;
+	}
+
+	#potato-what-do-you-want {
+		align-self: flex-start;
+		margin: 1em;
+		font-size: 1.2em;
+	}
+
+	.potato-rethink-choice-container img {
+		width: 8vw !important;
+	}
+
+	#discount-no-rethink-potato {
+		grid-column: 2/6;
+	}
+
+	#positive-packaging-feedback-two {
+		grid-row: 3;
+		align-self: flex-start;
+	}
+
+	#positive-packaging-feedback-one {
+		grid-row: 2;
+		align-self: center;
+		grid-column: 2/4;
+	}
 
 }
 
@@ -3401,9 +3499,17 @@ MEDIA QUERIES
 	}
 
 	.supplier-choice-container-food img {
-   	 	width: 3vw;
+   	 	width: 2vw;
    	 }
 
+	.more-info-characters-container {
+		grid-column: 2/6;
+	}
+
+
+	#express-image {
+		width: 13vw;
+	}
 
 	#planet-pizza-animation {
 		margin-bottom: 0;
@@ -3464,11 +3570,13 @@ MEDIA QUERIES
 		margin-right: 7vw;
 	}
 
-	.speech-bubble {
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 25vw;
+   	}
+
+	#planet-pizza-festival {
 		width: 20vw;
 	}
-
-
 
 }
 
@@ -3498,6 +3606,10 @@ MEDIA QUERIES
 		font-size: 3em;
 	}
 
+	.help-icon {
+		width: 3.5vw;
+	}
+
 	#instructions-title {
 		font-size: 4em;
 	}
@@ -3515,10 +3627,10 @@ MEDIA QUERIES
 		width: 6vw;
 	}
 
-
-	#takeout-intro-requests, #takeout-intro-offer, #takeout-intro-success {
+	#takeout-intro-offer, #takeout-intro-success {
 		grid-column: 1/4;
 	}
+
 
 
 	.place-order-container {
@@ -3549,6 +3661,21 @@ MEDIA QUERIES
 	}
 
 
+	#ethical-energy-supplier-image {
+   		width: 10vw;
+   		padding: .5em;
+   	}
+
+   	#solar-image {
+   		width: 14vw;
+   	}
+
+   	#pylon-image {
+   		width: 12vw;
+   		padding: .5em;
+   	}
+
+
 
 	#drop-bin-one, #drop-bin-two, #drop-bin-three {
 		height: 15vh;
@@ -3559,13 +3686,32 @@ MEDIA QUERIES
 		grid-column: 2/6
 	}
 
+	#maze_container {
+		font-size: .9em;
+	}
+
 
 	#maze-instructions-one, #maze-instructions-two {
 		margin-left: 3vw;
-		font-size: 1.2em;
+		font-size: 1em;
 		margin-right: 13vw;
 	}
 
+
+	#close-window-image {
+		width: 4vw;
+	}
+
+	.speech-bubble {
+		top: 35vh;
+		width: 35vw;
+	}
+
+	#pizza-festival {
+		grid-row: 3;
+		align-self: center;
+		width: 20vw;
+	}
 
 
 }
@@ -3588,9 +3734,42 @@ MEDIA QUERIES
 	body {
 		font-size: .8em;
 	}
+
+	.help-icon {
+		width: 4vw;
+	}
+
+	.gameplay-text {
+		margin: 0;
+	}
+
+	.supplier-choice-container-food {
+		grid-column: 1/7;
+		margin: 0 2vw;
+	}
+
+	.supplier-choice-container-food img {
+   	 	width: 3vw;
+   	 }
+
+   	 #tomato-choice-image, #cheese-choice-image, #pork-choice-image, #chicken-choice-image, #carrot-choice-image {
+		width: 4vw
+	}
+
+	#mute-audio-icon, #play-audio-icon {
+		width: 8vw !important;
+	}
+
+	#arrow-image {
+		width: 12vw !important;
+	}
    
    .icon-text {
 		font-size: 2em;
+	}
+
+	#express-image {
+		width: 15vw;
 	}
 
 	.icon-container {
@@ -3601,8 +3780,34 @@ MEDIA QUERIES
 		height: 6vw;
 	}
 
-	
+	.icon-explainer-text {
+		font-size: 1.5em;
+	}
 
+
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 35vw;
+   		height: 40vh;
+   	}
+
+   	.opening-pound-coin-icon-container {
+   		grid-column: 1/4;
+   	}
+
+   	.opening-leaf-icon-container {
+   		grid-column: 4/7;
+   	}
+
+	
+	.opening-plus, .opening-minus {
+		width: 5vw;
+	}
+
+
+	#opening-pound-coin, #opening-leaf {
+		width: 8vw;
+		height: auto;
+	}
 
 	#town-houses {
    		width: 35vw;
@@ -3637,15 +3842,6 @@ MEDIA QUERIES
    	}
 
 
-   	#ethical-energy-supplier-image, #solar-image {
-   		width: 15vw;
-   		padding: .5em;
-   	}
-
-   	#pylon-image {
-   		width: 10vw;
-   		padding: .5em;
-   	}
 
    	#budget-image, #luxury-image, #upcycle-image {
 		width: 6vw;
@@ -3654,6 +3850,17 @@ MEDIA QUERIES
 	#weekly-earnings {
 		font-size: 1.8em;
    	 	justify-self: center;
+	}
+
+
+	#plastic-packaging-feedback-one, #plastic-packaging-feedback-two {
+		grid-column: 1/4;
+		margin-left: 2em;
+	}
+
+	.social-media-image {
+		
+		width: 25vw;
 	}
 
 
@@ -3684,13 +3891,88 @@ MEDIA QUERIES
 
 
 	#maze_container {
-		top: 25vh;
+		top: 20vh;
 		font-size: .9em; 
 	}
 
 
 	.speech-bubble {
 		width: 25vw;
+	}
+
+	.speech-bubble {
+		top: 35vh;
+		width: 45vw;
+	}
+
+	.planet-pizza {
+		width: 38vw;
+		grid-column: 4/7 !important;
+		justify-self: flex-end !important;
+	}
+
+	.feedback-icon {
+		width: 6vw;
+	}
+
+	.person {
+		width: 3vw !important;
+	}
+
+	.person-festival {
+		width: 5vw;
+	}
+
+	#pizza-festival {
+		align-self: center;
+		width: 30vw;
+	}
+
+
+	#organic-choice, #wholesale-choice, #menu-choice {
+		width: 10vw;
+	}
+
+
+	#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato  {
+		grid-column: 2/6;
+	}
+
+	#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+		grid-column: 2/6;
+	}
+
+	#laptop-image {
+		width: 40vw;
+	}
+
+	#planet-pizza-festival {
+		width: 25vw;
+	}
+
+
+
+	#weekly-earnings {
+		font-size: 2.5em;
+		margin-top: 1em;
+	}
+
+
+	#takeout-intro-offer, #takeout-intro-success {
+		margin: 1em;
+		grid-column: 1/5;
+	}
+
+	.pizzabox-takeout-image {
+		width: 25vw;
+	}
+
+	.bike-image {
+		width: 28vw;
+	}
+
+	.houses-takeout {
+		width: 40vw;
 	}
 
 }
@@ -3719,6 +4001,11 @@ MEDIA QUERIES
    		width: 45vw;
    	}
 
+   	#town-houses-opening {
+   		width: 45vw !important;
+   		left: 28vw;
+   	}
+
    	.bottom {
    		right: 28vw;
    	}
@@ -3726,6 +4013,12 @@ MEDIA QUERIES
    	#tree-side, #tree-side-inverse {
    		width: 40vw;
 		
+   	}
+
+   	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 38vw;
+   		height: 30vh;
+   		font-size: .6em;
    	}
 
    	.leaf-icon-container {
@@ -3738,7 +4031,7 @@ MEDIA QUERIES
 
 
 	#lisa-head {
-		width: 15vw;
+		width: 10vw;
 	}
 
 
@@ -3750,7 +4043,7 @@ MEDIA QUERIES
 	}
 
 	#planet-pizza-decor {
-		grid-column: 2/6;
+		grid-column: 2/6 !important;
 		justify-self: center;
 		width: 40vw;
 	}
@@ -3764,6 +4057,7 @@ MEDIA QUERIES
 		grid-row: 1/2;
 		align-self: flex-end;
     	grid-column: 1/7;
+    	margin: 0 1em;
 	}
 
 	#cutlery-choice-container {
@@ -3779,7 +4073,6 @@ MEDIA QUERIES
 
 
 	#takeout-intro-requests, #takeout-intro-offer, #takeout-intro-success {
-		grid-column: 1/4;
 		font-size: 1.3em;
 	}
 
@@ -3824,11 +4117,22 @@ MEDIA QUERIES
 
 
 	#maze_container {
-		top: 30vh;
-		right: 15vw;
-		left: 15vw;
-		font-size: .8em; 
+		font-size: .8em;
+		top: 26vh; 
+		right: 23vw;
 	}
+
+	#joypad-container {
+		padding: 0;
+		grid-column: 1/3;
+   		align-self: center;
+   		justify-self: center;
+	}
+
+	#joypad-container img {
+		width: 7vw;
+	}
+
 
 
 	#continue-from-maze-button {
@@ -3839,10 +4143,11 @@ MEDIA QUERIES
 
 	#maze_output {
 		grid-row: 4/5;
-		grid-column: 1/3;
+		grid-column: 4/6;
 		align-self: center;
 		justify-self: center;
 		margin: 0;
+		height: auto !;
 	}
 
 	#maze_score {
@@ -3863,8 +4168,10 @@ MEDIA QUERIES
 		grid-row: 1/2;
 		margin: 0;
 		align-self: flex-end;
-		margin: .5em 5vw;
-		font-size: 1.4em;
+		margin: 2em 5vw;
+		font-size: 1.2em;
+		z-index: 1000;
+		font-weight: 700;
 	}
 
 	.speech-bubble {
@@ -3872,8 +4179,128 @@ MEDIA QUERIES
 	}
 
 
+	.more-info-container {
+		width: 65vw !important;
+		left: 17vw;
+		font-size: .9em;
+	}
+
+
+	.speech-bubble {
+		width: 45vw;
+	}
+
+	.help-icon {
+		justify-self: flex-end !important;
+		align-self: flex-start !important;
+		margin-top: 0;
+	}
+
+
+	button {
+		font-size: 1.5em !important;
+		font-weight: 700;
+		border: .15em solid #282828 !important;
+	}
+
+
+	#plastic-packaging-feedback-two {
+		grid-row: 3;
+		align-self: flex-start;
+	}
+
 
    
+
+}
+
+
+/* 
+==================
+550 px - MAZE
+==================
+*/
+
+@media (max-width: 550px) {
+
+	#maze_container {
+		font-size: .74em; 
+		right: 20vw;
+	}
+
+	#joypad-container {
+		padding: 0;
+		
+	}
+
+	#joypad-container img {
+		width: 10vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1em;
+	}
+
+	.farmhouse-image, .potato-fork-image {
+		width: 38vw;
+	}
+
+
+	#plastic-packaging-feedback-one, #plastic-packaging-feedback-two {
+		grid-column: 1/4;
+		margin-left: 2em;
+	}
+
+	.social-media-image {
+		
+		width: 25vw;
+	}
+
+
+	#planet-pizza-festival {
+		width: 30vw;
+	}
+
+
+
+}
+
+
+/* 
+==================
+466 px - MAZE
+==================
+*/
+
+@media (max-width: 466px) {
+
+	#maze_container {
+		font-size: .68em; 
+		right: 17vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+		grid-column: 1/4;
+	}
+
+	#joypad-container img {
+		width: 15vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1em;
+	}
+
+	#maze-output {
+		justify-self: flex-end;
+	}
+
+
+	.speech-bubble {
+		width: 50vw;
+	}
+
 
 }
 
@@ -3888,31 +4315,31 @@ MEDIA QUERIES
 
 @media (max-width: 400px) {
 
-	body {
+	body. * {
 		font-size: .6em;
 	}
 
 
-	#town-houses {
-   		width: 55vw;
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		font-size: .8em;
    	}
+
 
    	.bottom {
    		right: 25vw;
    	}
 
-   	#ethical-energy-supplier-image, #solar-image {
-   		width: 20vw;
+   	#ethical-energy-supplier-image {
+   		width: 14vw;
    	}
+
+   	#solar-image {
+		width: 20vw;
+    }
 
    	#pylon-image {
-   		width: 13vw;
+   		width: 15vw;
    	}
-
-
-	.icon-explainer-text {
-		font-size: 1em;
-	}
 
 
 	#cheese-order-image, #tomato-order-image, #basil-order-image {
@@ -3935,4 +4362,73 @@ MEDIA QUERIES
 		min-width: 20vw;
 	}
 
+
+	#maze_container {
+		font-size: .7em; 
+		right: 15vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+	}
+
+	#joypad-container img {
+		width: 12vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1em;
+	}
+
+
+	.supplier-choice-container {
+		font-size: 1em;
+	}
+
+
+	button {
+		font-size: 1.1em !important;
+		font-weight: 700;
+		border: .15em solid #282828 !important;
+	}
+
+
+
+	
+
 }
+
+
+/* 
+==================
+350 px - MAZE
+==================
+*/
+
+@media (max-width: 350px) {
+
+	body. * {
+		font-size: .55em;
+	}
+
+	#maze_container {
+		font-size: .7em; 
+		right: 5vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+	}
+
+
+
+
+}
+
+
+/* 
+==================
+400 px
+==================
+*/
+

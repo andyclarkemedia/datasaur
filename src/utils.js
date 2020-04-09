@@ -1305,7 +1305,7 @@ export const hideMoreInfo = function() {
 		.add({
 			targets: container,
 			duration: 100,
-			zIndex: 0
+			zIndex: -5
 		})
 		.add({
 			targets: container,

@@ -307,7 +307,7 @@ export const components = (game, level, episode, tree) => {
 
 
 							<p id="suppliers-choice-description-one">{suppliersChoice.descriptionOne}</p>
-							<img id="planet-pizza-decor" class="planet-pizza" src={require('./images/restaurant.png')} />
+							<img id="planet-pizza-decor" src={require('./images/restaurant.png')} />
 
 							
 								
@@ -1092,6 +1092,7 @@ export const components = (game, level, episode, tree) => {
 							<p id="first-organic-potato"> {potatoOrganicPath.first} </p> 
 							<p id="second-organic-potato"> {potatoOrganicPath.second} </p> 
 							
+							<img id="express-image" src={require('./images/express-delivery.png')} />
 
 
 							<img class="farmhouse-image" src={require('./images/farmhouse.png')} />
@@ -1613,6 +1614,8 @@ export const components = (game, level, episode, tree) => {
 
 							<p id="positive-packaging-feedback-one" > { packaging.positivePackagingFeedbackOne } </p>
 							<p id="positive-packaging-feedback-two" > { packaging.positivePackagingFeedbackTwo } </p>
+
+							<img class="social-media-image" src={require('./images/social-media.png')}/>
 							
 							<img class="bike-image" src={require('./images/bike.png')}/>
 							<img class="houses-takeout" src={require('./images/town-houses.png')}/>
@@ -1652,6 +1655,8 @@ export const components = (game, level, episode, tree) => {
 
 							<p id="plastic-packaging-feedback-one" > { packaging.plasticOne } </p>
 							<p id="plastic-packaging-feedback-two" > { packaging.plasticTwo } </p>
+
+							<img class="social-media-image" src={require('./images/social-media.png')}/>
 							
 							<img class="bike-image" src={require('./images/bike.png')}/>
 							<img class="houses-takeout" src={require('./images/town-houses.png')}/>
