@@ -7,6 +7,7 @@ import './index.css';
 import { triggerMaze } from './mazing.js';
 import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final } from './storylines.js';
 import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback, mobileDrag, mobileDrop } from './utils.js';
+import { triggerArticle } from './article.js';
 
 
 
@@ -143,7 +144,7 @@ export const components = (game, level, episode, tree) => {
 					
 							<div class="flex-container gameplay-button-container">
 
-								<button id="set-character-button" class="update-tree-button button-text"  onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  }  }> Continue </button>
+								<button id="set-character-button" class="update-tree-button button-text"  onClick={() => { game.updateLevel(1) ; game.updateEpisode(0) ;  game.updateTreeBranch(0)  ; triggerArticle() }  }> Continue </button>
 							</div>
 							
 							<img id="town-houses-opening" src={require('./images/town-houses.png')} />
@@ -174,7 +175,7 @@ export const components = (game, level, episode, tree) => {
 		// INITIAL DECISIONS
 		//====================	
 
-		1: {
+		6: {
 			0: {
 
 
@@ -2485,14 +2486,14 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="festival-report-container grid-container-4x6">
 								<p id="festival-report-title" class="">  <span id="festival-report-title-span"> {festivalReport.title} </span>  </p>
-								<p id="festival-report-time" class="gameplay-text"> {festivalReport.time} </p>
-								<p id="festival-report-pizzas" class="gameplay-text"> {festivalReport.pizzas} </p>
-								<p id="festival-report-waste" class="gameplay-text"> {festivalReport.waste} </p>
-								<p id="festival-report-profit" class="gameplay-text"> {festivalReport.profit} </p>
-								<p id="festival-report-time-number" class="gameplay-text align-center"> {game.festivalFoodOrder.report.time} </p>
-								<p id="festival-report-pizzas-number" class="gameplay-text align-center"> {game.festivalFoodOrder.report.pizzas} </p>
-								<p id="festival-report-waste-number" class="gameplay-text align-center"> {game.festivalFoodOrder.report.waste  + " bin bags"} </p>
-								<p id="festival-report-profit-number" class="gameplay-text align-center"> {"£" + game.festivalFoodOrder.report.profit} </p>
+								<p id="festival-report-time"> {festivalReport.time} </p>
+								<p id="festival-report-pizzas" > {festivalReport.pizzas} </p>
+								<p id="festival-report-waste" > {festivalReport.waste} </p>
+								<p id="festival-report-profit"> {festivalReport.profit} </p>
+								<p id="festival-report-time-number"> {game.festivalFoodOrder.report.time} </p>
+								<p id="festival-report-pizzas-number"> {game.festivalFoodOrder.report.pizzas} </p>
+								<p id="festival-report-waste-number" > {game.festivalFoodOrder.report.waste  + " bin bags"} </p>
+								<p id="festival-report-profit-number"> {"£" + game.festivalFoodOrder.report.profit} </p>
 								<p id="get-rid-of-waste"> { festivalReport.getRidOfWaste } </p>
 							</div>
 
@@ -3267,6 +3268,24 @@ export const components = (game, level, episode, tree) => {
 
 			}
 
+		},
+
+
+		1: {
+			0: {
+				0: {
+
+					main: (
+
+						<div id="article-root">
+							<span onLoad={ ()=> triggerArticle() }></span>
+						</div> 
+
+
+						)
+
+				}
+			}
 		}
 
 	
