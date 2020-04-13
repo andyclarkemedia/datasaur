@@ -11,7 +11,7 @@ import anime from 'animejs/lib/anime.es.js';
 import './index.css';
 import { components } from './components.js';
 import { moreInfo } from './storylines.js';
-
+import { Article } from './article.js';
 
 
 
@@ -61,6 +61,41 @@ class Game extends React.Component {
   // Update tree Branch 
   updateTreeBranch = (n) => {
     this.trees = n;
+    this.update(this.level, this.episode, this.trees);
+  }
+
+  // Activate Article 
+
+  savedState = {
+    level: 0,
+    episode: 0,
+    trees: 0
+  }
+
+
+  resumeGame = () => {
+
+   this.level = this.savedState.level;
+   this.episode = this.savedState.episode;
+   this.trees = this.savedState.trees;
+
+  this.update(this.level, this.episode, this.trees);
+  }
+
+
+  activateArticle = () => {
+
+    // SAVE STATE FOR LATER RESUME
+    this.savedState.level = this.level;
+    this.savedState.episode = this.episode;
+    this.savedState.trees = this.trees;
+
+
+
+
+    this.level = 6;
+    this.episode = 0;
+    this.trees = 0;
     this.update(this.level, this.episode, this.trees);
   }
 
@@ -570,10 +605,6 @@ returnTreeFromTrashResult = () => {
            <source src={require('./audio/trash.wav')} type="audio/wav"/>
         </audio>
 
-        <audio id="trash-noise" preload='auto'>
-           <source src={require('./audio/trash.wav')} type="audio/wav"/>
-        </audio>
-
 
 
         {this.state.component.main}
@@ -581,7 +612,10 @@ returnTreeFromTrashResult = () => {
       </div>
     );
     
-    return result
+
+
+  return result;
+    
   }
 };
 
