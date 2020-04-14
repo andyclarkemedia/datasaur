@@ -17,6 +17,8 @@ import scrollmagic from 'scrollmagic';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { positionBusinessAnimation } from './utils.js';
+
 
 
 
@@ -120,20 +122,25 @@ export class Article extends React.Component {
 
 		var scene = new scrollmagic.Scene({triggerElement: "#trigger2"})
 		          // trigger animation by adding a css class
-		          .setClassToggle(".fixed-top", "hide-fixed-top")
-
-
+		          .setClassToggle(".fixed-top", "hide-fixed-top")		        
 		          //.addIndicators({name: "1 - add a class"}) // add indicators (requires plugin)
 		          .addTo(this.controller);
 
 
-		
+		var scene = new scrollmagic.Scene({triggerElement: "#small-business-animation-container"})
+		          // trigger animation by adding a css class
+		          .on('start', function( ) {
+		          	positionBusinessAnimation();
+		          })
+		          //.addIndicators({name: "1 - add a class"}) // add indicators (requires plugin)
+		          .addTo(this.controller);
 
 
 	};
 
 
 	controller = new scrollmagic.Controller();
+
 
 
 	
@@ -152,13 +159,14 @@ export class Article extends React.Component {
 
 	render() {
 
+
 	
 		let result = (
 
 			<div>
 				<header id="top-header-container" className="fixed-top">
 
-					<img id="header-image" src={require('./images/article-top.png')}  alt="two people are thinking about business" onLoad={() => {this.showSlides(this.slideIndex) ; this.scroll()} }/>
+					<img id="header-image" src={require('./images/article-top.png')}  alt="two people are thinking about business" onLoad={() => {this.showSlides(this.slideIndex) ; this.scroll() } }/>
 
 
 					<div id="animate1" className="box1 red">
@@ -324,6 +332,31 @@ export class Article extends React.Component {
 							Suzanna James, founder of Suzanna James Knitwear - a small fashion brand, took 4 years to find her first yarn supplier. At the moment, she has four suppliers, three in the UK and one in Peru. All of her fabric is naturally dyed and comes from small farms that are free from slaughter or cruelty. It’s common practice for farms producing yarn to supplement their incomes by selling livestock to the meat industry. James’ suppliers resist doing this and consequentially don’t earn a living solely from farming. She has visited all of her suppliers including the sheep and alpaca farms and dying factories and is able to trace each batch of her yarn to individual herds of sheep or alpaca. “I deliberately make a point of going to meet them because I want to have a close working relationship with them and to make sure our incandescents are the same” says James.
 
 						</p>
+
+					</section>
+					
+
+					<section id="small-business-animation-container" className="thin flex-container-column text-centralise">
+
+						<p className="seventy-percent paragraph-margin">70%</p>
+
+
+
+
+						<div className="small-business-image-container">
+							
+							
+							<img id="small-business-left" src={require('./images/smallbusiness-left.png')} />
+							<img id="small-business-right" src={require('./images/smallbusiness-right.png')} />
+
+						</div>
+
+						<p id="struggle-sustainable" className="subtitle paragraph-margin">of small businesses struggle to be sustainable</p>
+
+					</section>
+
+
+					<section className="thin flex-container-column text-centralise">	
 
 						<p className="text paragraph-margin flex-container-column">
 

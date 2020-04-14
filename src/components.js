@@ -214,7 +214,7 @@ export const components = (game, level, episode, tree) => {
 
 									<p id="maze-instructions-title"> Try to get some funding and find investors. Exit the maze before your steps run out for a financial bonus! </p>
 
-									<p id="maze-instructions-move"> Use the arrows on your keyboard or on the screen to move </p>
+									<p id="maze-instructions-move"> Use the arrows to move </p>
 
 									 <button id="trigger-maze-button" class="button-text" onClick={ () => { hideInstructionsPanel() ; triggerMaze(game)} } > Play Maze </button>
 

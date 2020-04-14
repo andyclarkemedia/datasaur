@@ -1420,3 +1420,92 @@ export const calculateWin = function(game) {
 	}
 
 }
+
+
+
+//==================
+// ARTICLE FUNCTIONS 
+//==================
+
+
+
+
+export const positionBusinessAnimation = () => {
+
+		var leftBusiness = document.querySelector('#small-business-left');
+		
+		var rightBusiness = document.querySelector('#small-business-right');
+
+		var seventy = document.querySelector('.seventy-percent');
+
+		var seventyPositions = seventy.getBoundingClientRect();
+
+
+		var container = document.querySelector('#small-business-animation-container');
+
+		var containerPositions = container.getBoundingClientRect();
+
+
+
+
+		var windowPositions = document.querySelector("#root").getBoundingClientRect();
+
+
+
+
+
+		var timeline = anime.timeline({autoplay: true});
+
+		timeline
+			.add({
+				targets: seventy,
+				duration: 1,
+				left: (windowPositions.width / 3) + "px",
+				easing: "linear"
+				})
+			.add({
+				targets: seventy,
+				duration: 1,
+				opacity: 0,
+				translateY: - (rightBusiness.getBoundingClientRect().height * 4) + "px",
+				easing: "linear"
+			})
+			.add({
+				targets: seventy,
+				duration: 0,
+				opacity: 1
+			})
+			.add({
+				targets: seventy,
+				duration: 2000,
+				translateY: (containerPositions.height / 150) - 205 + "px"
+			})
+
+		var timelineBusinessRight = anime.timeline({autoplay: true});
+
+		timelineBusinessRight
+			.add({
+				targets: rightBusiness,
+				duration: 500,
+				delay: 600,
+				rotate: '45deg',
+				translateX: 100 + "px",
+				
+			});
+
+
+		var timelineBusinessLeft = anime.timeline({autoplay: true});
+
+		timelineBusinessLeft
+			.add({
+				targets: leftBusiness,
+				duration: 500,
+				delay: 600,
+				rotate: '-45deg',
+				translateX: -100 + "px"
+			})
+			
+
+
+		
+	}

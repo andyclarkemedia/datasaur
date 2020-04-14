@@ -4568,13 +4568,14 @@ h1 {
 #resume-game-button {
 	height: 7vh;
 	font-size: 1.5em;
-	background-color: #f2f2f2;
+	background-color:  #65CCB8;
 	border: .1em solid #282828;
+	color: #282828;
 	position: fixed;
 	top: 2vh;
 	right: 3.5vw;
 	cursor: pointer;
-	z-index: 1000;
+	
 
 
 }
@@ -4645,28 +4646,58 @@ h1 {
 
 
 
+
+
+
+
 /*============
 
  STATS BAR // HORIZONTAL SCROLL
 
  =============*/
 
+.seventy-percent {
+	align-self: center;
+	font-weight: 700;
+	font-size: 10em;
+	position: absolute;
 
-.horizontal-scroll {
+}
+
+#struggle-sustainable {
+	align-self: flex-end;
+}
+
+#small-business-animation-container {
 	height: 100vh;
-	justify-content: center;
-}
-
-.stats-box {
-	margin: 20vh 20vw;
-	background-color: #57BA98;
-	text-align: center;
 }
 
 
-footer {
-	height: 30vh;
-	width: 100vw;
+.small-business-image-container {
+	align-self: center;
+	display: flex;
+}
+
+#small-business-full {
+	height: 25vh;
+	width: auto;
+	align-self: center;
+}
+
+#small-business-left {
+	height: 25vh;
+	width: auto;
+	transform: translateX(13);
+	align-self: center;
+	margin: 0 !important;
+
+}
+
+#small-business-right {
+	height: 25vh;
+	width: auto;
+	align-self: center;
+	margin: 0;
 }
 
 
