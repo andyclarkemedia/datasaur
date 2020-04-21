@@ -8,11 +8,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import anime from 'animejs/lib/anime.es.js';
-import './index.css';
 import { components } from './components.js';
 import { moreInfo } from './storylines.js';
 import { Article } from './article.js';
-
+import { loadingText } from './utils.js';
 
 
 
@@ -32,6 +31,52 @@ class Game extends React.Component {
     // This binding is necessary to make `this` work in the callback
     //this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
+    
+  }
+
+
+   //========================
+  // WAIT FOR PAGE TO LOAD 
+  // ========================
+componentDidMount() {
+   
+    this.componentDidUpdate();
+    loadingText();
+  }
+
+
+  componentDidUpdate() {
+
+    // REFERENCE THIS CODE  -- https://stackoverflow.com/questions/11071314/javascript-execute-after-all-images-have-loaded
+
+
+
+    
+    
+    document.querySelector('.loading-screen').style.display = "block";
+    document.querySelector('.loading-screen').style.opacity = 1;
+    
+
+    console.log("update")
+      var imgs = document.images,
+      len = imgs.length,
+      counter = 0;
+
+  [].forEach.call( imgs, function( img ) {
+      if(img.complete)
+        incrementCounter();
+      else
+        img.addEventListener( 'load', incrementCounter, false );
+  } );
+
+  function incrementCounter() {
+      counter++;
+      if ( counter === len ) {
+          console.log( 'All images loaded!' )
+          document.querySelector('.loading-screen').style.opacity = 0;
+          document.querySelector('.loading-screen').style.display = "none";
+      }
+  }
   }
 
 
@@ -60,8 +105,10 @@ class Game extends React.Component {
 
   // Update tree Branch 
   updateTreeBranch = (n) => {
+
     this.trees = n;
     this.update(this.level, this.episode, this.trees);
+
   }
 
   // Activate Article 
@@ -427,6 +474,20 @@ class Game extends React.Component {
     this.update(this.level, this.episode, this.trees);
   }
 
+  potatoUnhappyRestaurantDisabled = true;
+
+  enableUnhappyRestaurantButton = () => {
+    this.potatoUnhappyRestaurantDisabled = false;
+    this.update(this.level, this.episode, this.trees);
+  }
+
+  potatoRethinkDisabledButton = true;
+
+  enablepotatoRethinkDisabledButton = () => {
+    this.potatoRethinkDisabledButton = false;
+    this.update(this.level, this.episode, this.trees);
+  }
+
   // ========================
   // PACKAGING 
   // ========================
@@ -523,7 +584,7 @@ returnTreeFromFoodOrder = () => {
     this.festivalFoodOrder.report.waste = 5;
     this.festivalFoodOrder.report.profit = 3000;
 
-    this.sePointsUp(3, "up");
+    this.sePointsUp((this.sePoints + 3), "up");
 
     this.update(this.level, this.episode, this.trees);
     // Return Tree
@@ -570,6 +631,19 @@ returnTreeFromTrashResult = () => {
 }
 
 
+// RESET GAME 
+resetGame = () => {
+
+    this.level = 0;
+    this.episode = 0;
+    this.trees = 0;
+    this.money = 70000;
+    this.sePoints = 0;
+
+    this.update(this.level, this.episode, this.trees);
+
+}
+
 
 
 
@@ -579,10 +653,20 @@ returnTreeFromTrashResult = () => {
   
 
   render() {
+
+    
   
     let result = (
-      <div>
+      <div id="content-wrapper">
 
+        <div className="loading-screen">
+          <img id="tree-side" src={require('./images/just-tree-side.png')} />
+          <img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+          <img className="leaf-icon-image-loading" src={require('./images/leaf.png')} />
+          
+          <p id="loading-screen-text" ></p>
+           
+        </div>
 
         <audio id="cash-up-noise" preload='auto'>
             <source src={require('./audio/cash.mp3')} type="audio/mp3"/>
@@ -605,7 +689,7 @@ returnTreeFromTrashResult = () => {
            <source src={require('./audio/trash.wav')} type="audio/wav"/>
         </audio>
 
-
+        
 
         {this.state.component.main}
         
@@ -613,11 +697,14 @@ returnTreeFromTrashResult = () => {
     );
     
 
-
-  return result;
+   
+      return result;
+    
+  
     
   }
 };
+
 
 
 // Call to render the page

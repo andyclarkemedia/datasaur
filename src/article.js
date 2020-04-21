@@ -17,9 +17,6 @@ import scrollmagic from 'scrollmagic';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { positionBusinessAnimation } from './utils.js';
-
-
 
 
 // REWRITE THIS AS A SEPARATE JS FILE AND RENDER A REACT COMPONENT 
@@ -48,6 +45,8 @@ export class Article extends React.Component {
 
 	// CONSIDER REVISING
 	showSlides = (n) => {
+
+
 	  var i;
 	  var slides = document.getElementsByClassName("mySlides");
 	  var dots = document.getElementsByClassName("dot");
@@ -128,18 +127,12 @@ export class Article extends React.Component {
 
 
 		var scene = new scrollmagic.Scene({triggerElement: "#trigger4"})
-					.on('start', function( ) {
-		          		positionBusinessAnimation();
-		          	})
 					// trigger animation by adding a css class
 					.setClassToggle("#small-business-full", "squash")
 					.addTo(this.controller);
 
 
 		var scene = new scrollmagic.Scene({triggerElement: "#small-business-full"})
-					.on('start', function( ) {
-		          		
-		          	})
 					// trigger animation by adding a css class
 					.setClassToggle(".seventy-percent", "fixed-seventy")
 					.addTo(this.controller);
@@ -405,9 +398,7 @@ export class Article extends React.Component {
 
 					</div>
 					<div id="trigger6"></div>
-					<div id=""></div>
-					<div id=""></div>
-					<div id=""></div>
+					
 						
 
 			

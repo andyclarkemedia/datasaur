@@ -5,7 +5,7 @@
 import React from 'react';
 import './index.css';
 import { triggerMaze } from './mazing.js';
-import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final } from './storylines.js';
+import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final, credits } from './storylines.js';
 import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback, mobileDrag, mobileDrop } from './utils.js';
 import { Article } from './article.js';
 
@@ -39,10 +39,11 @@ export const components = (game, level, episode, tree) => {
 					id: "L0E0T0",
 					main: (	
 						<div class="plain-background title-screen grid-container-4x6">
+
 							<h1 id="landing-title" class="title align-center"> {gameTitle.title}</h1>
 							<p id="can-you-make-it" class="plain-text align-center"> {gameTitle.text} </p>
 							<p id="disclaimer" class="plain-text align-center"> {gameTitle.disclaimer} </p>
-							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side" src={require('./images/just-tree-side.png')}/>
 							<img id="tree-side-inverse" src={ treeInverse } />
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
@@ -67,9 +68,17 @@ export const components = (game, level, episode, tree) => {
 					id: "L0E0T1",
 					main: (
 						<div class="plain-background title-screen grid-container-4x6">
-							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
-							<p id="pick-a-biz-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsOne} </span> </p>
-							<p id="to-win-desc"> {howToPlay.instructionsThree} </p>
+							<h1 id="credits-title" > {credits.title} </h1>
+							
+							
+							<div id="credit-name-container">
+								<p id="credits-thanks" class="plain-text align-center"> <span class="bold"> {credits.thankYou} </span> </p>
+								<p id="credit-joe">{credits.joe}</p>
+								<p id="credit-heidi">{credits.heidi}</p>
+								<p id="credit-deri">{credits.deri}</p>
+								<p id="credit-stu">{credits.stu}</p>
+								<p id="credit-suzanna">{credits.suzanna}</p>
+							</div>
 
 							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
 							
@@ -78,7 +87,7 @@ export const components = (game, level, episode, tree) => {
 
 						
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Okay</button>
+								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(2) }>Continue</button>
 							</div>
 			
 							<img id="town-houses-opening" src={ townHouses } />
@@ -91,6 +100,33 @@ export const components = (game, level, episode, tree) => {
 				},
 
 				2: {
+					id: "L0E0T1",
+					main: (
+						<div class="plain-background title-screen grid-container-4x6">
+							<h1 id="instructions-title" class="title align-center"> {howToPlay.title} </h1>
+							<p id="pick-a-biz-desc" class="plain-text align-center"> <span class="bold"> {howToPlay.instructionsOne} </span> </p>
+							<p id="to-win-desc"> {howToPlay.instructionsThree} </p>
+
+							<img id="mute-audio-icon" src={ game.audioIconSource } onClick={() => { muteAudio(game) } } />
+							
+							<img id="tree-side" src={require('./images/just-tree-side.png')} />
+							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
+
+						
+							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(3) }>Okay</button>
+							</div>
+			
+							<img id="town-houses-opening" src={ townHouses } />
+
+							<button className="read-article-button" onClick={() => game.activateArticle()}>Read Article</button>
+
+						</div>
+					),
+
+				},
+
+				3: {
 
 					id: "L0E0T1",
 					main: (
@@ -122,7 +158,7 @@ export const components = (game, level, episode, tree) => {
 
 						
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(3) }>Got It</button>
+								<button class="update-tree-button button-text" onClick={() => game.updateTreeBranch(4) }>Got It</button>
 							</div>
 			
 							<img id="town-houses-opening" src={ townHouses } />
@@ -136,10 +172,10 @@ export const components = (game, level, episode, tree) => {
 
 				},
 
-				3: {
+				4: {
 					id: "L0E0T4",
 					main: (
-						<div class="plain-background title-screen grid-container-4x6">
+						<div class="plain-background title-screen grid-container-4x6" >
 							<h1 id="choose-a-character-title" class="title align-center"> Your Business Owner </h1>
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
@@ -158,7 +194,7 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="more-info-characters-container">
 
-								<img id="lisa-head" src={require('./images/chef-head.png')}/>
+								<img id="lisa-head" src={require('./images/lisa-head.png')}/>
 								<p id="more-info-title"> { moreInfo.characters.lisa.title } </p>
 								<p id="more-info-subtitle">  { moreInfo.characters.lisa.subtitle }</p>
 								<p id="more-info-description"> { moreInfo.characters.lisa.description } </p>
@@ -214,7 +250,7 @@ export const components = (game, level, episode, tree) => {
 
 									<p id="maze-instructions-title"> Try to get some funding and find investors. Exit the maze before your steps run out for a financial bonus! </p>
 
-									<p id="maze-instructions-move"> Use the arrows on your keyboard or on the screen to move </p>
+									<p id="maze-instructions-move"> Use the ARROWS on your keyboard or on the screen to move </p>
 
 									 <button id="trigger-maze-button" class="button-text" onClick={ () => { hideInstructionsPanel() ; triggerMaze(game)} } > Play Maze </button>
 
@@ -1043,10 +1079,10 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="potato-rethink-choice-container">
 
-								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice")}} />
+								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice") }} />
 								<p id="potato-rethink-choice-organic-text"> {potatoRethinkPath.organicFarmChoice} </p>
 
-								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice")}} />
+								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-yes-rethink-potato", game, "potato-rethink-choice") }} />
 								<p id="potato-rethink-choice-wholesale-text"> {potatoRethinkPath.wholesaleChoice} </p>
 
 								<p id="click-select-rethink-potato"> {potatoRethinkPath.clickInstructions} </p>
@@ -1090,10 +1126,10 @@ export const components = (game, level, episode, tree) => {
 
 							<div class="potato-rethink-choice-container">
 
-								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-no-rethink-potato", game, "potato-rethink-choice")}} />
+								<img id="potato-rethink-choice-organic-image" src={require('./images/tractor.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-organic-image", "#potato-rethink-choice-wholesale-image", "#discount-no-rethink-potato", game, "potato-rethink-choice") ; game.enableUnhappyRestaurantButton() }} />
 								<p id="potato-rethink-choice-organic-text"> {potatoRethinkPath.organicFarmChoice} </p>
 
-								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-no-rethink-potato", game, "potato-rethink-choice")}} />
+								<img id="potato-rethink-choice-wholesale-image" src={require('./images/wholesale.png')} onClick={ () => {selectSupplier("#potato-rethink-choice-wholesale-image", "#potato-rethink-choice-organic-image", "#discount-no-rethink-potato", game, "potato-rethink-choice") ; game.enableUnhappyRestaurantButton() }} />
 								<p id="potato-rethink-choice-wholesale-text"> {potatoRethinkPath.wholesaleChoice} </p>
 
 								<p id="click-select-rethink-potato"> {potatoRethinkPath.clickInstructions} </p>
@@ -1107,7 +1143,7 @@ export const components = (game, level, episode, tree) => {
 							<img class="potato-fork-image" src={require('./images/potato-spade.png')} />
 								
 							<div class="flex-container gameplay-button-container">
-								<button class="update-tree-button button-text" onClick={ () => { game.updateTreeBranch(assessTreeFromRethinkPotatoSupplier(game)) }}> Go With It  </button>
+								<button class="update-tree-button button-text"  disabled={game.potatoUnhappyRestaurantDisabled} onClick={ () => { game.updateTreeBranch(assessTreeFromRethinkPotatoSupplier(game)) }}> Go With It  </button>
 							</div>
 
 							<button className="read-article-button" onClick={() => game.activateArticle()}>Read Article</button>
@@ -2705,7 +2741,7 @@ export const components = (game, level, episode, tree) => {
 				1: {
 					id: "L1E1T1",
 					main: (
-						<div class="level-one-background grid-container-4x6">
+						<div className="level-one-background grid-container-4x6 wrapper">
 							<img id="tree-side" src={require('./images/just-tree-side.png')} />
 							<img id="tree-side-inverse" src={require('./images/just-tree-inverse-side.png')} />
 
@@ -2748,7 +2784,7 @@ export const components = (game, level, episode, tree) => {
 
 
 							<div class="timer-container flex-container">
-								<p id="drag-drop-timer" class="gameplay-text"> :25 </p> 
+								<p id="drag-drop-timer" class="gameplay-text"> :30 </p> 
 							</div>
 
 							<div class="trash-container">
@@ -3106,6 +3142,7 @@ export const components = (game, level, episode, tree) => {
 							</div>
 								
 							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.resetGame() } }> Play Again </button>
 								<button class="update-tree-button button-text"  onClick={ () => { game.activateArticle() } }> Read The Article </button>
 							</div>
 							
@@ -3148,6 +3185,7 @@ export const components = (game, level, episode, tree) => {
 							</div>
 								
 							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.resetGame() } }> Play Again </button>
 								<button class="update-tree-button button-text"  onClick={ () => { game.activateArticle() } }> Read The Article </button>
 							</div>
 							
@@ -3192,6 +3230,7 @@ export const components = (game, level, episode, tree) => {
 							</div>
 								
 							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.resetGame() } }> Play Again </button>
 								<button class="update-tree-button button-text"  onClick={ () => { game.activateArticle() } }> Read The Article </button>
 							</div>
 							
@@ -3234,6 +3273,7 @@ export const components = (game, level, episode, tree) => {
 							</div>
 								
 							<div class="flex-container gameplay-button-container">
+								<button class="update-tree-button button-text"  onClick={ () => { game.resetGame() } }> Play Again </button>
 								<button class="update-tree-button button-text"  onClick={ () => { game.activateArticle() } }> Read The Article </button>
 							</div>
 							

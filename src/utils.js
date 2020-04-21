@@ -3,6 +3,7 @@
 // =======================
 
 import anime from 'animejs/lib/anime.es.js';
+import Typed from 'typed.js';
 
 
 export const arraysMatch = function (arr1, arr2) {
@@ -150,7 +151,7 @@ export const timePassing = (game, weekBegin, weekEnd) => {
   	game.weekNumber += 1;
 
 
-	}, 4000);
+	}, 2400);
 
 
 
@@ -231,7 +232,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[3],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -244,7 +245,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[2],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -257,7 +258,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[9],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -270,7 +271,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[0],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -283,7 +284,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[7],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -296,7 +297,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[1],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -309,7 +310,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[4],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -322,7 +323,7 @@ export const animateFeedback = function(game) {
 		})
 		.add({
 			targets: feedbackIcons[5],
-			duration: 2500,
+			duration: 1000,
 			translateY: 0,
 			opacity: 0,
 			delay: 500,
@@ -683,7 +684,7 @@ export const countdown = function(game) {
 	const countdownElement = document.getElementById("drag-drop-timer");
 
 	// Set Time
-	var timeleft = 24;
+	var timeleft = 29;
 	var downloadTimer = setInterval(function(){
   	if(timeleft <= 0){
   		countdownElement.innerHTML = ":0";
@@ -809,7 +810,7 @@ const updateFurnitureSelection = function(elementSelect, game) {
 export const assessFurnitureSelection = function(game) {
 	if (game.furnitureSelection === "upcycle") {
 		game.sePointsUp( game.sePoints + 8, "up")
-		game.moneyUp((game.money - 4000), "down")
+		game.moneyUp((game.money - 7500), "down")
 
 		// Change week of game 
 		game.weekNumber = 4;
@@ -1361,7 +1362,7 @@ export const displayMoreInfoIngredients = function(title, costOneInput, costTwoI
 //==================
 
 
-const speechSourceArray = ["https://images.pexels.com/photos/4034472/pexels-photo-4034472.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/4034472/pexels-photo-4034472.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/4034492/pexels-photo-4034492.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034492/pexels-photo-4034492.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034516/pexels-photo-4034516.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034516/pexels-photo-4034516.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034893/pexels-photo-4034893.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034893/pexels-photo-4034893.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034924/pexels-photo-4034924.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034924/pexels-photo-4034924.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034936/pexels-photo-4034936.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034936/pexels-photo-4034936.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034944/pexels-photo-4034944.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034944/pexels-photo-4034944.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034964/pexels-photo-4034964.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034964/pexels-photo-4034964.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034967/pexels-photo-4034967.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034967/pexels-photo-4034967.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034988/pexels-photo-4034988.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034988/pexels-photo-4034988.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4034994/pexels-photo-4034994.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/4034994/pexels-photo-4034994.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/4035054/pexels-photo-4035054.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/4035054/pexels-photo-4035054.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
+const speechSourceArray = ["https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199007/pexels-photo-4199007.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199007/pexels-photo-4199007.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199065/pexels-photo-4199065.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199065/pexels-photo-4199065.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199092/pexels-photo-4199092.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199092/pexels-photo-4199092.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500"]
 let speechCounter = 0;
 
 const displaySpeechBubble = function() {
@@ -1423,16 +1424,29 @@ export const calculateWin = function(game) {
 
 
 
-//==================
-// ARTICLE FUNCTIONS 
-//==================
+export function loadingText() {
+	
+  var typed = new Typed('#loading-screen-text', {
+  strings: ["Loading ..."],
+  typeSpeed: 100,
+  loop: true
+	});
 
 
+  const leaf = document.querySelector('.leaf-icon-image-loading');
+  
 
+  var timeline = anime.timeline({autoplay: true, loop: true});
 
-export const positionBusinessAnimation = () => {
-
-
-
+	timeline
+		.add({
+			targets: leaf,
+			duration: 1500,
+			rotateY: "360deg",
+			easing: 'linear'
+		})
 		
+		
+		
+
 }
