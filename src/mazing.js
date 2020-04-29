@@ -1,5 +1,6 @@
-// Original JavaScript code by Chirp Internet: www.chirp.com.au
-// Please acknowledge use of this code by including this header
+// Code for maze game adapted from Chirp Internet
+// accessed 03-03-2020
+// www.chirp.com.au
 
 
 import { showFinishedPanel } from './utils.js';

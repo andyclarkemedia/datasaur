@@ -1,9 +1,17 @@
-//========================
-// This file will render the game on the page 
-// =======================
+//================================================
+//================================================
+
+// This file contains the core React Component that handles the state of the game (level, episode, tree )  
+
+//================================================
+// ===============================================
 
 
-// Import Statements 
+
+// =============
+// Import Statements
+// =============
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -15,7 +23,15 @@ import { loadingText } from './utils.js';
 
 
 
+
+// =============
+// Game React Component
+// =============
+
+
+
 class Game extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,30 +44,29 @@ class Game extends React.Component {
       
     };
 
-    // This binding is necessary to make `this` work in the callback
-    //this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
     
   }
 
 
    //========================
-  // WAIT FOR PAGE TO LOAD 
+  // Component did mount and component did update functions used to control loading screen 
   // ========================
-componentDidMount() {
-   
-    this.componentDidUpdate();
-    loadingText();
-  }
+
+  componentDidMount() {
+     
+      this.componentDidUpdate();
+      loadingText();
+    }
 
 
   componentDidUpdate() {
 
-    // REFERENCE THIS CODE  -- https://stackoverflow.com/questions/11071314/javascript-execute-after-all-images-have-loaded
 
-
-
-    
+    // Trigger Loading Screen to Appear and Disappear depending on the loading status of images on each page
+    // Code adapted from Stack Overflow post by Florian Margaine on Jun 17 2012
+    // accessed 20-04-2020
+    // https://stackoverflow.com/questions/11071314/javascript-execute-after-all-images-have-loaded
     
     document.querySelector('.loading-screen').style.display = "block";
     document.querySelector('.loading-screen').style.opacity = 1;
@@ -77,10 +92,16 @@ componentDidMount() {
           document.querySelector('.loading-screen').style.display = "none";
       }
   }
+
+  // End of referenced code
+
   }
 
 
-  // Update Game State
+  //========================
+  // Core function to update the state of this component (binded to constructor)
+  //========================
+
   update = (level, episode, tree, extra, extraValue) => {
 
     this.setState({ level: level })
@@ -111,7 +132,9 @@ componentDidMount() {
 
   }
 
-  // Activate Article 
+  //========================
+  // Save previous game state (level, episode, trees) - for use when player decides to read article during gameplay
+  //========================
 
   savedState = {
     level: 0,
@@ -119,6 +142,10 @@ componentDidMount() {
     trees: 0
   }
 
+
+  //========================
+  // Resume game at previous place
+  //========================
 
   resumeGame = () => {
 
@@ -129,6 +156,9 @@ componentDidMount() {
   this.update(this.level, this.episode, this.trees);
   }
 
+  //========================
+  // Save game state
+  //========================
 
   activateArticle = () => {
 
@@ -137,14 +167,15 @@ componentDidMount() {
     this.savedState.episode = this.episode;
     this.savedState.trees = this.trees;
 
-
-
-
     this.level = 6;
     this.episode = 0;
     this.trees = 0;
     this.update(this.level, this.episode, this.trees);
   }
+
+  //========================
+  // Increment / Decrement money
+  //========================
 
   moneyUp = (n, direction) => {
 
@@ -213,12 +244,15 @@ componentDidMount() {
       translateY: "0",
     })
 
-    
-
-    console.log(n);
     this.money = parseInt(n);
     this.update(this.level, this.episode, this.trees);
   }
+
+
+
+  //========================
+  // Increment / Decrement Sustainability Points 
+  //========================
 
   sePointsUp = (n, direction) => {
 
@@ -285,8 +319,6 @@ componentDidMount() {
       translateY: "0",
     })
 
-
-    console.log(n);
     this.sePoints = n;
     this.update(this.level, this.episode, this.trees);
   }
@@ -304,12 +336,11 @@ componentDidMount() {
 
 
   // ========================
-  // WEEKLY EARNINGS 
+  // Variables that contribute towards Weekly Earnings
   // ========================
 
   weekNumber = 1;
 
-  // Need to add in packaging and take into account extra number of customers 
 
   weeklyEarnings = {
     turnover: {
@@ -346,16 +377,14 @@ componentDidMount() {
 
 
   //=========================
-  // HERO HAS SOLAR - MAZE GAME
-  // ========================
+  // Change cost of Solar Panels depending on whether player collecte solar energy during maze game
+  //========================
 
   solarCost = 30000;
 
   heroHasSolar = false;
 
   heroCollectedSolar = () => {
-
-    console.log("I exist")
 
     this.solarCost = 5000;
 
@@ -366,7 +395,13 @@ componentDidMount() {
 
 
 
+  // ========================================================================
+  // ========================================================================
 
+  // CONTENT SPECIFIC Functions usually including ability to turn off button disablement
+
+  // ========================================================================
+  // ========================================================================
 
   // ========================
   // ENERGY SUPPLIER 
@@ -534,6 +569,11 @@ componentDidMount() {
     }
   }
 
+
+  // ========================
+  // Confirm festival order
+  // ========================
+
   confirmOrder = () => {
     const cheese = document.querySelector('#cheese-order-input');
     const tomato = document.querySelector('#tomato-order-input');
@@ -547,6 +587,10 @@ componentDidMount() {
 
 
 }
+
+ // ========================
+  // Return subsequent tree from festival food order
+  // ========================
 
 returnTreeFromFoodOrder = () => {
   console.log(this.festivalFoodOrder.cheese);
@@ -594,13 +638,20 @@ returnTreeFromFoodOrder = () => {
 }
 
 
-//EPISODE 2
+ // ========================
+  // FESTIVAL FUNCTIONS AND DATA
+  // ========================
 dragAndDropTrash = {
   result: {
     correct: 0,
     incorrect: 16
   }
 }
+
+
+ // ========================
+  // Return tree from drag and drog result
+  // ========================
 
 returnTreeFromTrashResult = () => {
 

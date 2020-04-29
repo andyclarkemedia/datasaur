@@ -1,12 +1,10 @@
-//==================
+//================================================
+//===============================================
+
 // ARTICLE JS - CONTAINS REACT COMPONENT RENDERING ARTICLE ON PAGE 
-//==================
 
-
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// }
-
+//================================================
+//===============================================
 
 
 // ====================
@@ -17,17 +15,15 @@ import scrollmagic from 'scrollmagic';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// REWRITE THIS AS A SEPARATE JS FILE AND RENDER A REACT COMPONENT 
-
 
 
 export class Article extends React.Component {
 	
 
 
-	// // ==============
-	// // SLIDESHOW STUFF
-	// // ==============
+	// ==============
+	// Slideshow functionality
+	// ==============
 
 	slideIndex = 1;
 
@@ -63,7 +59,7 @@ export class Article extends React.Component {
 
 
 	// ==============
-	// SCROLLING STUFF
+	// Scrollytelling functionality
 	// ==============
 
 	scroll = () => {
@@ -150,7 +146,6 @@ export class Article extends React.Component {
 		          		document.querySelector('.seventy-percent-second').style.opacity = 1;
 		          		document.querySelector('.seventy-percent').style.opacity = 0;
 
-		          		// document.querySelector('#small-business-full').style.opacity = 0;
 		          		
 		          		
 		          		

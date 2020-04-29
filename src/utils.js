@@ -1,33 +1,28 @@
-//========================
-// This file contains utility functions 
-// =======================
+//================================================
+//================================================
+
+// This file contains utility functions that are rendered throughout the app
+
+//================================================
+// ===============================================
+
+
+// =============
+// Import Statements
+// =============
 
 import anime from 'animejs/lib/anime.es.js';
 import Typed from 'typed.js';
 
 
-export const arraysMatch = function (arr1, arr2) {
-
-	// Check if the arrays are the same length
-	if (arr1.length !== arr2.length) return false;
-
-	// Check if all items exist and are in the same order
-	for (var i = 0; i < arr1.length; i++) {
-		if (arr1[i] !== arr2[i]) return false;
-	}
-
-	// Otherwise, return true
-	return true;
-
-};
-
 
 // =============
-// Mute Audio
+// Toggle Mute Audio
 // =============
 
 
   export const muteAudio = (game) => {
+  	
   	// SELECT AUDIO CLIPS 
 
   	const cashUp = document.querySelector('#cash-up-noise');
@@ -63,18 +58,14 @@ export const arraysMatch = function (arr1, arr2) {
 		game.audioIconSource = "https://i.imgur.com/tvEes8a.png";
   	}
 
-  	console.log(game.audioMuted)
-
   	game.update(game, game.level, game.episode, game.trees)
 
   }
 
 
 
-
-
 // =============
-// CALUCULATE WEEKLY EARNINGS
+// Calculate weekly earnings based on decisions made throughout game
 // =============
 
 export const calculateWeeklyEarnings = (game) => {
@@ -91,18 +82,15 @@ export const calculateWeeklyEarnings = (game) => {
 }
 
 // =============
-// UPDATE WEEKLY EARNINGS
+// Update weekly earnings every week during the animation screen
 // =============
 
 export const timePassing = (game, weekBegin, weekEnd) => {
+
 	// Select week text
 	const weekText = document.querySelector('#weekly-timer');
 	const weekTextContainer = document.querySelector('.week-number-container');
 	const plusEarningsText = document.querySelector('#weekly-earnings');
-	// Set border on container
-	weekTextContainer.style.border = ".1em solid #282828;"
-
-	
 
 	// Set Timer 
 	var weeklyTimer = setInterval(function(){
@@ -111,15 +99,13 @@ export const timePassing = (game, weekBegin, weekEnd) => {
 
 	displaySpeechBubble();
 
-
-
 	// Set starting week variable
 	let weekNumber = game.weekNumber;
 
   	if(weekNumber < weekEnd){
   		weekText.innerHTML = "Week " + weekNumber;
 
-  		// Initiate weekly earnings with element of random 
+  		// Initiate weekly earnings with element of randomness 
     	
     	let weeklyEarnings = calculateWeeklyEarnings(game) + Math.floor(Math.random() * (100 - (-100))) + (-100);
 
@@ -128,8 +114,6 @@ export const timePassing = (game, weekBegin, weekEnd) => {
     	
 
     	game.moneyUp(parseInt(game.money + weeklyEarnings), "up")
-
-    	console.log(game.money)
     	
     	
  	} else {
@@ -158,11 +142,14 @@ export const timePassing = (game, weekBegin, weekEnd) => {
 }
 
 
+// =============
+// Animate reaction icons depending on popularity factor
+// =============
+
 export const animateFeedback = function(game) {
 
 
 	// DECLARE SOURCE OBJECT
-
 
 	const sourceObject = {
 		thumbsUp: "https://i.ibb.co/Xppgs3B/thumbs-up.png",
@@ -214,11 +201,8 @@ export const animateFeedback = function(game) {
 	var positionMarker = document.querySelector("#position-identifier").getBoundingClientRect();
 
 
-	// ANIMATION TIMELINE
+	// ANIMATION TIMELINE TO MAKE REACTION ICONS APPEAR AND FADE UPWARDS
 
-	// ==================
-	// TIDY THIS ANIMATION 
-	// ==================
 
 	var timeline = anime.timeline({autoplay: true});
 
@@ -332,6 +316,12 @@ export const animateFeedback = function(game) {
 }
 
 
+
+// =============
+// Animate movement of people into restaurant 
+// =============
+
+
 export const animatePeople = function() {
 
 	const personOne = document.querySelector('#person-one')
@@ -360,7 +350,7 @@ export const animatePeople = function() {
 	peopleArray.forEach(function(item) {
 
 
-			anime({
+	anime({
 	  targets: item,
 	  // Properties 
 	  translateX: 500,
@@ -368,9 +358,14 @@ export const animatePeople = function() {
 	  // Property Parameters
 	  duration: 30000,
 	  easing: 'steps(300)',
+
 	  // Animation Parameters
-	  
 	  update: function(anim) {
+
+	  	// Code to get position of element relative to window
+		// Modified from Stack Overflow post by Ian Storm Taylor on Apr 9 '16
+		// accessed 07-03-2020
+		// https://stackoverflow.com/questions/16949642/getboundingclientrect-but-relative-to-the-entire-document
 
 		var rect = item.getBoundingClientRect();
 
@@ -386,9 +381,7 @@ export const animatePeople = function() {
 		let right  = rect.right  + window.scrollX;
 		let bottom = rect.bottom + window.scrollY;
 
-
-		// EUREKA
-
+		// End of referenced code
 
 		item.style.top = (pizzaCoordinates.top + ((pizzaCoordinates.height * 7) / 10))  + "px";
 
@@ -405,6 +398,7 @@ export const animatePeople = function() {
 	});
 
 };  
+
 
 //==================
 // HOVER OVER IMAGE MAKE TEXT APPEAR / DISAPPEAR 
@@ -457,13 +451,19 @@ export const checkOrderInput = function(game, n) {
 }
 
 
-//==================
+//======================================================
+//======================================================
+
 // DRAG AND DROP 
-//==================
+
+//======================================================
+//======================================================
 
 
 
-// MOBILE DRAG AND DROP 
+// ===============
+// Touch Screen Drag
+// ===============
 
 export const mobileDrag = function(event, id) {
 
@@ -477,14 +477,23 @@ export const mobileDrag = function(event, id) {
 	// Select Element 
 	const elementToDrag = document.querySelector(id);
 
-
-	// Reference this code
+	// Initiate drag and drop functionality on touch screen devices
+	// Modified from Medium article post by Deepak Kadarivel on Jun 3 '18
+	// accessed 20-03-2020
+	// https://medium.com/@deepakkadarivel/drag-and-drop-dnd-for-mobile-browsers-fc9bcd1ad3c5
+	
 	var touchLocation = event.targetTouches[0];
 
 
 	elementToDrag.style.left = touchLocation.pageX + 'px';
     elementToDrag.style.top = touchLocation.pageY + 'px';
+
+    // End of referenced code
 }
+
+// ===============
+// Touch Screen Drop
+// ===============
 
 
 export const mobileDrop = function(event, id, game) {
@@ -508,6 +517,7 @@ export const mobileDrop = function(event, id, game) {
     const generalBinPosition = document.querySelector('#drop-bin-two').getBoundingClientRect();
     const foodBinPosition = document.querySelector('#drop-bin-three').getBoundingClientRect();
 
+    // Check if location of draggable image matches drop bin location
 
     if ((x > recyclingBinPosition.left) && (x < recyclingBinPosition.right) && (y > recyclingBinPosition.top) && (y < recyclingBinPosition.bottom)) {
     	if (id.includes("recycling")) {
@@ -560,8 +570,6 @@ export const mobileDrop = function(event, id, game) {
     	elementToDrag.style.left = "55vw";
     }
 
-    console.log(game.dragAndDropTrash.result.correct)
-	console.log(game.dragAndDropTrash.result.incorrect)
 }
 
 
@@ -569,12 +577,25 @@ export const mobileDrop = function(event, id, game) {
 
 let counter = 0;
 
-// Reference this code 
-// https://alligator.io/js/drag-and-drop-vanilla-js/
+
+// ===============
+// Standard Drag
+// ===============
+
+
 export const onDragStart = function(event) {
+
+	// Initiate drag on desktop devices
+	// Modified from Alligator article post by Jess Mitchell on Aug 27 '19
+	// accessed 15-03-2020
+	// https://alligator.io/js/drag-and-drop-vanilla-js/
+
+
   event
     .dataTransfer
     .setData('text/plain', event.target.id);
+
+    // End of referenced code
 
     // Declare tick and cross
 
@@ -585,17 +606,26 @@ export const onDragStart = function(event) {
 	cross.style.display = "none";
 }
 
-export const playBackgroundBossMusic = function() {
-	const boss  = document.querySelector("#battle-boss");
-	boss.play();
-}
-
+// ===============
+// Prevent default behaviour on drag over
+// ===============
 
 export const onDragOver = function(event) {
   event.preventDefault();
 }
 
+
+// ===============
+// Standard Drop 
+// ===============
+
 export const onDrop = function(event, game) {
+
+
+	// Complete drag on desktop devices
+	// Modified from Alligator article post by Jess Mitchell on Aug 27 '19
+	// accessed 15-03-2020
+	// https://alligator.io/js/drag-and-drop-vanilla-js/
 
 event.preventDefault();
 
@@ -609,15 +639,8 @@ const origin = document.querySelector('.trash-image-container');
 
 dropzone.appendChild(draggableElement);
 
-// event
-// 	.dataTransfer
-// 	.clearData();
 
-
-
-
-
-// This is our own code
+	// End of referenced code
 
 // Declare tick and cross
 
@@ -661,7 +684,12 @@ else {
 }
 
 
-// NEEDS REVISING TO CONSIDER THE EXACT AMOUNT OF WASTE THAT PLAYER GOT IN LAST ROUND 
+
+// ===============
+// Initiate next image to appear after previous image has been processed
+// ===============
+
+
 export const displayNextImage = function() {
 
 
@@ -678,6 +706,10 @@ export const displayNextImage = function() {
 	}
 	
 }
+
+// ===============
+// Drag and Drop Timer
+// ===============
 
 export const countdown = function(game) {
 	// Declare Countdown Element
@@ -700,10 +732,16 @@ export const countdown = function(game) {
 }
 
 
+//======================================================
+//======================================================
 
+// SELECTING SUPPLIERS
+
+//======================================================
+//======================================================
 
 //==================
-// SELECT ENERGY SUPPLIER 
+// Master Function to control selection of suppliers
 //==================
 
 
@@ -723,7 +761,7 @@ export const selectSupplier = function(elementSelect, elementTwo, elementThree, 
 	otherChoiceTwo.style.backgroundColor = "#65CCB8";
 	
 
-	// UPDATE GAME WITH ENERGY CHOICE
+	// UPDATE GAME WITH CHOICE
 
 	if (type === "energy") {
 		updateEnergySupplier(elementSelect, game);
@@ -754,6 +792,11 @@ export const selectSupplier = function(elementSelect, elementTwo, elementThree, 
 };
 
 
+
+//==================
+// Update Energy Supplier in Index.js
+//==================
+
 const updateEnergySupplier = function(elementSelect, game) {
 	if (elementSelect === "#solar-image") {
 		game.energySupplier = "solar";
@@ -764,6 +807,9 @@ const updateEnergySupplier = function(elementSelect, game) {
 	}
 }
 
+//==================
+// Take action from energy supplier decision
+//==================
 
 export const assessEnergySupplier = function(game) {
 	// Check energy supplier 
@@ -792,6 +838,11 @@ export const assessEnergySupplier = function(game) {
 }
 
 
+//==================
+// Update Furniture Supplier in Index.js
+//==================
+
+
 const updateFurnitureSelection = function(elementSelect, game) {
 	if (elementSelect === "#upcycle-image") {
 		game.furnitureSelection = "upcycle";
@@ -803,9 +854,9 @@ const updateFurnitureSelection = function(elementSelect, game) {
 }
 
 
-// CONSIDER ADDING POPULARITY FACTOR
-
-
+//==================
+// Take action from furniture supplier decision
+//==================
 
 export const assessFurnitureSelection = function(game) {
 	if (game.furnitureSelection === "upcycle") {
@@ -824,6 +875,10 @@ export const assessFurnitureSelection = function(game) {
 	}
 }
 
+
+//==================
+// Update Food Supplier in Index.js
+//==================
 
 const updateFoodSupplierSelection = function(elementSelect, foodType, game) {
 
@@ -850,6 +905,11 @@ const updateFoodSupplierSelection = function(elementSelect, foodType, game) {
 
 }
 
+
+//==================
+// Take action from Food supplier decision
+//==================
+
 export const assessFoodSupplierSelection = function(game, foodType) {
 
 	game.weeklyEarnings.costs.supplier.supplierCost += parseInt(game.suppliers.costs[foodType][game.suppliers[foodType]]);
@@ -867,7 +927,9 @@ export const assessFoodSupplierSelection = function(game, foodType) {
 }
 
 
-// NEED TO FIX CALCULATIONS ON POTATO SUPPLIER DECSISONS 
+//==================
+// Update Potato Supplier in Index.js
+//==================
 
 export const updatePotatoSupplier = function(elementSelect, game) {
 
@@ -886,6 +948,12 @@ export const updatePotatoSupplier = function(elementSelect, game) {
 }
 
 
+
+//==================
+// Return tree path from sub potato decision
+//==================
+
+
 export const assessTreeFromRethinkPotatoSupplier = function(game) {
 	if (game.potatoInitialDecision === "organic") {
 		return 10;
@@ -894,6 +962,11 @@ export const assessTreeFromRethinkPotatoSupplier = function(game) {
 	}
 
 }
+
+
+//==================
+// Adjust costs of suppliers based on sub potato decision
+//==================
 
 
 export const adjustSupplierCostOnPotatoDecision = function(game) {
@@ -907,15 +980,12 @@ export const adjustSupplierCostOnPotatoDecision = function(game) {
  	} else {
  		console.log("didn't work")
  	}
-
-
-	console.log(game.potatoInitialDecision);
 }
 
 
 
 //==================
-// MOUSE OVER CHANGE INNER HTML & DISPLAY OF FURTHER DESCRIPTION
+// NOW DEFUNCT FUNCTION ↓↓↓↓
 //==================
 
 export const showDescriptiveTextOnMouseOver = function(costValueText, moreInfoText) {
@@ -933,6 +1003,9 @@ export const showDescriptiveTextOnMouseOver = function(costValueText, moreInfoTe
 
 }
 
+//==================
+// NOW DEFUNCT FUNCTION ↓↓↓↓
+//==================
 
 export const hideDescriptiveTextOnMouseOut = function() {
 	const container = document.querySelector('.further-description-container');
@@ -942,7 +1015,7 @@ export const hideDescriptiveTextOnMouseOut = function() {
 
 
 //==================
-// POTATO SUPPLIER
+// Update main potato decision
 //==================
 
 
@@ -966,8 +1039,10 @@ export const updatePotatoDecision = function(elementSelect, game) {
 
 }
 
+//==================
+// Return tree path from main potato decision
+//==================
 
-// Need to change the return options and add changes to weekly earnings
 
 export const assessPotatoDecision = function(game) {
 
@@ -985,6 +1060,10 @@ export const assessPotatoDecision = function(game) {
 	}
 }
 
+
+//==================
+// Return tree path from 2nd sub potato decision 
+//==================
 
 
 export const updateDeadlinePotatoDecision = function(elementSelect, game) {
@@ -1005,9 +1084,11 @@ export const updateDeadlinePotatoDecision = function(elementSelect, game) {
 
 	game.enablePotatoDeadlineButton();
 
-	console.log(game.potatoDeadlineDecision)
-
 }
+
+//==================
+// Take action from 2nd sub potato decision
+//==================
 
 
 export const assessDeadlinePotatoDecision = function(game) {
@@ -1031,11 +1112,10 @@ export const assessDeadlinePotatoDecision = function(game) {
 		return tree;
 	};
 
-	console.log(tree)
 }
 
 //==================
-// PACKAGING DECISION
+// Update Packaging Supplier in Index.js
 //==================
 
 export const updatePackagingDecision = function(elementSelect, game) {
@@ -1059,6 +1139,10 @@ export const updatePackagingDecision = function(elementSelect, game) {
 
 }
 
+
+//==================
+// Take action from packaging decision 
+//==================
 
 export const assessPackagingDecision = function (game) {
 
@@ -1099,8 +1183,9 @@ export const assessPackagingDecision = function (game) {
 
 }
 
+
 //==================
-// UPDATE POPULARITY 
+// Update popularity in Index.js
 //==================
 
 export const updatePopularity = function(game, n) {
@@ -1132,12 +1217,9 @@ export const decreaseMealPrice = function(game) {
 
 
 //==================
-// OFFER DISCOUNT
+// If player chooses to offer a discout - change average meal price and increase SE points
 //==================
 
-
-// NEED TO FACTOR IN SE POINTS TO WEEKLY EARNINGS 
-// ALSO DISPLAY INCREASES ON SCREEN 
 
 export const offerDiscount = function(game) {
 
@@ -1150,7 +1232,7 @@ export const offerDiscount = function(game) {
 
 
 //==================
-// CUTLERY DECISION
+// Update cutlery decision in Index.js
 //==================
 
 
@@ -1176,6 +1258,10 @@ export const updateCutleryDecision = function(elementSelect, game) {
 
 }
 
+
+//==================
+// Take action from cutlery decision 
+//==================
 
 
 export const assessCutleryDecision = function (game) {
@@ -1211,15 +1297,12 @@ export const assessCutleryDecision = function (game) {
 		return 2;
 	}
 
-	console.log(game.weeklyEarnings.costs.packaging)
-	console.log(game.cutleryChoice)
-
 }
 
 
 
 //==================
-// HIDE MAZE INSTRUCTIONS PANEL
+// Hide maze instructions panel 
 //==================
 
 
@@ -1231,6 +1314,11 @@ export const hideInstructionsPanel = function() {
 	instructionsPanel.innerHTML = "";
 
 }
+
+
+//==================
+// Reveal instructions panel on maze game over
+//==================
 
 export const showFinishedPanel = function() {
 
@@ -1257,7 +1345,7 @@ export const disableTimePassingButton = function(game) {
 
 
 //==================
-// MORE INFO BUTTON 
+// Display more info container using the help icon and fill with content 
 //==================
 
 
@@ -1294,7 +1382,9 @@ export const displayMoreInfo = function(title, subtitle, description) {
 
 }
 
-
+//==================
+// Hide more info container using the close window icon
+//==================
 
 export const hideMoreInfo = function() {
 
@@ -1317,6 +1407,10 @@ export const hideMoreInfo = function() {
 		})
 }
 
+
+//==================
+// Display ingredients more info container using the help icon and fill with content 
+//==================
 
 export const displayMoreInfoIngredients = function(title, costOneInput, costTwoInput, costThreeInput, description) {
 
@@ -1358,12 +1452,16 @@ export const displayMoreInfoIngredients = function(title, costOneInput, costTwoI
 
 
 //==================
-// SPEECH BUBBLES
+// Declare array of speech bubble image sources
 //==================
-
 
 const speechSourceArray = ["https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4198966/pexels-photo-4198966.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199007/pexels-photo-4199007.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199007/pexels-photo-4199007.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199029/pexels-photo-4199029.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199049/pexels-photo-4199049.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199065/pexels-photo-4199065.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199065/pexels-photo-4199065.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199076/pexels-photo-4199076.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199092/pexels-photo-4199092.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199092/pexels-photo-4199092.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199101/pexels-photo-4199101.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500", "https://images.pexels.com/photos/4199155/pexels-photo-4199155.png?auto=compress&cs=tinysrgb&dpr=1&w=500"]
 let speechCounter = 0;
+
+
+//==================
+// Function to display speech bubble and increment counter
+//==================
 
 const displaySpeechBubble = function() {
 
@@ -1375,6 +1473,10 @@ const displaySpeechBubble = function() {
 	speechCounter += 1;
 }
 
+//==================
+// Hide speech bubble
+//==================
+
 const hideSpeechBubble = function() {
 	const image = document.querySelector('.speech-bubble');
 
@@ -1385,16 +1487,12 @@ const hideSpeechBubble = function() {
 
 
 //==================
-// CALCULATE WINNER 
+// Assess whether a player passes the winning threshold and display the correct finishing screen
 //==================
 
 
 export const calculateWin = function(game) {
 
-	// Possibly add Sound Effects 
-
-	console.log(game.money)
-	console.log(game.sePoints)
 
 	let moneyThreshold = 70000;
 	let sePointsThreshold = 30;
@@ -1424,6 +1522,12 @@ export const calculateWin = function(game) {
 
 
 
+
+//==================
+// Animate Loading Screen with typed.js for text and anime.js for image rotation
+//==================
+
+
 export function loadingText() {
 	
   var typed = new Typed('#loading-screen-text', {
@@ -1448,39 +1552,3 @@ export function loadingText() {
 		
 }
 
-
-export const returnBreakpointImage = () => {
-
-		const windowWidth = window.innerWidth;
-
-		const image = document.querySelector('#header-image');
-
-		console.log(windowWidth)
-
-
-		if (windowWidth > 1400) {
-			image.src = "https://i.ibb.co/vvyrPfq/article-top-ucgxa0-c-scale-w-1400.png";
-		} else if (windowWidth > 1230) {
-			image.src = "https://i.ibb.co/LprgJKC/article-top-ucgxa0-c-scale-w-1230.png";
-		} else if (windowWidth > 1141) {
-			image.src = "https://i.ibb.co/Kb5VwdJ/article-top-ucgxa0-c-scale-w-1141.png";
-		} else if (windowWidth > 1047) {
-			image.src = "https://i.ibb.co/R9wV3g9/article-top-ucgxa0-c-scale-w-1047.png";
-		} else if (windowWidth > 956) {
-			image.src = "https://i.ibb.co/cc7dZMB/article-top-ucgxa0-c-scale-w-956.png";
-		} else if (windowWidth > 855) {
-			image.src = "https://i.ibb.co/p4zT37m/article-top-ucgxa0-c-scale-w-855.png";
-		} else if (windowWidth > 747) {
-			image.src = "https://i.ibb.co/X56xJqp/article-top-ucgxa0-c-scale-w-747.png";
-		} else if (windowWidth > 636) {
-			image.src = "https://i.ibb.co/6NXW3fh/article-top-ucgxa0-c-scale-w-636.png";
-		} else if (windowWidth > 521) {
-			image.src =  "https://i.ibb.co/sF3mSFV/article-top-ucgxa0-c-scale-w-521.png";
-		} else if (windowWidth > 378) {
-			image.src =  "https://i.ibb.co/f1rgCbM/article-top-ucgxa0-c-scale-w-378.png";
-		} else if (windowWidth > 200) {
-			image.src = "https://i.ibb.co/DKf60f3/article-top-ucgxa0-c-scale-w-200.png";
-		} else {
-			console.log("broken")
-		}
-	}

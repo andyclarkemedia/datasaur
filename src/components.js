@@ -1,28 +1,29 @@
-//========================
-// This file contains components to be renderered 
-// =======================
+//================================================
+//================================================
+
+// This file contains blocks of JSX representing differenct screens within the game that will be rendered throughout the app
+
+//================================================
+// ===============================================
+
+
+
+// =============
+// Import Statements
+// =============
 
 import React from 'react';
 import './index.css';
 import { triggerMaze } from './mazing.js';
 import { characters, gameTitle, howToPlay, remember, levelOneIntro, l0E0T1, l0E0T3, l0E0T4, reviewOrder, beforeFestival, festivalResults, festivalReport, dragAndDrop, dragAndDropResults, businessLicense, suppliersChoice, goodLuck, furtherDescriptions, ohNoSupplierOutOfStock, takeoutIntro, packaging, discountScheme, cutlery, moreInfo, maze, potatoWholesalePath, potatoRethinkPath, potatoOrganicPath, final, credits } from './storylines.js';
-import { arraysMatch, hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown, playBackgroundBossMusic, checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback, mobileDrag, mobileDrop } from './utils.js';
+import { hoverHeadTextAppear, hoverHeadTextDisappear, addBorderOnClick, confirmOrder, onDragStart, onDragOver, onDrop, displayNextImage, countdown , checkOrderInput, timePassing, animatePeople, selectSupplier, assessEnergySupplier, assessFurnitureSelection, assessFoodSupplierSelection, showDescriptiveTextOnMouseOver, hideDescriptiveTextOnMouseOut, assessPotatoDecision, assessPackagingDecision, updatePopularity, increaseMealPrice, offerDiscount, assessCutleryDecision, hideInstructionsPanel, disableTimePassingButton, muteAudio, hideMoreInfo, displayMoreInfo, decreaseMealPrice, assessTreeFromRethinkPotatoSupplier, assessDeadlinePotatoDecision, adjustSupplierCostOnPotatoDecision, calculateWin, displayMoreInfoIngredients, animateFeedback, mobileDrag, mobileDrop } from './utils.js';
 import { Article } from './article.js';
-
-
-
 
 
 // IMPORT IMAGES 
 var townHouses = require('./images/town-houses.png');
 var arrow = require('./images/arrow.png');
 var treeInverse = require('./images/just-tree-inverse-side.png');
-
-
-
-
-
-
 
 
 
@@ -3290,8 +3291,9 @@ export const components = (game, level, episode, tree) => {
 			}
 
 		},
-
-
+		// ================
+		// ARTICLE LOCATION
+		// ================
 		6: {
 			0: {
 				0: {
@@ -3313,11 +3315,13 @@ export const components = (game, level, episode, tree) => {
 	
 	}
 
+	// ================
+	// Loop through components object and return matching JSX block depending on the level, episode and tree defined in the game's state (Index.js)
+	// ================
 
 	// Define result
 	let result;	
 
-	//console.log(tree.toString())
 
 	if (level === 0) {
 
