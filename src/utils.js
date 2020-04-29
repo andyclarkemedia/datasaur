@@ -1446,7 +1446,41 @@ export function loadingText() {
 			easing: 'linear'
 		})
 		
-		
-		
-
 }
+
+
+export const returnBreakpointImage = () => {
+
+		const windowWidth = window.innerWidth;
+
+		const image = document.querySelector('#header-image');
+
+		console.log(windowWidth)
+
+
+		if (windowWidth > 1400) {
+			image.src = "https://i.ibb.co/vvyrPfq/article-top-ucgxa0-c-scale-w-1400.png";
+		} else if (windowWidth > 1230) {
+			image.src = "https://i.ibb.co/LprgJKC/article-top-ucgxa0-c-scale-w-1230.png";
+		} else if (windowWidth > 1141) {
+			image.src = "https://i.ibb.co/Kb5VwdJ/article-top-ucgxa0-c-scale-w-1141.png";
+		} else if (windowWidth > 1047) {
+			image.src = "https://i.ibb.co/R9wV3g9/article-top-ucgxa0-c-scale-w-1047.png";
+		} else if (windowWidth > 956) {
+			image.src = "https://i.ibb.co/cc7dZMB/article-top-ucgxa0-c-scale-w-956.png";
+		} else if (windowWidth > 855) {
+			image.src = "https://i.ibb.co/p4zT37m/article-top-ucgxa0-c-scale-w-855.png";
+		} else if (windowWidth > 747) {
+			image.src = "https://i.ibb.co/X56xJqp/article-top-ucgxa0-c-scale-w-747.png";
+		} else if (windowWidth > 636) {
+			image.src = "https://i.ibb.co/6NXW3fh/article-top-ucgxa0-c-scale-w-636.png";
+		} else if (windowWidth > 521) {
+			image.src =  "https://i.ibb.co/sF3mSFV/article-top-ucgxa0-c-scale-w-521.png";
+		} else if (windowWidth > 378) {
+			image.src =  "https://i.ibb.co/f1rgCbM/article-top-ucgxa0-c-scale-w-378.png";
+		} else if (windowWidth > 200) {
+			image.src = "https://i.ibb.co/DKf60f3/article-top-ucgxa0-c-scale-w-200.png";
+		} else {
+			console.log("broken")
+		}
+	}

@@ -17,8 +17,6 @@ import scrollmagic from 'scrollmagic';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-
 // REWRITE THIS AS A SEPARATE JS FILE AND RENDER A REACT COMPONENT 
 
 
@@ -62,8 +60,6 @@ export class Article extends React.Component {
 	  dots[this.slideIndex-1].className += " active";
 	}
 
-	
-
 
 
 	// ==============
@@ -72,7 +68,9 @@ export class Article extends React.Component {
 
 	scroll = () => {
 
+	  var windowWidth = window.innerWidth;
 
+	  console.log(windowWidth)
 
 	  var controller = new scrollmagic.Controller();
 
@@ -190,10 +188,11 @@ export class Article extends React.Component {
 			<div>
 				<header id="top-header-container" className="fixed-top">
 
-					<img id="header-image" src={require('./images/article-top.png')}  alt="two people are thinking about business" onLoad={() => {this.showSlides(this.slideIndex) ; this.scroll() } }/>
+					
 
+					<img id="header-image" onLoad={() => {this.showSlides(this.slideIndex) ; this.scroll()  } } src="https://i.ibb.co/vvyrPfq/article-top-ucgxa0-c-scale-w-1400.png" alt="two people are thinking about business" />
 
-					<div id="animate1" className="box1 red">
+					<div id="animate1" className="box1 red" >
 						<p id="headline"></p>
 						
 					</div>
