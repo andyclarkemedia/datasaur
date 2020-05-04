@@ -1,4 +1,4 @@
-/* 
+/*
 ====================================
 
 CSS STYLES FOR REACT GAME APP
@@ -8,7 +8,7 @@ CSS STYLES FOR REACT GAME APP
 
 
 
-/* 
+/*
 ==================
 GENERAL
 ==================
@@ -28,7 +28,7 @@ body {
 	overscroll-behaviour-y: contain;
 }
 
-/* 
+/*
 Prevent default pull-to-refresh behaviour on chrome -  android so that drag and drop mini game can be played without difficulty
 Code adapted from w3bits Article 'CSS Hack: Disable Chrome’s Pull-to-Refresh on Android' by Rahul on July 8 2019
 Accessed 10-04-2020
@@ -69,7 +69,7 @@ body {
 
 
 
-/* 
+/*
 ==================
 BACKGROUND
 ==================
@@ -80,7 +80,7 @@ BACKGROUND
  }
 
 
-/* 
+/*
 ==================
 LOADING SCREEN
 ==================
@@ -102,7 +102,7 @@ LOADING SCREEN
 	text-align: center;
 	margin-top: 35vh;
 	color: #f2f2f2;
-	
+
 }
 
 .leaf-icon-image-loading {
@@ -116,9 +116,9 @@ LOADING SCREEN
 .fade {
 	transition: opacity .5s ease-in-out;
 	opacity: 1;
-}	
+}
 
-/* 
+/*
 ==================
 HEIGHTS & WIDTHS
 ==================
@@ -147,7 +147,7 @@ HEIGHTS & WIDTHS
 	margin: 1em;
 }
 
- /* 
+ /*
 ==================
 TEXT
 ==================
@@ -199,9 +199,9 @@ TEXT
 }
 
 
-/* 
+/*
 ==================
-FLEX 
+FLEX
 ==================
  */
 
@@ -216,9 +216,9 @@ FLEX
  	justify-content: space-between;
  }
 
-/* 
+/*
 ==================
-GRID 
+GRID
 ==================
  */
 
@@ -230,9 +230,9 @@ GRID
  }
 
 
-/* 
+/*
 ==================
-BUTTON  
+BUTTON
 ==================
  */
 
@@ -264,7 +264,7 @@ button:focus, input:focus {
 }
 
 
-/* 
+/*
 ==================
 CONSTANT GAMEPLAY ELEMENTS
 ==================
@@ -292,7 +292,7 @@ CONSTANT GAMEPLAY ELEMENTS
  	z-index: 500;
  	grid-column: 2/6;
  	grid-row: 4;
- 	
+
 }
 
 .gameplay-button-container-flex {
@@ -372,9 +372,9 @@ CONSTANT GAMEPLAY ELEMENTS
 	display: none;
 }
 
-/* 
+/*
 ==================
-GAME LANDING PAGE  
+GAME LANDING PAGE
 ==================
  */
 
@@ -436,9 +436,9 @@ GAME LANDING PAGE
 	right: 8vw;
 }
 
-/* 
+/*
 ==================
-CREDIT PAGE 
+CREDIT PAGE
 ==================
 */
 
@@ -451,7 +451,7 @@ CREDIT PAGE
 	color: #f2f2f2;
 	font-size: 3em;
 	z-index: 1000;
-	
+
 
 }
 
@@ -498,9 +498,9 @@ CREDIT PAGE
 }
 
 
-/* 
+/*
 ==================
-INSTRUCTIONS PAGES  
+INSTRUCTIONS PAGES
 ==================
 */
 
@@ -544,7 +544,7 @@ INSTRUCTIONS PAGES
 }
 
 #opening-pound-coin {
-	grid-column: 1/3;	
+	grid-column: 1/3;
 	grid-row: 3/5;
 	align-self: center;
 }
@@ -610,14 +610,14 @@ INSTRUCTIONS PAGES
 	grid-column: 2/4;
  	grid-row: 2/4;
  	align-self: center;
- 	
+
 }
 
 .opening-leaf-icon-container {
 	grid-column: 4/6;
  	grid-row: 2/4;
  	align-self: center;
- 	
+
 }
 
 .opening-plus {
@@ -639,9 +639,9 @@ INSTRUCTIONS PAGES
 }
 
 
-/* 
+/*
 ==================
-CHOOSE A CHARACTER PAGE  
+CHOOSE A CHARACTER PAGE
 ==================
 */
 
@@ -666,9 +666,9 @@ CHOOSE A CHARACTER PAGE
 
 
 
-/* 
+/*
 ==================
-REMEMBER PAGE  
+REMEMBER PAGE
 ==================
 */
 
@@ -698,7 +698,7 @@ REMEMBER PAGE
 }
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -809,17 +809,17 @@ MORE INFO
 }
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
-LEVEL ONE  
+LEVEL ONE
 
 ==========================================================================
 ==========================================================================
 */
 
-/* 
+/*
 ==================
 EPISODE ONE
 ==================
@@ -959,7 +959,7 @@ EPISODE ONE
  	justify-self: centre;
  	font-size: 1.5em;
  	grid-gap: 1em;
- 	
+
 }
 
 #price-list-title {
@@ -1010,7 +1010,7 @@ EPISODE ONE
 }
 
 
-/* 
+/*
 ============
 REVIEW ORDER
 ============
@@ -1173,7 +1173,7 @@ RESULTS
 
 
 /* =============
-FESTIVAL REPORT 
+FESTIVAL REPORT
 ================*/
 
 .festival-report-container {
@@ -1329,9 +1329,9 @@ FESTIVAL REPORT
 }
 
 
-/* 
+/*
 ==================
-EPISODE TWO 
+EPISODE TWO
 ==================
 */
 
@@ -1473,7 +1473,7 @@ EPISODE TWO
 	border-radius: .2em;
 	padding: 1em 2em;
 	background-color: #182628;
-	
+
 	z-index: 10000;
 
 }
@@ -1538,7 +1538,7 @@ EPISODE TWO
 }
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -1569,7 +1569,7 @@ WEEKLY TIMER
 .week-number-container {
 	grid-row: 1/3;
 	grid-column: 2/6;
-	text-align: center;	
+	text-align: center;
   	border-radius: .5em;
   	align-self: center;
   	justify-self: center;
@@ -1729,11 +1729,11 @@ WEEKLY TIMER
 
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
-BUSINESS LICENSE 
+BUSINESS LICENSE
 
 ==========================================================================
 ==========================================================================
@@ -1801,7 +1801,7 @@ BUSINESS LICENSE
 }
 
 #biz-license-is-this-day {
-	
+
 	grid-row: 5;
 	grid-column: 2/6;
 }
@@ -1816,7 +1816,7 @@ BUSINESS LICENSE
 
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -1854,7 +1854,7 @@ SUPPLIER CHOICES
   	grid-template-columns: repeat(7, 1fr);
   	grid-template-rows: repeat(3);
   	grid-gap: 1em;
-	
+
 }
 
 .supplier-choice-title-main {
@@ -1970,7 +1970,7 @@ SUPPLIER CHOICES
 }
 
 
-/* 
+/*
 ==================
 FOOD CHOICES
 ==================
@@ -2204,7 +2204,7 @@ FOOD CHOICES
 	border: none;
 }
 
-/* 
+/*
 ==================
 GOOD LUCK MESSAGE
 ==================
@@ -2220,7 +2220,7 @@ GOOD LUCK MESSAGE
 	font-size: 2em;
 }
 
-/* 
+/*
 ==================
 GOOD LUCK MESSAGE
 ==================
@@ -2236,7 +2236,7 @@ GOOD LUCK MESSAGE
 }
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -2328,7 +2328,7 @@ SUPPLIER RUNS OUT OF STOCK ...
 	align-self: center;
 	grid-column: 3/5;
 	text-align: center;
-} 
+}
 
 #potato-choice-wholesaler {
 	grid-row: 1;
@@ -2392,9 +2392,9 @@ SUPPLIER RUNS OUT OF STOCK ...
 	padding: .2em;
 }
 
-/* 
+/*
 ==================
-POTATO WHOLESALE 
+POTATO WHOLESALE
 ==================
 */
 
@@ -2438,7 +2438,7 @@ POTATO WHOLESALE
 #potato-rethink-choice-organic-image {
 	width: 5vw;
 	grid-row: 2;
-	grid-column: 1/3;	
+	grid-column: 1/3;
 	align-self: center;
 	justify-self: center;
 	cursor: pointer;
@@ -2548,7 +2548,7 @@ POTATO WHOLESALE
 
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -2777,7 +2777,7 @@ TAKEOUT BRANCH
 }
 
 
-/* 
+/*
 ==================
 DISCOUNT SCHEME
 ==================
@@ -2827,9 +2827,9 @@ DISCOUNT SCHEME
 
 
 
-/* 
+/*
 ==================
-CUTLERY 
+CUTLERY
 ==================
 */
 
@@ -2838,7 +2838,7 @@ CUTLERY
 	align-self: center;
 	grid-column: 3/5;
 	font-size: 1.5em;
-	
+
 }
 
 #cutlery-intro-two {
@@ -2880,7 +2880,7 @@ CUTLERY
  	grid-template-rows: repeat(3, .21fr);
     z-index: 1000;
     grid-gap: 3em
-  	
+
 }
 
 #cutlery-choice-one {
@@ -2993,7 +2993,7 @@ MAZE CSS
   	z-index: 100000;
   	align-self: center;
   	justify-self: flex-end;
-  	
+
 }
 
 .joy-icon {
@@ -3095,6 +3095,12 @@ MAZE CSS
   font-size: 1.2em;
   z-index: 10;
 }
+
+/*Graphic for maze game*/
+/*Open emoji*/
+/*Accessed on 30-03-2020*/
+/*https://openmoji.org/*/
+
 #maze div div.door.exit::after {
   /* content: "\1F6AA";
   font-size: 2em; */
@@ -3369,7 +3375,7 @@ MAZE CSS
 	align-self: flex-end;
 	justify-self: center;
 	z-index: 3000;
-	
+
 
 }
 
@@ -3383,7 +3389,7 @@ MAZE CSS
 	justify-self: center;
 }
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -3394,7 +3400,7 @@ END OF MAZE CSS
 */
 
 
-/* 
+/*
 ==========================================================================
 ==========================================================================
 
@@ -3439,7 +3445,7 @@ WIN LOSE
     opacity: .9;
     margin-bottom: 5em;
     border-radius: .3em;
-	
+
 }
 
 .win-lose-pound-coin-icon-image {
@@ -3480,7 +3486,7 @@ WIN LOSE
 }
 
 
-/* 
+/*
 ====================================================================================================================================================
 ====================================================================================================================================================
 ====================================================================================================================================================
@@ -3502,7 +3508,7 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ==================
  1500 px - LAPTOP
 ==================
@@ -3562,10 +3568,10 @@ MEDIA QUERIES FOR THE GAME
 	#cutlery-intro-one, #cutlery-intro-two, #cutlery-intro-three {
 		font-size: 1.4em;
 	}
-	
+
 	#maze_container {
 		top: 20vh;
-		font-size: 1.1em; 
+		font-size: 1.1em;
 	}
 
 	#maze-instructions-two {
@@ -3656,7 +3662,7 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ==================
  1250 px
 ==================
@@ -3669,7 +3675,7 @@ MEDIA QUERIES FOR THE GAME
 	body {
 		font-size: .95em;
 	}
-   	
+
    	.title {
    		font-size: 5em;
    	}
@@ -3748,9 +3754,9 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ==================
- 1100 px - IPAD MAZE GAME 
+ 1100 px - IPAD MAZE GAME
 ==================
 */
 
@@ -3782,7 +3788,7 @@ MEDIA QUERIES FOR THE GAME
 	}
 
 }
-/* 
+/*
 ==================
  1000 px
 ==================
@@ -3795,7 +3801,7 @@ MEDIA QUERIES FOR THE GAME
 	body {
 		font-size: .85em;
 	}
-   	
+
    	.title {
    		font-size: 5em;
    	}
@@ -3816,7 +3822,7 @@ MEDIA QUERIES FOR THE GAME
 	#business-license-container {
 		grid-column: 2/6;
 	}
-	
+
 
 	#button-organic, #button-menu, #button-wholesale {
 		width: 4vw;
@@ -3912,7 +3918,7 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ==================
  800 px
 ==================
@@ -3955,7 +3961,7 @@ MEDIA QUERIES FOR THE GAME
 	#arrow-image {
 		width: 12vw !important;
 	}
-   
+
    .icon-text {
 		font-size: 2em;
 	}
@@ -3990,7 +3996,7 @@ MEDIA QUERIES FOR THE GAME
    		grid-column: 4/7;
    	}
 
-	
+
 	.opening-plus, .opening-minus {
 		width: 5vw;
 	}
@@ -4038,7 +4044,7 @@ MEDIA QUERIES FOR THE GAME
    	#budget-image, #luxury-image, #upcycle-image {
 		width: 6vw;
    	 }
-	
+
 	#weekly-earnings {
 		font-size: 1.8em;
    	 	justify-self: center;
@@ -4051,7 +4057,7 @@ MEDIA QUERIES FOR THE GAME
 	}
 
 	.social-media-image {
-		
+
 		width: 25vw;
 	}
 
@@ -4084,7 +4090,7 @@ MEDIA QUERIES FOR THE GAME
 
 	#maze_container {
 		top: 20vh;
-		font-size: .9em; 
+		font-size: .9em;
 	}
 
 
@@ -4179,7 +4185,7 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ==================
  650 px
 ==================
@@ -4191,12 +4197,12 @@ MEDIA QUERIES FOR THE GAME
 
 	body {
 		font-size: .8em;
-		
+
 	}
 
 
 
-	
+
 
    	#town-houses {
    		width: 45vw;
@@ -4213,7 +4219,7 @@ MEDIA QUERIES FOR THE GAME
 
    	#tree-side, #tree-side-inverse {
    		width: 40vw;
-		
+
    	}
 
    	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
@@ -4325,7 +4331,7 @@ MEDIA QUERIES FOR THE GAME
 
 	#maze_container {
 		font-size: .8em;
-		top: 26vh; 
+		top: 26vh;
 		right: 23vw;
 	}
 
@@ -4417,12 +4423,12 @@ MEDIA QUERIES FOR THE GAME
 	}
 
 
-   
+
 
 }
 
 
-/* 
+/*
 ==================
 550 px - MAZE
 ==================
@@ -4431,13 +4437,13 @@ MEDIA QUERIES FOR THE GAME
 @media (max-width: 550px) {
 
 	#maze_container {
-		font-size: .74em; 
+		font-size: .74em;
 		right: 20vw;
 	}
 
 	#joypad-container {
 		padding: 0;
-		
+
 	}
 
 	#joypad-container img {
@@ -4459,7 +4465,7 @@ MEDIA QUERIES FOR THE GAME
 	}
 
 	.social-media-image {
-		
+
 		width: 25vw;
 	}
 
@@ -4470,9 +4476,9 @@ MEDIA QUERIES FOR THE GAME
 
 
 	.read-article-button {
-		
+
 		font-size: .8em;
-		
+
 	}
 
 	.social-media-image {
@@ -4507,7 +4513,7 @@ MEDIA QUERIES FOR THE GAME
 }
 
 
-/* 
+/*
 ==================
 466 px - MAZE
 ==================
@@ -4516,7 +4522,7 @@ MEDIA QUERIES FOR THE GAME
 @media (max-width: 466px) {
 
 	#maze_container {
-		font-size: .68em; 
+		font-size: .68em;
 		right: 17vw;
 	}
 
@@ -4546,7 +4552,7 @@ MEDIA QUERIES FOR THE GAME
 }
 
 
-/* 
+/*
 ==================
 400 px
 ==================
@@ -4611,13 +4617,13 @@ MEDIA QUERIES FOR THE GAME
 		min-width: 20vw;
 	}
 
-	
+
 	#trigger-maze-button, #continue-from-maze-button {
 		margin-bottom: .5em;
 	}
 
 	#maze_container {
-		font-size: 1.2em; 
+		font-size: 1.2em;
 		right: 15vw;
 	}
 
@@ -4765,12 +4771,12 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-	
+
 
 }
 
 
-/* 
+/*
 ==================
 350 px - MAZE
 ==================
@@ -4783,7 +4789,7 @@ MEDIA QUERIES FOR THE GAME
 	}
 
 	#maze_container {
-		font-size: .7em; 
+		font-size: .7em;
 		right: 5vw;
 	}
 
@@ -4794,7 +4800,7 @@ MEDIA QUERIES FOR THE GAME
 }
 
 
-/* 
+/*
 ==================
 400 px
 ==================
@@ -4802,7 +4808,7 @@ MEDIA QUERIES FOR THE GAME
 
 
 
-/* 
+/*
 ====================================================================================================================================================
 ====================================================================================================================================================
 ====================================================================================================================================================
@@ -4835,11 +4841,18 @@ ARTICLE CSS
  .text {
  	opacity: 1;
  	font-size: 1.35em;
+  font-stretch: semi-condensed;
  	line-height: 1.2em;
  }
 
  .byline {
 
+ }
+
+ .Date {
+   display: flex;
+   justify-content: center;
+   font-size: 1.35em;
  }
 
  .highlight-green {
@@ -4867,11 +4880,11 @@ ARTICLE CSS
 
  =============*/
 
-.flex-container-column {
+/* .flex-container-column {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
+} */
 
 .text-centralise {
 	margin: 0 20vw;
@@ -4904,7 +4917,7 @@ h1 {
 	top: 2vh;
 	right: 3.5vw;
 	cursor: pointer;
-	
+
 
 
 }
@@ -4941,7 +4954,7 @@ h1 {
 
  .hide-fixed-top {
  	position: absolute;
- 	margin-top: 200vh; 
+ 	margin-top: 200vh;
  	overflow: hidden;
  }
 
@@ -4982,9 +4995,12 @@ h1 {
 
 
 .pull-quote {
-	
+
 	font-size: 1.8em;
 	margin: 8vh 12vw;
+  padding-left: 1em;
+  font-weight: 600;
+  border-left: 0.5em solid #65ccb8;
 }
 
 
@@ -5077,7 +5093,7 @@ h1 {
 	width: auto;
 	align-self: center;
 	transition: transform 1s ease-out;
-	
+
 }
 
 #small-business-left {
@@ -5111,6 +5127,58 @@ body {font-family: Verdana, sans-serif; margin:0} */
 	grid-template-columns: 1fr 1fr;
 }
 img {vertical-align: middle;}
+
+/**slide intro*/
+
+.mySlides.fade.intro {
+	background-color: #65ccb8;
+}
+
+/*text in intro slide*/
+.intro_quote {
+	font-size: 1.6em;
+	padding: 1em;
+	font-style: italic;
+	color: white;
+	font-stretch: ultra-condensed;
+}
+
+.intro_character {
+	padding-left: 1.5em;
+	font-size: 1em;
+	color: white;
+	font-stretch: ultra-condensed;
+	font-weight: 600;
+}
+.image_courtesy {
+	font-size: 0.8em;
+	color: white;
+	padding-left: 1.8em;
+}
+
+.image_courtesy.black{
+  color: black;
+}
+
+/*quote in the content slide*/
+.first_quote {
+	font-size: 1.3em;
+	padding-left: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.analysis {
+	padding: 1em;
+  font-size: 1.3em;
+}
+
+.character {
+	font-weight: 600;
+	padding-left: 1.4em;
+  padding-top: 1em;
+}
+
 
 /* Slideshow container */
 .slideshow-container {
@@ -5223,24 +5291,164 @@ img {vertical-align: middle;}
   to {opacity: 1}
 }
 
+/*-----------------------------*/
+/*PICTOGRAM*/
 
+@keyframes bounce {
+/*      0% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(0px);
+  }*/
+  3% {
+    transform: rotate(8deg);
+  }
+  9% {
+    transform: rotate(-8deg);
+  }
+  12% {
+    transform: rotate(0deg);
+  }
+}
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left:auto;
+  margin-right:auto;
+}
+.tg td {
+  border-width: 0px;
+  padding: 1em 1em;
+}
+
+/*Pictogram's graphic from open emoji*/
+/*Accessed on 28-04-2020*/
+/*https://openmoji.org/*/
+.tg .tg-red {
+  background: url("./images/1F630.svg");
+  background-size: 2.3em 2.3em;
+  background-position: center;
+}
+.tg .tg-green {
+  background: url("./images/1F7E2_greentick.svg");
+  background-size: 1.8em 1.8em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.tg .tg-white {
+  background-color: transparent;
+}
+
+.costly,
+.roi,
+.research,
+.assesment,
+.management,
+.customers {
+  animation-timing-function: ease-in-out;
+  animation: bounce 6s infinite;
+}
+.costly     { animation-delay: 0s; }
+.customers  { animation-delay: 1s; }
+.research   { animation-delay: 2s; }
+.assesment  { animation-delay: 3s; }
+.roi        { animation-delay: 4s; }
+.management { animation-delay: 5s; }
+
+.pictogram {
+  display: grid;
+  grid-template-columns: auto auto;
+  /*margin-left: 10vw;
+  margin-right: 10vw;*/
+  text-align: center;
+  white-space: nowrap;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  grid-column-gap: 1em;
+}
+.left_chart {
+  align-self: center;
+}
+.right_chart {
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  grid-template-rows: auto auto;
+  grid-column-gap: 2em;
+  grid-row-gap: 1em;
+}
+.costly,
+.roi,
+.research,
+.assesment,
+.management,
+.customers {
+  align-self: center;
+}
+
+.costly,
+.assesment {
+  grid-column: 1/2;
+}
+.roi,
+.customers {
+  grid-column: 2/3;
+}
+.research,
+.management {
+  grid-column: 3/4;
+}
+.costly,
+.roi,
+.research {
+  grid-row: 1/2;
+}
+.assesment,
+.management,
+.customers {
+  grid-row: 2/3;
+}
+
+.text_lorem {
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
+.pictogram_number {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #65CCB8;
+  text-shadow: .03em .03em #282828;
+}
+
+.pictogram_text{
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.tg {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 /*-======================================================================================
 ========================================================================================
 
-MEDIA QUERIES ARTICLE 
+MEDIA QUERIES ARTICLE
 
 ========================================================================================
 ========================================================================================*/
 
 
-/* 
+/*
 ==================
 1350 px
 ==================
 */
 
 @media (max-width: 1350px) {
-	
+
 	#top-header-container {
 		background-size: 100vw;
 		background-position: center bottom;
@@ -5268,14 +5476,14 @@ MEDIA QUERIES ARTICLE
 
 }
 
-/* 
+/*
 ==================
 1250 px
 ==================
 */
 
 @media (max-width: 1250px) {
-	
+
 	#animate2 {
 		margin-top: -90vh !important;
 	}
@@ -5292,7 +5500,7 @@ MEDIA QUERIES ARTICLE
 
 	  .hide-fixed-top {
  		position: relative;
- 		margin-top: 0vh; 
+ 		margin-top: 0vh;
  		overflow: hidden;
  	}
 
@@ -5303,7 +5511,7 @@ MEDIA QUERIES ARTICLE
 
 }
 
-/* 
+/*
 ==================
 1350 px
 ==================
@@ -5315,14 +5523,14 @@ MEDIA QUERIES ARTICLE
 		margin-left: 2vh !important;
 	}
 
-	
+
 
 	#headline_change, #sub_head {
 		width: 100%;
 		overflow: hidden;
 	}
 
-	
+
 	.cloud {
 		max-width: 100% !important;
 	}
@@ -5338,14 +5546,14 @@ MEDIA QUERIES ARTICLE
 	}
 }
 
-/* 
+/*
 ==================
 750 px
 ==================
 */
 
 @media (max-width: 750px) {
-	
+
 	.sustainablility, .profit {
 		margin-top: -60vh !important;
 		right: 45vw;
@@ -5368,7 +5576,7 @@ MEDIA QUERIES ARTICLE
 
 }
 
-/* 
+/*
 ==================
 650 px
 ==================
@@ -5390,7 +5598,7 @@ MEDIA QUERIES ARTICLE
 	}
 }
 
-/* 
+/*
 ==================
 550 px
 ==================
@@ -5436,7 +5644,7 @@ MEDIA QUERIES ARTICLE
 }
 
 
-/* 
+/*
 ==================
 450 px
 ==================
@@ -5444,7 +5652,7 @@ MEDIA QUERIES ARTICLE
 
 @media (max-width: 440px) {
 
-	
+
 
 	#sub_head {
 		font-size: 3em !important;
@@ -5570,7 +5778,8 @@ MEDIA QUERIES ARTICLE
 #headline, #headline_change{
 	font-size: 5em;
 	color: #f2f2f2;
-	font-weight: bold;
+	/* font-weight: bold; */
+  font-weight: 700;
 }
 #sub_head{
 	position: absolute;
@@ -5585,6 +5794,9 @@ MEDIA QUERIES ARTICLE
 /*   text-shadow: 0px 0px 20px #000000;; */
 }
 /*FLIPPED CLOUD*/
+/*Code adapted from w3schools.com*/
+/*Accessed on 10-03-2020*/
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card*/
 .cloud {
  position: relative;
  -webkit-perspective: 800;
@@ -5743,8 +5955,22 @@ MEDIA QUERIES ARTICLE
 		background-color: #d6dcdb;
 	} */
 /*SLIDESHOW*/
-	.mySlides{
-		grid-template-rows: 1fr 1fr;
+
+.intro_quote {
+  font-size: 1.3em;
+}
+
+.intro_character, .character, .first_quote, .image_courtesy {
+  padding-right: 1em;
+}
+
+.analysis {
+  padding: 1em;
+  font-size: 1.3em;
+}
+
+.mySlides{
+		grid-template-rows: auto auto;
 		background-color: #d6dcdb;
 		padding: 1em;
 	}
@@ -5755,13 +5981,8 @@ MEDIA QUERIES ARTICLE
 	  color: black;
 	  font-size: 15px;
 	  padding: 8px 12px;
-	  /* position: absolute; */
-	  /* bottom: 5vh;
-		top: 5vh; */
-		/* right: -1vw; */
 	  width: 100%;
 	  align-self: center;
-		/* grid-column: 2/3; */
 		align-items: center;
 		text-align: left;
 		/* max-height: 10% */
@@ -5777,7 +5998,20 @@ MEDIA QUERIES ARTICLE
 		margin-left: 0;
 		/* justify-self: start; */
 	}
+
+  /*PICTOGRAM*/
+.pictogram{
+  grid-template-columns: 50em;
+  grid-template-rows: auto auto;
+  justify-content: center;
+}
+.left_chart{
+  grid-row: 1/2;
+}
+.right_chart{
+  grid-template-columns: auto;
+  grid-row: 2/3;
+  grid-column-gap: 0;
 }
 
-
-
+}
