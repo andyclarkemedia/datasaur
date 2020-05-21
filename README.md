@@ -4,7 +4,7 @@ This repository contains all of the project files for the sustaible biz game
 
 Created as part of the digital investigation module in the MSc Computational & Data Journalism programme at Cardiff University
 
-Built using React and based on interviews I conducted with businesses across the UK, the game asks players to balance profit making and environmentally conscious decision making in order to build a successful, sustainable restaurant business.
+Built using React and based on interviews we conducted with businesses across the UK, the game asks players to balance profit making and environmentally conscious decision making in order to build a successful, sustainable restaurant business.
 
 
 
