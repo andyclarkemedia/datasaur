@@ -1,0 +1,6089 @@
+/*
+====================================
+
+CSS STYLES FOR REACT GAME APP
+
+====================================
+ */
+
+
+
+/*
+==================
+GENERAL
+==================
+ */
+
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700&display=swap");
+
+body, * {
+  font-family: 'Inconsolata', monospace;
+  margin: 0;
+  font-size: 1em;
+  overscroll-behavior: none;
+}
+
+body {
+	overscroll-behaviour-y: contain;
+}
+
+/*
+Prevent default pull-to-refresh behaviour on chrome -  android so that drag and drop mini game can be played without difficulty
+Code adapted from w3bits Article 'CSS Hack: Disable Chrome’s Pull-to-Refresh on Android' by Rahul on July 8 2019
+Accessed 10-04-2020
+https://w3bits.com/prevent-chrome-pull-to-refresh-css/
+ */
+
+
+body
+.wrapper {
+  /* Break the flow */
+  position: absolute;
+  top: 0px;
+
+  /* Give them all the available space */
+  width: 100%;
+  height: 100%;
+
+  /* Remove the margins if any */
+  margin: 0;
+
+  /* Allow them to scroll down the document */
+  overflow-y: hidden;
+  overscroll-behaviour-y: contain;
+  overscroll-behavior: none;
+}
+
+body {
+  /* Sending body at the bottom of the stack */
+  z-index: 1;
+}
+
+.wrapper {
+  /* Making the wrapper stack above the body */
+  z-index: 2;
+}
+
+/* End of referenced code */
+
+
+
+/*
+==================
+BACKGROUND
+==================
+ */
+
+ .plain-background {
+ 	background-color: #65CCB8;
+ }
+
+
+/*
+==================
+LOADING SCREEN
+==================
+ */
+
+
+.loading-screen {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-color: #65CCB8;
+	z-index: 10000;
+	display: block;
+}
+
+#loading-screen-text {
+	font-weight: 700;
+	font-size: 6em;
+	text-align: center;
+	margin-top: 35vh;
+	color: #f2f2f2;
+
+}
+
+.leaf-icon-image-loading {
+	width: 8vw;
+	position: absolute;
+	top: 55vh;
+	left: 46vw;
+
+}
+
+.fade {
+	transition: opacity .5s ease-in-out;
+	opacity: 1;
+}
+
+/*
+==================
+HEIGHTS & WIDTHS
+==================
+ */
+
+ .title-screen {
+	height: 100vh;
+ }
+
+
+.bottom-button {
+ 	height: 30vh;
+ }
+
+.bottom {
+	position: absolute;
+	bottom: 0;
+	right: 40vw;
+}
+
+
+.help-icon {
+	width: 2vw;
+	cursor: pointer;
+	z-index: 500;
+	margin: 1em;
+}
+
+ /*
+==================
+TEXT
+==================
+ */
+
+ .align-center {
+	text-align: center;
+ }
+
+
+.title {
+	color: #f2f2f2;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.black-title {
+	color: #182628;
+	font-size: 7em;
+	line-height: 1em;
+}
+
+.plain-text {
+	color: #f2f2f2;
+	font-size: 1.5em;
+}
+
+.button-text {
+	font-size: 2em;
+}
+
+.highlight {
+	background-color: #3B945E;
+}
+
+.bold {
+	font-weight: 700;
+}
+
+.icon-text {
+	font-size: 3.5em;
+	color: #182628;
+	margin-left: .5em;
+}
+
+.black-text {
+	font-size: 2em;
+	color: #182628;
+}
+
+
+/*
+==================
+FLEX
+==================
+ */
+
+ .flex-container {
+ 	display: flex;
+ 	justify-content: space-around;
+ }
+
+ .flex-columns-space-between {
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: space-between;
+ }
+
+/*
+==================
+GRID
+==================
+ */
+
+
+ .grid-container-4x6 {
+ 	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+ }
+
+
+/*
+==================
+BUTTON
+==================
+ */
+
+ .update-tree-button {
+ 	background-color: #65CCB8;
+ 	height: 10vh;
+ 	width: auto;
+ 	min-width: 10vw;
+ 	border: .1em solid #182628;
+ 	cursor: pointer;
+ }
+
+button:focus, input:focus {
+	outline:0;
+}
+
+.read-article-button {
+	z-index: 1000;
+	background-color: #f2f2f2;
+ 	height: 6vh;
+ 	width: 6vw;
+ 	border: .1em solid #182628;
+ 	cursor: pointer;
+ 	font-size: 1em;
+ 	position: absolute;
+ 	bottom: 4vh;
+ 	left: 2vw;
+ 	opacity: 0.9;
+}
+
+
+/*
+==================
+CONSTANT GAMEPLAY ELEMENTS
+==================
+ */
+
+
+.button-fix {
+	justify-self: center;
+	grid-column: 3/5;
+	grid-row: 4;
+}
+
+.gameplay-text {
+	grid-column: 2/6;
+ 	grid-row: 2;
+ 	margin: 1em 1em;
+ 	z-index: 500;
+ 	font-size: 1.5em;
+	color: #182628;
+}
+
+
+.gameplay-button-container {
+ 	position: relative;
+ 	z-index: 500;
+ 	grid-column: 2/6;
+ 	grid-row: 4;
+
+}
+
+.gameplay-button-container-flex {
+	display: flex;
+	justify-content: space-around;
+
+}
+
+
+.icon-container {
+	margin: 2em 2em;
+	z-index: 500;
+	height: 10vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: .1em solid #182628;
+	border-radius: 2em;
+	padding: .5em 1em;
+	background-color: #f2f2f2;
+	opacity: .95;
+}
+
+.leaf-icon-container {
+	grid-column: 5/7;
+ 	grid-row: 1;
+ 	min-width: 10vw;
+ 	max-width: fit-content;
+
+}
+
+
+.opening-leaf-icon-container {
+	grid-row: 1;
+	grid-column: 5/7;
+}
+
+.maze-leaf-icon-container {
+	grid-column: 5/7;
+ 	grid-row: 1;
+}
+
+.pound-coin-icon-container {
+	grid-column: 1/4;
+	justify-self: center;
+	max-width: fit-content;
+ 	grid-row: 1;
+}
+
+.maze-pound-coin-icon-container {
+	grid-column: 1/3;
+	max-width: fit-content;
+ 	grid-row: 1;
+}
+
+.leaf-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+.pound-coin-icon-image {
+	width: auto;
+	height: 10vh;
+}
+
+
+#mute-audio-icon, #play-audio-icon {
+	width: 4vw !important;
+	position: absolute;
+	bottom: 5vh;
+	right: 5vw;
+	cursor: pointer;
+	z-index: 6000;
+}
+
+#play-audio-icon {
+	display: none;
+}
+
+/*
+==================
+GAME LANDING PAGE
+==================
+ */
+
+ #landing-title {
+ 	z-index: 1000;
+ 	grid-column: 2/6;
+ 	grid-row: 1/3;
+ 	font-size: 6em;
+ 	align-self: center;
+ }
+
+ #can-you-make-it {
+ 	grid-column: 2/6;
+ 	grid-row: 3;
+ }
+
+
+#disclaimer {
+	grid-column: 2/6;
+ 	grid-row: 3/4;
+ 	align-self: center;
+ 	font-weight: 700;
+}
+
+ #tree-side {
+ 	position: fixed;
+ 	width: 30vw;
+ 	grid-column: 0;
+ 	grid-row: 0;
+ }
+
+ #tree-side-inverse {
+ 	position: fixed;
+ 	width: 30vw;
+ 	right: 0;
+ }
+
+
+#town-houses {
+	width: 20vw;
+	height: auto;
+	grid-row: 4;
+	grid-column: 3/5;
+}
+
+#town-houses-opening {
+	position: absolute;
+	bottom: 0;
+	width: 20vw;
+	left: 40vw;
+
+}
+
+#arrow-image {
+	width: 6vw;
+	height: auto;
+	position: absolute;
+	bottom: 15vh;
+	right: 8vw;
+}
+
+/*
+==================
+CREDIT PAGE
+==================
+*/
+
+
+#credits-title {
+	grid-column: 2/6;
+	grid-row: 1;
+	align-self: flex-end;
+	text-align: center;
+	color: #f2f2f2;
+	font-size: 3em;
+	z-index: 1000;
+
+
+}
+
+#credits-thanks {
+	grid-column: 1;
+	grid-row: 1;
+	font-size: 2em;
+	font-weight: 700;
+}
+
+#credit-name-container {
+	grid-column: 3/5;
+	grid-row: 2/4;
+	justify-content: space-around;
+	align-self: center;
+	display: flex;
+	flex-direction: column;
+	height: 60%;
+  	font-size: 1.5em;
+  	color: #f2f2f2;
+  	text-align: center;
+}
+
+#credit-joe {
+	grid-column: 1/2;
+	grid-row: 2;
+}
+
+#credit-stu {
+	grid-column: 1/2;
+	grid-row: 3;
+}
+#credit-heidi {
+	grid-column: 1/2;
+	grid-row: 4;
+}
+#credit-suzanna {
+	grid-column: 1;
+	grid-row: 5;
+}
+#credit-deri {
+	grid-column: 1/7;
+	grid-row: 6;
+}
+
+
+/*
+==================
+INSTRUCTIONS PAGES
+==================
+*/
+
+#instructions-title {
+	font-size: 5em;
+ 	grid-column: 2/6;
+ 	justify-self: center;
+ 	grid-row: 1/2;
+ 	align-self: center;
+}
+
+
+#pick-a-biz-desc {
+	grid-column: 3/5;
+ 	grid-row: 2/3;
+ 	align-self: center;
+ 	line-height: 1.6em;
+}
+
+#to-win-desc {
+	grid-column: 3/5;
+ 	grid-row: 3;
+ 	font-size: 1.4em;
+ 	color: #f2f2f2;
+ 	text-align: center;
+}
+
+.icon-explainer-text {
+	font-weight: 700;
+	font-size: 3em;
+	grid-row: 1;
+	grid-column: 1/7;
+	text-align: center;
+}
+
+.sound-fx-instruction {
+	grid-row: 2;
+	grid-column: 1/7;
+	text-align: center;
+	font-size: 1.3em;
+}
+
+#opening-pound-coin {
+	grid-column: 1/3;
+	grid-row: 3/5;
+	align-self: center;
+}
+
+#opening-leaf {
+	grid-row: 3/5;
+	grid-column: 1/3;
+	align-self: center;
+}
+
+#money-icon-text {
+	grid-column: 3;
+ 	grid-row: 3;
+ 	font-size: 2em;
+}
+
+#se-icon-text {
+	grid-column: 3;
+ 	grid-row: 4;
+ 	font-size: 2em;
+}
+
+.specific-points-instruction {
+	grid-row: 5;
+	grid-column: 1/7;
+	font-size: 1.2em;
+}
+
+#pound-coin-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 3;
+ 	width: 5vw;
+ 	margin-left: 3.5em;
+}
+
+#leaf-instructions-icon {
+	grid-column: 4;
+ 	grid-row: 4;
+ 	width: 4vw;
+ 	margin-left: 4em;
+}
+
+.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+	display: grid;
+	grid-gap: 2em;
+	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(6);
+  	background-color: #f2f2f2;
+	border: .2em solid #282828;
+	align-self: flex-start;
+	justify-self: center;
+	height: 40vh;
+	width: 20vw;
+	padding: 2em;
+	font-size: .8em;
+	z-index: 100;
+	border-radius: 1em;
+	opacity: .8;
+
+}
+
+.opening-pound-coin-icon-container {
+	grid-column: 2/4;
+ 	grid-row: 2/4;
+ 	align-self: center;
+
+}
+
+.opening-leaf-icon-container {
+	grid-column: 4/6;
+ 	grid-row: 2/4;
+ 	align-self: center;
+
+}
+
+.opening-plus {
+	grid-row: 3/5;
+	grid-column: 3;
+	width: 3vw;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+}
+
+.opening-minus {
+	grid-row: 3/5;
+	grid-column: 5;
+	width: 3vw;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+}
+
+
+/*
+==================
+CHOOSE A CHARACTER PAGE
+==================
+*/
+
+#choose-a-character-title {
+	font-size: 4em;
+	grid-column: 2/6;
+ 	grid-row: 1;
+ 	align-self: center;
+ 	z-index: 1000;
+}
+
+
+
+#lisa-head {
+	width: 6vw;
+	grid-column: 1/7;
+	grid-row: 3/4;
+	align-self: center;
+	justify-self: center;
+
+}
+
+
+
+/*
+==================
+REMEMBER PAGE
+==================
+*/
+
+
+#remember-title {
+	grid-column: 2/6;
+ 	grid-row: 1/2;
+ 	align-self: center;
+}
+
+#remember-description-one {
+	grid-column: 3/5;
+ 	grid-row: 2/3;
+ 	align-self: center;
+}
+
+#uplands-quote {
+	grid-column: 3/5;
+ 	grid-row: 3;
+ 	font-weight: 700;
+ 	font-size: 1.5em;
+}
+
+#uplands-span {
+	font-size: .8em;
+	font-weight: 400;
+}
+
+
+/*
+==========================================================================
+==========================================================================
+
+MORE INFO
+
+==========================================================================
+==========================================================================
+*/
+
+.more-info-container {
+	position: absolute;
+	width: 33vw;
+	height: 0vh;
+	background-color: #f2f2f2;
+	border: .2em solid #282828;
+	z-index: 0;
+	top: 20vh;
+	left: 33vw;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+  	grid-template-rows: repeat(6);
+  	opacity: 0;
+}
+
+.more-info-characters-container {
+	grid-column: 3/5;
+ 	grid-row: 2/5;
+	display: grid;
+	grid-gap: 1.5em;
+	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(6);
+  	background-color: #f2f2f2;
+	border: .2em solid #282828;
+	align-self: flex-start;
+	justify-self: center;
+	height: fit-content;
+	width: auto;
+	padding: 1.5em;
+	font-size: .8em;
+	opacity: .9;
+}
+
+#close-window-image {
+	width: 3vw;
+	padding: .5em;
+	grid-column: 6;
+	grid-row: 1;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+
+#more-info-title {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 1;
+	font-size: 3em;
+	font-weight: 700;
+}
+
+
+#more-info-subtitle {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 2;
+	font-size: 1.5em;
+}
+
+
+#more-info-description {
+	grid-column: 2/6;
+	grid-row: 4/7;
+	font-size: 1.3em;
+}
+
+#more-info-cost-one {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 2;
+	font-size: 1.5em;
+}
+
+#more-info-cost-two {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 3;
+	font-size: 1.5em;
+}
+
+#more-info-cost-three {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 4;
+	font-size: 1.5em;
+}
+
+#more-info-description-ingredients {
+	text-align: center;
+	align-self: center;
+	grid-column: 1/7;
+	grid-row: 5/7;
+	font-size: 1.5em;
+}
+
+
+/*
+==========================================================================
+==========================================================================
+
+LEVEL ONE
+
+==========================================================================
+==========================================================================
+*/
+
+/*
+==================
+EPISODE ONE
+==================
+*/
+
+
+
+.level-one-background {
+	width: 100vw;
+	height: 100vh;
+	background-color: #65CCB8;
+}
+
+
+#level-one-title {
+	grid-column: 2/6;
+ 	grid-row: 2;
+}
+
+#laptop-image {
+	justify-self: center;
+	grid-column: 3/5;
+ 	grid-row: 2/4;
+ 	align-self: center;
+ 	width: 20vw;
+}
+
+#l0E0T4-descriptionOne {
+	grid-column: 2/4;
+ 	grid-row: 2;
+}
+
+#l0E0T4-descriptionTwo {
+	grid-column: 2/4;
+ 	grid-row: 3;
+}
+
+#l0E0T4-descriptionThree {
+	grid-column: 1/7;
+ 	grid-row: 4;
+}
+
+#bunting {
+	grid-column: 2/6;
+ 	grid-row: 1;
+ 	width: 80vw;
+}
+
+#cheese-order-image,  #tomato-order-image {
+	width: 5vw;
+}
+#basil-order-image {
+	margin-left: 1em;
+	width: 7vw;
+}
+
+#cheese-order-image {
+	grid-column: 1;
+ 	grid-row: 1;
+ 	justify-self: center;
+}
+
+#tomato-order-image {
+	grid-column: 1;
+ 	grid-row: 2;
+ 	justify-self: center;
+}
+
+#basil-order-image {
+	grid-column: 1;
+ 	grid-row: 3;
+ 	justify-self: center;
+}
+
+
+.place-order-container {
+	opacity: 0.9;
+	align-items: center;
+	border-radius: 2em;
+	grid-column: 4/6;
+ 	grid-row: 2/4;
+ 	margin-bottom: 1.5em;
+}
+
+
+#cheese-order-input {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+
+#tomato-order-input {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#basil-order-input {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+
+#cheese-order-input, #tomato-order-input, #basil-order-input {
+ 	width: 5vw;
+ 	height: 3.5vh;
+ 	border-radius: .2em;
+ 	font-size: 2em;
+ 	border: .1em solid #182628;
+ 	text-align: center;
+}
+
+
+#cheese-kg {
+	grid-column: 4;
+ 	grid-row: 1;
+}
+
+#tomato-kg {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#basil-kg {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#cheese-kg, #tomato-kg, #basil-kg {
+	font-size: 2em;
+	margin-left: 1em;
+}
+
+.price-list {
+	grid-column: 2/4;
+ 	grid-row: 2/3;
+ 	align-items: center;
+ 	justify-self: centre;
+ 	font-size: 1.5em;
+ 	grid-gap: 1em;
+
+}
+
+#price-list-title {
+	grid-column: 1/6;
+ 	grid-row: 1;
+ 	text-align: center;
+ 	text-decoration: underline;
+ 	font-size: 1.5em;
+}
+
+#cheese-price-list {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-price-list {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-price-list {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-cost {
+	grid-column: 4/6;
+ 	grid-row: 2;
+}
+
+#tomato-cost {
+	grid-column: 4/6;
+ 	grid-row: 3;
+}
+
+#basil-cost {
+	grid-column: 4/6;
+ 	grid-row: 4;
+}
+
+#order-review-text {
+	grid-column: 2/4;
+ 	grid-row: 3/4;
+ 	margin-right: 2em;
+ 	align-self: center;
+ 	font-size: 1.5em;
+
+}
+
+
+/*
+============
+REVIEW ORDER
+============
+*/
+
+.review-order-container {
+	display: grid;
+  	grid-template-columns: repeat(5, 1fr);
+  	grid-template-rows: repeat(4);
+	justify-self: center;
+	grid-column: 1/7;
+ 	grid-row: 2/4;
+ 	align-items: center;
+ 	text-align: center;
+ 	margin-bottom: 3em;
+ 	font-size: 1.5em;
+ 	align-self: center;
+ 	grid-gap: 1em;
+}
+
+#cheese-review-image, #tomato-review-image {
+	width: 4vw;
+	align-self: center;
+	justify-self: center;
+}
+
+#item-title, #quantity-title, #cost-title {
+	text-decoration: underline;
+	font-size: 1.5em;
+}
+
+#item-title {
+	grid-column: 1;
+ 	grid-row: 1;
+}
+
+#quantity-title {
+	grid-column: 3;
+ 	grid-row: 1;
+}
+
+#cost-title {
+	grid-column: 5;
+ 	grid-row: 1;
+}
+
+#cheese-review-image {
+	grid-column: 1;
+ 	grid-row: 2;
+}
+
+#tomato-review-image {
+	grid-column: 1;
+ 	grid-row: 3;
+}
+
+#basil-review-image {
+	grid-column: 1;
+ 	grid-row: 4;
+ 	width: 5vw;
+ 	align-self: center;
+	justify-self: center;
+}
+
+#cheese-x {
+	grid-column: 2;
+ 	grid-row: 2;
+}
+
+#tomato-x {
+	grid-column: 2;
+ 	grid-row: 3;
+}
+
+#basil-x {
+	grid-column: 2;
+ 	grid-row: 4;
+}
+
+#cheese-quantity {
+	grid-column: 3;
+ 	grid-row: 2;
+}
+
+#tomato-quantity {
+	grid-column: 3;
+ 	grid-row: 3;
+}
+
+#basil-quantity {
+	grid-column: 3;
+ 	grid-row: 4;
+}
+
+#cheese-equal {
+	grid-column: 4;
+ 	grid-row: 2;
+}
+
+#tomato-equal {
+	grid-column: 4;
+ 	grid-row: 3;
+}
+
+#basil-equal {
+	grid-column: 4;
+ 	grid-row: 4;
+}
+
+#cheese-price {
+	grid-column: 5;
+ 	grid-row: 2;
+}
+
+#tomato-price {
+	grid-column: 5;
+ 	grid-row: 3;
+}
+
+#basil-price {
+	grid-column: 5;
+ 	grid-row: 4;
+}
+
+
+#do-you-want-to-review-order {
+	grid-column: 2/6;
+	grid-row: 1;
+	text-align: center;
+	font-size: 2em;
+}
+
+
+
+#total-price {
+	align-self: center;
+	grid-column: 5/6;
+	grid-row: 5;
+	font-weight: 700;
+}
+
+
+/* =============
+RESULTS
+================*/
+
+
+#check-out-stats {
+	grid-column: 2/6;
+	grid-row: 3/5;
+	text-align: center;
+}
+
+#surplus-one, #home-early-one, #perfect-one {
+	grid-column: 3/5;
+	grid-row: 2;
+	text-align: center;
+}
+
+
+
+/* =============
+FESTIVAL REPORT
+================*/
+
+.festival-report-container {
+	grid-column: 2/6;
+	grid-row: 1/5;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(6, 1fr);
+  	align-self: center;
+}
+
+.festival-report-container p {
+	margin: 0.15em;
+	align-self: center;
+}
+
+#festival-report-title {
+	grid-column: 2/6;
+	text-align: center;
+	grid-row: 1;
+	font-size: 3em;
+
+}
+
+#festival-report-time {
+	grid-column: 2/4;
+	grid-row: 2;
+}
+
+#festival-report-pizzas {
+	grid-column: 2/4;
+	grid-row: 3;
+}
+
+#festival-report-waste {
+	grid-column: 2/4;
+	grid-row: 4;
+}
+
+#festival-report-profit {
+	grid-column: 2/4;
+	grid-row: 5;
+}
+
+#festival-report-time-number {
+	grid-column: 4/7;
+	grid-row: 2;
+	justify-self: center;
+}
+
+#festival-report-pizzas-number {
+	grid-column: 4/7;
+	grid-row: 3;
+	justify-self: center;
+}
+
+#festival-report-waste-number {
+	grid-column: 4/7;
+	grid-row: 4;
+	justify-self: center;
+}
+
+#festival-report-profit-number {
+	grid-column: 4/7;
+	grid-row: 5;
+	justify-self: center;
+}
+
+#get-rid-of-waste {
+	grid-column: 2/6;
+	grid-row: 6;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+
+.person-festival {
+	position: absolute;
+	display: block !important;
+	top: 50vh !important;
+	width: 4vw;
+	opacity: 1 !important;
+	transform: translateX(0) !important;
+}
+
+#person-one-festival {
+	left: 75vw;
+}
+
+#person-two-festival {
+	left: 15vw;
+}
+
+#person-two-festival {
+	left: 20vw;
+}
+
+#person-three-festival {
+	left: 25vw;
+}
+
+#person-four-festival {
+	left: 30vw;
+}
+
+#person-five-festival {
+	left: 35vw;
+}
+
+#person-six-festival {
+	left: 40vw;
+}
+
+#person-seven-festival {
+	left: 45vw;
+}
+
+#person-eight-festival {
+	left: 50vw;
+}
+
+#person-nine-festival {
+	left: 55vw;
+}
+
+#person-ten-festival {
+	left: 60vw;
+}
+
+#person-eleven-festival {
+	left: 65vw;
+}
+
+#person-twelve-festival {
+	left: 70vw;
+}
+
+
+#pizza-festival {
+	grid-column: 3/5;
+	align-self: flex-start;
+	justify-self: center;
+	grid-row: 3;
+	width: 13vw;
+}
+
+#planet-pizza-festival {
+	grid-column: 3/5;
+	align-self: flex-start;
+	justify-self: center;
+	grid-row: 3;
+	width: 14.9vw;
+}
+
+
+/*
+==================
+EPISODE TWO
+==================
+*/
+
+#signpost-trash {
+	margin-left: 2em;
+	grid-column: 1;
+	position: absolute;
+	grid-row: 1;
+	height: 100vh;
+}
+
+
+#drag-and-drop-instructions {
+	grid-column: 3/5;
+	grid-row: 2;
+}
+
+#drag-and-drop-instructions-two {
+	grid-column: 3/5;
+	grid-row: 3;
+
+}
+
+.trash-image-container {
+	grid-column: 3;
+	grid-row: 1;
+	align-self: center;
+	justify-self: center;
+
+}
+
+.trash-container {
+	display: flex;
+	grid-column: 2/6;
+	width: 60vw;
+	grid-row: 3;
+	justify-content: space-around;
+	align-self: center;
+	justify-self: center;
+}
+
+
+.trash-item-image {
+	align-self: center;
+	justify-self: center;
+	position: absolute;
+	background-color: #65CCB8;
+	cursor: grab;
+	transition: visibility 0s, opacity 2s linear;
+
+}
+
+.tomato-drag {
+	width: 3vw;
+}
+
+.tin-drag {
+	width: 6vw;
+}
+
+.water-drag {
+	width: 5vw;
+}
+
+.tomato-drag {
+	width: 7vw;
+}
+
+.crust-drag {
+	width: 9vw;
+}
+
+.basil-drag {
+	width: 8vw;
+}
+
+.can-drag {
+	width: 5vw;
+}
+
+.pizzabox-drag {
+	width: 7vw;
+}
+
+.rocket-drag {
+	width: 8vw;
+}
+
+.tupperware-drag {
+	width: 8vw;
+}
+
+.compost-drag {
+	width: 8vw;
+}
+
+.cutlery-drag {
+	width: 3vw;
+}
+
+
+.trash-container img {
+	width: 7vw;
+	align-self: center;
+	justify-self: center;
+}
+
+
+.first-drag {
+	top: 10vh;
+	right: 45vw;
+}
+
+.hide-drag-image {
+	visibility: hidden;
+	top: 5vh;
+	right: 45vw;
+
+}
+
+#drag-drop-timer {
+	margin:0;
+	font-size: 3em;
+	color: #f2f2f2;
+
+}
+
+.timer-container {
+	justify-self: center;
+	width: 10vw;
+	grid-column: 3/5;
+	grid-row: 4;
+	z-index: 500;
+	height: 6vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: .2em solid #f2f2f2;
+	border-radius: .2em;
+	padding: 1em 2em;
+	background-color: #182628;
+
+	z-index: 10000;
+
+}
+
+
+#cross-image, #tick-image {
+	grid-row: 2/3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 3/5;
+	width: 8vw;
+	margin-top: 2em;
+	margin-right: 4em;
+	display: none;
+
+}
+
+
+#drag-and-drop-result-main {
+	grid-row: 2;
+	grid-column: 2/6;
+}
+
+.drag-and-drop-result-container {
+	grid-row: 2/4;
+	grid-column: 3/5;
+	align-self: center;
+	display: grid;
+  	grid-template-columns: repeat(4, 1fr);
+  	grid-template-rows: repeat(2, 1fr);
+  	background-color: #f2f2f2;
+  	border-radius: 1em;
+  	border: .1em solid #282828;
+}
+
+#correct-waste-text {
+	grid-row: 1;
+	grid-column: 1/5;
+}
+
+#incorrect-waste-text {
+	grid-row: 2;
+	grid-column: 1/5;
+}
+
+#correct-waste-number {
+	grid-row: 1;
+	grid-column: 5;
+}
+
+
+#incorrect-waste-number {
+	grid-row: 2;
+	grid-column: 5;
+}
+
+#drag-and-drop-final-text {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+
+/*
+==========================================================================
+==========================================================================
+
+WEEKLY TIMER
+
+==========================================================================
+==========================================================================
+*/
+
+#weekly-earnings {
+	grid-row: 1/2;
+	margin-top: 3em;
+	grid-column: 2/4;
+	align-self: center;
+	font-size: 3em;
+	color: #f2f2f2;
+}
+
+
+.speech-bubble {
+	width: 30vw;
+	position: absolute;
+	left: 3vw;
+	top: 25vh;
+	display: none;
+}
+
+.week-number-container {
+	grid-row: 1/3;
+	grid-column: 2/6;
+	text-align: center;
+  	border-radius: .5em;
+  	align-self: center;
+  	justify-self: center;
+}
+
+#weekly-timer {
+	font-size: 5em;
+	color: #f2f2f2;
+	font-weight: 700;
+	letter-spacing: .2em;
+}
+
+
+.planet-pizza, #planet-pizza-decor {
+	width: 30vw;
+	grid-row: 1/6;
+	align-self: center;
+	grid-column: 5/7 !important;
+}
+
+
+#planet-pizza-animation {
+	margin-bottom: 4em;
+	justify-self: center;
+}
+
+.person {
+	position: absolute;
+	margin: 0;
+}
+
+
+
+
+#person-one {
+	width: 2vw;
+	left: 15vw;
+}
+
+#person-two {
+	width: 2.5vw;
+	left: 18vw;
+}
+
+#person-three {
+	width: 2vw;
+	left: 21vw;
+}
+
+#person-four {
+	width: 2.5vw;
+	left: 27vw;
+}
+
+#person-five {
+	width: 2vw;
+	left: 32vw;
+}
+
+#person-six {
+	width: 2.5vw;
+	left: 38vw;
+}
+
+#person-seven {
+	width: 2vw;
+	left: 41vw;
+}
+
+#person-eight {
+	width: 2.5vw;
+	left: 49vw;
+}
+
+#person-nine {
+	width: 2vw;
+	left: 52vw;
+
+}
+
+#person-ten {
+	width: 2.5vw;
+	left: 55vw;
+
+}
+
+#person-eleven {
+	width: 2vw;
+	left: 59vw;
+}
+
+#person-twelve {
+	width: 2.5vw;
+	left: 61vw;
+}
+
+#position-identifier {
+	grid-row: 3;
+	grid-column: 5;
+
+}
+
+#position-identifier-top {
+	grid-row: 3;
+	grid-column: 5;
+	height: 3vh;
+	align-self: flex-end;
+}
+
+
+.feedback-icon {
+	position: absolute;
+	width: 3vw;
+	opacity: 0;
+}
+
+#feedback-icon-one {
+	left: 30vw;
+}
+
+#feedback-icon-two {
+	left: 34vw;
+}
+
+#feedback-icon-three {
+	left: 40vw;
+}
+
+#feedback-icon-four {
+	left: 42vw;
+}
+
+#feedback-icon-five {
+	left: 48vw;
+}
+
+#feedback-icon-six {
+	left: 51vw;
+}
+
+#feedback-icon-seven {
+	left: 56vw;
+}
+
+#feedback-icon-eight {
+	left: 60vw;
+}
+
+#feedback-icon-nine {
+	left: 62vw;
+}
+
+#feedback-icon-ten {
+	left: 65vw;
+}
+
+
+
+
+/*
+==========================================================================
+==========================================================================
+
+BUSINESS LICENSE
+
+==========================================================================
+==========================================================================
+*/
+
+
+#certified-title {
+	grid-row: 1/2;
+	grid-column: 2/6;
+	font-size: 4em;
+	font-weight: 700;
+	color: #f2f2f2;
+	align-self: center;
+	text-align: center;
+}
+
+#business-license-container {
+	align-self: center;
+	grid-row: 2/4;
+	grid-column: 3/5;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4, 1fr);
+  	border: .1em solid #182628;
+  	border-radius: .3em;
+  	background-color: #f2f2f2;
+  	opacity: .85;
+  	padding: 2em 0;
+  	max-height: 40vh;
+
+}
+
+
+#check-it-out {
+	display: none;
+}
+
+#biz-license-title {
+	grid-row: 1;
+	grid-column: 2/6;
+	font-size: 1.5em;
+}
+
+#biz-license-company-number {
+	margin-top: 2em;
+	font-size: 1.2em;
+	grid-row: 2;
+	grid-column: 2/6;
+}
+
+
+#biz-license-registrar {
+	grid-row: 3;
+	grid-column: 2/6;
+	margin-top: 1.3em;
+}
+
+
+#biz-license-company-name {
+	grid-row: 4;
+	grid-column: 2/6;
+	align-self: center;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#biz-license-is-this-day {
+
+	grid-row: 5;
+	grid-column: 2/6;
+}
+
+
+#biz-license-given-at {
+	margin-top: 1em;
+	grid-row: 6;
+	grid-column: 2/6;
+}
+
+
+
+
+/*
+==========================================================================
+==========================================================================
+
+SUPPLIER CHOICES
+
+==========================================================================
+==========================================================================
+*/
+
+#suppliers-choice-description-one {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#suppliers-choice-description-two {
+	grid-row: 3;
+	grid-column: 2/6;
+	align-self: center;
+	text-align: center;
+
+	font-size: 1.3em;
+
+}
+
+
+.supplier-choice-container {
+	align-self: center;
+	justify-self: center;
+	font-size: 1.2em;
+	grid-row: 2;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(7, 1fr);
+  	grid-template-rows: repeat(3);
+  	grid-gap: 1em;
+
+}
+
+.supplier-choice-title-main {
+	grid-row: 1;
+	grid-column: 1/9;
+	text-align: center;
+	font-size: 2em;
+	margin-bottom: 1em;
+	font-weight: 700;
+}
+
+.supplier-choice-title-one {
+	grid-row: 2;
+	grid-column: 2;
+	text-align: center;
+}
+
+
+.supplier-choice-title-two {
+	grid-row: 2;
+	grid-column: 4;
+	text-align: center;
+}
+
+.supplier-choice-title-three {
+	grid-row: 2;
+	grid-column: 5/8;
+	justify-self: center;
+	align-self: center;
+	text-align: center;
+}
+
+
+#solar-image {
+	padding: .5em;
+	grid-row: 3/4;
+	grid-column: 1/4;
+	align-self: center;
+	justify-self: center;
+	width: 8vw;
+	cursor: pointer;
+}
+
+#pylon-image {
+	justify-self: center;
+	padding: .5em;
+	grid-row: 3/5;
+	grid-column: 4/5;
+	width: 6vw;
+	cursor: pointer;
+}
+
+#ethical-energy-supplier-image {
+	justify-self: center;
+	padding: .5em;
+	grid-row: 3/5;
+	grid-column: 5/8;
+	width: 5vw;
+	cursor: pointer;
+}
+
+
+#help-solar-icon, #help-upcycle-icon {
+	grid-row: 3;
+	grid-column: 3;
+	z-index: 100;
+
+}
+
+#help-grid-icon, #help-budget-icon {
+	grid-row: 3;
+	grid-column: 5;
+}
+
+#help-ethical-icon, #help-luxury-icon {
+	grid-row: 3;
+	grid-column: 7;
+}
+
+
+
+#upcycle-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 1/4;
+	align-self: center;
+	justify-self: center;
+	width: 3vw;
+	cursor: pointer;
+}
+
+#budget-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 4/5;
+	align-self: center;
+	justify-self: center;
+	width: 4vw;
+	cursor: pointer;
+}
+
+#luxury-image {
+	align-self:center;
+	padding: 1em;
+	grid-row: 3/5;
+	grid-column: 6/7;
+	align-self: center;
+	justify-self: center;
+	width: 4.5vw;
+	cursor: pointer;
+}
+
+
+/*
+==================
+FOOD CHOICES
+==================
+*/
+
+.supplier-choice-container-food {
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	align-items: center;
+	grid-row: 2;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(8, 1fr);
+  	grid-template-rows: repeat(6, 1fr);
+  	z-index: 1000 !important;
+  	width: fit-content !important;
+  	height: auto !important;
+  	opacity: 1 !important;
+}
+
+
+#food-one-title, #food-two-title, #food-three-title, #food-four-title, #food-five-title, #food-origin-one, #food-origin-two, #food-origin-three {
+	font-size: 1.3em ;
+	justify-self: center;
+}
+
+#food-one-title {
+	grid-row: 3;
+	grid-column: 1;
+}
+
+#food-two-title {
+	grid-row: 4;
+	grid-column: 1;
+}
+
+#food-three-title {
+	grid-row: 5;
+	grid-column: 1;
+}
+
+#food-four-title {
+	grid-row: 6;
+	grid-column: 1;
+}
+
+#food-five-title {
+	grid-row: 7;
+	grid-column: 1;
+}
+
+
+#food-origin-one {
+	grid-row: 2;
+	grid-column: 4;
+	font-weight: 700;
+}
+
+
+#food-origin-two {
+	grid-row: 2;
+	grid-column: 6;
+	font-weight: 700;
+}
+
+
+#food-origin-three {
+	grid-row: 2;
+	grid-column: 8;
+	font-weight: 700;
+}
+
+
+
+.wholesale, .tractor, .spade {
+	padding: .5em;
+	width: 1.5vw;
+	justify-self: center;
+	cursor: pointer;
+}
+
+
+
+
+#tomato-wholesale {
+	grid-row: 3;
+	grid-column: 8;
+}
+
+#tomato-spade {
+	grid-row: 3;
+	grid-column: 4;
+}
+
+#tomato-tractor {
+	grid-row: 3;
+	grid-column: 6;
+}
+
+#cheese-wholesale {
+	grid-row: 4;
+	grid-column: 8;
+}
+
+#cheese-spade {
+	grid-row: 4;
+	grid-column: 4;
+}
+
+#cheese-tractor {
+	grid-row: 4;
+	grid-column: 6;
+}
+
+
+#pork-wholesale {
+	grid-row: 5;
+	grid-column: 8;
+}
+
+#pork-spade {
+	grid-row: 5;
+	grid-column: 4;
+}
+
+#pork-tractor {
+	grid-row: 5;
+	grid-column: 6;
+}
+
+
+#chicken-wholesale {
+	grid-row: 6;
+	grid-column: 8;
+}
+
+#chicken-spade {
+	grid-row: 6;
+	grid-column: 4;
+}
+
+#chicken-tractor {
+	grid-row: 6;
+	grid-column: 6;
+}
+
+
+#potato-wholesale {
+	grid-row: 7;
+	grid-column: 8;
+}
+
+#potato-spade {
+	grid-row: 7;
+	grid-column: 4;
+}
+
+#potato-tractor {
+	grid-row: 7;
+	grid-column: 6;
+}
+
+
+#tomato-choice-image {
+	width: 2vw;
+	grid-row: 3;
+	grid-column: 3;
+	justify-self: center;
+}
+
+#tomato-choice-help-icon {
+	grid-row: 3;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#cheese-choice-image {
+	width: 2vw;
+	grid-row: 4;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
+#cheese-choice-help-icon {
+	grid-row: 4;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#pork-choice-image {
+	width: 2vw;
+	grid-row: 5;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
+#pork-choice-help-icon {
+	grid-row: 5;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#chicken-choice-help-icon {
+	grid-row: 6;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#chicken-choice-image {
+	width: 2vw;
+	grid-row: 6;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
+#potatoes-choice-help-icon {
+	grid-row: 7;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#carrot-choice-image {
+	width: 2vw;
+	grid-row: 7;
+	grid-column: 3;
+	justify-self: center;
+	border: none;
+}
+
+/*
+==================
+GOOD LUCK MESSAGE
+==================
+*/
+
+#good-luck-message {
+	grid-row: 3;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#good-luck {
+	font-size: 2em;
+}
+
+/*
+==================
+GOOD LUCK MESSAGE
+==================
+*/
+
+.further-description-container {
+	align-self: center;
+	grid-row: 2/4;
+	grid-column: 1/2;
+	justify-self:center;
+	font-size: 1.5em;
+	display: none;
+}
+
+
+/*
+==========================================================================
+==========================================================================
+
+SUPPLIER RUNS OUT OF STOCK ...
+
+==========================================================================
+==========================================================================
+*/
+
+
+
+#supplier-no-stock-title {
+	grid-row: 1/2;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 5em;
+	color: #f2f2f2;
+	font-weight: 700;
+	text-align: center;
+}
+
+
+#potato-flood {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	text-align: center;
+}
+
+.farmhouse-image {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 30vw;
+}
+
+
+.potato-fork-image {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 25vw;
+}
+
+
+#potato-important {
+	grid-row: 1/3;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-weight: 700;
+	font-size: 2em;
+}
+
+#potato-what-do-you-want {
+	align-self: flex-start;
+    margin: 2em 0;
+    grid-row: 2;
+	grid-column: 2/6;
+	text-align: center;
+}
+
+#potato-choice-container {
+	grid-row: 2/4;
+	align-self: center;
+	justify-self: center;
+	grid-column: 1/7;
+	text-align: center;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(3, 1fr);
+  	padding: 1em;
+  	opacity: .85;
+  	font-size: 1em;
+  	font-weight: 700;
+  	grid-gap: 2em;
+}
+
+
+#potato-choice-organic {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 1/3;
+	text-align: center;
+}
+
+#potato-choice-menu {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 3/5;
+	text-align: center;
+}
+
+#potato-choice-wholesaler {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 5/7;
+	text-align: center;
+}
+
+
+#organic-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 5vw;
+}
+
+#menu-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 5vw;
+}
+
+#wholesale-choice {
+	grid-row: 2/3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 5vw;
+}
+
+#button-organic {
+	grid-row: 3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 1/3;
+	width: 2vw;
+	cursor: pointer;
+	padding: .2em;
+}
+
+#button-menu {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 2vw;
+	cursor: pointer;
+	padding: .2em;
+}
+
+#button-wholesale {
+	grid-row: 3;
+	align-self: center;
+	justify-self: center;
+	grid-column: 5/7;
+	width: 2vw;
+	cursor: pointer;
+	padding: .2em;
+}
+
+/*
+==================
+POTATO WHOLESALE
+==================
+*/
+
+#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato   {
+	grid-row: 2/3;
+	grid-column: 3/5;
+	align-self: center;
+	font-size: 1.5em;
+}
+
+
+#wholesale-potato-image {
+	grid-row: 3;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 10vw;
+}
+
+
+#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+	grid-row: 3/4;
+	grid-column: 3/5;
+	align-self: flex-start;
+	font-size: 1.5em;
+}
+
+
+.potato-rethink-choice-container, .organic-choice-container {
+	grid-row: 3;
+	align-self: flex-start;
+	justify-self: center;
+	grid-column: 2/6;
+	display: grid;
+	grid-gap: 2em;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(3);
+  	text-align: center;
+  	z-index: 600;
+}
+
+#potato-rethink-choice-organic-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 1/3;
+	align-self: center;
+	justify-self: center;
+	cursor: pointer;
+	padding: .5em;
+	z-index: 500;
+
+
+}
+
+#potato-rethink-choice-wholesale-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 5/8;
+	align-self: center;
+	justify-self: center;
+	cursor: pointer;
+	padding: .5em;
+	z-index: 500;
+}
+
+#potato-rethink-choice-organic-text {
+	grid-row: 1;
+	grid-column: 1/3;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+#potato-rethink-choice-wholesale-text {
+	grid-row: 1;
+	grid-column: 5/8;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+#click-select-rethink-potato, #click-select-organic-potato  {
+	grid-row: 3;
+	grid-column: 1/7;
+	align-self: flex-start;
+	padding: 1vw;
+	justify-self: center;
+	font-size: 1.1em;
+
+}
+
+
+#express-delivery-choice {
+	grid-row: 1;
+	grid-column: 1/3;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#staff-training-choice {
+	grid-row: 1;
+	grid-column: 3/5;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#potato-wholesale-choice {
+	grid-row: 1;
+	grid-column: 5/7;
+	font-size: 1.2em;
+	font-weight: 700;
+}
+
+#express-image {
+	width: 10vw;
+	grid-column: 3/5;
+	grid-row: 3;
+	justify-self: center;
+	align-self: center;
+}
+
+
+#potato-organic-express-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 1/3;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
+
+#potato-organic-staff-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 3/5;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
+
+#potato-organic-wholesale-image {
+	width: 5vw;
+	grid-row: 2;
+	grid-column: 5/7;
+	cursor: pointer;
+	align-self: center;
+	justify-self: center;
+	padding: 1em;
+}
+
+
+
+
+
+/*
+==========================================================================
+==========================================================================
+
+TAKEOUT BRANCH
+
+==========================================================================
+==========================================================================
+*/
+
+
+.bike-image {
+	position: absolute;
+	bottom: 0;
+	left: 5vw;
+	width: 18vw;
+}
+
+.houses-takeout {
+	position: absolute;
+	bottom: 0 !important;
+	right: 2vw !important;
+	width: 25vw;
+	transform: translateX(0) !important;
+
+}
+
+.pizzabox-takeout-image {
+	width: 20vw;
+	grid-column: 5/6;
+	grid-row: 2/4;
+	align-self: center;
+	justify-self:center;
+}
+
+
+
+#takeout-intro-requests {
+	grid-row: 1;
+	align-self: flex-end;
+	grid-column: 2/7;
+	font-size: 1.8em;
+
+}
+
+#takeout-intro-offer {
+	grid-row: 2;
+	align-self: flex-end;
+	grid-column: 2/4;
+	font-size: 1.5em;
+
+}
+
+#takeout-intro-success {
+	grid-row: 3;
+	align-self: flex-start;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+
+
+#packaging-pros-cons {
+	grid-row: 1/3;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 1.3em;
+}
+
+#packaging-question {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-weight: 700;
+}
+
+#packaging-hover {
+	grid-row: 4;
+	align-self: center;
+	grid-column: 1/7;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+#packaging-choice-container {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 1/7;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(2, 1fr);
+    grid-gap: 1em;
+  	z-index: 1000;
+}
+
+#packaging-plastic-choice {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 1/3;
+}
+
+#packaging-bio-choice {
+	grid-row: 2;
+	align-self: center;
+	text-align: center;
+	justify-self: center;
+	grid-column: 3/5;
+}
+
+#packaging-compostable-choice {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 5/7;
+}
+
+
+#packaging-plastic-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 10vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+#packaging-bio-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 10vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+#packaging-compostable-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 10vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+#plastic-choice-help-icon {
+	grid-row: 3;
+	grid-column: 2;
+	justify-self: center;
+}
+
+#bio-choice-help-icon {
+	grid-row: 3;
+	grid-column: 4;
+	justify-self: center;
+}
+
+#compostable-choice-help-icon {
+	grid-row: 3;
+	grid-column: 6;
+	justify-self: center;
+}
+
+
+
+#compostable-expensive {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+
+#compostable-expensive-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/6;
+	text-align: center;
+	font-size: 1.3em;
+}
+
+
+#positive-packaging-feedback-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+#positive-packaging-feedback-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.5em;
+}
+
+
+#plastic-packaging-feedback-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.3em;
+}
+
+#plastic-packaging-feedback-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/4;
+	font-size: 1.3em;
+}
+
+.social-media-image {
+	width: 18vw;
+	grid-row: 2/4;
+	grid-column: 4/6;
+	justify-self: center;
+	align-self: flex-start;
+
+}
+
+
+/*
+==================
+DISCOUNT SCHEME
+==================
+*/
+
+
+
+#discount-scheme-decision-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-decision-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-decision-three {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+#discount-scheme-yes, #discount-scheme-no {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+#discount-scheme-last {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+
+
+
+
+/*
+==================
+CUTLERY
+==================
+*/
+
+#cutlery-intro-one {
+	grid-row: 2;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+
+}
+
+#cutlery-intro-two {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+
+}
+
+
+#cutlery-intro-three {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+
+}
+
+
+
+#cutlery-choice-title {
+	grid-row: 1;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 1.8em;
+	text-align: center;
+	font-weight: 700;
+
+}
+
+
+#cutlery-choice-container {
+	grid-row: 2/4;
+	align-self: center;
+	grid-column: 2/6;
+	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+ 	grid-template-rows: repeat(3, .21fr);
+    z-index: 1000;
+    grid-gap: 3em
+
+}
+
+#cutlery-choice-one {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 1/3;
+}
+
+
+#cutlery-choice-two {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 3/5;
+
+}
+
+#cutlery-choice-three {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	text-align: center;
+	grid-column: 5/7;
+
+}
+
+
+#cutlery-plastic-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 1/3;
+	justify-self: center;
+	width: 4vh;
+	padding: 1em;
+	cursor: pointer;
+}
+
+
+#cutlery-wooden-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 3/5;
+	justify-self: center;
+	width: 4vh;
+	padding: 1em;
+	cursor: pointer;
+}
+
+
+#cutlery-none-image {
+	grid-row: 3;
+	align-self: center;
+	grid-column: 5/7;
+	justify-self: center;
+	width: 7vh;
+	padding: .5em;
+	cursor: pointer;
+}
+
+
+#cutlery-last {
+	grid-row: 2;
+	align-self: center;
+	justify-self: center;
+	grid-column: 3/5;
+	font-size: 1.5em;
+}
+
+#plastic-cutlery-choice-help-icon {
+	grid-row: 3;
+	justify-self: center;
+	grid-column: 2;
+}
+
+#wooden-cutlery-choice-help-icon {
+	grid-row: 3;
+	justify-self: center;
+	grid-column: 4;
+}
+
+#no-cutlery-choice-help-icon {
+	grid-row: 3;
+	justify-self: center;
+	grid-column: 6;
+}
+
+
+
+/*
+==========================================================================
+==========================================================================
+
+MAZE CSS
+
+==========================================================================
+==========================================================================
+*/
+
+
+#joypad-container {
+	grid-column: 3/6;
+	grid-row: 4/5;
+	display: none;
+	grid-template-columns: repeat(2, 1fr);
+  	grid-template-rows: repeat(2, 1fr);
+  	padding: 2em;
+  	z-index: 100000;
+  	align-self: center;
+  	justify-self: flex-end;
+
+}
+
+.joy-icon {
+	width: 8vw;
+	cursor: pointer;
+	align-self: center;
+	justify-self:center;
+}
+
+#up-joy {
+	grid-row: 1;
+	grid-column: 2;
+}
+
+#left-joy {
+	grid-row: 2;
+	grid-column: 1;
+}
+
+#right-joy {
+	grid-row: 2;
+	grid-column: 3;
+}
+
+#down-joy {
+	grid-row: 3;
+	grid-column: 2;
+}
+
+
+#maze_container {
+  position: absolute;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+  right: 5vw;
+  top: 18vh;
+  font-size: 1.25em;
+}
+
+
+#instructions-panel, #finished-panel {
+	width: 100%;
+	position: absolute;
+	height: 100%;
+  	background-color: #282828;
+  	opacity: 0.8;
+  	z-index: 5000;
+  	display: grid;
+  	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(5, 1fr);
+  	color: #f2f2f2;
+  	font-weight: 700;
+  	font-size: 1.5em;
+
+}
+
+#finished-panel {
+	display: none;
+}
+
+
+#maze-instructions-title, #maze-instructions-finished-title {
+	grid-row: 2/3;
+	grid-column: 2/6;
+	align-self: center;
+	justify-self:center;
+}
+
+#maze-instructions-finished-title {
+	font-size: 2.5em;
+	text-align: center;
+}
+
+#maze-instructions-move {
+	grid-row: 3/4;
+	grid-column: 2/6;
+	align-self: center;
+}
+
+#maze {
+  background-color: #3B945E;
+
+  background-size: cover;
+}
+
+#maze div {
+  display: flex;
+}
+#maze div div {
+  position: relative;
+  width: 1em;
+  height: 1em;
+}
+#maze div div::after {
+  position: absolute;
+  left: -3px;
+  top: -4px;
+  text-align: center;
+  text-shadow: 0 0 1px black;
+  font-size: 1.2em;
+  z-index: 10;
+}
+
+/*Graphic for maze game*/
+/*Open emoji*/
+/*Accessed on 30-03-2020*/
+/*https://openmoji.org/*/
+
+#maze div div.door.exit::after {
+  /* content: "\1F6AA";
+  font-size: 2em; */
+  content: "";
+  height: 3.5em;
+  width: 3.5em;
+  margin-left:-1em;
+  margin-top:-2em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F6AA.svg") no-repeat;
+}
+#maze div div.female_contribute::after, #maze div div.female_contribute1::after,  #maze div div.female_contribute2::after,  #maze div div.female_contribute3::after, #maze div div.female_contribute4::after  {
+  /* content: "\1F64B\200D\2640\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F64B-1F3FD.svg") no-repeat;
+}
+
+#maze div div.nubbin_male::after, #maze div div.male_contribute1::after, #maze div div.male_contribute2::after, #maze div div.male_contribute3::after, #maze div div.male_contribute::after {
+  /* content: "\1F481\200D\2642\FE0F	"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F481-200D-2642-FE0F.svg") no-repeat;
+}
+
+#maze div #female_contribute1, #maze div #female_contribute2, #maze div #female_contribute3, #maze div #female_contribute4, #maze div #female_contribute4, #maze div #male_contribute1, #maze div #male_contribute2, #maze div #male_contribute3, #maze div #nubbin_male_generous1, #maze div #nubbin_female_generous1, #nubbin_female_generous, #maze div #solar, #maze div #investor_profit_sustainability, #maze div #investor_meet_later,  #maze div #sentinel, #maze div #bank  {
+  margin-top:1.5em;
+  padding-top: 0.5em;
+  z-index: 900;
+  border-radius: 10px;
+  display: none;
+}
+
+#maze div #male_contribute, #maze div #investor_donnot_understand,#maze div #female_contribute, #maze div #nubbin_male_generous{
+  margin-top:-5em;
+  padding-top: 0.5em;
+  z-index: 900;
+  border-radius: 10px;
+  display: none;
+}
+
+#maze div #solar{
+  margin-right: 1.5em;
+  margin-left: -2em;
+}
+#maze div div.nubbin_male_generous::after, #maze div div.nubbin_male_generous1::after {
+  /* content: "\1F64B\200D\2642\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F64B-1F3FB-200D-2642-FE0F.svg") no-repeat;
+}
+#maze div div.nubbin_female_generous::after, #maze div div.nubbin_female_generous1::after {
+  /* content: "\1F646\200D\2640\FE0F"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F646-1F3FB-200D-2640-FE0F.svg") no-repeat;
+
+}
+
+#maze div.hero::after {
+  /* content: "\1F469\200D\1F373" !important; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F469-1F3FC-200D-1F373.svg") no-repeat;
+
+}
+#maze.face-right div.hero::after {
+  transform: scale(-1, 1);
+}
+#maze div div.wall, #maze div div.nubbin.wall, #maze div div.door.exit {
+  background-color: #454545;
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.2) 45%, transparent 55%), linear-gradient(to bottom, rgba(0,0,0,0.2) 45%, transparent 55%);
+  background-size: 0.1em 0.1em;
+}
+#maze div div.nubbin.wall::after {
+  content: "";
+}
+#maze div div.sentinel.wall, #maze div div.investor_meet_later.wall, #maze div div.investor_donnot_understand.wall, #maze div div.investor_profit_sustainability.wall, #maze div div.bank.wall {
+  background: transparent;
+}
+
+#maze div div.sentinel.wall::after {
+  /* content: "\1F469\200D\1F4BC	"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F469-1F3FC-200D-1F4BC.svg") no-repeat;
+}
+#maze div div.investor_meet_later::after {
+  /* content: "\1F468\200D\1F4BC"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F468-200D-1F4BC.svg") no-repeat;
+}
+#maze div div.investor_donnot_understand::after {
+  /* content: "\1F935"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F935.svg") no-repeat;
+}
+
+#maze div div.investor_profit_sustainability::after {
+  /* content: "\1F935"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F935-1F3FC.svg") no-repeat;
+}
+#maze div div.bank::after {
+  /* content: "\1F3E6"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F3E6.svg") no-repeat;
+}
+
+#maze div div.solar::after {
+  /* content: "\1F3E2"; */
+  content: "";
+  height: 2em;
+  width: 2em;
+  margin-left:-0.5em;
+  margin-top:-0.5em;
+/*   background: url(https://cdn.glitch.com/edf97612-b60d-4a4b-bfc3-c40977b1c49b%2Femoji_hero6.png?v=1585829246367) no-repeat; */
+  background: url("./images/1F3EC.svg") no-repeat;
+}
+/* #maze div.sentinel.wall:nth-of-type(3n)::after {
+  content: "\1F40D";
+
+} */
+#maze div div.key::after {
+  content: "\1F511";
+}
+
+#maze div div:nth-child(odd) {
+  width: 1em;
+}
+#maze div:nth-child(odd) div {
+  height: 1em;
+}
+
+#maze_output {
+ grid-row: 4/5;
+ grid-column: 1/3;
+  background-color: #f2f2f2;
+  z-index: 1000;
+  border: .1em solid #182628;
+  border-radius: .5em;
+  padding: 1em;
+  opacity: .9;
+  max-width: 20vw;
+  max-height: 8vh;
+  justify-self: center;
+
+}
+#maze_score, #maze_message {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+#maze_score {
+  grid-row: 1/3;
+  grid-column: 1/6;
+  align-self: center;
+}
+#maze_score::before {
+  content: "Steps Remaining: ";
+}
+#maze_score.has-key::after {
+  content: "\00a0\1F511";
+}
+#maze_message {
+  flex: 3;
+
+  grid-row: 3/6;
+  align-self:  center;
+  grid-column: 1/6;
+}
+
+#maze.finished::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  content: "Game Over";
+  line-height: 480px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 5em;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  color: #fff;
+  z-index: 10;
+}
+
+#maze.won::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  content: "You finished!!!";
+  line-height: 480px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 3em;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  color: #fff;
+  z-index: 10;
+}
+
+#trigger-maze-button, #continue-from-maze-button {
+	grid-row: 5;
+	grid-column: 2/6;
+	z-index: 1000;
+	padding: .5em;
+	font-size: 1em;
+	max-height: 8vh;
+	justify-self: center;
+	background-color: #282828;
+	color: #f2f2f2;
+	font-weight: 700;
+	border: .1em solid #f2f2f2 !important;
+}
+
+
+#maze-instructions-one {
+	margin-left: 5vw;
+	grid-column: 1/4;
+	grid-row: 2;
+	font-size: 1.5em;
+	align-self: flex-end;
+	justify-self: center;
+	z-index: 3000;
+
+
+}
+
+
+#maze-instructions-two {
+	margin-left: 5vw;
+	grid-column: 1/4;
+	grid-row: 3;
+	font-size: 1.5em;
+	align-self: center;
+	justify-self: center;
+}
+
+/*
+==========================================================================
+==========================================================================
+
+END OF MAZE CSS
+
+==========================================================================
+==========================================================================
+*/
+
+
+/*
+==========================================================================
+==========================================================================
+
+WIN LOSE
+
+==========================================================================
+==========================================================================
+*/
+
+.win-lose-title {
+	grid-row: 1/2;
+	align-self: center;
+	grid-column: 2/6;
+	font-size: 5em;
+	color: #f2f2f2;
+	font-weight: 700;
+	text-align: center;
+}
+
+#win-lose-text {
+	grid-column: 2/6;
+	grid-row: 2;
+	text-align: center;
+}
+
+
+.win-lose-pound-coin-icon-image, .win-lose-leaf-icon-image {
+	width: 5vw;
+}
+
+.final-result-container {
+	grid-row: 3;
+	grid-column: 3/5;
+	align-self: center;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+  	grid-template-rows: repeat(4);
+    grid-gap: 1em;
+    background-color: #f2f2f2;
+    border: .1em solid #282828;
+    padding: 1em;
+    opacity: .9;
+    margin-bottom: 5em;
+    border-radius: .3em;
+
+}
+
+.win-lose-pound-coin-icon-image {
+	grid-row: 2;
+	grid-column: 2/3;
+	justify-self: center;
+}
+
+.win-lose-leaf-icon-image {
+	grid-row: 2;
+	grid-column: 5;
+	justify-self: center;
+
+}
+
+.score-text-points {
+	grid-row: 3;
+	grid-column: 5/6;
+	font-size: 3em;
+	align-self: center;
+	justify-self: center;
+}
+
+.score-text-money {
+	grid-row: 3;
+	grid-column: 2/3;
+	font-size: 3em;
+	align-self: center;
+	justify-self: center;
+}
+
+.score-text-title {
+	grid-row: 1;
+	grid-column: 2/6;
+	justify-self: center;
+	font-weight: 700;
+	font-size: 3em;
+}
+
+
+/*
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+
+
+MEDIA QUERIES FOR THE GAME
+
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+*/
+
+
+
+
+
+
+
+/*
+==================
+ 1500 px - LAPTOP
+==================
+*/
+
+@media (max-width: 1500px) {
+
+
+	body {
+		font-size: .9em;
+	}
+
+	#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato  {
+		font-size: 1.3em;
+	}
+
+	#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+		font-size: 1.3em;
+	}
+
+	#business-license-container {
+		margin: 0;
+		font-size: .8em;
+	}
+
+	#certified-title {
+		align-self: flex-end;
+		text-align: center;
+		font-size: 3em;
+	}
+
+	#planet-pizza-animation {
+		margin-bottom: 0;
+	}
+
+
+	#takeout-intro-requests, #positive-packaging-feedback-one {
+		grid-column: 2/6;
+		align-self: flex-end;
+		font-size: 1.5em;
+		margin: 0;
+	}
+
+	#takeout-intro-offer, #takeout-intro-success {
+		font-size: 1.3em;
+	}
+
+	#takeout-intro-success {
+		align-self: flex-start;
+	}
+
+	#discount-scheme-decision-one {
+		align-self: flex-start;
+	}
+
+
+	#cutlery-intro-one, #cutlery-intro-two, #cutlery-intro-three {
+		font-size: 1.4em;
+	}
+
+	#maze_container {
+		top: 20vh;
+		font-size: 1.1em;
+	}
+
+	#maze-instructions-two {
+		align-self: center;
+	}
+
+	#maze-instructions-one, #maze-instructions-two {
+		margin-left: 3vw;
+		font-size: 1.2em;
+		margin-right: 7vw;
+	}
+
+	.speech-bubble {
+		width: 15vw;
+	}
+
+
+	.more-info-container {
+		width: 50vw !important;
+		left: 25vw;
+		padding: 1em;
+	}
+
+	#more-info-description {
+		font-size: 1.2em;
+	}
+
+
+	#tomato-choice-image, #cheese-choice-image, #pork-choice-image, #chicken-choice-image, #carrot-choice-image {
+		width: 3vw
+	}
+
+	.speech-bubble {
+		top: 30vh;
+		width: 30vw;
+	}
+
+	#potato-important {
+		font-size: 1.5em;
+		grid-row: 1;
+		align-self: flex-end;
+	}
+
+	#potato-what-do-you-want {
+		align-self: flex-start;
+		margin: 1em;
+		font-size: 1.2em;
+	}
+
+	.potato-rethink-choice-container img {
+		width: 8vw !important;
+	}
+
+	#discount-no-rethink-potato {
+		grid-column: 2/6;
+	}
+
+	#positive-packaging-feedback-two {
+		grid-row: 3;
+		align-self: flex-start;
+	}
+
+	#positive-packaging-feedback-one {
+		grid-row: 2;
+		align-self: center;
+		grid-column: 2/4;
+	}
+
+	.read-article-button {
+		width: 10vw;
+	}
+
+	.supplier-choice-container-food p {
+		font-size: 1.4em !important;
+	}
+
+	#mute-audio-icon {
+		bottom: 2vh;
+		right: 2vw;
+	}
+
+	.festival-report-container p {
+		font-size: 1.2em;
+	}
+
+}
+
+
+
+
+/*
+==================
+ 1250 px
+==================
+*/
+
+
+
+@media (max-width: 1250px) {
+
+	body {
+		font-size: .95em;
+	}
+
+   	.title {
+   		font-size: 5em;
+   	}
+
+	.icon-explainer-text {
+		font-size: 1.3em;
+	}
+
+	.supplier-choice-container-food img {
+   	 	width: 2vw;
+   	 }
+
+	.more-info-characters-container {
+		grid-column: 2/6;
+	}
+
+
+	#express-image {
+		width: 13vw;
+	}
+
+	#planet-pizza-animation {
+		margin-bottom: 0;
+	}
+
+
+	#button-organic, #button-menu, #button-wholesale {
+		width: 3vw;
+	}
+
+	#organic-choice, #menu-choice, #wholesale-choice {
+		width: 5vw;
+	}
+
+	#compostable-expensive {
+		grid-column: 2/6;
+	}
+
+	#discount-scheme-decision-one, #discount-scheme-decision-two, #discount-scheme-decision-three, #discount-scheme-yes, #discount-scheme-no, #discount-scheme-last {
+		font-size: 1.3em;
+	}
+
+	#cutlery-intro-one, #cutlery-intro-two, #cutlery-intro-three {
+		grid-column: 2/6;
+	}
+
+
+	#cutlery-choice-container {
+		grid-gap: 3em;
+		grid-row: 2/4;
+		grid-column: 1/7;
+	}
+
+	#weekly-earnings {
+		grid-column: 1/4;
+   	 	justify-self: center;
+	}
+
+	#drag-and-drop-result-main {
+	    grid-row: 1/3;
+	    grid-column: 2/6;
+	    align-self: center;
+	    font-size: 1.3em;
+	}
+
+
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 25vw;
+   	}
+
+	#planet-pizza-festival {
+		width: 20vw;
+	}
+
+}
+
+
+
+/*
+==================
+ 1100 px - IPAD MAZE GAME
+==================
+*/
+
+@media (max-width: 1100px) {
+
+	#joypad-container {
+   		display: grid;
+   		grid-column: 1/3;
+   	}
+
+
+   	#maze_container {
+		font-size: .9em;
+	}
+
+	#maze-instructions-one {
+		display: none;
+	}
+
+	#maze_output {
+		grid-row: 3;
+	}
+
+	#maze-instructions-two {
+		grid-row: 2;
+		margin-left: 3vw;
+		font-size: 1em;
+		margin-right: 13vw;
+	}
+
+}
+/*
+==================
+ 1000 px
+==================
+*/
+
+
+
+@media (max-width: 1000px) {
+
+	body {
+		font-size: .85em;
+	}
+
+   	.title {
+   		font-size: 5em;
+   	}
+
+
+	.icon-text {
+		font-size: 3em;
+	}
+
+	.help-icon {
+		width: 3.5vw;
+	}
+
+	#instructions-title {
+		font-size: 4em;
+	}
+
+	#business-license-container {
+		grid-column: 2/6;
+	}
+
+
+	#button-organic, #button-menu, #button-wholesale {
+		width: 4vw;
+	}
+
+	#organic-choice, #menu-choice, #wholesale-choice {
+		width: 6vw;
+	}
+
+	#takeout-intro-offer, #takeout-intro-success {
+		grid-column: 1/4;
+	}
+
+
+
+	.place-order-container {
+		grid-column: 4/7;
+		margin-right: 2em;
+	}
+
+	#cheese-order-input, #tomato-order-input, #basil-order-input {
+		width: 8vw;
+	}
+
+	.review-order-container {
+		grid-gap: 1em;
+		z-index: 100;
+		margin: 0 1em;
+	}
+
+	#surplus-one, #home-early-one, #perfect-one {
+		grid-column: 2/6;
+	}
+
+	#drag-and-drop-instructions, #drag-and-drop-instructions-two {
+		grid-column: 2/6;
+	}
+
+	.festival-report-container {
+		grid-column: 1/7;
+	}
+
+
+	#ethical-energy-supplier-image {
+   		width: 10vw;
+   		padding: .5em;
+   	}
+
+   	#solar-image {
+   		width: 14vw;
+   	}
+
+   	#pylon-image {
+   		width: 12vw;
+   		padding: .5em;
+   	}
+
+	#drop-bin-one, #drop-bin-two, #drop-bin-three {
+		height: 18vh;
+		width: auto;
+	}
+
+	.drag-and-drop-result-container {
+		grid-column: 2/6
+	}
+
+
+	#close-window-image {
+		width: 4vw;
+	}
+
+	.speech-bubble {
+		top: 35vh;
+		width: 35vw;
+	}
+
+	#pizza-festival {
+		grid-row: 3;
+		align-self: center;
+		width: 20vw;
+	}
+
+
+	.final-result-container {
+		height: 25vh;
+		grid-column: 2/6;
+	}
+
+
+}
+
+
+
+
+
+/*
+==================
+ 800 px
+==================
+*/
+
+
+
+
+@media (max-width: 800px) {
+
+	body {
+		font-size: .8em;
+	}
+
+	.help-icon {
+		width: 4vw;
+	}
+
+	.gameplay-text {
+		margin: 0;
+	}
+
+	.supplier-choice-container-food {
+		grid-column: 1/7;
+		margin: 0 2vw;
+	}
+
+	.supplier-choice-container-food img {
+   	 	width: 3vw;
+   	 }
+
+   	 #tomato-choice-image, #cheese-choice-image, #pork-choice-image, #chicken-choice-image, #carrot-choice-image {
+		width: 4vw
+	}
+
+	#mute-audio-icon, #play-audio-icon {
+		width: 8vw !important;
+	}
+
+	#arrow-image {
+		width: 12vw !important;
+	}
+
+   .icon-text {
+		font-size: 2em;
+	}
+
+	#express-image {
+		width: 15vw;
+	}
+
+	.icon-container {
+		height: 6vh;
+	}
+
+	.leaf-icon-image, .pound-coin-icon-image {
+		height: 6vw;
+	}
+
+	.icon-explainer-text {
+		font-size: 1.5em;
+	}
+
+
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 35vw;
+   		height: 40vh;
+   	}
+
+   	.opening-pound-coin-icon-container {
+   		grid-column: 1/4;
+   	}
+
+   	.opening-leaf-icon-container {
+   		grid-column: 4/7;
+   	}
+
+
+	.opening-plus, .opening-minus {
+		width: 5vw;
+	}
+
+
+	#opening-pound-coin, #opening-leaf {
+		width: 8vw;
+		height: auto;
+	}
+
+	#town-houses {
+   		width: 35vw;
+   	}
+
+   	.bottom {
+   		right: 33vw;
+   	}
+
+
+   	#instructions-title, #supplier-no-stock-title {
+		font-size: 4em;
+		grid-column: 2/6;
+		align-self: flex-end;
+	}
+
+	#pick-a-biz-desc, #to-win-desc {
+		grid-column: 2/6;
+	}
+
+
+	.character-description-container {
+   		width: 70vw;
+   	}
+
+   	#remember-description-one, #uplands-quote, #potato-flood {
+   		grid-column: 2/6;
+   	}
+
+   	.supplier-choice-container {
+   		grid-column: 1/7;
+   	}
+
+
+
+   	#budget-image, #luxury-image, #upcycle-image {
+		width: 6vw;
+   	 }
+
+	#weekly-earnings {
+		font-size: 1.8em;
+   	 	justify-self: center;
+	}
+
+
+	#plastic-packaging-feedback-one, #plastic-packaging-feedback-two {
+		grid-column: 1/4;
+		margin-left: 2em;
+	}
+
+	.social-media-image {
+
+		width: 25vw;
+	}
+
+
+
+	#positive-packaging-feedback-one, #positive-packaging-feedback-two {
+
+		font-size: 1.3em;
+	}
+
+
+	#discount-scheme-decision-one, #discount-scheme-decision-two, #discount-scheme-decision-three, #discount-scheme-yes, #discount-scheme-no, #discount-scheme-last {
+		grid-column: 2/6;
+	}
+
+	#cutlery-last {
+		grid-column: 2/6;
+	}
+
+	#cheese-order-image, #tomato-order-image, #basil-order-image {
+		width: 7vw;
+	}
+
+
+	#drag-and-drop-result-main {
+	    font-size: 1em;
+
+	}
+
+
+	#maze_container {
+		top: 20vh;
+		font-size: .9em;
+	}
+
+
+	.speech-bubble {
+		width: 25vw;
+	}
+
+	.speech-bubble {
+		top: 35vh;
+		width: 45vw;
+	}
+
+	.planet-pizza {
+		width: 38vw;
+		grid-column: 4/7 !important;
+		justify-self: flex-end !important;
+	}
+
+	.feedback-icon {
+		width: 6vw;
+	}
+
+	.person {
+		width: 3vw !important;
+	}
+
+	.person-festival {
+		width: 5vw;
+	}
+
+	#pizza-festival {
+		align-self: center;
+		width: 30vw;
+	}
+
+
+	#organic-choice, #wholesale-choice, #menu-choice {
+		width: 10vw;
+	}
+
+
+	#first-wholesale-potato, #second-wholesale-potato, #cheaper-yes-wholesale-potato, #cheaper-no-wholesale-potato, #first-rethink-potato, #chaos-rethink-potato, #discount-yes-rethink-potato, #discount-no-rethink-potato, #first-organic-potato, #express-yes-organic-potato, #express-no-organic-potato, #confusion-organic-potato, #discount-no-organic-potato, #discount-yes-organic-potato, #staff-training-organic-potato  {
+		grid-column: 2/6;
+	}
+
+	#third-wholesale-potato, #final-service-wholesale-potato, #second-rethink-potato, #discount-choice-rethink-potato, #second-organic-potato {
+		grid-column: 2/6;
+	}
+
+	#laptop-image {
+		width: 40vw;
+	}
+
+	#planet-pizza-festival {
+		width: 25vw;
+	}
+
+
+
+	#weekly-earnings {
+		font-size: 2.5em;
+		margin-top: 1em;
+	}
+
+
+	#takeout-intro-offer, #takeout-intro-success {
+		margin: 1em;
+		grid-column: 1/5;
+	}
+
+	.pizzabox-takeout-image {
+		width: 25vw;
+	}
+
+	.bike-image {
+		width: 28vw;
+	}
+
+	.houses-takeout {
+		width: 40vw;
+	}
+
+	.read-article-button {
+		font-weight: 400;
+		width: 18vw;
+
+	}
+
+}
+
+
+
+
+
+/*
+==================
+ 650 px
+==================
+*/
+
+
+
+@media (max-width: 650px) {
+
+	body {
+		font-size: .8em;
+
+	}
+
+
+
+
+
+   	#town-houses {
+   		width: 45vw;
+   	}
+
+   	#town-houses-opening {
+   		width: 45vw !important;
+   		left: 28vw;
+   	}
+
+   	.bottom {
+   		right: 28vw;
+   	}
+
+   	#tree-side, #tree-side-inverse {
+   		width: 40vw;
+
+   	}
+
+   	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		width: 38vw;
+   		height: 30vh;
+   		font-size: .6em;
+   	}
+
+   	.leaf-icon-container {
+		grid-column: 5/7;
+	}
+
+	#landing-title {
+		font-size: 4em;
+	}
+
+
+	#lisa-head {
+		width: 10vw;
+	}
+
+
+	#suppliers-choice-description-one, #good-luck-message {
+		grid-row: 1/3;
+	    grid-column: 2/6;
+	    font-size: 1.3em;
+	    align-self: center;
+	}
+
+	#planet-pizza-decor {
+		grid-column: 2/6 !important;
+		justify-self: center;
+		width: 40vw;
+	}
+
+
+	#weekly-timer {
+		font-size: 3em;
+
+	}
+
+	#packaging-pros-cons {
+		grid-row: 1/2;
+		align-self: flex-end;
+    	grid-column: 1/7;
+    	margin: 0 1em;
+	}
+
+	#cutlery-choice-container {
+		grid-gap: 2em;
+		grid-row: 2/4;
+		grid-column: 1/7;
+	}
+
+
+	#potato-important {
+		grid-column: 1/7;
+	}
+
+
+	#takeout-intro-requests, #takeout-intro-offer, #takeout-intro-success {
+		font-size: 1.3em;
+	}
+
+
+	.place-order-container {
+		grid-column: 2/6;
+		grid-row: 3;
+		margin: .5em;
+		padding-top: 1em;
+		justify-content: center;
+		grid-gap: 1em;
+	}
+
+	#order-review-text {
+		grid-column: 4/7;
+    	grid-row: 2;
+	}
+
+	#basil-kg, #tomato-kg, #cheese-kg {
+		font-size: 1.2em;
+	}
+
+	.festival-report-container {
+		font-size: 1em;
+		grid-gap: 1.3em;
+	}
+
+	.festival-report-container p {
+		font-size: 1.3em;
+	}
+
+	#drop-bin-one, #drop-bin-two, #drop-bin-three {
+		height: 14vh;
+		width: auto;
+	}
+
+
+	#drag-and-drop-result-main {
+	    grid-column: 1/7;
+	    margin: 0 2em;
+
+	}
+
+	.update-tree-button {
+		min-width: 15vw;
+	}
+
+
+	#maze_container {
+		font-size: .8em;
+		top: 26vh;
+		right: 23vw;
+	}
+
+	#joypad-container {
+		padding: 0;
+		grid-column: 1/3;
+   		align-self: center;
+   		justify-self: center;
+	}
+
+	#joypad-container img {
+		width: 7vw;
+	}
+
+
+
+	#continue-from-maze-button {
+		grid-column: 3/5;
+		align-self: center;
+		justify-self: center;
+	}
+
+	#maze_output {
+		grid-row: 4/5;
+		grid-column: 4/6;
+		align-self: center;
+		justify-self: center;
+		margin: 0;
+		height: auto !;
+	}
+
+	#maze_score {
+		font-size: 1.3em;
+	}
+
+	#maze-instructions-one {
+		display: none;
+	}
+
+
+	.maze-leaf-icon-container {
+		grid-column: 5/7;
+	}
+
+	#maze-instructions-two {
+		grid-column: 1/7;
+		grid-row: 1/2;
+		margin: 0;
+		align-self: flex-end;
+		margin: 2em 5vw;
+		font-size: 1.2em;
+		z-index: 1000;
+		font-weight: 700;
+	}
+
+	.speech-bubble {
+		width: 30vw;
+	}
+
+
+	.more-info-container {
+		width: 65vw !important;
+		left: 17vw;
+		font-size: .9em;
+	}
+
+
+	.speech-bubble {
+		width: 45vw;
+	}
+
+	.help-icon {
+		justify-self: flex-end !important;
+		align-self: flex-start !important;
+		margin-top: 0;
+	}
+
+
+	button {
+		font-size: 1.5em !important;
+		font-weight: 700;
+		border: .15em solid #282828 !important;
+	}
+
+
+	#plastic-packaging-feedback-two {
+		grid-row: 3;
+		align-self: flex-start;
+	}
+
+
+
+
+}
+
+
+/*
+==================
+550 px - MAZE
+==================
+*/
+
+@media (max-width: 550px) {
+
+	#maze_container {
+		font-size: .74em;
+		right: 20vw;
+	}
+
+	#joypad-container {
+		padding: 0;
+
+	}
+
+	#joypad-container img {
+		width: 10vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1em;
+	}
+
+	.farmhouse-image, .potato-fork-image {
+		width: 38vw;
+	}
+
+
+	#plastic-packaging-feedback-one, #plastic-packaging-feedback-two {
+		grid-column: 1/4;
+		margin-left: 2em;
+	}
+
+	.social-media-image {
+
+		width: 25vw;
+	}
+
+
+	#planet-pizza-festival {
+		width: 30vw;
+	}
+
+
+	.read-article-button {
+
+		font-size: .8em;
+
+	}
+
+	.social-media-image {
+		align-self: center;
+	}
+
+	#cheese-order-input, #tomato-order-input, #basil-order-input {
+		width: 15vw;
+	}
+
+	.price-list {
+		grid-column: 1/4;
+	}
+
+	.drag-and-drop-result-container {
+		padding: 2em;
+	}
+
+	#drag-and-drop-final-text {
+		grid-row: 1;
+		grid-column: 1/7;
+		margin: 0 2em;
+		align-self: flex-end;
+	}
+
+	#credits-title {
+		font-size: 2.4em ;
+	}
+
+
+
+}
+
+
+/*
+==================
+466 px - MAZE
+==================
+*/
+
+@media (max-width: 466px) {
+
+	#maze_container {
+		font-size: .68em;
+		right: 17vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+		grid-column: 1/4;
+	}
+
+	#joypad-container img {
+		width: 15vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1em;
+	}
+
+	#maze-output {
+		justify-self: flex-end;
+	}
+
+
+	.speech-bubble {
+		width: 50vw;
+	}
+
+
+}
+
+
+/*
+==================
+400 px
+==================
+*/
+
+
+
+@media (max-width: 440px) {
+
+	body, * {
+		font-size: .9em;
+	}
+
+	.button-text {
+		font-size: 1.5em !important;
+	}
+
+
+	.opening-pound-coin-icon-container, .opening-leaf-icon-container {
+   		font-size: .8em;
+   	}
+
+
+   	.bottom {
+   		right: 25vw;
+   	}
+
+   	#ethical-energy-supplier-image {
+   		width: 14vw;
+   	}
+
+   	#solar-image {
+		width: 20vw;
+    }
+
+   	#pylon-image {
+   		width: 15vw;
+   	}
+
+
+	#drop-bin-one, #drop-bin-two, #drop-bin-three {
+		margin: 0 2vw;
+	}
+
+	#cheese-order-image, #tomato-order-image, #basil-order-image {
+		width: 9vw;
+	}
+
+
+	#drop-bin-one, #drop-bin-two, #drop-bin-three {
+		height: 20vh;
+		width: auto;
+	}
+
+
+	#signpost-trash {
+		display: none;
+	}
+
+
+	.update-tree-button {
+		min-width: 20vw;
+	}
+
+
+	#trigger-maze-button, #continue-from-maze-button {
+		margin-bottom: .5em;
+	}
+
+	#maze_container {
+		font-size: 1.2em;
+		right: 15vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+		margin-bottom: 3vh;
+	}
+
+	#joypad-container img {
+		width: 15vw;
+	}
+
+	#maze-instructions-two {
+		font-size: 1.2em;
+	}
+
+
+	.supplier-choice-container {
+		font-size: 1em;
+		grid-gap: 2em;
+	}
+
+	#weekly-timer {
+		font-size: 5em;
+	}
+
+	#wholesale-potato-image {
+		width: 20vw;
+	}
+
+	.social-media-image {
+		width: 40vw;
+		justify-self: flex-start;
+	}
+
+	#positive-packaging-feedback-one {
+		grid-column: 1/6;
+		margin-left: 1em;
+		grid-row: 2;
+		align-self: flex-start;
+	}
+
+	#cutlery-choice-container {
+		align-self: flex-start;
+	}
+
+	#positive-packaging-feedback-two {
+		grid-column: 1/4;
+		margin-left: 1em;
+		grid-row: 2;
+		align-self: flex-end;
+	}
+
+
+	.supplier-choice-container-food {
+		grid-gap: 2em;
+	}
+
+	button {
+		font-size: 1.1em !important;
+		font-weight: 700;
+		border: .15em solid #282828 !important;
+	}
+
+
+	.trash-item-image {
+		right: 40vw !important;
+	}
+
+
+
+	.tin-drag {
+		width: 13vw;
+	}
+
+	.water-drag {
+		width: 10vw;
+	}
+
+	.tomato-drag {
+		width: 14vw;
+	}
+
+	.crust-drag {
+		width: 20vw;
+	}
+
+	.basil-drag {
+		width: 20vw;
+	}
+
+	.can-drag {
+		width: 12vw;
+	}
+
+	.pizzabox-drag {
+		width: 17vw;
+	}
+
+	.rocket-drag {
+		width: 22vw;
+	}
+
+	.tupperware-drag {
+		width: 22vw;
+	}
+
+	.compost-drag {
+		width: 18vw;
+	}
+
+	.cutlery-drag {
+		width: 8vw;
+	}
+
+
+	#close-window-image {
+		width: 8vw;
+	}
+
+	#more-info-description {
+		font-size: 1.5em;
+	}
+
+	.update-tree-button {
+		height: 8vh;
+	}
+
+	.place-order-container {
+		margin: 2em;
+	}
+
+	.review-order-container img {
+		width: 8vw !important;
+	}
+
+	.timer-container {
+		width: 25vw;
+	}
+
+	#drag-and-drop-result-main {
+		font-size: 1.3em;
+	}
+
+
+
+
+
+
+}
+
+
+/*
+==================
+350 px - MAZE
+==================
+*/
+
+@media (max-width: 350px) {
+
+	body. * {
+		font-size: .55em;
+	}
+
+	#maze_container {
+		font-size: .7em;
+		right: 5vw;
+	}
+
+	#joypad-container {
+		justify-self: flex-end;
+	}
+
+}
+
+
+/*
+==================
+400 px
+==================
+*/
+
+
+
+/*
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+
+
+ARTICLE CSS
+
+
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+====================================================================================================================================================
+*/
+
+
+
+
+
+/*============
+
+ TEXT STYLES
+
+ =============*/
+
+ .thin {
+ 	font-weight: 100;
+ }
+
+ .text {
+ 	opacity: 1;
+ 	font-size: 1.35em;
+  font-stretch: semi-condensed;
+ 	line-height: 1.2em;
+ }
+
+ .byline {
+
+ }
+
+ .Date {
+   display: flex;
+   justify-content: center;
+   font-size: 1.35em;
+ }
+
+ .highlight-green {
+	position: absolute;
+	margin-top: -38vh;
+	text-align: center;
+	margin-left: 30vw;
+ 	/* background-color: #65CCB8; */
+ 	color: #f2f2f2;
+ }
+
+ .white {
+ 	color: #f2f2f2
+ }
+
+ .big-text {
+ 	font-size: 20em;
+ 	font-weight: 700;
+ }
+
+
+/*============
+
+  CONTAINERS & POSITIONING
+
+ =============*/
+
+/* .flex-container-column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+} */
+
+.text-centralise {
+	margin: 0 20vw;
+}
+
+.paragraph-margin {
+	margin: 3vh 6vw;
+
+}
+
+/*============
+
+ TOP OF THE PAGE
+
+ =============*/
+h1 {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+
+
+#resume-game-button {
+	height: 7vh;
+	font-size: 1.5em;
+	background-color:  #65CCB8;
+	border: .1em solid #282828;
+	color: #282828;
+	position: fixed;
+	top: 2vh;
+	right: 3.5vw;
+	cursor: pointer;
+
+
+
+}
+
+#top-header-container {
+	background-image: url(images/article-top-plain.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-color: #65CCB8;
+}
+
+#constant-battle-span {
+	font-weight: 700;
+}
+
+.gap {
+	height: 100vh;
+}
+
+ #appear{
+	 display: none;
+ }
+ #top {
+ 	height: 100vh;
+ 	color: #f2f2f2;
+ }
+
+ .fixed-top {
+ 	position: fixed;
+ 	overflow: hidden;
+ }
+
+ .hide-fixed-top {
+ 	position: absolute;
+ 	margin-top: 200vh;
+ 	overflow: hidden;
+ }
+
+
+
+ #header-image {
+ 	opacity: 0;
+ 	width: 100vw;
+ 	height: 100vh;
+	position: -webkit sticky;
+	position: sticky;
+ }
+
+ /* .headline {
+ 	margin: 5vh 20vw;
+ 	text-align: center;
+ } */
+
+ .byline {
+	margin: 10vh 10vw;
+ 	text-align: center;
+ 	font-weight: 900;
+ 	font-size: 1.6em;
+ }
+
+.opening-paragraph {
+	margin: 10vh 2vw;
+	font-weight: 100;
+	font-style: italic;
+	line-height: 1.2em;
+	font-size: 1.3em;
+}
+
+.margin-body {
+	z-index: 1000;
+	padding-top: 300vh;
+}
+
+
+.pull-quote {
+
+	font-size: 1.8em;
+	margin: 8vh 12vw;
+  padding-left: 1em;
+  font-weight: 600;
+  border-left: 0.5em solid #65ccb8;
+}
+
+
+
+/*============
+
+ STATS BAR // HORIZONTAL SCROLL
+
+ =============*/
+
+
+.squash {
+	transform: scale(.3);
+}
+
+.seventy-percent-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50vh;
+}
+
+.seventy-percent {
+	align-self: center;
+	font-weight: 700;
+	font-size: 13em;
+	text-align: center;
+	transition: transform .5s ease-out;
+	color: #65CCB8;
+	text-shadow: .03em .03em #282828;
+	z-index: 1000;
+}
+
+.seventy-percent-second-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.seventy-percent-second {
+	align-self: flex-end;
+	font-weight: 700;
+	font-size: 13em;
+	text-align: center;
+	opacity: 0;
+	color: #65CCB8;
+	text-shadow: .03em .03em #282828;
+}
+
+.seventy-percent-second-visible {
+	opacity: 1;
+}
+
+.fixed-seventy {
+	position: fixed;
+	top: 8vh;
+}
+
+.absolute-seventy {
+	position: sticky;
+	top: 8vh;
+}
+
+#struggle-sustainable {
+	text-align: center;
+	align-self: flex-start;
+
+}
+
+.struggle-sustainable-container {
+	display: flex;
+	height: 15vh;
+	justify-content:center;
+
+}
+
+
+#trigger5 {
+	margin-top: 2vh;
+}
+
+
+.small-business-image-container {
+	display: flex;
+	justify-content: center;
+}
+
+#small-business-full {
+	height: 30vh;
+	width: auto;
+	align-self: center;
+	transition: transform 1s ease-out;
+
+}
+
+#small-business-left {
+	height: 25vh;
+	width: auto;
+	transform: translateX(13);
+	align-self: center;
+	margin: 0 !important;
+
+}
+
+#small-business-right {
+	height: 25vh;
+	width: auto;
+	align-self: center;
+	margin: 0;
+}
+
+#tree-full-container {
+	opacity: 0;
+	height: 30vh;
+}
+
+
+/*-----------------------------*/
+/*SLIDESHOW*/
+/* * {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0} */
+.mySlides {
+	display: none;
+	grid-template-columns: 1fr 1fr;
+}
+img {vertical-align: middle;}
+
+/**slide intro*/
+
+.mySlides.fade.intro {
+	background-color: #65ccb8;
+}
+
+/*text in intro slide*/
+.intro_quote {
+	font-size: 1.6em;
+	padding: 1em;
+	font-style: italic;
+	color: white;
+	font-stretch: ultra-condensed;
+}
+
+.intro_character {
+	padding-left: 1.5em;
+	font-size: 1em;
+	color: white;
+	font-stretch: ultra-condensed;
+	font-weight: 600;
+}
+.image_courtesy {
+	font-size: 0.8em;
+	color: white;
+	padding-left: 1.8em;
+}
+
+.image_courtesy.black{
+  color: black;
+}
+
+/*quote in the content slide*/
+.first_quote {
+	font-size: 1.3em;
+	padding-left: 1em;
+	font-style: italic;
+	font-weight: 600;
+}
+
+.analysis {
+	padding: 1em;
+  font-size: 1.3em;
+}
+
+.character {
+	font-weight: 600;
+	padding-left: 1.4em;
+  padding-top: 1em;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 80%;
+  position: relative;
+  margin: 10vh auto auto;
+  z-index: -1;
+}
+
+#dot-container {
+	text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+/* .prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+} */
+
+/* Caption text */
+.caption_text {
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  /* position: absolute;
+  bottom: 5vh;
+	top: 5vh;
+	right: -1vw;
+  width: 70%; */
+  align-self: center;
+	grid-column: 2/3;
+	/* align-items: center; */
+	/* text-align: left;
+	max-height: 10% */
+}
+/*Image in slideshow*/
+.slide_image {
+	width: 100%;
+	grid-column: 1/2;
+	/* margin-left: 10vw;
+	justify-self: start; */
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 1em;
+}
+
+.subtitle {
+	font-weight: 700;
+	font-size: 2.3em;
+	margin-top: 10vh;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 3.5em;
+  width: 3.5em;
+  margin: 2em 1em;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/*-----------------------------*/
+/*PICTOGRAM
+
+@keyframes bounce {
+/*      0% {
+    transform: translateY(-100px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  3% {
+    transform: rotate(8deg);
+  }
+  9% {
+    transform: rotate(-8deg);
+  }
+  12% {
+    transform: rotate(0deg);
+  }
+}
+
+
+
+
+*/
+
+#seventy-percent {
+
+	font-size: 8em;
+}
+
+#last-paragraph {
+	padding-bottom: 10em;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-left:auto;
+  margin-right:auto;
+}
+.tg td {
+  border-width: 0px;
+  padding: 1em 1em;
+}
+
+/*Pictogram's graphic from open emoji*/
+/*Accessed on 28-04-2020*/
+/*https://openmoji.org/*/
+.tg .tg-red {
+  background: url("./images/1F630.svg");
+  background-size: 2.3em 2.3em;
+  background-position: center;
+}
+.tg .tg-green {
+  background: url("./images/1F7E2_greentick.svg");
+  background-size: 1.8em 1.8em;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.tg .tg-white {
+  background-color: transparent;
+}
+
+.costly,
+.roi,
+.research,
+.assesment,
+.management,
+.customers {
+  animation-timing-function: ease-in-out;
+  animation: bounce 6s infinite;
+}
+.costly     { animation-delay: 0s; }
+.customers  { animation-delay: 1s; }
+.research   { animation-delay: 2s; }
+.assesment  { animation-delay: 3s; }
+.roi        { animation-delay: 4s; }
+.management { animation-delay: 5s; }
+
+.pictogram {
+  display: grid;
+  grid-template-columns: auto auto;
+  /*margin-left: 10vw;
+  margin-right: 10vw;*/
+  text-align: center;
+  white-space: nowrap;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  grid-column-gap: 1em;
+}
+.left_chart {
+  align-self: center;
+}
+.right_chart {
+  display: grid;
+  grid-template-columns: min-content min-content min-content 1fr;
+  grid-template-rows: auto auto;
+  grid-column-gap: 2em;
+  grid-row-gap: 1em;
+  align-items: flex-start;
+  padding: 5em 0;
+}
+
+
+.pictogram{
+  grid-template-columns: 50em;
+  grid-template-rows: auto auto;
+  justify-content: center;
+}
+.left_chart{
+  grid-row: 1/2;
+}
+.right_chart{
+  grid-template-columns: auto;
+  grid-row: 2/3;
+  grid-column-gap: 2em;
+}
+
+
+.costly,
+.roi,
+.research,
+.assesment,
+.management,
+.customers {
+  align-self: center;
+}
+
+.costly,
+.assesment {
+  grid-column: 1/2;
+}
+.roi,
+.customers {
+  grid-column: 2/3;
+}
+.research,
+.management {
+  grid-column: 3/4;
+}
+.costly,
+.roi,
+.research {
+  grid-row: 1/2;
+}
+.assesment,
+.management,
+.customers {
+  grid-row: 2/3;
+}
+
+.text_lorem {
+  margin-left: 25vw;
+  margin-right: 25vw;
+}
+
+.pictogram_number {
+  font-size: 5em;
+  font-weight: 700;
+  color: #65CCB8;
+  text-shadow: .02em .02em #282828;
+}
+
+.pictogram_text{
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.tg {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+/*-======================================================================================
+========================================================================================
+
+MEDIA QUERIES ARTICLE
+
+========================================================================================
+========================================================================================*/
+
+
+/*
+==================
+1350 px
+==================
+*/
+
+@media (max-width: 1350px) {
+
+	#top-header-container {
+		background-size: 100vw;
+		background-position: center bottom;
+	}
+
+	#animate2 {
+		margin-left: 5vw !important;
+		margin-top: -80vh !important;
+	}
+
+	.sustainablility, .profit {
+		margin-top: -70vh !important;
+		width: 20%;
+	}
+
+	.awareness, .marketing {
+		margin-top: -45vh !important;
+		width: 20%;
+	}
+
+	.community, .customer {
+		margin-top: -70vh !important;
+		width: 20%;
+	}
+
+}
+
+/*
+==================
+1250 px
+==================
+*/
+
+@media (max-width: 1250px) {
+
+	#animate2 {
+		margin-top: -90vh !important;
+	}
+
+	.sustainablility, .profit, .community, .customer {
+		margin-top: -65vh !important;
+	}
+
+	 .fixed-top {
+ 		position: relative;
+ 		overflow: hidden;
+
+	 }
+
+	  .hide-fixed-top {
+ 		position: relative;
+ 		margin-top: 0vh;
+ 		overflow: hidden;
+ 	}
+
+	.margin-body {
+	z-index: 1000;
+	padding-top: 0vh;
+	}
+
+}
+
+/*
+==================
+1350 px
+==================
+*/
+
+@media (max-width: 900px) {
+
+	#animate2 {
+		margin-left: 2vh !important;
+	}
+
+
+
+	#headline_change, #sub_head {
+		width: 100%;
+		overflow: hidden;
+	}
+
+
+	.cloud {
+		max-width: 100% !important;
+	}
+
+	.sustainablility, .profit, .community, .customer {
+		margin-top: -55vh !important;
+		max-width: 100% !important;
+	}
+
+	.awareness, .marketing {
+		margin-top: -35vh !important;
+		max-width: 100% !important;
+	}
+}
+
+/*
+==================
+750 px
+==================
+*/
+
+@media (max-width: 750px) {
+
+	.sustainablility, .profit {
+		margin-top: -60vh !important;
+		right: 45vw;
+		width: 25%;
+	}
+
+	.community, .customer {
+		margin-top: -50vh !important;
+		width: 25%;
+	}
+
+	.awareness, .marketing {
+		width: 25%;
+	}
+
+	.paragraph-margin {
+		margin: 3vh 0vw;
+	}
+
+	.slideshow-container p{
+		font-size: 1em;
+	}
+
+	.image_courtesy {
+		padding-top: 1em;
+		font-size: .8em !important;
+	}
+
+	.intro {
+		padding-bottom: 4em !important;
+	}
+
+	.mySlides {
+		height: fit-content;
+	}
+
+	#vis-source {
+		font-size: 1.4em;
+		margin-bottom: 2em;
+	}
+
+
+}
+
+/*
+==================
+650 px
+==================
+*/
+
+@media (max-width: 650px) {
+
+	#animate2 {
+		margin-left: 5vh !important;
+		margin-top: -84vh !important;
+	}
+
+	#sub_head {
+		font-size: 1.5em !important;
+	}
+
+	#headline_change {
+		font-size: 4.1em !important;
+	}
+
+	.pictogram {
+		width: 100vw;
+		margin: 0;
+		overflow: hidden;
+		font-size: .85em;
+	}
+
+	.right_chart {
+		grid-column-gap: 0em !important;
+	}
+
+	.pictogram_text {
+		
+	}
+}
+
+/*
+==================
+550 px
+==================
+*/
+
+@media (max-width: 550px) {
+
+	#animate2 {
+		margin-left: 0vh !important;
+		margin-top: -90vh !important;
+	}
+
+	#sub_head {
+		font-size: 1.8em !important;
+		width: 80%;
+	}
+
+	.pictogram {
+		font-size: .7em;
+	}
+
+	#headline_change {
+		font-size: 5em !important;
+		text-align: left !important;
+		margin-left: .5em;
+	}
+
+	.text-centralise {
+		margin: 0 10vw;
+	}
+
+	.sustainablility, .profit {
+		margin-top: -50vh !important;
+		right: 45vw;
+		width: 25%;
+	}
+
+	.community, .customer {
+		margin-top: -40vh !important;
+		width: 25%;
+	}
+
+	.awareness, .marketing {
+		width: 25%;
+		margin-top: -30vh !important;
+	}
+}
+
+
+/*
+==================
+450 px
+==================
+*/
+
+@media (max-width: 440px) {
+
+
+	.pictogram {
+		font-size: 1.5em;
+	}
+
+	.right_chart {
+		width: 90vw;
+		align-self: center;
+		justify-self: center;
+	}
+
+
+	#sub_head {
+		font-size: 3em !important;
+		width: 80%;
+	}
+
+	#headline_change {
+		font-size: 8em !important;
+		text-align: left !important;
+		margin-left: .5em;
+	}
+
+	.text-centralise {
+		margin: 0 10vw;
+	}
+
+	#resume-game-button {
+		font-size: 1.8em !important;
+		height: 10vh;
+	}
+
+	#small-business-full {
+		height: 28vh;
+	}
+
+	.pull-quote {
+		font-size: 2.6em;
+	}
+
+	.byline {
+		font-size: 2.5em;
+	}
+
+	.seventy-percent, .fixed-seventy, .seventy-percent-second {
+		font-size: 21em !important;
+	}
+
+	.subtitle {
+		font-size: 3.5em;
+	}
+
+	#struggle-sustainable {
+		margin: 3vh 5vw;
+	}
+
+	.text, .opening-paragraph {
+		font-size: 2em;
+	}
+
+	.sustainablility, .profit {
+		margin-top: -50vh !important;
+		right: 45vw;
+		width: 25%;
+	}
+
+	.community, .customer {
+		margin-top: -40vh !important;
+		width: 25%;
+	}
+
+	.awareness, .marketing {
+		width: 25%;
+		margin-top: -30vh !important;
+	}
+}
+
+
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+#headline {
+	position: absolute;
+	margin-top: -70vh;
+	margin-left: 40vw;
+	margin-right: 50vw;
+}
+
+/*SCROLLING*/
+#trigger1{
+	position: absolute;
+	top: 100vh;
+	text-align: center;
+/* 	background-color: #65CCB8; */
+}
+
+#headline_change{
+/* 	position: absolute; */
+	/* margin-top: -70vh;
+	margin-left: 60vw; */
+/* 	margin-top: -77vh; */
+/*   margin-bottom: 0.5em; */
+/* 	margin-left: 15vw; */
+	color: #f2f2f2;
+	text-align: center;
+	text-shadow: .05em .05em #282828;
+/* 	background-color: #65CCB8; */
+}
+
+
+#trigger2 {
+	position: absolute;
+	top: 250vh;
+}
+
+
+#animate2{
+  position: absolute;
+	/* margin-top: -70vh;
+	margin-left: 60vw; */
+	margin-top: -77vh;
+/*   margin-bottom: 0.5em; */
+	margin-left: 15vw;
+}
+/* #trigger3{
+	position: absolute;
+	margin-top: 0;
+} */
+#headline, #headline_change{
+	font-size: 5em;
+	color: #f2f2f2;
+	/* font-weight: bold; */
+  font-weight: 700;
+}
+#sub_head{
+	position: absolute;
+/* 	margin-top: -66vh;
+	margin-left: 15vw; */
+	font-size: 2em;
+  font-stretch: ultra-condensed;
+  font-weight: 200;
+	color: #f2f2f2;
+	margin: 1em 2em;
+/* 	background-color: #6bc7b5; */
+/*   text-shadow: 0px 0px 20px #000000;; */
+}
+/*FLIPPED CLOUD*/
+/*Code adapted from w3schools.com*/
+/*Accessed on 10-03-2020*/
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card*/
+.cloud {
+ position: relative;
+ -webkit-perspective: 800;
+  -ms-perspective: 800;
+  -moz-perspective: 800;
+  -o-perspective: 800;
+   position: relative;
+}
+
+.profit{
+	margin-top: -100vh;
+  margin-left: 24vw;
+  max-width: 22%;
+}
+.sustainablility{
+	margin-top: -100vh;
+	margin-left: 24vw;
+  max-width: 22%;
+}
+
+.customer{
+	margin-top: -98vh;
+  margin-left: 2vw;
+  max-width: 22%;
+}
+
+.community{
+	margin-top: -98vh;
+  margin-left: 2vw;
+  max-width: 22%;
+}
+
+.marketing{
+	margin-top: -68vh;
+	margin-left: 18vw;
+	max-width: 19%;
+}
+
+.awareness{
+	margin-top: -68vh;
+	margin-left: 18vw;
+	max-width: 22%
+}
+
+.flip_cloud
+#flip_cloud_content.flipped, .flip_cloud_customer
+#flip_cloud_content_customer.flipped1, .flip_cloud_marketing #flip_cloud_content_marketing.flipped2{
+	transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+
+.flip_cloud #flip_cloud_content, .flip_cloud_customer #flip_cloud_content_customer, .flip_cloud_marketing #flip_cloud_content_marketing{
+	-webkit-transform-style: preserve-3d;
+  -webkit-transition: 1s;
+  -moz-transform-style: preserve-3d;
+  -moz-transition: 1s;
+  -ms-transform-style: preserve-3d;
+  -ms-transition: 1s;
+  -o-transform-style: preserve-3d;
+  -o-transition: 1s;
+  transform-style: preserve-3d;
+  transition: 1s;
+}
+
+
+.flip_cloud #flip_cloud_content .cloud, .flip_cloud_customer #flip_cloud_content_customer .cloud, .flip_cloud_marketing #flip_cloud_content_marketing .cloud{
+	/* cursor: pointer; */
+  position: absolute;
+  box-sizing: border-box;
+  z-index: 2;
+  backface-visibility: hidden;  /* W3C */
+  -webkit-backface-visibility: hidden; /* Safari & Chrome */
+  -moz-backface-visibility: hidden; /* Firefox */
+  -ms-backface-visibility: hidden; /* Internet Explorer */
+  -o-backface-visibility: hidden; /* Opera */
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.flip_cloud #flip_cloud_content .sustainablility, .flip_cloud_customer #flip_cloud_content_customer .community, .flip_cloud_marketing #flip_cloud_content_marketing .awareness{
+	transform:rotatey(-180deg);
+  -ms-transform:rotatey(-180deg); /* IE 9 */
+  -moz-transform:rotatey(-180deg); /* Firefox */
+  -webkit-transform:rotatey(-180deg); /* Safari and Chrome */
+  -o-transform:rotatey(-180deg); /* Opera */
+}
+
+#animate1 {
+	/* opacity: 1; */
+	transition: transform 0.3s fade-out;
+}
+#animate1 {
+	/* margin-left: 50vw;
+	margin-bottom: 10vh; */
+	/* transform: translateY(0); */
+  opacity: 1;
+  transition: all 0.8s ease-in-out;
+
+/* 	transition: transform 0.3s fade-out; */
+}
+#animate1.zap {
+  opacity: 0;
+	transform: scale(2.5, 0);
+/* 	transform: scale(2.5, 0); */
+	/* transition: translateY(20px);
+	opacity: 1; */
+}
+
+#animate2 {
+	/* margin-left: 50vw;
+	margin-bottom: 10vh; */
+	opacity: 0;
+/* 	transform: translateY(30px); */
+	transition: all 0.8s ease-in-out;
+	/* display: none;
+	transition: transform 0.3s fade-in; */
+}
+
+#animate2.zip {
+	opacity: 1;
+	/* transfrom: translateY(0); */
+	/* transform: scale(2.5, 0); */
+}
+
+#animate3 {
+	opacity: 0;
+	transition: all 0.8s ease-in-out;
+}
+
+#animate3.appear {
+	opacity: 1;
+}
+@media only screen and (max-width: 1200px) {
+
+/*ANIMATION TOP IMAGE*/
+	#trigger1{
+		position: absolute;
+		margin-top: -76vh;
+		margin-left: 40vw;
+		margin-right: 50vw;
+		text-align: center;
+	}
+
+
+	#header-image {
+		overflow: hidden;
+		justify-self: center;
+		text-align: center;
+	}
+
+
+	/* #slide_init{
+		background-color: #d6dcdb;
+	} */
+/*SLIDESHOW*/
+
+.intro_quote {
+  font-size: 1.3em;
+}
+
+.intro_character, .character, .first_quote, .image_courtesy {
+  padding-right: 1em;
+}
+
+.analysis {
+  padding: 1em;
+  font-size: 1.3em;
+}
+
+.mySlides{
+		grid-template-rows: auto auto;
+		background-color: #d6dcdb;
+		padding: 1em;
+	}
+
+	.caption_text {
+		grid-column: 1/3;
+		grid-row: 2/3;
+	  color: black;
+	  font-size: 15px;
+	  padding: 8px 12px;
+	  width: 100%;
+	  align-self: center;
+		align-items: center;
+		text-align: left;
+		/* max-height: 10% */
+		/* margin-top: 15em;
+		margin-left: 0; */
+	}
+	/*Image in slideshow*/
+	.slide_image {
+		grid-column: 1/3;
+		grid-row: 1/2;
+		width: 100%;
+		/* grid-column: 1/2; */
+		margin-left: 0;
+		/* justify-self: start; */
+	}
+
+
+
+}
