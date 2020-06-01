@@ -1,80 +1,11 @@
 # Notes From Our Team
 
-This repository contains all of the project files for the sustaible biz game
+Our project is contained within the src folder of this repository
+ * Excluding the node modules folder, everything has been included
+ 
+This repository contains code for our project 'The Sustainable Biz Game' created as part of the Digital Investigation module for the MSc Computational and Data Journalism course at Cardiff University.
 
-Created as part of the digital investigation module in the MSc Computational & Data Journalism programme at Cardiff University
+### Project Outline:
+‘The Sustainable Biz Game’ project was created for environmentally conscious consumers to learn more about the challenges facing environmentally sustainable small businesses in the UK. The project centred around the development of an online role-playing game in which users take control of building a small restaurant business. To win, users must complete the game with enough money and sustainability points (awarded for ‘green’ decision making) to pass thresholds for both of these variables. This is accompanied by an article that uses information we gathered from interviews with small businesses, researchers and representative bodies to underline the game’s portrayal of the challenges faced by these businesses.
 
-Built using React and based on interviews we conducted with businesses across the UK, the game asks players to balance profit making and environmentally conscious decision making in order to build a successful, sustainable restaurant business.
-
-
-
-# React Notes
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Our game was built with react.js. Individual game 'screens' are stored within an object in 'components.js'. These are called upon by the core component in 'index.js' as players progress throughout the game. 'Article.js' contains the article that accompanies our game. The graphics were designed by our team and are included within the images folder of this project. The game storylines were written by our team and were based on interviews we conducted with small businesses around the country. These storylines are included in "storylines.js"
